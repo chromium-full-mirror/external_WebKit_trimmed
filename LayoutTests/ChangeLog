@@ -1,3 +1,15 @@
+2013-04-02  Emil A Eklund  <eae@chromium.org>
+
+        Padding applied twice for empty generated RenderInlines
+        https://bugs.webkit.org/show_bug.cgi?id=113800
+
+        Reviewed by Levi Weintraub.
+        
+        Add test for empty generated content with padding.
+
+        * fast/css-generated-content/margin-empty-content-expected.html: Added.
+        * fast/css-generated-content/margin-empty-content.html: Added.
+
 2013-04-02  Levi Weintraub  <leviw@chromium.org>
 
         InlineIterator needs to be updated when RenderCombineText shrinks at a line break
