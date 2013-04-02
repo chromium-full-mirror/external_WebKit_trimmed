@@ -1,3 +1,28 @@
+2013-04-02  Glenn Adams  <glenn@skynav.com>
+
+        Generalize prior line break context state and names.
+        https://bugs.webkit.org/show_bug.cgi?id=113823
+
+        Reviewed by Darin Adler.
+
+        No new tests required due to no behavioral change.
+
+        * platform/text/TextBreakIterator.h:
+        (WebCore::LazyLineBreakIterator::LazyLineBreakIterator):
+        (WebCore::LazyLineBreakIterator::lastCharacter):
+        (WebCore::LazyLineBreakIterator::secondToLastCharacter):
+        (WebCore::LazyLineBreakIterator::setPriorContext):
+        (WebCore::LazyLineBreakIterator::updatePriorContext):
+        (WebCore::LazyLineBreakIterator::resetPriorContext):
+        (WebCore::LazyLineBreakIterator::resetStringAndReleaseIterator):
+        Store previous characters as prior context buffer used directly
+        by line break iterator implementation. Rename members to reflect
+        somewhat more general usage. Also fix bad indentations.
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::RenderBlock::layoutRunsAndFloatsInRange):
+        (WebCore::RenderBlock::LineBreaker::nextSegmentBreak):
+        Use renamed line break iterator methods.
+
 2013-04-02  Emil A Eklund  <eae@chromium.org>
 
         Padding applied twice for empty generated RenderInlines
