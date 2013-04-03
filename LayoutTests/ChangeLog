@@ -1,3 +1,13 @@
+2013-04-03  Ádám Kallai  <kadam@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening. Updated platform specific expected files.
+
+        * platform/qt/TestExpectations: Skipped failing reftest.
+        * platform/qt/compositing/filters/sw-layer-overlaps-hw-shadow-expected.txt: Added after r147502.
+        * platform/qt/compositing/filters/sw-nested-shadow-overlaps-hw-nested-shadow-expected.txt: Added after r147502.
+        * platform/qt/compositing/filters/sw-shadow-overlaps-hw-layer-expected.txt: Added after r147502.
+        * platform/qt/compositing/filters/sw-shadow-overlaps-hw-shadow-expected.txt: Added after r147502.
+
 2013-04-03  Mike West  <mkwst@chromium.org>
 
         X-Frame-Options: Blocked frames should not inherit their parent's SecurityOrigin.
