@@ -1,3 +1,20 @@
+2013-04-03  Alexander Pavlov  <apavlov@chromium.org>
+
+        Web Inspector: [REGRESSION(r147117)][Elements] Copy/paste keyboard shortcuts broken in "Edit as HTML"
+        https://bugs.webkit.org/show_bug.cgi?id=113798
+
+        Reviewed by Yury Semikhatsky.
+
+        Stop propagation of "copy" event from the multiline editor's
+        CodeMirror host element so that it is not handled by
+        WebInspector.documentCopy().
+
+        * inspector/front-end/UIUtils.js:
+        (.consumeCopy):
+        (.cleanUpAfterEditing):
+        * inspector/front-end/inspector.js:
+        (WebInspector.addMainEventListeners):
+
 2013-04-03  Takashi Sakamoto  <tasak@google.com>
 
         With borders of differing alpha, the corners become squared off
