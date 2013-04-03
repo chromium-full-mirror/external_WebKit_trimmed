@@ -1,3 +1,14 @@
+2013-04-03  Takashi Sakamoto  <tasak@google.com>
+
+        With borders of differing alpha, the corners become squared off
+        https://bugs.webkit.org/show_bug.cgi?id=113744
+
+        Reviewed by Simon Fraser.
+
+        * fast/borders/border-left-right-same-bottom-different-color-expected.txt: Added.
+        * fast/borders/border-left-right-same-bottom-different-color.html: Added.
+        * platform/chromium-linux/fast/borders/border-left-right-same-bottom-different-color-expected.png: Added.
+
 2013-04-03  Ádám Kallai  <kadam@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening. Updated platform specific expected files.
