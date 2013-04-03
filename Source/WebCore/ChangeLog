@@ -1,3 +1,35 @@
+2013-04-03  Dean Jackson  <dino@apple.com>
+
+        Cross fade into restarted plugin
+        https://bugs.webkit.org/show_bug.cgi?id=113868
+
+        Reviewed by Tim Horton.
+
+        Allow a restarted plugin to fade in over its snapshot, avoiding the abrupt
+        flash of empty content. The WebCore part of this patch marks the plugin
+        element as restarted, and draws the snapshot for a short amount of time
+        as the plugin is restarting. After the plugin has reappeared, we stop drawing
+        the snapshot.
+
+        There is a little bit of drive-by whitespace removal in HTMLPlugInImageElement.
+
+        * html/HTMLPlugInElement.h:
+        (WebCore::HTMLPlugInElement::restartedPlugin): New method indicating if the plugin has been restarted.
+        * html/HTMLPlugInImageElement.cpp:
+        (WebCore::HTMLPlugInImageElement::HTMLPlugInImageElement): Initialise new timer and member variable.
+        (WebCore::HTMLPlugInImageElement::setDisplayState): If we are moving into a restarting state, make sure
+            to remember this and also start a timer so that we show the snapshot for while.
+        (WebCore::HTMLPlugInImageElement::removeSnapshotTimerFired): No need to draw the snapshot from here on.
+        * html/HTMLPlugInImageElement.h:
+        (HTMLPlugInImageElement): Member variable to remember if we've restarted.
+        * rendering/RenderEmbeddedObject.cpp:
+        (WebCore::RenderEmbeddedObject::paintContents): Only exit early from the paint if we're not a restarting
+            plugin, otherwise we do want to draw the snapshot if there is one.
+        * rendering/RenderLayerBacking.cpp:
+        (WebCore::isRestartedPlugin): Detects a restarted plugin.
+        (WebCore::RenderLayerBacking::isSimpleContainerCompositingLayer): Don't become a simple container
+            compositing layer if you're a restarted plugin.
+
 2013-04-03  John Griggs  <jgriggs@blackberry.com>
 
         [BlackBerry] Adjustments to media controls appearance.
