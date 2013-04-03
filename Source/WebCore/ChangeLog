@@ -1,3 +1,15 @@
+2013-04-03  Kangil Han  <kangil.han@samsung.com>
+
+        Add omitted reference operator of VisiblePosition in AccessibilityObject
+        https://bugs.webkit.org/show_bug.cgi?id=113879
+
+        Reviewed by Darin Adler.
+
+        Seems reference operator has been omitted in startOfStyleRange function, so add it.
+
+        * accessibility/AccessibilityObject.cpp:
+        (WebCore::startOfStyleRange):
+
 2013-04-03  Jessie Berlin  <jberlin@apple.com>
 
         Update the localizable strings file.
