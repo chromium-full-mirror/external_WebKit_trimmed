@@ -1,3 +1,21 @@
+2013-04-03  Max Vujovic  <mvujovic@adobe.com>
+
+        Compositing tests failing after http://trac.webkit.org/changeset/147502
+        https://bugs.webkit.org/show_bug.cgi?id=113838
+
+        Reviewed by Dean Jackson.
+
+        Add (contentsOpaque 1) to the DRT text output in some expectations files due to bug 70634
+        "Mark GraphicsLayers as opaque when possible" [1]. The expectations in the guilty changeset
+        weren't updated after bug 70634 landed.
+
+        [1]: https://bugs.webkit.org/show_bug.cgi?id=70634
+
+        * compositing/filters/sw-layer-overlaps-hw-shadow-expected.txt:
+        * compositing/filters/sw-shadow-overlaps-hw-layer-expected.txt:
+        * compositing/filters/sw-shadow-overlaps-hw-shadow-expected.txt:
+        * platform/mac/TestExpectations:
+
 2013-04-02  Mark Hahnenberg  <mhahnenberg@apple.com>
 
         get_by_pname can become confused when iterating over objects with static properties
