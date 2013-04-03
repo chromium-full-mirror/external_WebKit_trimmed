@@ -1,3 +1,41 @@
+2013-04-03  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        [Chromium] Bad cast from BitmapImageSingleFrameSkia to BitmapImage
+        https://bugs.webkit.org/show_bug.cgi?id=113492
+
+        Reviewed by Stephen White.
+
+        Remove BitmapImageSingleFrameSkia and have ImageBufferSkia construct
+        BitmapImage objects instead via an intermediate NativeImageSkia.
+
+        No new tests, covered by existing tests.
+
+        * WebCore.gypi:
+        * platform/graphics/filters/skia/FEGaussianBlurSkia.cpp: Remove
+        include for BitmapImageSingleFrameSkia.h header.
+        * platform/graphics/skia/BitmapImageSingleFrameSkia.cpp: Removed.
+        * platform/graphics/skia/BitmapImageSingleFrameSkia.h: Removed.
+        * platform/graphics/skia/ImageBufferSkia.cpp: Construct BitmapImage
+        objects instead of BitmapImageSingleFrameSkia ones.
+        (WebCore::ImageBuffer::copyImage):
+        (WebCore::drawNeedsCopy):
+        (WebCore::ImageBuffer::draw):
+        (WebCore::ImageBuffer::drawPattern):
+        * platform/graphics/skia/ImageSkia.cpp:
+        (WebCore::BitmapImage::BitmapImage): Implement BitmapImage constructor
+        that takes an NativeImageSkia* in argument.
+        (WebCore):
+        (WebCore::BitmapImage::draw): Remove m_source.initialized() check as
+        this will return false for BitmapImage objects constructed from a
+        NativeImageSkia, due to the lack of decoder.
+        * platform/graphics/skia/NativeImageSkia.cpp:
+        (WebCore::NativeImageSkia::NativeImageSkia): Add parameter to the
+        NativeImageSkia constructor so that the caller can request a deep copy
+        instead of a shallow one. This is needed by the ImageBuffer.
+        * platform/graphics/skia/NativeImageSkia.h:
+        * platform/image-decoders/ImageDecoder.h:
+        (WebCore::ImageFrame::setSkBitmap):
+
 2013-04-03  David Vest  <davve@opera.com>
 
         ASSERTION FAILED: resultAnimationElement->m_animatedType
