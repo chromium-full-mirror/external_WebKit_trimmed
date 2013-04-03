@@ -1,3 +1,25 @@
+2013-04-03  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        [Gstreamer] Use gst_buffer_extract() in copyGstreamerBuffersToAudioChannel()
+        https://bugs.webkit.org/show_bug.cgi?id=113880
+
+        Reviewed by Philippe Normand.
+
+        copyGstreamerBuffersToAudioChannel() was mapping the GstBuffer content to memcpy
+        it to the AudioChannel buffer. This patch leverages gst_buffer_extract() to
+        simplify the code as it does exactly what we need: gst_buffer_map, memcpy,
+        gst_buffer_unmap and error handling.
+
+        Also replace GstBuffer NULL check by an assertion as we already make sure they
+        are not NULL before adding them to the list. Additionally, we now call
+        audioChannel->mutableData() only once instead of once per iteration. It is
+        a bit better as the getter does some work internally.
+
+        No new tests, no behavior change.
+
+        * platform/audio/gstreamer/AudioFileReaderGStreamer.cpp:
+        (WebCore::copyGstreamerBuffersToAudioChannel):
+
 2013-04-03  Antoine Quint  <graouts@apple.com>
 
         Web Inspector: DOM.highlightRect() and DOM.highlightQuad() should allow for page coordinates
