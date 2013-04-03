@@ -1,3 +1,16 @@
+2013-04-03  David Kilzer  <ddkilzer@apple.com>
+
+        BUILD FIX (r147494): -[AVAudioSession setCategory:error:] takes NSError**
+
+        Fixes the following build failure:
+
+            Source/WebCore/platform/audio/ios/AudioSessionIOS.mm:151:71: error: cannot initialize a parameter of type 'NSError **' with an lvalue of type 'NSError *'
+                [[AVAudioSession sharedInstance] setCategory:categoryString error:error];
+                                                                                  ^~~~~
+
+        * platform/audio/ios/AudioSessionIOS.mm:
+        (WebCore::AudioSession::setCategory): Add '&' operator.
+
 2013-04-03  Felipe Zimmerle  <felipe@zimmerle.org>
 
         CSP blocks inline style when cloning a node
