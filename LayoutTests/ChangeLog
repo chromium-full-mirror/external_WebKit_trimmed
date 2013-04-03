@@ -1,3 +1,12 @@
+2013-04-02  Dean Jackson  <dino@apple.com>
+
+        Compositing tests failing after http://trac.webkit.org/changeset/147502
+        https://bugs.webkit.org/show_bug.cgi?id=113838
+
+        Temporarily marking as failing.
+
+        * platform/mac/TestExpectations:
+
 2013-04-02  Emil A Eklund  <eae@chromium.org>
 
         Padding applied twice for empty generated RenderInlines
