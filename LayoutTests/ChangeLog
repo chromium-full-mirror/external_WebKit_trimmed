@@ -1,3 +1,19 @@
+2013-04-02  Jaehun Lim  <ljaehun.lim@samsung.com>
+
+        [css3-text] Rendering -webkit-each-line value for text-indent from css3-text
+        https://bugs.webkit.org/show_bug.cgi?id=113259
+        
+        CSS3 TEXT introduces new value, "each-line" for text-indent.
+        Indentation affects the first line of the block container as well as each line
+        after a forced line break, but does not affect lines after a soft wrap break.
+
+        Reviewed by Levi Weintraub.
+
+        * fast/css3-text/css3-text-indent/text-indent-each-line-expected.html: Added.
+        * fast/css3-text/css3-text-indent/text-indent-each-line.html: Added.
+        * platform/win/TestExpectations:
+        * platform/wincairo/TestExpectations:
+
 2013-04-02  Dean Jackson  <dino@apple.com>
 
         Compositing tests failing after http://trac.webkit.org/changeset/147502

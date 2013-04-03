@@ -1,3 +1,43 @@
+2013-04-02  Jaehun Lim  <ljaehun.lim@samsung.com>
+
+        [css3-text] Rendering -webkit-each-line value for text-indent from css3-text
+        https://bugs.webkit.org/show_bug.cgi?id=113259
+
+        Reviewed by Levi Weintraub.
+
+        CSS3 TEXT introduces new value, "each-line" for text-indent.
+        Indentation affects the first line of the block container as well as each line
+        after a forced line break, but does not affect lines after a soft wrap break.
+
+        This patch is the rendering part to support each-line value for text-indent.
+        It's prefixed and guarded by CSS3_TEXT flag.
+
+        Test: fast/css3-text/css3-text-indent/text-indent-each-line.html
+
+        * rendering/RenderBlock.h:
+        (WebCore::RenderBlock::availableLogicalWidthForLine):
+        (WebCore::RenderBlock::logicalRightOffsetForLine):
+        (WebCore::RenderBlock::logicalLeftOffsetForLine):
+        (WebCore::RenderBlock::startOffsetForLine):
+        (WebCore::RenderBlock::endOffsetForLine):
+        (WebCore::RenderBlock::pixelSnappedLogicalLeftOffsetForLine):
+        (WebCore::RenderBlock::pixelSnappedLogicalRightOffsetForLine):
+            Rename a parameter from firstLine to shouldIndentText.
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::LineWidth::LineWidth):
+        (WebCore::LineWidth::shouldIndentText): Return boolean according to m_shouldIndentText.
+        (WebCore::LineWidth::updateAvailableWidth):
+        (WebCore::LineWidth::shrinkAvailableWidthForNewFloatIfNeeded):
+        (WebCore::LineWidth::fitBelowFloats):
+            Add enum IndentTextOrNot and m_shouldIndentText.
+            Use m_shouldIndentText instead of m_isFirstLine.
+
+        (WebCore::requiresIndent): Decide whether text indentation is required.
+        (WebCore::updateLogicalInlinePositions):
+        (WebCore::RenderBlock::computeInlineDirectionPositionsForLine):
+        (WebCore::RenderBlock::LineBreaker::nextSegmentBreak):
+
 2013-04-02  Glenn Adams  <glenn@skynav.com>
 
         Generalize prior line break context state and names.
