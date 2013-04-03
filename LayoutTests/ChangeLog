@@ -1,3 +1,10 @@
+2013-04-02  Benjamin Poulain  <bpoulain@apple.com>
+
+        Unskip filter-fallback-to-software.html on Mac WK2 Release
+
+        * platform/mac-wk2/TestExpectations:
+        The test seems to pass in Release. Let's see how the bots feel about that.
+
 2013-04-02  Jaehun Lim  <ljaehun.lim@samsung.com>
 
         [css3-text] Rendering -webkit-each-line value for text-indent from css3-text
