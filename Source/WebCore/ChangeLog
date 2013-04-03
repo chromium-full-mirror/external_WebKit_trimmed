@@ -1,3 +1,70 @@
+2013-04-03  Glenn Adams  <glenn@skynav.com>
+
+        Element boundaries prevent Japanese line break opportunities
+        https://bugs.webkit.org/show_bug.cgi?id=105692
+
+        Reviewed by Darin Adler.
+
+        Introduce use of prior context when using text break iterators
+        in non-ASCII path through nextBreakablePosition(). This enables
+        the use of line break context across an element boundary for
+        the non-ASCII path. Use of this context with the ASCII path was
+        enabled by https://bugs.webkit.org/show_bug.cgi?id=17427.
+
+        Performance tests of line layout and html5 parsing show that this
+        patch provides an approximately 4% improvement with Japanese and
+        no statistically significant regression with ASCII path. Parsing
+        (html5-full-render) performance is not significantly affected.
+
+        Tests: fast/text/line-break-between-text-nodes-cjk.html
+               fast/text/line-break-between-text-nodes-latin1.html
+
+        Expect rebaselines will be needed due to different line breaks:
+               fast/text/international/003.html
+               fast/text/international/text-combine-image-test-expected.html
+               fast/text/writing-mode/Kusa-Makura-background-canvas.html
+
+        * platform/text/TextBreakIterator.cpp:
+        (WebCore::acquireLineBreakIterator): Pass prior context to non-ICU path.
+        * platform/text/TextBreakIterator.h:
+        (WebCore::LazyLineBreakIterator::priorContextLength): Added.
+        (WebCore::LazyLineBreakIterator::get): Pass prior context to ICU path.
+        (WebCore::LazyLineBreakIterator::resetStringAndReleaseIterator): Editorial.
+        * platform/text/TextBreakIteratorICU.cpp:
+        Use prior context from line break iterators. Requires
+        adding new UTF16 (UChar*) text provider and reimplementing
+        Latin1 (LChar*) text provider. Implementation is optimized
+        by using generic functionality that applies to both string
+        sources.
+        (WebCore::textPinIndex): Added.
+        (WebCore::textNativeLength): Added.
+        (WebCore::textFixPointer): Added.
+        (WebCore::textClone): Added.
+        (WebCore::textExtract): Added.
+        (WebCore::textClose): Added.
+        (WebCore::textGetContext): Added.
+        (WebCore::textLatin1GetCurrentContext): Added.
+        (WebCore::textLatin1MoveInPrimaryContext): Added.
+        (WebCore::textLatin1SwitchToPrimaryContext): Added.
+        (WebCore::textLatin1MoveInPriorContext): Added.
+        (WebCore::textLatin1SwitchToPriorContext): Added.
+        (WebCore::textInChunkOrOutOfRange): Added.
+        (WebCore::textLatin1Access): Added.
+        (WebCore::textInit): Added.
+        (WebCore::textOpenLatin1): Added.
+        (WebCore::textUTF16GetCurrentContext): Added.
+        (WebCore::textUTF16MoveInPrimaryContext): Added.
+        (WebCore::textUTF16SwitchToPrimaryContext): Added.
+        (WebCore::textUTF16MoveInPriorContext): Added.
+        (WebCore::textUTF16SwitchToPriorContext): Added.
+        (WebCore::textUTF16Access): Added.
+        (WebCore::textOpenUTF16): Added.
+        (WebCore::acquireLineBreakIterator): Use new text providers with prior context.
+        * platform/text/wchar/TextBreakIteratorWchar.cpp:
+        (WebCore::acquireLineBreakIterator): Pass prior context to non-ICU path.
+        * rendering/break_lines.cpp:
+        (WebCore::nextBreakablePosition): Use prior context in ICU path.
+
 2013-04-03  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         [Chromium] Bad cast from BitmapImageSingleFrameSkia to BitmapImage
