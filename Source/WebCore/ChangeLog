@@ -1,3 +1,23 @@
+2013-04-03  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        [Gstreamer] Avoid calls to g_slist_nth_data in webKitWebAudioSrcLoop()
+        https://bugs.webkit.org/show_bug.cgi?id=113875
+
+        Reviewed by Philippe Normand.
+
+        webKitWebAudioSrcLoop() was iterating over 2 GSLists by using a counter and then
+        calling g_slist_nth_data() to get the element of each GSList. This is inefficient
+        because calling g_slist_nth_data() will iterate the GSList up until index 'n'.
+
+        This patch improves this by keeping pointers to the current element of each list
+        while iterating, so that we can simply use g_slist_next() to iterate instead
+        of g_slist_nth_data().
+
+        No new tests, no behavior change.
+
+        * platform/audio/gstreamer/WebKitWebAudioSourceGStreamer.cpp:
+        (webKitWebAudioSrcLoop):
+
 2013-04-03  Keishi Hattori  <keishi@webkit.org>
 
         Actions that require user gesture don't work in window.showModalDialog in Chromium
