@@ -1,3 +1,36 @@
+2013-04-03  Antoine Quint  <graouts@apple.com>
+
+        Web Inspector: crash in WebCore::InspectorLayerTreeAgent::buildObjectForLayer if a layer is created for an anonymous RenderObject (:first-letter)
+        https://bugs.webkit.org/show_bug.cgi?id=113768
+
+        The InspectorLayerTreeAgent now knows how to deal with anonymous RenderObjects
+        for the :first-letter and :first-line pseudo-elements.
+
+        Reviewed by Timothy Hatcher.
+
+        Test: inspector-protocol/layers/layers-anonymous.html
+
+        * inspector/Inspector.json:
+        Change the Layer type in the LayerTree domain to have more accurate terminology
+        (pseudo-element vs. pseudo-class) and a new optional isAnonymous flag for layers
+        associated to anonymous RenderObjects.
+
+        * inspector/InspectorLayerTreeAgent.cpp:
+        (WebCore::InspectorLayerTreeAgent::buildObjectForLayer):
+        Check for anonymous RenderObjects and set the parent renderer's node as the node
+        for this layer since anonymous renderers have the Document as their node and this
+        would not be satisfactory to show in a front-end. We also check for anonymous
+        RenderObjects for the :first-letter and :first-line pseudo-elements and set them
+        in the pseudoElement property of the Layer object created such that a front-end
+        could correctly identify what type of pseudo-element for the associated node
+        yielded this layer.
+
+        (WebCore::InspectorLayerTreeAgent::idForNode):
+        Here we fix the actual crash by first checking if the node provided is null and
+        returning 0 if there's no such node. This ensures that any scenario where there
+        is no node associated with the RenderObject simply informs of the front-end that
+        no such node exists and we do not crash.
+
 2013-04-03  Alexander Pavlov  <apavlov@chromium.org>
 
         Web Inspector: [REGRESSION(r147117)][Elements] Copy/paste keyboard shortcuts broken in "Edit as HTML"
