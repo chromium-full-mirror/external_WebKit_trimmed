@@ -1,3 +1,10 @@
+2013-04-03  Csaba Osztrogonác  <ossy@webkit.org>
+
+        Unreviewed 32bit buildfix after r147542.
+
+        * Modules/websockets/WebSocket.cpp:
+        (WebCore::WebSocket::didReceiveBinaryData):
+
 2013-04-03  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         [Gstreamer] Avoid calls to g_slist_nth_data in webKitWebAudioSrcLoop()
