@@ -1,3 +1,18 @@
+2013-04-02  Chris Fleizach  <cfleizach@apple.com>
+
+        clean up static casts in WebAccessibilityObjectWrapperMac.mm to methods like toAccessibilityList()
+        https://bugs.webkit.org/show_bug.cgi?id=113828
+
+        Reviewed by Tim Horton.
+
+        static_cast changed to toAccessibilityList().
+
+        * accessibility/AccessibilityList.h:
+        (WebCore::toAccessibilityList):
+        * accessibility/mac/WebAccessibilityObjectWrapperMac.mm:
+        (-[WebAccessibilityObjectWrapper subrole]):
+        (-[WebAccessibilityObjectWrapper roleDescription]):
+
 2013-04-02  Sheriff Bot  <webkit.review.bot@gmail.com>
 
         Unreviewed, rolling out r147370.
