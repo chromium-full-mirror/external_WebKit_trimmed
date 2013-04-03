@@ -1,3 +1,15 @@
+2013-04-02  Sheriff Bot  <webkit.review.bot@gmail.com>
+
+        Unreviewed, rolling out r147370.
+        http://trac.webkit.org/changeset/147370
+        https://bugs.webkit.org/show_bug.cgi?id=113850
+
+        This patch is causing crashes in video tests on all Mac bots.
+        (Requested by jernoble_ on #webkit).
+
+        * html/HTMLMediaElement.cpp:
+        (WebCore::HTMLMediaElement::~HTMLMediaElement):
+
 2013-04-02  James Craig  <james@cookiecrook.com>
 
         AXRoleDescripton for DL is "list"; should be "description list"
