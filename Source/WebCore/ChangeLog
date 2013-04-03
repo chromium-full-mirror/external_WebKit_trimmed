@@ -1,3 +1,25 @@
+2013-04-03  Mikhail Naganov  <mnaganov@chromium.org>
+
+        [Chromium] Implement target-densityDpi viewport property emulation
+        https://bugs.webkit.org/show_bug.cgi?id=110835
+
+        The value is only used in the Chromium port, when the corresponding
+        setting is enabled.
+
+        This is needed for supporting existing WebView-based applications
+        that rely on this property.
+
+        Reviewed by Adam Barth.
+
+        * dom/ViewportArguments.cpp:
+        (WebCore::findTargetDensityDPIValue):
+        (WebCore):
+        (WebCore::setViewportFeature):
+        * dom/ViewportArguments.h:
+        (WebCore::ViewportArguments::ViewportArguments):
+        (ViewportArguments):
+        (WebCore::ViewportArguments::operator==):
+
 2013-04-03  Mike West  <mkwst@chromium.org>
 
         Extract URL that doesn't inherit a parent's SecurityOrigin out into a constant.
