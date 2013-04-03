@@ -1,5 +1,95 @@
 2013-04-03  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
+        Unreviewed. Rebaseline several tests for Chromium that have better output after
+        r147492.
+
+        * platform/chromium-linux/editing/selection/select-missing-image-expected.png:
+        * platform/chromium-linux/fast/block/float/002-expected.png:
+        * platform/chromium-linux/fast/block/float/017-expected.png:
+        * platform/chromium-linux/fast/dom/HTMLImageElement/image-alt-text-expected.png:
+        * platform/chromium-linux/fast/dom/HTMLInputElement/input-image-alt-text-expected.png:
+        * platform/chromium-linux/fast/encoding/utf-16-big-endian-expected.png:
+        * platform/chromium-linux/fast/encoding/utf-16-little-endian-expected.png:
+        * platform/chromium-linux/fast/flexbox/023-expected.png:
+        * platform/chromium-linux/fast/flexbox/024-expected.png:
+        * platform/chromium-linux/fast/forms/input-value-expected.png:
+        * platform/chromium-linux/fast/forms/input-value-expected.txt:
+        * platform/chromium-linux/fast/invalid/012-expected.png:
+        * platform/chromium-linux/tables/mozilla/bugs/bug2997-expected.png:
+        * platform/chromium-linux/tables/mozilla/collapsing_borders/bug41262-3-expected.png:
+        * platform/chromium-mac-lion/editing/selection/select-missing-image-expected.png:
+        * platform/chromium-mac-lion/fast/block/float/002-expected.png:
+        * platform/chromium-mac-lion/fast/block/float/017-expected.png:
+        * platform/chromium-mac-lion/fast/dom/HTMLImageElement/image-alt-text-expected.png:
+        * platform/chromium-mac-lion/fast/dom/HTMLInputElement/input-image-alt-text-expected.png:
+        * platform/chromium-mac-lion/fast/encoding/utf-16-big-endian-expected.png:
+        * platform/chromium-mac-lion/fast/encoding/utf-16-little-endian-expected.png:
+        * platform/chromium-mac-lion/fast/flexbox/023-expected.png:
+        * platform/chromium-mac-lion/fast/flexbox/024-expected.png:
+        * platform/chromium-mac-lion/fast/forms/005-expected.png:
+        * platform/chromium-mac-lion/fast/forms/input-value-expected.png:
+        * platform/chromium-mac-lion/fast/invalid/012-expected.png:
+        * platform/chromium-mac-lion/fast/parser/comment-in-script-expected.png:
+        * platform/chromium-mac-lion/tables/mozilla/bugs/bug2997-expected.png:
+        * platform/chromium-mac-lion/tables/mozilla/collapsing_borders/bug41262-3-expected.png:
+        * platform/chromium-mac-snowleopard/fast/block/float/002-expected.png:
+        * platform/chromium-mac-snowleopard/fast/block/float/017-expected.png:
+        * platform/chromium-mac-snowleopard/fast/dom/HTMLImageElement/image-alt-text-expected.png:
+        * platform/chromium-mac-snowleopard/fast/dom/HTMLInputElement/input-image-alt-text-expected.png:
+        * platform/chromium-mac-snowleopard/fast/encoding/utf-16-big-endian-expected.png:
+        * platform/chromium-mac-snowleopard/fast/encoding/utf-16-little-endian-expected.png:
+        * platform/chromium-mac-snowleopard/fast/flexbox/023-expected.png:
+        * platform/chromium-mac-snowleopard/fast/flexbox/024-expected.png:
+        * platform/chromium-mac-snowleopard/fast/forms/input-value-expected.png:
+        * platform/chromium-mac-snowleopard/fast/invalid/012-expected.png:
+        * platform/chromium-mac-snowleopard/fast/parser/comment-in-script-expected.png:
+        * platform/chromium-mac-snowleopard/tables/mozilla/bugs/bug2997-expected.png:
+        * platform/chromium-mac-snowleopard/tables/mozilla/collapsing_borders/bug41262-3-expected.png:
+        * platform/chromium-mac/editing/selection/select-missing-image-expected.png:
+        * platform/chromium-mac/fast/block/float/002-expected.png:
+        * platform/chromium-mac/fast/block/float/017-expected.png:
+        * platform/chromium-mac/fast/dom/HTMLImageElement/image-alt-text-expected.png:
+        * platform/chromium-mac/fast/dom/HTMLImageElement/image-alt-text-expected.txt: Renamed from LayoutTests/platform/chromium/fast/dom/HTMLImageElement/image-alt-text-expected.txt.
+        * platform/chromium-mac/fast/dom/HTMLInputElement/input-image-alt-text-expected.png:
+        * platform/chromium-mac/fast/dom/HTMLInputElement/input-image-alt-text-expected.txt: Renamed from LayoutTests/platform/chromium/fast/dom/HTMLInputElement/input-image-alt-text-expected.txt.
+        * platform/chromium-mac/fast/encoding/utf-16-big-endian-expected.png:
+        * platform/chromium-mac/fast/encoding/utf-16-big-endian-expected.txt:
+        * platform/chromium-mac/fast/encoding/utf-16-little-endian-expected.png:
+        * platform/chromium-mac/fast/encoding/utf-16-little-endian-expected.txt:
+        * platform/chromium-mac/fast/flexbox/023-expected.png:
+        * platform/chromium-mac/fast/flexbox/024-expected.png:
+        * platform/chromium-mac/fast/forms/005-expected.png:
+        * platform/chromium-mac/fast/forms/input-value-expected.png:
+        * platform/chromium-mac/fast/forms/input-value-expected.txt:
+        * platform/chromium-mac/fast/invalid/012-expected.png:
+        * platform/chromium-mac/fast/parser/comment-in-script-expected.png:
+        * platform/chromium-mac/tables/mozilla/bugs/bug2997-expected.png:
+        * platform/chromium-mac/tables/mozilla/collapsing_borders/bug41262-3-expected.png:
+        * platform/chromium-mac/tables/mozilla/collapsing_borders/bug41262-3-expected.txt: Renamed from LayoutTests/platform/chromium/tables/mozilla/collapsing_borders/bug41262-3-expected.txt.
+        * platform/chromium-win/editing/selection/select-missing-image-expected.png:
+        * platform/chromium-win/fast/block/float/002-expected.png:
+        * platform/chromium-win/fast/block/float/017-expected.png:
+        * platform/chromium-win/fast/dom/HTMLImageElement/image-alt-text-expected.png:
+        * platform/chromium-win/fast/dom/HTMLImageElement/image-alt-text-expected.txt:
+        * platform/chromium-win/fast/dom/HTMLInputElement/input-image-alt-text-expected.png:
+        * platform/chromium-win/fast/dom/HTMLInputElement/input-image-alt-text-expected.txt:
+        * platform/chromium-win/fast/encoding/utf-16-big-endian-expected.png:
+        * platform/chromium-win/fast/encoding/utf-16-big-endian-expected.txt:
+        * platform/chromium-win/fast/encoding/utf-16-little-endian-expected.png:
+        * platform/chromium-win/fast/encoding/utf-16-little-endian-expected.txt:
+        * platform/chromium-win/fast/flexbox/023-expected.png:
+        * platform/chromium-win/fast/flexbox/024-expected.png:
+        * platform/chromium-win/fast/forms/input-value-expected.png:
+        * platform/chromium-win/fast/forms/input-value-expected.txt:
+        * platform/chromium-win/fast/invalid/012-expected.png:
+        * platform/chromium-win/fast/parser/comment-in-script-expected.png:
+        * platform/chromium-win/tables/mozilla/bugs/bug2997-expected.png:
+        * platform/chromium-win/tables/mozilla/collapsing_borders/bug41262-3-expected.png:
+        * platform/chromium-win/tables/mozilla/collapsing_borders/bug41262-3-expected.txt:
+        * platform/chromium/TestExpectations:
+
+2013-04-03  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
         Unreviewed, rebaseline several tests cases for GTK that have better results
         after r147492.
 
