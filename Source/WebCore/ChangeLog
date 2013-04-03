@@ -1,3 +1,27 @@
+2013-04-03  John Griggs  <jgriggs@blackberry.com>
+
+        [BlackBerry] Adjustments to media controls appearance.
+        https://bugs.webkit.org/show_bug.cgi?id=113816
+        https://przilla.ott.qnx.com/bugzilla/show_bug.cgi?id=316398
+        https://przilla.ott.qnx.com/bugzilla/show_bug.cgi?id=316438
+
+        Updates to the BlackBerry media controls:
+         - extend the timeline slider.
+         - move the volume slider for audio elements up so it does not overlap the main panel.
+         - upstream some other cosmetic changes to media controls that were not previously upstreamed.
+
+        Reviewed by Rob Buis.
+
+        BlackBerry-specific, cosmetic change; No new tests required.
+
+        * platform/blackberry/RenderThemeBlackBerry.cpp:
+        (WebCore::RenderThemeBlackBerry::adjustMediaControlStyle):
+        (WebCore::RenderThemeBlackBerry::paintMediaPlayButton):
+        (WebCore::RenderThemeBlackBerry::paintMediaMuteButton):
+        (WebCore::RenderThemeBlackBerry::paintMediaSliderTrack):
+        (WebCore::RenderThemeBlackBerry::paintMediaVolumeSliderTrack):
+        (WebCore::RenderThemeBlackBerry::paintMediaVolumeSliderThumb):
+
 2013-04-03  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         [Gstreamer] Use gst_buffer_extract() in copyGstreamerBuffersToAudioChannel()
