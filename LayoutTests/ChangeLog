@@ -1,3 +1,16 @@
+2013-04-02  James Craig  <james@cookiecrook.com>
+
+        AXRoleDescripton for DL is "list"; should be "description list"
+        https://bugs.webkit.org/show_bug.cgi?id=111665
+
+        Reviewed by Chris Fleizach.
+
+        Updating expectation strings for DL role description.
+
+        * platform/mac/accessibility/lists-expected.txt:
+        * platform/mac/accessibility/role-subrole-roledescription-expected.txt:
+        * platform/mac/accessibility/role-subrole-roledescription.html:
+
 2013-04-02  Jer Noble  <jer.noble@apple.com>
 
         Unreviewed gardening; rebaseline mac expected results after r147470.

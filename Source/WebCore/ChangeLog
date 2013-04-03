@@ -1,3 +1,44 @@
+2013-04-02  James Craig  <james@cookiecrook.com>
+
+        AXRoleDescripton for DL is "list"; should be "description list"
+        https://bugs.webkit.org/show_bug.cgi?id=111665
+
+        Reviewed by Chris Fleizach.
+
+        Defining the role and description strings, and accessors for DL.
+        This previously relied on getting the role and description from the platform API.
+
+        Updated existing test coverage.
+
+        * English.lproj/Localizable.strings:
+        * accessibility/AccessibilityObject.h:
+        * accessibility/AccessibilityRenderObject.cpp:
+        (WebCore::AccessibilityRenderObject::determineAccessibilityRole):
+        * accessibility/mac/WebAccessibilityObjectWrapperMac.mm:
+        (createAccessibilityRoleMap):
+        (-[WebAccessibilityObjectWrapper subrole]):
+        (-[WebAccessibilityObjectWrapper roleDescription]):
+        * platform/LocalizedStrings.cpp:
+        (WebCore::AXDescriptionListText):
+        (WebCore):
+        * platform/LocalizedStrings.h:
+        (WebCore):
+        * platform/blackberry/LocalizedStringsBlackBerry.cpp:
+        (WebCore::AXDescriptionListText):
+        (WebCore):
+        * platform/chromium/LocalizedStringsChromium.cpp:
+        (WebCore::AXDescriptionListText):
+        (WebCore):
+        * platform/efl/LocalizedStringsEfl.cpp:
+        (WebCore::AXDescriptionListText):
+        (WebCore):
+        * platform/gtk/LocalizedStringsGtk.cpp:
+        (WebCore::AXDescriptionListText):
+        (WebCore):
+        * platform/qt/LocalizedStringsQt.cpp:
+        (WebCore::AXDescriptionListText):
+        (WebCore):
+
 2013-04-02  Eugene Klyuchnikov  <eustas@chromium.org>
 
         Web Inspector: [Network] Split business logic and presentation for initiator column.
