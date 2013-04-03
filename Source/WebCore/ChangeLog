@@ -1,3 +1,65 @@
+2013-04-03  Takeshi Yoshino  <tyoshino@chromium.org>
+
+        Refine LOG messages in WebSocket related components
+        https://bugs.webkit.org/show_bug.cgi?id=113852
+
+        Reviewed by Kent Tamura.
+
+        Refine LOG messages by
+        - Make them contain method names to ease identifying where the event occurred.
+        - For consistency, make all messages print the pointer of the origin instance.
+        - Quote UTF8 data in LOG messages.
+        - For overloaded methods, add the type to clarify which one is run
+
+        * Modules/websockets/WebSocket.cpp:
+        (WebCore::WebSocket::connect):
+        (WebCore::WebSocket::send):
+        (WebCore::WebSocket::close):
+        (WebCore::WebSocket::contextDestroyed):
+        (WebCore::WebSocket::didConnect):
+        (WebCore::WebSocket::didReceiveMessage):
+        (WebCore::WebSocket::didReceiveBinaryData):
+        (WebCore::WebSocket::didReceiveMessageError):
+        (WebCore::WebSocket::didUpdateBufferedAmount):
+        (WebCore::WebSocket::didStartClosingHandshake):
+        (WebCore::WebSocket::didClose):
+        * Modules/websockets/WebSocketChannel.cpp:
+        (WebCore::WebSocketChannel::connect):
+        (WebCore::WebSocketChannel::subprotocol):
+        (WebCore::WebSocketChannel::extensions):
+        (WebCore::WebSocketChannel::send):
+        (WebCore::WebSocketChannel::bufferedAmount):
+        (WebCore::WebSocketChannel::close):
+        (WebCore::WebSocketChannel::fail):
+        (WebCore::WebSocketChannel::disconnect):
+        (WebCore::WebSocketChannel::willOpenSocketStream):
+        (WebCore::WebSocketChannel::didOpenSocketStream):
+        (WebCore::WebSocketChannel::didCloseSocketStream):
+        (WebCore::WebSocketChannel::didReceiveSocketStreamData):
+        (WebCore::WebSocketChannel::didFailSocketStream):
+        (WebCore::WebSocketChannel::didStartLoading):
+        (WebCore::WebSocketChannel::didReceiveData):
+        (WebCore::WebSocketChannel::didFinishLoading):
+        (WebCore::WebSocketChannel::didFail):
+        (WebCore::WebSocketChannel::appendToBuffer):
+        (WebCore::WebSocketChannel::processBuffer):
+        (WebCore::WebSocketChannel::startClosingHandshake):
+        (WebCore::WebSocketChannel::closingTimerFired):
+        * Modules/websockets/WebSocketDeflater.cpp:
+        (WebCore::WebSocketDeflater::~WebSocketDeflater):
+        (WebCore::WebSocketInflater::~WebSocketInflater):
+        * Modules/websockets/WebSocketHandshake.cpp:
+        (WebCore::WebSocketHandshake::readServerHandshake):
+        * platform/network/chromium/SocketStreamHandle.cpp:
+        (WebCore::SocketStreamHandleInternal::connect):
+        (WebCore::SocketStreamHandleInternal::send):
+        (WebCore::SocketStreamHandleInternal::close):
+        (WebCore::SocketStreamHandleInternal::didOpenStream):
+        (WebCore::SocketStreamHandleInternal::didSendData):
+        (WebCore::SocketStreamHandleInternal::didReceiveData):
+        (WebCore::SocketStreamHandleInternal::didClose):
+        (WebCore::SocketStreamHandleInternal::didFail):
+
 2013-04-03  Tor Arne Vestbø  <tor.arne.vestbo@digia.com>
 
         [Qt] Update QMAKE_MAC_SDK check for Qt 5.1
