@@ -1,3 +1,15 @@
+2013-04-03  Allan Sandfeld Jensen  <allan.jensen@digia.com>
+
+        [Qt] Monospace font does not render in proper sizes
+        https://bugs.webkit.org/show_bug.cgi?id=93263
+
+        Reviewed by Jocelyn Turcotte.
+
+        Remove this patch's artificial dependency on Qt 5.1.
+
+        * platform/graphics/qt/FontPlatformDataQt.cpp:
+        (WebCore::FontPlatformData::FontPlatformData):
+
 2013-04-03  Takeshi Yoshino  <tyoshino@chromium.org>
 
         Refine LOG messages in WebSocket related components
