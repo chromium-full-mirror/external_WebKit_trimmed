@@ -1,3 +1,13 @@
+2013-04-03  David Vest  <davve@opera.com>
+
+        ASSERTION FAILED: resultAnimationElement->m_animatedType
+        https://bugs.webkit.org/show_bug.cgi?id=93528
+
+        Reviewed by Philip Rogers.
+
+        * svg/animations/animation-dependency-crash-expected.txt: Added.
+        * svg/animations/animation-dependency-crash.html: Added.
+
 2013-04-03  Max Vujovic  <mvujovic@adobe.com>
 
         Compositing tests failing after http://trac.webkit.org/changeset/147502

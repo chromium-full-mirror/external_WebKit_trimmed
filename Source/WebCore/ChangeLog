@@ -1,3 +1,21 @@
+2013-04-03  David Vest  <davve@opera.com>
+
+        ASSERTION FAILED: resultAnimationElement->m_animatedType
+        https://bugs.webkit.org/show_bug.cgi?id=93528
+
+        Reviewed by Philip Rogers.
+
+        When the order of animation elements change within an animation
+        group, we can't assume that the resultElement is the same as it
+        was when the animation was frozen. Make sure to reset the
+        animation type for the resultElement before updating the
+        animation.
+
+        Test: svg/animations/animation-dependency-crash.html
+
+        * svg/animation/SVGSMILElement.cpp:
+        (WebCore::SVGSMILElement::progress):
+
 2013-04-03  Timothy Hatcher  <timothy@apple.com>
 
         Stop unconditionally enabling JavaScript execution when closing the Web Inspector.
