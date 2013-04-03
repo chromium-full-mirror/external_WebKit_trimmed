@@ -1,3 +1,14 @@
+2013-04-02  Ryosuke Niwa  <rniwa@webkit.org>
+
+        needsLeopardMailQuirks should be removed
+        https://bugs.webkit.org/show_bug.cgi?id=113749
+
+        Reviewed by Benjamin Poulain.
+
+        Removed needsLeopardMailQuirks from settings.in after r147447.
+
+        * page/Settings.in:
+
 2013-04-02  Jaehun Lim  <ljaehun.lim@samsung.com>
 
         [css3-text] Rendering -webkit-each-line value for text-indent from css3-text
