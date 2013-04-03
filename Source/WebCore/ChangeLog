@@ -1,3 +1,15 @@
+2013-04-03  Kristof Provost  <kristof@codepro.be>
+
+        [Qt] assignToHTMLImageElement no longer exists in Qt5
+        https://bugs.webkit.org/show_bug.cgi?id=113639
+
+        Reviewed by Simon Hausmann.
+
+        No new tests: covered by ./Source/WebKit/qt/tests/hybridPixmap/test.html
+
+        * bridge/qt/qt_pixmapruntime.cpp:
+        (JSC::Bindings::QtPixmapRuntime::getClassRef):
+
 2013-04-03  Antoine Quint  <graouts@apple.com>
 
         Web Inspector: crash in WebCore::InspectorLayerTreeAgent::buildObjectForLayer if a layer is created for an anonymous RenderObject (:first-letter)
