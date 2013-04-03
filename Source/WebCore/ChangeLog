@@ -1,3 +1,27 @@
+2013-04-03  Mike West  <mkwst@chromium.org>
+
+        Extract URL that doesn't inherit a parent's SecurityOrigin out into a constant.
+        https://bugs.webkit.org/show_bug.cgi?id=113780
+
+        Reviewed by Jochen Eisinger.
+
+        We're scheduling navigations to 'data:text/html,' in XSSAuditor in
+        order to end up on a page that doesn't inherit its parent's
+        SecurityOrigin. We'll be reusing this mechainsm to solve
+        http://wkbug.com/112903
+
+        This patch makes us more explicit about what we're doing and why.
+        It doesn't change any behavior: XSSAuditor tests should still pass.
+
+        * html/parser/XSSAuditorDelegate.cpp:
+        (WebCore::XSSAuditorDelegate::didBlockScript):
+            Use SecurityOrigin::urlWithUniqueSecurityOrigin rather than a
+            literal string to make our intentions clear.
+        * page/SecurityOrigin.cpp:
+        (WebCore::SecurityOrigin::urlWithUniqueSecurityOrigin):
+        * page/SecurityOrigin.h:
+            Add the new static method.
+
 2013-04-02  Chris Fleizach  <cfleizach@apple.com>
 
         clean up static casts in WebAccessibilityObjectWrapperMac.mm to methods like toAccessibilityList()
