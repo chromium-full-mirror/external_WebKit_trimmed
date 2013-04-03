@@ -1,5 +1,29 @@
 2013-04-03  David Kilzer  <ddkilzer@apple.com>
 
+        BUILD FIX (r147493): Fix number of arguments to AudioDestinationIOS constructor
+
+        Fixes the following build failures:
+
+            Source/WebCore/platform/audio/ios/AudioDestinationIOS.cpp:84:25: error: no matching constructor for initialization of 'WebCore::AudioDestinationIOS'
+                return adoptPtr(new AudioDestinationIOS(callback, sampleRate));
+                                    ^                   ~~~~~~~~~~~~~~~~~~~~
+            In file included from Source/WebCore/platform/audio/ios/AudioDestinationIOS.cpp:36:
+            Source/WebCore/platform/audio/ios/AudioDestinationIOS.h:44:5: note: candidate constructor not viable: requires 3 arguments, but 2 were provided
+                AudioDestinationIOS(AudioIOCallback&, unsigned numberOfOutputChannels, double sampleRate);
+                ^
+            Source/WebCore/platform/audio/ios/AudioDestinationIOS.h:42:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+            class AudioDestinationIOS : public AudioDestination, public AudioSessionListener {
+                  ^
+            Source/WebCore/platform/audio/ios/AudioDestinationIOS.cpp:101:22: error: out-of-line definition of 'AudioDestinationIOS' does not match any declaration in 'WebCore::AudioDestinationIOS'
+            AudioDestinationIOS::AudioDestinationIOS(AudioIOCallback& callback, double sampleRate)
+                                 ^~~~~~~~~~~~~~~~~~~
+            2 errors generated.
+
+        * platform/audio/ios/AudioDestinationIOS.h:
+        (AudioDestinationIOS): Remove numberOfOutputChannels argument.
+
+2013-04-03  David Kilzer  <ddkilzer@apple.com>
+
         BUILD FIX (r147494): -[AVAudioSession setCategory:error:] takes NSError**
 
         Fixes the following build failure:
