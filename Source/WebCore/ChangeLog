@@ -1,3 +1,46 @@
+2013-04-03  Felipe Zimmerle  <felipe@zimmerle.org>
+
+        CSP blocks inline style when cloning a node
+        https://bugs.webkit.org/show_bug.cgi?id=112270
+
+        Reviewed by Adam Barth.
+
+        Checks if the Element is being cloned, if so, the application of the
+        style is allowed otherwise it relies on default permission mechanism.
+
+        Test: http/tests/security/contentSecurityPolicy/inline-style-allowed-while-cloning-objects.html
+
+        * dom/Element.cpp:
+        (WebCore::Element::attributeChanged): Added parameter
+        AttributeModificationReason to the method signature.
+        (WebCore::Element::cloneAttributesFromElement): It is now calling 
+        attributeChanged with AttributeModificationReason parameter. In this scope
+        it is always set to ModifiedByCloning.
+        (WebCode::Element::attributeChangedFromParserOrByCloning):
+        Added parameter AttributeModificationReason.
+        * dom/Element.h: Added AttributeModificationReason enum. Used to specify
+        whenever an attribute was set by a cloned oject or directly.
+        AttributeModificationReason added to attributeChanged with the default
+        value set to ModifiedDirectly. 
+        * dom/StyledElement.cpp: 
+        (WebCore::StyledElement::attributeChanged): Added
+        AttributeModificationReason to the method signature.
+        (WebCore::StyledElement::styleAttributeChanged): Now it is checking the
+        reason of the update, if the reason is ModifiedDirectly check CSP
+        before set. If ModifiedByCloning set the attribute ignoring the CSP
+        policy.
+        * dom/StyledElement.h:
+        (StyledElement): Added AttributeModificationReason parameter to the methods:
+        attributeChanged and styleAttributeChanged, attributeChanged has
+        ModifiedDirectly as default value.
+        * svg/SVGElement.cpp: 
+        (WebCore::SVGElement::attributeChanged): Added AttributeModificationReason
+        parameter to the method signature.
+        * svg/SVGElement.h: 
+        (SVGElement): Added AttributeModificationReason parameter to the
+        attributeChanged signature with the default value set to:
+        ModifiedDirectly.
+
 2013-04-03  Csaba Osztrogonác  <ossy@webkit.org>
 
         Unreviewed 32bit buildfix after r147542.

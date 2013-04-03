@@ -1,3 +1,13 @@
+2013-04-03  Felipe Zimmerle  <felipe@zimmerle.org>
+
+        CSP blocks inline style when cloning a node
+        https://bugs.webkit.org/show_bug.cgi?id=112270
+
+        Reviewed by Adam Barth.
+
+        * http/tests/security/contentSecurityPolicy/inline-style-allowed-while-cloning-objects-expected.txt: Added.
+        * http/tests/security/contentSecurityPolicy/inline-style-allowed-while-cloning-objects.html: Added.
+
 2013-04-03  Ádám Kallai  <kadam@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening. Updated platform specific expected files after r147492.
