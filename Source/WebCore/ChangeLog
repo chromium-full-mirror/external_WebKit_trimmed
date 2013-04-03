@@ -1,3 +1,28 @@
+2013-04-03  Keishi Hattori  <keishi@webkit.org>
+
+        Actions that require user gesture don't work in window.showModalDialog in Chromium
+        https://bugs.webkit.org/show_bug.cgi?id=113777
+
+        Reviewed by Jochen Eisinger.
+
+        In Chromium the window for showModalDialog is not modal which causes the
+        UserGestureIndicator to block actions in the sub window. We introduce a
+        RAII that saves the UserGestureIndicator and state, then resets it before
+        runModalDialog, and restore it when it's done.
+
+        No new tests. Can't cause user gesture inside modal dialog.
+
+        * dom/UserGestureIndicator.cpp:
+        (WebCore::UserGestureIndicatorDisabler::UserGestureIndicatorDisabler): Saves and resets the topmost indicator and state.
+        (WebCore):
+        (WebCore::UserGestureIndicatorDisabler::~UserGestureIndicatorDisabler): Restores topmost indicator and state.
+        * dom/UserGestureIndicator.h:
+        (WebCore):
+        (UserGestureIndicatorDisabler): RAII to temporarily disable UserGestureIndicator.
+        (UserGestureIndicator): Allow access to UserGestureIndicatorDisabler.
+        * page/DOMWindow.cpp:
+        (WebCore::DOMWindow::showModalDialog): Disable UserGestureIndicator while runModalDialog.
+
 2013-04-03  Zeno Albisser  <zeno@webkit.org>
 
         [Qt] Fail gracefully if an OpenGL context could not be created.
