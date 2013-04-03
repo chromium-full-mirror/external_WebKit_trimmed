@@ -1,3 +1,19 @@
+2013-04-03  Timothy Hatcher  <timothy@apple.com>
+
+        Stop unconditionally enabling JavaScript execution when closing the Web Inspector.
+
+        https://webkit.org/b/113889
+        rdar://problem/12281794
+
+        Reviewed by Joseph Pecoraro.
+
+        * inspector/InspectorPageAgent.cpp:
+        (WebCore::InspectorPageAgent::InspectorPageAgent): Initialize m_originalScriptExecutionDisabled.
+        (WebCore::InspectorPageAgent::enable): Populate m_originalScriptExecutionDisabled based on current setting.
+        (WebCore::InspectorPageAgent::disable): Restore previous setting.
+        * inspector/InspectorPageAgent.h:
+        (InspectorPageAgent): Added m_originalScriptExecutionDisabled.
+
 2013-04-03  Dean Jackson  <dino@apple.com>
 
         Cross fade into restarted plugin
