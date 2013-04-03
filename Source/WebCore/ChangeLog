@@ -1,3 +1,25 @@
+2013-04-03  ChangSeok Oh  <changseok.oh@collabora.com>
+
+        [GTK][AC] Implement matrix keyframe animations with clutter ac backend
+        https://bugs.webkit.org/show_bug.cgi?id=110314
+
+        Reviewed by Gustavo Noronha Silva.
+
+        Clutter 1.12 doesn't support additive transform animations yet, So clutter ac backend
+        uses matrix animations for the case. This patch follows changeset 143369, 143343
+        to support matrix keyframe animations. I believe this change is easy if you understand
+        above two changesets.
+
+        Covered by existing animation tests.
+
+        * platform/graphics/clutter/PlatformClutterAnimation.cpp:
+        (WebCore::PlatformClutterAnimation::setValues):
+        (WebCore::PlatformClutterAnimation::addClutterKeyframeTransitionForProperty):
+        (WebCore):
+        (WebCore::PlatformClutterAnimation::addTransformTransition):
+        * platform/graphics/clutter/PlatformClutterAnimation.h:
+        (PlatformClutterAnimation):
+
 2013-04-03  Gustavo Noronha Silva  <gustavo.noronha@collabora.com>
 
         Should close select popup when the element loses focus
