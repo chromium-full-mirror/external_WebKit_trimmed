@@ -1,3 +1,31 @@
+2013-03-28  Jesus Sanchez-Palencia  <jesus.palencia@openbossa.org>
+
+        [Qt] Switch ContextMenu implementation to CROSS_PLATFORM_CONTEXT_MENU
+        https://bugs.webkit.org/show_bug.cgi?id=113535
+
+        Reviewed by Simon Hausmann.
+
+        Now Qt uses the CROSS_PLATFORM_CONTEXT_MENUS
+        USE flag. This flag provides a full cross-platform
+        representation of a ContextMenu and a ContextMenuItem.
+        The embedder can then decide how to show this, so neither
+        WebCore nor WebCore/platform need to know any platform
+        specifics about menus.
+
+        No new tests, no behavior changes.
+
+        * Target.pri:
+        * platform/ContextMenu.h:
+        (ContextMenu):
+        * platform/ContextMenuItem.h:
+        * platform/qt/ContextMenuItemQt.cpp:
+        (WebCore::ContextMenuItem::platformContextMenuItem):
+        * platform/qt/ContextMenuQt.cpp:
+        (WebCore::ContextMenu::ContextMenu):
+        (WebCore::ContextMenu::getContextMenuItems):
+        (WebCore::ContextMenu::createPlatformContextMenuFromItems):
+        (WebCore::ContextMenu::platformContextMenu):
+
 2013-04-03  Allan Sandfeld Jensen  <allan.jensen@digia.com>
 
         [Qt] Monospace font does not render in proper sizes
