@@ -1,3 +1,34 @@
+2013-04-03  Antoine Quint  <graouts@apple.com>
+
+        Web Inspector: DOM.highlightRect() and DOM.highlightQuad() should allow for page coordinates
+        https://bugs.webkit.org/show_bug.cgi?id=113869
+
+        Add a new "usePageCoordinates" parameter to DOM.highlightRect() and DOM.highlightQuad()
+        allowing to specify that the rect or quad to highlight should be converted to page
+        coordinates instead of using the default viewport coordinates.
+
+        Reviewed by Timothy Hatcher.
+
+        * inspector/Inspector.json:
+        * inspector/InspectorDOMAgent.cpp:
+        (WebCore::InspectorDOMAgent::highlightRect):
+        (WebCore::InspectorDOMAgent::highlightQuad):
+        (WebCore::InspectorDOMAgent::innerHighlightQuad):
+        Store the "usePageCoordinates" parameter obtained from the protocol calls onto the
+        highlight configuration object so that it may be used within the InspectorOverlay.
+
+        * inspector/InspectorDOMAgent.h:
+        (InspectorDOMAgent):
+        * inspector/InspectorOverlay.cpp:
+        (WebCore::InspectorOverlay::highlightQuad):
+        Check the highlight configuration for the "usePageCoordinates" parameter and
+        apply the inverse of the page's scroll offset to the quad if it's true.
+
+        * inspector/InspectorOverlay.h:
+        (HighlightConfig):
+        (WebCore::Highlight::setDataFromConfig):
+        (Highlight):
+
 2013-04-03  Kangil Han  <kangil.han@samsung.com>
 
         Add omitted reference operator of VisiblePosition in AccessibilityObject
