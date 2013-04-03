@@ -1,3 +1,22 @@
+2013-04-03  Gustavo Noronha Silva  <gustavo.noronha@collabora.com>
+
+        Should close select popup when the element loses focus
+        https://bugs.webkit.org/show_bug.cgi?id=113220
+
+        Reviewed by Kent Tamura.
+
+        Test: fast/forms/select-popup-closes-on-blur.html
+
+        * html/HTMLSelectElement.cpp:
+        (WebCore::HTMLSelectElement::menuListDefaultEventHandler): handle the blur event, closing
+        the popup menu if any.
+        * testing/Internals.cpp:
+        (WebCore::Internals::isSelectPopupVisible): utility to query the select node renderer to
+        find out whether the popup is open or closed.
+        (WebCore):
+        * testing/Internals.h: add the new method definition.
+        * testing/Internals.idl: ditto.
+
 2013-03-28  Jesus Sanchez-Palencia  <jesus.palencia@openbossa.org>
 
         [Qt] Switch ContextMenu implementation to CROSS_PLATFORM_CONTEXT_MENU

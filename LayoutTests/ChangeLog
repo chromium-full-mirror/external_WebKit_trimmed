@@ -1,3 +1,15 @@
+2013-04-03  Gustavo Noronha Silva  <gustavo.noronha@collabora.com>
+
+        Should close select popup when the element loses focus
+        https://bugs.webkit.org/show_bug.cgi?id=113220
+
+        Reviewed by Kent Tamura.
+
+        * fast/forms/select/popup-closes-on-blur-expected.txt: Added.
+        * fast/forms/select/popup-closes-on-blur.html: Added.
+        * platform/mac/TestExpectations:
+        * platform/win/TestExpectations:
+
 2013-04-03  Antoine Quint  <graouts@apple.com>
 
         Web Inspector: crash in WebCore::InspectorLayerTreeAgent::buildObjectForLayer if a layer is created for an anonymous RenderObject (:first-letter)
