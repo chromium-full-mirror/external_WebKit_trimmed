@@ -1,3 +1,16 @@
+2013-04-03  Mihnea Ovidenie  <mihnea@adobe.com>
+
+        [New Multicolumn]Remove assert in RenderMultiColumnFlowThread::createAnonymous
+        https://bugs.webkit.org/show_bug.cgi?id=113855
+
+        Reviewed by Antti Koivisto.
+
+        Remove CSSRegions specific assert from new multicolumn implementation.
+        No change in functionality, no new tests.
+
+        * rendering/RenderMultiColumnFlowThread.cpp:
+        (WebCore::RenderMultiColumnFlowThread::createAnonymous):
+
 2013-04-03  Mike West  <mkwst@chromium.org>
 
         X-Frame-Options: Blocked frames should not inherit their parent's SecurityOrigin.
