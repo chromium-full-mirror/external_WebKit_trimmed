@@ -1,3 +1,22 @@
+2013-04-03  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed, rebaseline several tests cases for GTK that have better results
+        after r147492.
+
+        * platform/gtk/TestExpectations:
+        * platform/gtk/fast/dom/HTMLImageElement/image-alt-text-expected.png:
+        * platform/gtk/fast/dom/HTMLImageElement/image-alt-text-expected.txt:
+        * platform/gtk/fast/dom/HTMLInputElement/input-image-alt-text-expected.png:
+        * platform/gtk/fast/dom/HTMLInputElement/input-image-alt-text-expected.txt:
+        * platform/gtk/fast/encoding/utf-16-big-endian-expected.png:
+        * platform/gtk/fast/encoding/utf-16-big-endian-expected.txt:
+        * platform/gtk/fast/encoding/utf-16-little-endian-expected.png:
+        * platform/gtk/fast/encoding/utf-16-little-endian-expected.txt:
+        * platform/gtk/fast/forms/input-value-expected.png:
+        * platform/gtk/fast/forms/input-value-expected.txt:
+        * platform/gtk/tables/mozilla/collapsing_borders/bug41262-3-expected.png:
+        * platform/gtk/tables/mozilla/collapsing_borders/bug41262-3-expected.txt:
+
 2013-04-02  Jaehun Lim  <ljaehun.lim@samsung.com>
 
         Update expectations for fast/css3-text/css3-text-indent/text-indent-each-line.html
