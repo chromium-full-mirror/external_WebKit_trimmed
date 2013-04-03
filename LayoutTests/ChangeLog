@@ -1,3 +1,23 @@
+2013-04-03  Ádám Kallai  <kadam@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening. Updated platform specific expected files after r147492.
+
+        * platform/qt/TestExpectations:
+        * platform/qt/fast/dom/HTMLImageElement/image-alt-text-expected.png:
+        * platform/qt/fast/dom/HTMLImageElement/image-alt-text-expected.txt:
+        * platform/qt/fast/dom/HTMLInputElement/input-image-alt-text-expected.png:
+        * platform/qt/fast/dom/HTMLInputElement/input-image-alt-text-expected.txt:
+        * platform/qt/fast/encoding/utf-16-big-endian-expected.png:
+        * platform/qt/fast/encoding/utf-16-big-endian-expected.txt:
+        * platform/qt/fast/encoding/utf-16-little-endian-expected.png:
+        * platform/qt/fast/encoding/utf-16-little-endian-expected.txt:
+        * platform/qt/fast/forms/input-value-expected.png: Added.
+        * platform/qt/fast/forms/input-value-expected.txt:
+        * platform/qt/fast/lists/inlineBoxWrapperNullCheck-expected.png:
+        * platform/qt/fast/lists/inlineBoxWrapperNullCheck-expected.txt:
+        * platform/qt/tables/mozilla/collapsing_borders/bug41262-3-expected.png:
+        * platform/qt/tables/mozilla/collapsing_borders/bug41262-3-expected.txt:
+
 2013-04-03  Gustavo Noronha Silva  <gustavo.noronha@collabora.com>
 
         Should close select popup when the element loses focus
