@@ -1,3 +1,31 @@
+2013-04-03  Dave Michael  <dmichael@chromium.org>
+
+        Unable to focus on embedded plugins such as Flash via javascript focus()
+        https://bugs.webkit.org/show_bug.cgi?id=32292
+
+        Reviewed by Ryosuke Niwa.
+
+        Make embed, object, and applet elements support focus() when
+        appropriate. Prior to this patch, javascript focus() had no effect on
+        embed, object, or applet elements unless tabindex or contenteditable is
+        set. With this patch, focus() will focus the element unless the plugin
+        content has failed to load (i.e., we are showing either fallback content
+        or an unavailable plugin indicator).
+
+        Test: plugins/focus.html
+              java/focus.html
+
+        * html/HTMLPlugInElement.cpp:
+        (WebCore::HTMLPlugInElement::supportsFocus):
+        Overridden to return true except when the plugin content has failed to load.
+        * html/HTMLPlugInElement.h:
+        (WebCore::HTMLPlugInElement::useFallbackContent):
+        Moved up from HTMLPlugInImageElement.
+        (WebCore::HTMLPlugInElement::supportsFocus):
+        * html/HTMLPlugInElement.h:
+        (WebCore::HTMLPlugInImageElement::useFallbackContent):
+        Removed. Now the implementation is inherited from HTMLPlugInElement.
+
 2013-04-03  Glenn Adams  <glenn@skynav.com>
 
         Element boundaries prevent Japanese line break opportunities

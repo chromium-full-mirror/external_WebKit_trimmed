@@ -1,3 +1,24 @@
+2013-04-03  Dave Michael  <dmichael@chromium.org>
+
+        Unable to focus on embedded plugins such as Flash via javascript focus()
+        https://bugs.webkit.org/show_bug.cgi?id=32292
+
+        Reviewed by Ryosuke Niwa.
+
+        Add/update testing to ensure embed, object, and applet tags now support
+        focus except when plugin content did not load.
+
+        * fast/events/resources/tabindex-focus-blur-all-frame1.html: Change embed and object
+            elements to reference an invalid plugin, to be consistent with applet. These
+            element types are not focusable when there is valid plugin content.
+        * fast/events/resources/tabindex-focus-blur-all-frame2.html: Same as above.
+        * fast/events/resources/tabindex-focus-blur-all-iframe1.html: Same as above.
+        * fast/events/resources/tabindex-focus-blur-all-iframe2.html: Same as above.
+        * java/focus-expected.txt: Added.
+        * java/focus.html: Added.
+        * plugins/focus-expected.txt: Added.
+        * plugins/focus.html: Added.
+
 2013-04-03  Glenn Adams  <glenn@skynav.com>
 
         Element boundaries prevent Japanese line break opportunities
