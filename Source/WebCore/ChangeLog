@@ -1,3 +1,15 @@
+2013-04-04  Carlos Garcia Campos  <cgarcia@igalia.com>
+
+        [BlackBerry] Remove skia code from PluginViewBlackBerry
+        https://bugs.webkit.org/show_bug.cgi?id=113936
+
+        Reviewed by Rob Buis.
+
+        Skia is not used anymore by the BlackBerry port.
+
+        * plugins/blackberry/PluginViewBlackBerry.cpp:
+        (WebCore::PluginView::paint):
+
 2013-04-04  Emil A Eklund  <eae@chromium.org>
 
         Change RenderFrameSet::computeEdgeInfo to use m-rows/m_cols directly
