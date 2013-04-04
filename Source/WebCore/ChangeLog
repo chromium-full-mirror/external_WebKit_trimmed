@@ -1,3 +1,12 @@
+2013-04-04  Ed Bartosh  <bartosh@gmail.com>
+
+        [ATK] build fails when accessibility is turned off
+        https://bugs.webkit.org/show_bug.cgi?id=113699
+
+        Reviewed by Gyuyoung Kim.
+
+        * editing/atk/FrameSelectionAtk.cpp: Wrapped accessibility code in #if HAVE(ACCESSIBILITY)
+
 2013-04-04  Seokju Kwon  <seokju.kwon@gmail.com>
 
         Web Inspector: fix closure compiler warnings in the profiler code HeapSnapshotDataGrids.js
