@@ -1,3 +1,27 @@
+2013-04-03  Glenn Adams  <glenn@skynav.com>
+
+        [Chromium] Unreviewed gardening. Rebaseline after r147588.
+
+        * platform/chromium-mac-lion/fast/text/international/003-expected.png:
+        * platform/chromium-mac-lion/fast/text/international/text-combine-image-test-expected.png:
+        * platform/chromium-mac-lion/fast/text/international/text-combine-image-test-expected.txt:
+        * platform/chromium-mac-lion/fast/writing-mode/Kusa-Makura-background-canvas-expected.png:
+        * platform/chromium-mac-lion/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt:
+        * platform/chromium-mac-snowleopard/fast/text/international/text-combine-image-test-expected.png: Removed.
+        * platform/chromium-mac-snowleopard/fast/text/international/text-combine-image-test-expected.txt: Removed.
+        * platform/chromium-mac-snowleopard/fast/writing-mode/Kusa-Makura-background-canvas-expected.png:
+        * platform/chromium-mac/fast/text/international/003-expected.png:
+        * platform/chromium-mac/fast/text/international/003-expected.txt: Added.
+        * platform/chromium-mac/fast/text/international/text-combine-image-test-expected.png:
+        * platform/chromium-mac/fast/text/international/text-combine-image-test-expected.txt:
+        * platform/chromium-mac/fast/writing-mode/Kusa-Makura-background-canvas-expected.png:
+        * platform/chromium-mac/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt:
+        * platform/chromium-win/fast/text/international/003-expected.png:
+        * platform/chromium-win/fast/text/international/003-expected.txt:
+        * platform/chromium-win/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt:
+        * platform/chromium/TestExpectations:
+        * platform/chromium/fast/text/international/003-expected.txt: Removed.
+
 2013-04-03  Roger Fong  <roger_fong@apple.com>
 
         Unreviewed. AppleWin port gardening.
