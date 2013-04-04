@@ -1,3 +1,17 @@
+2013-04-03  Hans Muller  <hmuller@adobe.com>
+
+        [CSS Exclusions] Removed ExclusionShape dead code
+        https://bugs.webkit.org/show_bug.cgi?id=113904
+
+        Reviewed by Dirk Schulze.
+
+        No new tests, just removing dead code.
+
+        * rendering/ExclusionShape.cpp:
+        (WebCore::ExclusionShape::createExclusionShape):
+        * rendering/ExclusionShape.h:
+        (ExclusionShape):
+
 2013-04-03  Otto Derek Cheung  <otcheung@rim.com>
 
         [BlackBerry] Switch MediaPlayerPrivateBlackBerry.cpp's timer to use CLOCK_MONOTONIC
