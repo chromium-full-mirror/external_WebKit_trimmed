@@ -1,3 +1,23 @@
+2013-04-04  Glenn Adams  <glenn@skynav.com>
+
+        [Mac] Unreviewed gardening. Rebaseline after r147588.
+
+        * platform/mac-lion/fast/text/international/text-combine-image-test-expected.png:
+        * platform/mac-lion/fast/text/international/text-combine-image-test-expected.txt:
+        * platform/mac-lion/fast/writing-mode/Kusa-Makura-background-canvas-expected.png: Added.
+        * platform/mac-lion/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt:
+        * platform/mac-wk2/fast/text: Added.
+        * platform/mac-wk2/fast/text/international: Added.
+        * platform/mac-wk2/fast/text/international/003-expected.png: Added.
+        * platform/mac-wk2/fast/text/international/text-combine-image-test-expected.png: Added.
+        * platform/mac-wk2/fast/writing-mode/Kusa-Makura-background-canvas-expected.png: Added.
+        * platform/mac/fast/text/international/003-expected.png:
+        * platform/mac/fast/text/international/003-expected.txt:
+        * platform/mac/fast/text/international/text-combine-image-test-expected.png: Added.
+        * platform/mac/fast/text/international/text-combine-image-test-expected.txt:
+        * platform/mac/fast/writing-mode/Kusa-Makura-background-canvas-expected.png:
+        * platform/mac/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt:
+
 2013-04-03  Gyuyoung Kim  <gyuyoung.kim@samsung.com>
 
         [EFL] Add a decoration image to search input field
