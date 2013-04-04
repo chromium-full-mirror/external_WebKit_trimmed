@@ -1,3 +1,23 @@
+2013-04-04  Tim Horton  <timothy_horton@apple.com>
+
+        REGRESSION (r147373): Auto-sizing doesn't always respect minimum width changes
+        https://bugs.webkit.org/show_bug.cgi?id=113947
+        <rdar://problem/13579024>
+
+        Reviewed by Anders Carlsson.
+
+        Reset the FrameView size to the minimum auto-sizing size
+        before performing auto-sizing. We were already resetting the height,
+        but not the width, instead using the FrameView's current width.
+
+        This means that changing the minimum width without also manually
+        resizing the FrameView will never see the width change.
+
+        Auto-sizing tests are not working on Mac yet.
+
+        * page/FrameView.cpp:
+        (WebCore::FrameView::autoSizeIfEnabled):
+
 2013-04-04  Martin Robinson  <mrobinson@igalia.com>
 
         [GTK] Remove the gyp build
