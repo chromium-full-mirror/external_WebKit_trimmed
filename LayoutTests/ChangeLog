@@ -1,3 +1,13 @@
+2013-04-04  Chris Fleizach  <cfleizach@apple.com>
+
+        AX:File upload button has wrong label
+        https://bugs.webkit.org/show_bug.cgi?id=113924
+
+        Reviewed by David Kilzer.
+
+        * platform/iphone-simulator/accessibility/file-upload-button-expected.txt: Added.
+        * platform/iphone-simulator/accessibility/file-upload-button.html: Added.
+
 2013-04-04  Emil A Eklund  <eae@chromium.org>
 
         Change RenderFrameSet::computeEdgeInfo to use m-rows/m_cols directly
