@@ -1,3 +1,14 @@
+2013-04-04  Seokju Kwon  <seokju.kwon@gmail.com>
+
+        Web Inspector: fix closure compiler warnings in IndexedDBModel.js
+        https://bugs.webkit.org/show_bug.cgi?id=113926
+
+        Reviewed by Alexander Pavlov.
+
+        No new tests: no change in behaviour.
+
+        * inspector/front-end/IndexedDBModel.js:
+
 2013-04-04  Xidorn Quan  <quanxunzhen@gmail.com>
 
         REGRESSION (r145870): Can't get insertion point to appear in some input and textareas on wordpress
