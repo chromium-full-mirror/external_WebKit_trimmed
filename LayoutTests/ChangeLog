@@ -1,3 +1,13 @@
+2013-04-04  Seokju Kwon  <seokju.kwon@gmail.com>
+
+        [Qt] WebSocket errors should be logged to console
+        https://bugs.webkit.org/show_bug.cgi?id=113842
+
+        Reviewed by Jocelyn Turcotte.
+
+        * platform/qt/TestExpectations:
+        * platform/qt/http/tests/inspector/console-websocket-error-expected.txt: Added.
+
 2013-04-04  Ádám Kallai  <kadam@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening.
