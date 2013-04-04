@@ -1,3 +1,13 @@
+2013-04-04  Xidorn Quan  <quanxunzhen@gmail.com>
+
+        REGRESSION (r145870): Can't get insertion point to appear in some input and textareas on wordpress
+        https://bugs.webkit.org/show_bug.cgi?id=113591
+
+        Reviewed by Simon Fraser.
+
+        * fast/borders/border-radius-child-expected.txt: Added.
+        * fast/borders/border-radius-child.html: Added.
+
 2013-04-04  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Regression(r142765) Broke Custom SVG cursors and SVG canvas drawing for Chromium

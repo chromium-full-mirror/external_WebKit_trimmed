@@ -1,3 +1,19 @@
+2013-04-04  Xidorn Quan  <quanxunzhen@gmail.com>
+
+        REGRESSION (r145870): Can't get insertion point to appear in some input and textareas on wordpress
+        https://bugs.webkit.org/show_bug.cgi?id=113591
+
+        Reviewed by Simon Fraser.
+
+        Since a child node could overflow its ancestor, it is not wise to check
+        one's radii boundary before checking whether the given point intersects
+        its children. This patch moves the related code down to fix the bug.
+
+        Test: fast/borders/border-radius-child.html
+
+        * rendering/RenderBlock.cpp:
+        (WebCore::RenderBlock::nodeAtPoint):
+
 2013-04-04  Xabier Rodriguez Calvar  <calvaris@igalia.com>
 
         [GStreamer] Virtual modifier for MediaPlayer::simulateAudioInterruption must go
