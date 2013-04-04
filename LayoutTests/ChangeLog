@@ -1,3 +1,12 @@
+2013-04-04  Jochen Eisinger  <jochen@chromium.org>
+
+        [EFL][Qt] The layout test fast/loader/url-selected-user-gesture.html is failing.
+        https://bugs.webkit.org/show_bug.cgi?id=113930
+
+        Reviewed by Antti Koivisto.
+
+        * fast/loader/url-selected-user-gesture.html:
+
 2013-04-04  Seokju Kwon  <seokju.kwon@gmail.com>
 
         [Qt] WebSocket errors should be logged to console
