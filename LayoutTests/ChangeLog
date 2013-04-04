@@ -1,3 +1,16 @@
+2013-04-04  Simon Fraser  <simon.fraser@apple.com>
+
+        Page content missing when flipping from an empty layer to a tiled layer
+        https://bugs.webkit.org/show_bug.cgi?id=113977
+        <rdar://problem/13444219>
+
+        Reviewed by Tim Horton.
+        
+        Ref test that adds visible content to a larger layer.
+
+        * compositing/tiling/empty-to-tiled-expected.html: Added.
+        * compositing/tiling/empty-to-tiled.html: Added.
+
 2013-04-04  Eric Carlson  <eric.carlson@apple.com>
 
         Unreviewed, fix a test and some results missed in r147675

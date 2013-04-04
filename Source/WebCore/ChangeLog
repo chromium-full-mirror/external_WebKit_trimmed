@@ -1,3 +1,31 @@
+2013-04-04  Simon Fraser  <simon.fraser@apple.com>
+
+        Page content missing when flipping from an empty layer to a tiled layer
+        https://bugs.webkit.org/show_bug.cgi?id=113977
+        <rdar://problem/13444219>
+
+        Reviewed by Tim Horton.
+        
+        Some articles on USA Today were missing content on load, when a large GraphicsLayer
+        which did not draw content needed to draw content (and become tiled in the process).
+        
+        The bug was an ordering dependency in GraphicsLayerCA::commitLayerChangesBeforeSublayers().
+        swapFromOrToTiledLayer() sets some dirty flags, but for some properties which have
+        already been committed in the current flush cycle.
+        
+        Fix by moving the swapFromOrToTiledLayer() to the top of the commit, which is
+        safe since it only consults GraphicsLayer properties, not CALayer properties.
+
+        Test: compositing/tiling/empty-to-tiled.html
+
+        * platform/graphics/ca/GraphicsLayerCA.cpp:
+        (WebCore::GraphicsLayerCA::commitLayerChangesBeforeSublayers):
+        (WebCore::GraphicsLayerCA::updateGeometry):
+        (WebCore::GraphicsLayerCA::updateLayerDrawsContent):
+        (WebCore::GraphicsLayerCA::updateContentsScale):
+        * platform/graphics/ca/GraphicsLayerCA.h:
+        (GraphicsLayerCA):
+
 2013-04-04  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Regression(r147639) Causes assertion hit in HashTable
