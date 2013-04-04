@@ -1,5 +1,13 @@
 2013-04-04  Glenn Adams  <glenn@skynav.com>
 
+        [EFL] Unreviewed gardening. Rebaseline after r147588. Remove overridden pixel results.
+
+        * platform/efl/fast/text/international/003-expected.png: Removed.
+        * platform/efl/fast/text/international/text-combine-image-test-expected.png: Removed.
+        * platform/efl/fast/writing-mode/Kusa-Makura-background-canvas-expected.png: Removed.
+
+2013-04-04  Glenn Adams  <glenn@skynav.com>
+
         [EFL] Unreviewed gardening. Rebaseline after r147588. Update pixel expectations.
 
         * platform/efl-wk1/fast/text/international/003-expected.png: Added.
