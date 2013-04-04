@@ -1,3 +1,89 @@
+2013-04-04  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        [Cairo] Fix canvas drawing of SVG-based patterns and remove NativeImageCairo
+        https://bugs.webkit.org/show_bug.cgi?id=113929
+
+        Reviewed by Martin Robinson.
+
+        Make (Pass)NativeImagePtr typedefs to (Pass)RefPtr<cairo_surface_t> instead
+        of NativeImageCairo*. Now that we switch to using smart pointers,
+        NativeImageCairo is removed as it made no sense to make it ref counted when
+        it merely held a single ref counted member.
+
+        Now that Cairo is using smart pointers for (Pass)NativeImagePtr, this patch
+        also enables the implementation of SVGImage::nativeImageForCurrentFrame()
+        for USE(CAIRO) as well. This effectively fixes canvas drawing of SVG-based
+        patterns for Cairo-based ports.
+
+        No new tests, covered by svg/canvas/canvas-pattern-svg.html.
+
+        * GNUmakefile.list.am: Remove NativeImageCairo.* for GTK.
+
+        * PlatformEfl.cmake: Remove NativeImageCairo.* for EFL.
+
+        * WebCore.vcproj/WebCore.vcproj:
+        * WebCore.vcxproj/WebCore.vcxproj:
+        * WebCore.vcxproj/WebCore.vcxproj.filters:
+        Remove NativeImageCairo.* for Win.
+
+        * platform/graphics/BitmapImage.cpp:
+        (WebCore::FrameData::reportMemoryUsage):
+        Update MemoryClassInfo::addRawBuffer() call now that m_frame is a RefPtr
+        for USE(CAIRO).
+
+        * platform/graphics/BitmapImage.h:
+        (BitmapImage):
+        Remove factory method taking a cairo_surface_t* in argument. This is useless
+        now that PassNativeImagePtr is a typedef to PassRefPtr<cairo_surface_t> and
+        there is already a factory method taking a PassNativeImagePtr in argument.
+
+        * platform/graphics/NativeImagePtr.h:
+        (WebCore):
+        Make PassNativeImagePtr a typedef to PassRefPtr<cairo_surface_t> and
+        NativeImagePtr a typedef to RefPtr<cairo_surface_t>, instead of
+        NativeImageCairo*. Moving to smart pointers is needed to enable implementation
+        of SVGImage::nativeImageForCurrentFrame() for Cairo.
+
+        * platform/graphics/cairo/BitmapImageCairo.cpp:
+        (WebCore::BitmapImage::BitmapImage):
+        (WebCore::BitmapImage::draw):
+        (WebCore::BitmapImage::checkForSolidColor):
+        (WebCore::FrameData::clear):
+        * platform/graphics/cairo/GraphicsContext3DCairo.cpp:
+        (WebCore::GraphicsContext3D::ImageExtractor::extractImage):
+        * platform/graphics/cairo/ImageCairo.cpp:
+        (WebCore::Image::drawPattern):
+        Update Cairo graphics code to reflect the (Pass)NativeImagePtr type changes.
+
+        * platform/graphics/cairo/NativeImageCairo.cpp: Removed.
+        * platform/graphics/cairo/NativeImageCairo.h: Removed.
+
+        * platform/graphics/cairo/PatternCairo.cpp:
+        (WebCore::Pattern::createPlatformPattern):
+        * platform/graphics/efl/GraphicsContext3DEfl.cpp:
+        (WebCore::GraphicsContext3D::ImageExtractor::extractImage):
+        * platform/graphics/efl/ImageEfl.cpp:
+        (WebCore::BitmapImage::getEvasObject):
+        * platform/graphics/gtk/ImageGtk.cpp:
+        (WebCore::BitmapImage::getGdkPixbuf):
+        * platform/graphics/texmap/TextureMapperGL.cpp:
+        (WebCore::BitmapTextureGL::updateContents):
+        * platform/graphics/win/ImageCairoWin.cpp:
+        (WebCore::BitmapImage::create):
+        (WebCore::BitmapImage::drawFrameMatchingSourceSize):
+        * platform/gtk/DragImageGtk.cpp:
+        (WebCore::createDragImageFromImage):
+        * platform/image-decoders/cairo/ImageDecoderCairo.cpp:
+        (WebCore::ImageFrame::asNewNativeImage):
+        * platform/win/DragImageCairoWin.cpp:
+        (WebCore::createDragImageFromImage):
+        Update code to reflect the (Pass)NativeImagePtr type changes.
+
+        * svg/graphics/SVGImage.cpp:
+        (WebCore):
+        * svg/graphics/SVGImage.h:
+        Enable SVGImage::nativeImageForCurrentFrame() for USE(CAIRO).
+
 2013-04-04  Ed Bartosh  <bartosh@gmail.com>
 
         [EFL] --minimal build fails with 'error: unused variable'
