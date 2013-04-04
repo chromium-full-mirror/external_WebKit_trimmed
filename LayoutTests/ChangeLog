@@ -1,3 +1,20 @@
+2013-04-04  Oliver Hunt  <oliver@apple.com>
+
+        Exception stack unwinding doesn't handle inline callframes correctly
+        https://bugs.webkit.org/show_bug.cgi?id=113952
+
+        Reviewed by Geoffrey Garen.
+
+        Yay tests!
+
+        * fast/js/js-correct-exception-handler-expected.txt: Added.
+        * fast/js/js-correct-exception-handler.html: Added.
+        * fast/js/script-tests/js-correct-exception-handler.js: Added.
+        (throwEventually):
+        (f.g):
+        (f):
+        (test):
+
 2013-04-04  Glenn Adams  <glenn@skynav.com>
 
         [EFL] Unreviewed gardening. Rebaseline after r147588.
