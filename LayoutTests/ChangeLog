@@ -1,5 +1,12 @@
 2013-04-03  Glenn Adams  <glenn@skynav.com>
 
+        [GTK] Unreviewed gardening. Rebaseline after r147588.
+
+        * platform/gtk-wk1/fast/writing-mode: Added.
+        * platform/gtk-wk1/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt: Added.
+
+2013-04-03  Glenn Adams  <glenn@skynav.com>
+
         [Chromium] Unreviewed gardening. Rebaseline after r147588.
 
         * platform/chromium-mac-lion/fast/text/international/003-expected.png:
