@@ -1,3 +1,35 @@
+2013-04-04  Andreas Kling  <akling@apple.com>
+
+        Render images with low-quality scaling while FrameView is being resized.
+        <http://webkit.org/b/113764>
+        <rdar://problem/13555154>
+
+        Reviewed by Antti Koivisto.
+
+        Have ImageQualityController ask the renderer's containing FrameView if it's currently in live
+        resize, and if so, paint all images with low-quality scaling. A high-quality repaint will happen
+        ~0.5 sec after live resizing ends, piggybacking on the same mechanism we use to do JS-animated
+        resizing with low-quality scaling.
+
+        This reduces CPU time spent generating new tiles during live window resize, especially on Retina
+        systems where a lot of upscaling happens on legacy web content.
+
+        * rendering/RenderBoxModelObject.cpp:
+        (ImageQualityController):
+
+            Added an m_liveResizeOptimizationIsActive flag that tracks whether the ImageQualityController
+            is painting everything in low quality due to live window resize. It gets unset when the HQ
+            repaint timer fires and everything has been repainted properly.
+
+        (WebCore::ImageQualityController::highQualityRepaintTimerFired):
+
+            When the HQ repaint timer fires, check if the renderer's containing FrameView is still in
+            live resize, and if so, abort HQ repaint for now and reschedule the timer.
+
+        (WebCore::ImageQualityController::ImageQualityController):
+        (WebCore::ImageQualityController::objectDestroyed):
+        (WebCore::ImageQualityController::shouldPaintAtLowQuality):
+
 2013-04-04  Seokju Kwon  <seokju.kwon@gmail.com>
 
         Web Inspector: fix closure compiler warnings in IndexedDBModel.js
