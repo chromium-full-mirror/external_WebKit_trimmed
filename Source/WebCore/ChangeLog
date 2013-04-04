@@ -1,3 +1,19 @@
+2013-04-04  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Regression(r147639) Causes assertion hit in HashTable
+        https://bugs.webkit.org/show_bug.cgi?id=113954
+
+        Reviewed by Benjamin Poulain.
+
+        Lookup the key in the hash table again after the recursive call to
+        getCachedFontPlatformData() as it may have altered the hash map and
+        invalidated the previous iterator we had.
+
+        No new tests, covered by existing tests.
+
+        * platform/graphics/FontCache.cpp:
+        (WebCore::FontCache::getCachedFontPlatformData):
+
 2013-04-04  Eric Carlson  <eric.carlson@apple.com>
 
         [Mac] add "automatic" text track menu item
