@@ -1,3 +1,11 @@
+2013-04-04  Ádám Kallai  <kadam@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening.
+
+        * platform/qt/TestExpectations: Skipped some failing tests.
+        * platform/qt/fast/borders/rtl-border-04-expected.png: Updated after r147588.
+        * platform/qt/fast/borders/rtl-border-04-expected.txt: Updated after r147588.
+
 2013-04-04  Glenn Adams  <glenn@skynav.com>
 
         [Mac] Unreviewed gardening. Rebaseline after r147588.
