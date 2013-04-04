@@ -1,3 +1,14 @@
+2013-04-04  Glenn Adams  <glenn@skynav.com>
+
+        [EFL] Unreviewed gardening. Rebaseline after r147588. Update pixel expectations.
+
+        * platform/efl-wk1/fast/text/international/003-expected.png: Added.
+        * platform/efl-wk1/fast/text/international/text-combine-image-test-expected.png: Added.
+        * platform/efl-wk1/fast/writing-mode/Kusa-Makura-background-canvas-expected.png: Added.
+        * platform/efl-wk2/fast/text/international/003-expected.png: Added.
+        * platform/efl-wk2/fast/text/international/text-combine-image-test-expected.png: Added.
+        * platform/efl-wk2/fast/writing-mode/Kusa-Makura-background-canvas-expected.png: Added.
+
 2013-04-04  Oliver Hunt  <oliver@apple.com>
 
         Exception stack unwinding doesn't handle inline callframes correctly
