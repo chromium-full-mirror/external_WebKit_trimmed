@@ -1,3 +1,91 @@
+2013-04-04  Eric Carlson  <eric.carlson@apple.com>
+
+        [Mac] add "automatic" text track menu item
+        https://bugs.webkit.org/show_bug.cgi?id=113822
+
+        Reviewed by Jer Noble.
+
+        No new tests, existing tests updated.
+
+        * English.lproj/Localizable.strings: Add new track menu item.
+
+        * html/HTMLMediaElement.cpp: 
+        (WebCore::HTMLMediaElement::HTMLMediaElement): Initialize m_captionDisplayMode.
+        (WebCore::HTMLMediaElement::finishParsingChildren): LoadTextTrackResource -> ConfigureTextTracks.
+        (WebCore::HTMLMediaElement::scheduleDelayedAction): Ditto.
+        (WebCore::HTMLMediaElement::loadTimerFired): Ditto.
+        (WebCore::HTMLMediaElement::loadInternal): Ditto. Flag the caption menu as invalid so it will
+            be rebuilt again.
+        (WebCore::HTMLMediaElement::mediaPlayerDidAddTrack): LoadTextTrackResource -> ConfigureTextTracks.
+        (WebCore::HTMLMediaElement::didAddTrack): Ditto.
+        (WebCore::HTMLMediaElement::configureTextTrackGroup): Deal with new track display modes.
+        (WebCore::HTMLMediaElement::HTMLMediaElement::hasClosedCaptions): Minor cleanup.
+        (WebCore::HTMLMediaElement::configureTextTrackGroup): Add some logging.
+        (WebCore::HTMLMediaElement::configureTextTracks): Call updateActiveTextTrackCues so cue display
+            is updated.
+        (WebCore::HTMLMediaElement::captionPreferencesChanged): Deal with new track display modes.
+        (WebCore::HTMLMediaElement::markCaptionAndSubtitleTracksAsUnconfigured): Add some logging.
+        * html/HTMLMediaElement.h: Ditto.
+
+        * html/shadow/MediaControlElementTypes.cpp: Remove trackIndexAttributeName and trackListIndexForElement.
+        * html/shadow/MediaControlElementTypes.h: Ditto.
+
+        * html/shadow/MediaControlElements.cpp:
+        (WebCore::MediaControlClosedCaptionsTrackListElement::defaultEventHandler): Don't use track index,
+            everything we need is in the track<->element map now.
+        (WebCore::MediaControlClosedCaptionsTrackListElement::updateDisplay): Ditto. Always rebuild the 
+            track list because clear the map each time the menu goes away because it refs every track.
+        (WebCore::MediaControlClosedCaptionsTrackListElement::rebuildTrackListMenu): Don't set the track
+            index attribute on the menu items, just use the map.
+        * html/shadow/MediaControlElements.h:
+
+        * html/shadow/MediaControlsApple.cpp:
+        (WebCore::MediaControlsApple::changedClosedCaptionsVisibility): resetTrackListMenu is gone.
+        (WebCore::MediaControlsApple::reset): Ditto.
+        (WebCore::MediaControlsApple::closedCaptionTracksChanged): Ditto.
+
+        * html/track/TextTrack.cpp:
+        (WebCore::TextTrack::captionMenuOffItem): New, static TextTrack used for the menu "Off" item.
+        (WebCore::TextTrack::captionMenuAutomaticItem): New, static TextTrack used for the menu "Automatic" item.
+        * html/track/TextTrack.h:
+
+        * page/CaptionUserPreferences.cpp:
+        (WebCore::CaptionUserPreferences::shouldShowCaptions): Removed, we use captionDisplayMode instead.
+        (WebCore::CaptionUserPreferences::captionDisplayMode): New.
+        (WebCore::CaptionUserPreferences::setCaptionDisplayMode): New.
+        (WebCore::CaptionUserPreferences::setPreferredLanguage): Make the parameter a const reference.
+        (WebCore::CaptionUserPreferences::textTrackSelectionScore): Return 0 if the user doesn't want
+            captions or subtitles.
+        (WebCore::CaptionUserPreferences::textTrackLanguageSelectionScore): Take language as a parameter
+            instead of assuming that it is always the entire language list.
+        * page/CaptionUserPreferences.h:
+
+        * page/CaptionUserPreferencesMac.h:
+        * page/CaptionUserPreferencesMac.mm:
+        (WebCore::CaptionUserPreferencesMac::shouldShowCaptions): Removed, we use captionDisplayMode instead.
+        (WebCore::CaptionUserPreferencesMac::captionDisplayMode): New.
+        (WebCore::CaptionUserPreferencesMac::setCaptionDisplayMode): New.
+        (WebCore::CaptionUserPreferencesMac::setPreferredLanguage): Make the parameter a const reference.
+        (WebCore::CaptionUserPreferencesMac::textTrackSelectionScore): Deal with "Automatic" mode.
+            captions or subtitles.
+        (WebCore::CaptionUserPreferences::textTrackLanguageSelectionScore): Take language as a parameter
+            instead of assuming that it is always the entire language list.
+        (WebCore::CaptionUserPreferencesMac::sortedTrackListForMenu): Insert "Off" and "Automatic" items.
+
+        * platform/LocalizedStrings.cpp:
+        (WebCore::textTrackAutomaticMenuItemText): New.
+        * platform/LocalizedStrings.h:
+
+        * platform/graphics/MediaPlayer.cpp:
+        (WebCore::MediaPlayer::languageOfPrimaryAudioTrack): New.
+        * platform/graphics/MediaPlayer.h:
+        * platform/graphics/MediaPlayerPrivate.h:
+
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.h:
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.mm:
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::languageOfPrimaryAudioTrack): Return the language
+            of the main audio track.
+
 2013-04-04  Alexey Proskuryakov  <ap@apple.com>
 
         REGRESSION (r146580): Assertion using SecurityOrigin::create, URL string is not valid

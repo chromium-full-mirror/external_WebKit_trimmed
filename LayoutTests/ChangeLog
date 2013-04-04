@@ -1,3 +1,32 @@
+2013-04-04  Eric Carlson  <eric.carlson@apple.com>
+
+        [Mac] add "automatic" text track menu item
+        https://bugs.webkit.org/show_bug.cgi?id=113822
+
+        Reviewed by Jer Noble.
+
+        * media/media-captions.html: Opportunistic fix - don't look at state until we get the 'canplaythrough'
+            event because the media engine state may not have been processed until that time.
+        * media/track/track-cue-container-rendering-position.html: Don't assume that a cue has been 
+            rendered immediately when the 'canplaythrough' event comes through.
+        * media/track/track-cue-rendering-mode-changed.html: Ditto.
+        * media/track/track-in-band-expected.txt: Don't check if cues have loaded, it doesn't matter
+            for this test.
+        * media/track/track-in-band.html: Ditto.
+        * media/track/track-user-preferences-expected.txt: Changed name of utility function from 
+            menuIndexForLanguage to indexOfMenuItemBeginningWith.
+        * media/track/track-user-preferences.html: Move menuIndexForLanguage to trackmenu-test.js and
+            change name to indexOfMenuItemBeginningWith. Clarify the message logged when a track loads
+            but it should not.
+        * media/trackmenu-test.js: Move some functions here from track-user-preferences.html
+        (trackMenuList):
+        (indexOfMenuItemBeginningWith):
+        (selectCaptionMenuItem):
+        * media/video-controls-captions-trackmenu-sorted.html: Update for new menu item.
+        * media/video-controls-captions-trackmenu.html: Ditto.
+        * platform/mac/media/video-controls-captions-trackmenu-expected.txt: Ditto.
+        * platform/mac/media/video-controls-captions-trackmenu-sorted-expected.txt: Ditto.
+
 2013-04-04  Glenn Adams  <glenn@skynav.com>
 
         [EFL] Unreviewed gardening. Rebaseline after r147588. Remove overridden pixel results.
