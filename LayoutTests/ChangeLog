@@ -1,3 +1,15 @@
+2013-04-03  Gyuyoung Kim  <gyuyoung.kim@samsung.com>
+
+        Unreviewed gardening. Below tests aren't related to bug 87619. It just needs to do rebaseline.
+
+        * platform/efl/TestExpectations:
+        * platform/efl/fast/forms/number/number-appearance-rtl-expected.png:
+        * platform/efl/fast/forms/number/number-appearance-rtl-expected.txt:
+        * platform/efl/fast/forms/number/number-appearance-spinbutton-disabled-readonly-expected.png:
+        * platform/efl/fast/forms/number/number-appearance-spinbutton-disabled-readonly-expected.txt:
+        * platform/efl/fast/forms/number/number-appearance-spinbutton-layer-expected.png:
+        * platform/efl/fast/forms/number/number-appearance-spinbutton-layer-expected.txt:
+
 2013-04-03  Kent Tamura  <tkent@chromium.org>
 
         Input value/placeholder is not redrawn when the input height grows
