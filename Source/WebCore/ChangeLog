@@ -1,3 +1,15 @@
+2013-04-04  Emil A Eklund  <eae@chromium.org>
+
+        Change RenderFrameSet::computeEdgeInfo to use m-rows/m_cols directly
+        https://bugs.webkit.org/show_bug.cgi?id=113825
+
+        Reviewed by Eric Seidel.
+
+        Tests: fast/frames/invalid-frameset-compute-edge.html
+
+        * rendering/RenderFrameSet.cpp:
+        (WebCore::RenderFrameSet::computeEdgeInfo):
+
 2013-04-04  ChangSeok Oh  <changseok.oh@collabora.com>
 
         [GTK][AC] Invalid clear ClutterContent of ClutterActor
