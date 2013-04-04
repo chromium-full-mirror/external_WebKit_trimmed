@@ -1,3 +1,16 @@
+2013-04-04  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Regression(r142765) Broke Custom SVG cursors and SVG canvas drawing for Chromium
+        https://bugs.webkit.org/show_bug.cgi?id=113420
+
+        Reviewed by Stephen White.
+
+        Add layout test to check that drawing canvas patterns containing SVG images works.
+
+        * platform/chromium-linux/svg/canvas/canvas-pattern-svg-expected.png: Added.
+        * svg/canvas/canvas-pattern-svg-expected.txt: Added.
+        * svg/canvas/canvas-pattern-svg.html: Added.
+
 2013-04-04  Seokju Kwon  <seokju.kwon@gmail.com>
 
         [SOUP] inspector/timeline/timeline-receive-response-event.html fails

@@ -1,3 +1,261 @@
+2013-04-04  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Regression(r142765) Broke Custom SVG cursors and SVG canvas drawing for Chromium
+        https://bugs.webkit.org/show_bug.cgi?id=113420
+
+        Reviewed by Stephen White.
+
+        Introduce a PassNativeImagePtr typedef that is used in place of NativeImagePtr
+        for method arguments and return values. This is needed as Skia now maps
+        NativeImagePtr to RefPtr<NativeImageSkia> and PassNativeImagePtr to
+        PassRefPtr<NativeImageSkia>. We move towards ref counted smart pointers so that
+        SVGImage::nativeImageForCurrentFrame() can transfer ownership of the native
+        image to the caller if needed (e.g. for SVGImage).
+
+        Provide nativeImageForCurrentFrame() implementation for SVGImage. SVGImage no
+        longer holds the native image internally, to save memory. It is therefore created
+        when nativeImageForCurrentFrame() is called and ownership is passed to the
+        caller. For now, this implementation is only enabled for Skia as others are using
+        raw pointers for PassNativeImagePtr.
+
+        Test: svg/canvas/canvas-pattern-svg.html
+
+        * loader/icon/IconDatabase.cpp:
+        (WebCore::IconDatabase::synchronousNativeIconForPageURL):
+        Return a PassNativeImagePtr instead of NativeImagePtr.
+
+        * loader/icon/IconDatabase.h:
+        (IconDatabase):
+        * loader/icon/IconDatabaseBase.h:
+        (WebCore::IconDatabaseBase::synchronousNativeIconForPageURL):
+        Return a PassNativeImagePtr instead of NativeImagePtr.
+
+        * platform/chromium/DragImageChromiumSkia.cpp:
+        (WebCore::createDragImageFromImage):
+        Store return value of nativeImageForCurrentFrame() in a RefPtr instead of a raw
+        one.
+
+        * platform/chromium/PasteboardChromium.cpp:
+        (WebCore::Pasteboard::writeImage):
+        Store return value of nativeImageForCurrentFrame() in a RefPtr<NativeImageSkia>
+        instead of a NativeImagePtr. While these are equivalent, the former is more
+        readable in Skia-specific code.
+
+        * platform/graphics/BitmapImage.cpp:
+        (WebCore::BitmapImage::frameAtIndex):
+        Return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        (WebCore::BitmapImage::nativeImageForCurrentFrame):
+        Return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        * platform/graphics/BitmapImage.h:
+        (WebCore::BitmapImage::create):
+        Take a PassNativeImagePtr in argument instead of a NativeImagePtr.
+
+        (BitmapImage): Ditto.
+
+        * platform/graphics/GraphicsContext.h:
+        (GraphicsContext): Ditto.
+
+        * platform/graphics/GraphicsContext3D.h:
+        (ImageExtractor):
+        Keep NativeImageSkia in a RefPtr instead of OwnPtr, now that it is refcounted.
+
+        * platform/graphics/Image.h:
+        (WebCore::Image::nativeImageForCurrentFrame):
+        Return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        * platform/graphics/ImageBuffer.h:
+        (ImageBuffer):
+        Have copyNativeImage() return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        * platform/graphics/ImageSource.cpp:
+        (WebCore::ImageSource::createFrameAtIndex):
+        Return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        * platform/graphics/ImageSource.h:
+        Have createFrameAtIndex() return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        * platform/graphics/NativeImagePtr.h:
+        Map NativeImagePtr to a RefPtr<NativeImageSkia> instead of NativeImageSkia* for Skia.
+        Introduce new PassNativeImagePtr that maps to PassRefPtr<NativeImageSkia> for Skia
+        and is equivalent to NativeImagePtr for other ports. We now use smart pointers for
+        the native image so that SVGImage::nativeImageForCurrentFrame() can pass ownership
+        of the native image to the caller, unlike BitmapImage::nativeImageForCurrentFrame().
+
+        * platform/graphics/blackberry/ImageBlackBerry.cpp:
+        (WebCore::ImageFrame::asNewNativeImage):
+        Return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        (WebCore::BitmapImage::BitmapImage):
+        Take a PassNativeImagePtr instead of a NativeImagePtr in argument.
+
+        * platform/graphics/cg/GraphicsContextCG.cpp:
+        (WebCore::GraphicsContext::drawNativeImage): Ditto.
+
+        * platform/graphics/cg/ImageBufferCG.cpp:
+        (WebCore::ImageBuffer::copyNativeImage):
+        Take a PassNativeImagePtr instead of a NativeImagePtr in argument.
+
+        * platform/graphics/chromium/GraphicsLayerChromium.cpp:
+        (WebCore::GraphicsLayerChromium::setContentsToImage):
+        Store return value of nativeImageForCurrentFrame() in a RefPtr instead of a raw one.
+
+        * platform/graphics/filters/skia/FEBlendSkia.cpp:
+        (WebCore::FEBlend::platformApplySkia): Ditto.
+
+        * platform/graphics/filters/skia/FEColorMatrixSkia.cpp:
+        (WebCore::FEColorMatrix::platformApplySkia): Ditto.
+
+        * platform/graphics/filters/skia/FEComponentTransferSkia.cpp:
+        (WebCore::FEComponentTransfer::platformApplySkia): Ditto.
+
+        * platform/graphics/filters/skia/FEDisplacementMapSkia.cpp:
+        (WebCore::FEDisplacementMap::platformApplySkia): Ditto.
+
+        * platform/graphics/filters/skia/FELightingSkia.cpp:
+        (WebCore::FELighting::platformApplySkia): Ditto.
+
+        * platform/graphics/qt/ImageDecoderQt.cpp:
+        (WebCore::ImageFrame::asNewNativeImage):
+        Return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        * platform/graphics/qt/StillImageQt.cpp:
+        (WebCore::StillImage::nativeImageForCurrentFrame):
+        Return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        * platform/graphics/qt/StillImageQt.h:
+        (StillImage): Ditto.
+
+        * platform/graphics/skia/GraphicsContext3DSkia.cpp:
+        (WebCore::GraphicsContext3D::ImageExtractor::extractImage):
+        No longer need to adopt the return value of asNewNativeImage() now
+        that it returns a PassRefPtr instead of a raw one.
+
+        * platform/graphics/skia/ImageBufferSkia.cpp:
+        (WebCore::ImageBuffer::copyImage):
+        (WebCore::ImageBuffer::draw):
+        (WebCore::ImageBuffer::drawPattern):
+        Call NativeImageSkia::create() factory method now that the constructor
+        is private.
+
+        * platform/graphics/skia/ImageSkia.cpp:
+        (WebCore::FrameData::clear):
+        Just call clear() on m_frame instead of explicitely deleting it now
+        that it is a RefPtr.
+
+        (WebCore::Image::drawPattern):
+        Store return value of nativeImageForCurrentFrame() in a RefPtr instead
+        of a raw one.
+
+        (WebCore::BitmapImage::BitmapImage):
+        (WebCore::BitmapImage::checkForSolidColor):
+        Store return value of frameAtIndex() in a RefPtr instead of a raw one.
+
+        (WebCore::BitmapImage::draw):
+        Store return value of nativeImageForCurrentFrame() in a RefPtr instead
+        of a raw one.
+
+        * platform/graphics/skia/NativeImageSkia.cpp:
+        Add new constructor taking all members in argument. This is used for
+        cloning a NativeImageSkia object.
+
+        (WebCore::NativeImageSkia::NativeImageSkia):
+        (WebCore::NativeImageSkia::deepSkBitmapCopy):
+        Add convenience function to make a deep copy of a SkBitmap.
+
+        * platform/graphics/skia/NativeImageSkia.h:
+        (WebCore):
+        (WebCore::NativeImageSkia::create):
+        (NativeImageSkia):
+        Make NativeImageSkia subclass RefCounted. Make the constructor private
+        and add a factory method instead that returns a PassRefPtr.
+
+        (WebCore::NativeImageSkia::clone):
+        Add a clone() method now that NativeImageSkia is refcounted and is no
+        longer copyable.
+
+        * platform/graphics/skia/PatternSkia.cpp:
+        (WebCore::Pattern::platformPattern):
+        Store return value of nativeImageForCurrentFrame() in a RefPtr instead
+        of a raw one.
+
+        * platform/graphics/wince/ImageWinCE.cpp:
+        (WebCore::ImageFrame::asNewNativeImage):
+        Return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        * platform/image-decoders/ImageDecoder.h:
+        (ImageFrame):
+        Have asNewNativeImage() return a PassNativeImagePtr instead of a
+        NativeImagePtr.
+
+        (WebCore::ImageFrame::getAddr):
+        (WebCore::ImageFrame::setSkBitmap):
+        (WebCore::ImageFrame::getSkBitmap):
+        (WebCore::ImageFrame::width):
+        (WebCore::ImageFrame::height):
+        Update use of m_bitmap now that it is a pointer type and call
+        NativeImageSkia::create() to construct a NativeImageSkia object now
+        that the constructor is private.
+
+        * platform/image-decoders/cairo/ImageDecoderCairo.cpp:
+        (WebCore::ImageFrame::asNewNativeImage):
+        Return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        * platform/image-decoders/openvg/ImageDecoderOpenVG.cpp:
+        (WebCore::ImageFrame::asNewNativeImage): Ditto.
+
+        * platform/image-decoders/skia/ImageDecoderSkia.cpp:
+        (WebCore::ImageFrame::ImageFrame):
+        Initialize m_bitmap in the constructor now that it is a pointer
+        type and we need NativeImageSkia's default constructor to be
+        called.
+
+        (WebCore::ImageFrame::operator=):
+        Call NativeImageSkia's new clone() method to copy m_bitmap as
+        NativeImageSkia is now RefCounted and no longer copyable.
+
+        (WebCore::ImageFrame::clearPixelData):
+        (WebCore::ImageFrame::zeroFillPixelData):
+        (WebCore::ImageFrame::copyBitmapData):
+        (WebCore::ImageFrame::setSize):
+        Update use of m_bitmap now that it is a pointer type.
+
+        (WebCore::ImageFrame::asNewNativeImage):
+        Return a PassNativeImagePtr instead of a NativeImagePtr.
+        Call NativeImageSkia's clone method now that it is no longer
+        copyable.
+
+        (WebCore::ImageFrame::setHasAlpha):
+        (WebCore::ImageFrame::setStatus):
+        Update use of m_bitmap now that it is a pointer type.
+
+        * platform/image-decoders/wx/ImageDecoderWx.cpp:
+        (WebCore::ImageFrame::asNewNativeImage):
+        Return a PassNativeImagePtr instead of a NativeImagePtr.
+
+        * svg/graphics/SVGImage.cpp:
+        (WebCore):
+        (WebCore::SVGImage::nativeImageForCurrentFrame):
+        Add implementation of nativeImageForCurrentFrame() for SVGImage as
+        it is needed for SVG custom cursor support and Canvas drawing of
+        patterns containing SVG images. As SVGImage no longer keep the
+        native image internally to save memory, the implementation creates
+        the native image when nativeImageForCurrentFrame() and passes
+        its ownership to the caller.
+
+        * svg/graphics/SVGImage.h:
+        Override Image::nativeImageForCurrentFrame() and remove dummy
+        implementation of frameAtIndex() as it is not needed / used.
+
+        * svg/graphics/SVGImageForContainer.cpp:
+        (WebCore::SVGImageForContainer::nativeImageForCurrentFrame):
+        Add implementation of nativeImageForCurrentFrame() which merely
+        forwards the call to the Image being contained.
+
+        * svg/graphics/SVGImageForContainer.h:
+        Override Image::nativeImageForCurrentFrame().
+
 2013-04-04  Andrei Bucur  <abucur@adobe.com>
 
         [CSSRegions] RenderFlowThread::renderRegionForLine should use a faster search method
