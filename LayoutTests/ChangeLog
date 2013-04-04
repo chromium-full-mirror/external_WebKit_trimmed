@@ -3,6 +3,12 @@
         Unreviewed. AppleWin port gardening.
 
         * platform/win/TestExpectations:
+
+2013-04-04  Roger Fong  <roger_fong@apple.com>
+
+        Unreviewed. AppleWin port gardening.
+
+        * platform/win/TestExpectations:
         * platform/win/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt:
 
 2013-04-04  Robert Hogan  <robert@webkit.org>
