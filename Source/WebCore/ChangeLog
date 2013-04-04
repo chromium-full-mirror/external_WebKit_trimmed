@@ -1,3 +1,16 @@
+2013-04-04  Alexey Proskuryakov  <ap@apple.com>
+
+        REGRESSION (r146580): Assertion using SecurityOrigin::create, URL string is not valid
+        https://bugs.webkit.org/show_bug.cgi?id=113961
+
+        Reviewed by Geoff Garen.
+
+        * page/SecurityOrigin.cpp:
+        (WebCore::SecurityOrigin::createFromDatabaseIdentifier):
+        (WebCore::SecurityOrigin::create):
+        Don't use ParsedURLString, because http://host:80/ is normalized to http://host/,
+        so it's not a parsed URL string.
+
 2013-04-04  Sheriff Bot  <webkit.review.bot@gmail.com>
 
         Unreviewed, rolling out r147662.
