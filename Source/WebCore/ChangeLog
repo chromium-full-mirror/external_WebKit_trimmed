@@ -1,3 +1,14 @@
+2013-04-04  Xabier Rodriguez Calvar  <calvaris@igalia.com>
+
+        [GStreamer] Virtual modifier for MediaPlayer::simulateAudioInterruption must go
+        https://bugs.webkit.org/show_bug.cgi?id=113851
+
+        Reviewed by Eric Carlson.
+
+        * platform/graphics/MediaPlayer.h:
+        (MediaPlayer): Removed virtual modifier to
+        simulateAudioInterruption.
+
 2013-04-04  Allan Sandfeld Jensen  <allan.jensen@digia.com>
 
         [Qt] Support -webkit-font-smoothing
