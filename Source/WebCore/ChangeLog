@@ -1,3 +1,34 @@
+2013-04-03  Gyuyoung Kim  <gyuyoung.kim@samsung.com>
+
+        [EFL] Add a decoration image to search input field
+        https://bugs.webkit.org/show_bug.cgi?id=113552
+
+        Reviewed by Laszlo Gombos.
+
+        Though EFL port has a decoration image for search input field, we didn't use it.
+        Start to show it.
+
+        Tests: fast/forms/search-cancel-button-style-sharing.html
+               fast/forms/search-rtl.html
+               fast/css/input-search-padding.html
+               fast/css/text-input-with-webkit-border-radius.html
+               fast/css/text-overflow-input.html
+               fast/forms/box-shadow-override.html
+               fast/forms/control-restrict-line-height.html
+               fast/forms/input-appearance-height.html
+               fast/forms/placeholder-position.html
+               fast/forms/placeholder-pseudo-style.html
+               fast/forms/search-styled.html
+               fast/forms/search-vertical-alignment.html
+               fast/forms/searchfield-heights.html
+               fast/repaint/search-field-cancel.html 
+               fast/replaced/width100percent-searchfield.html
+
+        * platform/efl/RenderThemeEfl.cpp:
+        (WebCore):
+        (WebCore::RenderThemeEfl::supportsDataListUI):
+        (WebCore::RenderThemeEfl::adjustSearchFieldDecorationStyle):
+
 2013-04-03  Kent Tamura  <tkent@chromium.org>
 
         Input value/placeholder is not redrawn when the input height grows
