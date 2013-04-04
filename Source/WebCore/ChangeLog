@@ -1,5 +1,44 @@
 2013-04-04  Andreas Kling  <akling@apple.com>
 
+        Global FontPlatformData cache should use OwnPtr.
+        <http://webkit.org/b/111939>
+
+        Reviewed by Anders Carlsson.
+
+        Let the global FontPlatformData use OwnPtr instead of raw pointers + deleteAllValues().
+
+        * platform/graphics/FontCache.cpp:
+        (WebCore::FontCache::getCachedFontPlatformData):
+        (WebCore::FontCache::purgeInactiveFontData):
+        (WebCore::FontCache::invalidate):
+
+            Tweaked code for OwnPtr. Also made getCachedFontPlatformData() do one hash lookup
+            instead of two.
+
+        * platform/graphics/FontCache.h:
+        * platform/graphics/blackberry/FontCacheBlackBerry.cpp:
+        (WebCore::FontCache::createFontPlatformData):
+        * platform/graphics/chromium/FontCacheAndroid.cpp:
+        (WebCore::FontCache::createFontPlatformData):
+        * platform/graphics/freetype/FontCacheFreeType.cpp:
+        (WebCore::FontCache::createFontPlatformData):
+        * platform/graphics/mac/FontCacheMac.mm:
+        (WebCore::FontCache::createFontPlatformData):
+        * platform/graphics/qt/FontCacheQt.cpp:
+        (WebCore::FontCache::createFontPlatformData):
+        * platform/graphics/skia/FontCacheSkia.cpp:
+        (WebCore::FontCache::createFontPlatformData):
+        * platform/graphics/win/FontCacheWin.cpp:
+        (WebCore::FontCache::createFontPlatformData):
+        * platform/graphics/wince/FontCacheWinCE.cpp:
+        (WebCore::FontCache::createFontPlatformData):
+        * platform/graphics/wx/FontCacheWx.cpp:
+        (WebCore::FontCache::createFontPlatformData):
+
+            FontCache::createFontPlatformData() now returns a PassOwnPtr.
+
+2013-04-04  Andreas Kling  <akling@apple.com>
+
         Render images with low-quality scaling while FrameView is being resized.
         <http://webkit.org/b/113764>
         <rdar://problem/13555154>
