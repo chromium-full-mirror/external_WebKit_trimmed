@@ -1,3 +1,14 @@
+2013-04-04  Ed Bartosh  <bartosh@gmail.com>
+
+        [EFL] --minimal build fails with 'error: unused variable'
+        https://bugs.webkit.org/show_bug.cgi?id=113903
+
+        Reviewed by Gustavo Noronha Silva.
+
+        Moved variable definition under #if where it's used
+        * platform/network/soup/ResourceHandleSoup.cpp:
+        (WebCore::restartedCallback):
+
 2013-04-04  Andreas Kling  <akling@apple.com>
 
         Global FontPlatformData cache should use OwnPtr.
