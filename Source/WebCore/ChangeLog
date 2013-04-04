@@ -1,3 +1,24 @@
+2013-04-04  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Changing typing style with font size delta overrides the previous font size delta
+        https://bugs.webkit.org/show_bug.cgi?id=113923
+
+        Reviewed by Andreas Kling.
+
+        The bug was caused by a new font size delta value overriding the old one as
+        opposed to being added to the old value. Fixed that in overrideWithStyle.
+
+        Also made overrideWithStyle share code with mergeStyle since there is already
+        code to merge text-decorations there.
+
+        Unfortunately, adding a test for this fix proved to be hard because we don't
+        expose any API to directly set typing style.
+
+        * editing/EditingStyle.cpp:
+        (WebCore::EditingStyle::overrideWithStyle): Use mergeStyle.
+        (WebCore::EditingStyle::mergeStyle): Add font size deltas as opposed to simply
+        using the new value.
+
 2013-04-04  Chris Fleizach  <cfleizach@apple.com>
 
         AX:File upload button has wrong label
