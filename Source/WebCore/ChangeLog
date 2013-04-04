@@ -1,3 +1,44 @@
+2013-04-04  Andrei Bucur  <abucur@adobe.com>
+
+        [CSSRegions] RenderFlowThread::renderRegionForLine should use a faster search method
+        https://bugs.webkit.org/show_bug.cgi?id=66921
+
+        Reviewed by David Hyatt.
+
+        The RenderFlowThread::regionAtBlockOffset() function is a hot path for the code using
+        flow threads because it translates from block coordinates to regions.
+        Currently the method is O(n), using a linear search through the regions chain to find the
+        region where a block offset lands.
+        The patch improves this search by using an interval tree (PODIntervalTree). Before a flow
+        thread is laid out, each region is updated to hold the size of the portion of the flow it
+        will receive. This information is gathered inside the interval tree and used to speedup the
+        search in RenderFlowThread::regionAtBlockOffset(). The algorithm uses a custom adapter
+        simplified for looking up offsets inside the interval tree.
+        For now, the interval tree is cleared every time the flow thread portions list is updated.
+        The implementation can be improved but induces some cmplexity as we'd have to manually manage
+        the life cycle of the tree's nodes. The performance gains are good enough as is to make this
+        only optional.
+        Another important change is now the flow thread portion rectangles will not overflow when
+        using auto-height regions (or very large regions). The maximum size of the flow is set to
+        LayoutUnit::max()/2. Any region forcing a greater size will be capped so the thread
+        won't overflow.
+
+        Performance test results:
+        /Layout/RegionsAuto:Time            ms 699.95   181.20  74.11% Better
+        /Layout/RegionsAutoMaxHeight:Time   ms 2083.00  308.55  85.19% Better
+        /Layout/RegionsFixed:Time           ms 726.10   223.65  69.20% Better
+        /Layout/RegionsFixedShort:Time      ms 869.60   288.25  66.85% Better
+
+        Tests: See PerformanceTests/Layout/Regions*
+
+        * rendering/RenderFlowThread.cpp:
+        (WebCore::RenderFlowThread::regionAtBlockOffset):
+        (WebCore::RenderFlowThread::updateRegionsFlowThreadPortionRect):
+        (WebCore::RenderFlowThread::RegionSearchAdapter::collectIfNeeded):
+        (WebCore):
+        * rendering/RenderFlowThread.h:
+        (WebCore):
+
 2013-04-04  Seokju Kwon  <seokju.kwon@gmail.com>
 
         [Qt] WebSocket errors should be logged to console
