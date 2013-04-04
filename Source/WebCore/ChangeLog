@@ -1,3 +1,25 @@
+2013-04-03  Dean Jackson  <dino@apple.com>
+
+        Expose settings to disable plugin snapshotting autostart and primary detection
+        https://bugs.webkit.org/show_bug.cgi?id=113918
+
+        Reviewed by Tim Horton.
+
+        Three new settings:
+        - snapshotAllPlugIns: Do not apply any heuristics - immediately snapshot a plugin.
+        - primaryPlugInSnapshotDetectionEnabled: Toggle snapshotting the "main" plugin in the page.
+        - autostartOriginPlugInSnapshottingEnabled: Toggle snapshotting based on URL origins.
+
+        * html/HTMLPlugInImageElement.cpp:
+        (WebCore::HTMLPlugInImageElement::userDidClickSnapshot): Don't tell the host that we've started
+            if the autostartOriginPlugInSnapshottingEnabled is false.
+        (WebCore::HTMLPlugInImageElement::setIsPrimarySnapshottedPlugIn): Don't restart a primary
+            plugin if primaryPlugInSnapshotDetectionEnabled is false.
+        (WebCore::HTMLPlugInImageElement::subframeLoaderWillCreatePlugIn): Snapshot immediately if
+            snapshotAllPlugIns is true. Also, don't test for autostart if
+            autostartOriginPlugInSnapshottingEnabled is false.
+        * page/Settings.in: Three new settings values.
+
 2013-04-04  Carlos Garcia Campos  <cgarcia@igalia.com>
 
         [BlackBerry] Remove skia code from PluginViewBlackBerry
