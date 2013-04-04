@@ -1,3 +1,11 @@
+2013-04-04  Eric Carlson  <eric.carlson@apple.com>
+
+        Unreviewed, fix a test and some results missed in r147675
+
+        * media/media-captions-expected.txt:
+        * media/video-controls-captions-trackmenu-localized.html:
+        * platform/mac/media/video-controls-captions-trackmenu-localized-expected.txt:
+
 2013-04-04  Dave Michael  <dmichael@chromium.org>
 
         Make fast/events/tabindex-focus-blur-all.html disallow Java so the test runs the same regardless of platform/port
