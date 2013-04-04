@@ -1,3 +1,12 @@
+2013-04-04  Martin Robinson  <mrobinson@igalia.com>
+
+        [GTK] Remove the gyp build
+        https://bugs.webkit.org/show_bug.cgi?id=113942
+
+        Reviewed by Gustavo Noronha Silva.
+
+        * WebCore.gyp/WebCoreGTK.gyp: Removed.
+
 2013-04-04  Robert Hogan  <robert@webkit.org>
 
         REGRESSION(r142152): Text wraps in menu
