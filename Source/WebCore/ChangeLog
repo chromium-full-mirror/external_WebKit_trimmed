@@ -1,3 +1,18 @@
+2013-04-04  ChangSeok Oh  <changseok.oh@collabora.com>
+
+        [GTK][AC] Invalid clear ClutterContent of ClutterActor
+        https://bugs.webkit.org/show_bug.cgi?id=113758
+
+        Reviewed by Gustavo Noronha Silva.
+
+        Using clutter_actor_set_content(actor, 0) is better to clear ClutterContent of ClutterActor.
+        Actually the ClutterContent referece is cleared in the API if we set 0.
+
+        No new tests since no functionality changed.
+
+        * platform/graphics/clutter/GraphicsLayerActor.cpp:
+        (graphicsLayerActorUpdateTexture):
+
 2013-04-04  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         [Cairo] Fix canvas drawing of SVG-based patterns and remove NativeImageCairo
