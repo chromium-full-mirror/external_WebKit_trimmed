@@ -1,5 +1,19 @@
 2013-04-05  Chris Fleizach  <cfleizach@apple.com>
 
+        WebSpeech: event.elapsedTime is always 1364484608
+        https://bugs.webkit.org/show_bug.cgi?id=114045
+
+        Reviewed by Tim Horton.
+
+        We were calculating elapsed time incorrectly.
+
+        Test: platform/mac/fast/speechsynthesis/speech-synthesis-elapsed-time.html
+
+        * Modules/speech/SpeechSynthesis.cpp:
+        (WebCore::SpeechSynthesis::fireEvent):
+
+2013-04-05  Chris Fleizach  <cfleizach@apple.com>
+
         WebSpeech: crash at WebCore::SpeechSynthesis::speak
         https://bugs.webkit.org/show_bug.cgi?id=113937
 
