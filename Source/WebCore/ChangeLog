@@ -1,3 +1,15 @@
+2013-04-05  Seokju Kwon  <seokju.kwon@gmail.com>
+
+        [SOUP] Remove unnecessary explicit keyword in SocketStreamError.h
+        https://bugs.webkit.org/show_bug.cgi?id=113913
+
+        Reviewed by Martin Robinson.
+
+        No new tests, just removing an unnecessary code.
+
+        * platform/network/soup/SocketStreamError.h:
+        (WebCore::SocketStreamError::SocketStreamError):
+
 2013-04-05  Zan Dobersek  <zdobersek@igalia.com>
 
         Remove WTF_USE_GOOGLEURL-guarded code
