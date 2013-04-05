@@ -1,3 +1,19 @@
+2013-04-05  Mark Hahnenberg  <mhahnenberg@apple.com>
+
+        tryCacheGetByID sets StructureStubInfo accessType to an incorrect value
+        https://bugs.webkit.org/show_bug.cgi?id=114068
+
+        Reviewed by Geoffrey Garen.
+
+        In the case where we have a non-Value cacheable property, we set the StructureStubInfo accessType to 
+        get_by_id_self, but then we don't patch self and instead patch in a get_by_id_self_fail. This leads to 
+        incorrect profiling data so when the DFG compiles the function, it uses a GetByOffset rather than a GetById, 
+        which leads to loading a GetterSetter directly out of an object.
+
+        * fast/js/jit-set-profiling-access-type-only-for-get-by-id-self-expected.txt: Added.
+        * fast/js/jit-set-profiling-access-type-only-for-get-by-id-self.html: Added.
+        * fast/js/script-tests/jit-set-profiling-access-type-only-for-get-by-id-self.js: Added.
+
 2013-04-05  Chris Fleizach  <cfleizach@apple.com>
 
         AX: Make SVG Group containers accessible elements
