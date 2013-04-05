@@ -1,3 +1,19 @@
+2013-04-04  Benjamin Poulain  <bpoulain@apple.com>
+
+        alternateFamilyName should return a null, not an empty value
+        https://bugs.webkit.org/show_bug.cgi?id=113987
+
+        Reviewed by Anders Carlsson.
+
+        The string object corresponding semantically to "no-value" is
+        a null string, not an empty string.
+
+        Fix alternateFamilyName() accordingly.
+
+        * platform/graphics/FontCache.cpp:
+        (WebCore::alternateFamilyName):
+        (WebCore::FontCache::getCachedFontPlatformData):
+
 2013-04-04  Anders Carlsson  <andersca@apple.com>
 
         Work around a bug in the bindings generation script.
