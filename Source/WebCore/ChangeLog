@@ -1,3 +1,17 @@
+2013-04-05  Noam Rosenthal  <noam@webkit.org>
+
+        [CoordGfx] Enable filter animations
+        https://bugs.webkit.org/show_bug.cgi?id=114027
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        Allow CoordinatedGraphicsLayer to serialize filter animations to the UI process.
+
+        Covered by animation tests in css3/filters.
+
+        * platform/graphics/texmap/coordinated/CoordinatedGraphicsLayer.cpp:
+        (WebCore::CoordinatedGraphicsLayer::addAnimation):
+
 2013-04-05  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Avoid double hash table lookups in TextureMapperGL
