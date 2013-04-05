@@ -1,5 +1,14 @@
 2013-04-05  Anders Carlsson  <andersca@apple.com>
 
+        Remove dead code
+        https://bugs.webkit.org/show_bug.cgi?id=114043
+
+        Reviewed by Beth Dakin.
+
+        * platform/PublicSuffix.h:
+
+2013-04-05  Anders Carlsson  <andersca@apple.com>
+
         Remove dead Chromium code from WebCore/workers
         https://bugs.webkit.org/show_bug.cgi?id=114039
 
