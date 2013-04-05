@@ -1,3 +1,22 @@
+2013-04-05  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Avoid double hash table lookups in TextureMapperGL
+        https://bugs.webkit.org/show_bug.cgi?id=114030
+
+        Reviewed by Noam Rosenthal.
+
+        Use Vector::add() and leverage its returned AddResult value instead of
+        calling Vector::find() then Vector::set() if the key does not already
+        exist in the map. This results in a single hash lookup instead of two
+        in this case.
+
+        No new tests, no behavior change.
+
+        * platform/graphics/texmap/TextureMapperGL.cpp:
+        (WebCore::TextureMapperGLData::SharedGLData::getShaderProgram):
+        (WebCore::TextureMapperGLData::getStaticVBO):
+        (WebCore::TextureMapperGL::drawUsingCustomFilter):
+
 2013-04-05  Aivo Paas  <aivopaas@gmail.com>
 
         Updating mouse cursor on style changes without emitting fake mousemove event
