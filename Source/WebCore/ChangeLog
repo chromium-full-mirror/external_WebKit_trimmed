@@ -1,5 +1,12 @@
 2013-04-04  Anders Carlsson  <andersca@apple.com>
 
+        Another build fix.
+
+        * platform/graphics/FontCache.cpp:
+        * platform/graphics/SimpleFontData.cpp:
+
+2013-04-04  Anders Carlsson  <andersca@apple.com>
+
         Fix build.
 
         * WebCore.xcodeproj/project.pbxproj:
