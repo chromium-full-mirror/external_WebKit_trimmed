@@ -1,3 +1,9 @@
+2013-04-04  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Qt build fix attempt after r147684.
+
+        * html/canvas/CanvasRenderingContext.cpp:
+
 2013-04-04  Benjamin Poulain  <bpoulain@apple.com>
 
         alternateFamilyName should return a null, not an empty value
