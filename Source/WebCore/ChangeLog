@@ -1,3 +1,9 @@
+2013-04-04  Anders Carlsson  <andersca@apple.com>
+
+        Work around a bug in the bindings generation script.
+
+        * WebCore.xcodeproj/project.pbxproj:
+
 2013-04-04  Dean Jackson  <dino@apple.com>
 
         Don't dispatch delayed click if snapshotted plugin was triggered by a click on the label
