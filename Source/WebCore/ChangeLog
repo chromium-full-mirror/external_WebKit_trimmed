@@ -1,3 +1,91 @@
+2013-04-04  Anders Carlsson  <andersca@apple.com>
+
+        Prune unneeded header #includes
+        https://bugs.webkit.org/show_bug.cgi?id=113973
+
+        Reviewed by Geoffrey Garen.
+
+        Reduce the amount of headers included by other headers by:
+        - Moving implicit and explicit constructors and destructors into .cpp files so member variable constructors/destructors
+          don't have to be declared.
+        - Move CachedResourceClient subclasses out into separate headers so that their respective CachedResource subclasses don't
+          have to be included by the classes that derive from those subclasses.
+        - Remove headers that were never needed in the first place.
+
+        * Modules/webaudio/AudioContext.h:
+        * WebCore.xcodeproj/project.pbxproj:
+        * bindings/js/JSDOMWindowCustom.cpp:
+        * css/CSSFontFaceSource.h:
+        * html/canvas/CanvasPattern.cpp:
+        (WebCore::CanvasPattern::create):
+        (WebCore::CanvasPattern::CanvasPattern):
+        (WebCore::CanvasPattern::~CanvasPattern):
+        * html/canvas/CanvasPattern.h:
+        (WebCore::CanvasPattern::pattern):
+        (WebCore::CanvasPattern::originClean):
+        * html/parser/HTMLScriptRunner.h:
+        * loader/ImageLoader.h:
+        * loader/LinkLoader.h:
+        * loader/TextTrackLoader.h:
+        * loader/cache/CachedFont.cpp:
+        * loader/cache/CachedFont.h:
+        * loader/cache/CachedFontClient.h: Added.
+        (WebCore::CachedFontClient::~CachedFontClient):
+        (WebCore::CachedFontClient::expectedType):
+        (WebCore::CachedFontClient::resourceClientType):
+        (WebCore::CachedFontClient::fontLoaded):
+        * loader/cache/CachedResourceHandle.cpp:
+        (WebCore::CachedResourceHandleBase::CachedResourceHandleBase):
+        (WebCore::CachedResourceHandleBase::~CachedResourceHandleBase):
+        (WebCore::CachedResourceHandleBase::setResource):
+        * loader/cache/CachedResourceHandle.h:
+        (WebCore::CachedResourceHandleBase::get):
+        (WebCore::CachedResourceHandleBase::operator!):
+        (WebCore::CachedResourceHandleBase::operator UnspecifiedBoolType):
+        (WebCore::CachedResourceHandleBase::operator=):
+        (WebCore::CachedResourceHandle::CachedResourceHandle):
+        (WebCore::CachedResourceHandle::get):
+        (WebCore::CachedResourceHandle::operator->):
+        (WebCore::CachedResourceHandle::operator=):
+        (WebCore::CachedResourceHandle::operator==):
+        (WebCore::CachedResourceHandle::operator!=):
+        (WebCore::operator==):
+        (WebCore::operator!=):
+        * loader/cache/CachedSVGDocument.h:
+        * loader/cache/CachedSVGDocumentReference.h:
+        * loader/cache/CachedSVGDocumentClient.h: Added.
+        (WebCore::CachedSVGDocumentClient::~CachedSVGDocumentClient):
+        (WebCore::CachedSVGDocumentClient::expectedType):
+        (WebCore::CachedSVGDocumentClient::resourceClientType):
+        * loader/cache/CachedStyleSheetClient.h:
+        * platform/PlatformScreen.h:
+        * platform/audio/HRTFElevation.cpp:
+        * platform/audio/HRTFKernel.cpp:
+        (WebCore::HRTFKernel::fftSize):
+        * platform/audio/HRTFKernel.h:
+        * platform/audio/ReverbConvolverStage.cpp:
+        (WebCore::ReverbConvolverStage::~ReverbConvolverStage):
+        * platform/audio/ReverbConvolverStage.h:
+        * platform/graphics/FontPlatformData.h:
+        * platform/graphics/GraphicsContext3D.h:
+        * platform/graphics/Path.cpp:
+        * platform/graphics/Path.h:
+        * platform/graphics/Pattern.cpp:
+        * platform/graphics/Pattern.h:
+        * platform/graphics/filters/FilterOperation.cpp:
+        (WebCore::ReferenceFilterOperation::ReferenceFilterOperation):
+        (WebCore::ReferenceFilterOperation::~ReferenceFilterOperation):
+        (WebCore::ReferenceFilterOperation::setCachedSVGDocumentReference):
+        * platform/graphics/filters/FilterOperation.h:
+        * platform/graphics/transforms/AffineTransform.h:
+        * plugins/DOMMimeType.h:
+        * rendering/RenderLayerFilterInfo.h:
+        * rendering/style/StyleCachedShader.h:
+        * svg/SVGFEImageElement.h:
+        * svg/SVGFontFaceUriElement.h:
+        * svg/SVGUseElement.h:
+        * xml/parser/XMLDocumentParser.h:
+
 2013-04-04  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         [Cairo] Stop passing raw pointers to BitmapImage::create()
