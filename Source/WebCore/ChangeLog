@@ -1,3 +1,25 @@
+2013-04-05  Benjamin Poulain  <benjamin@webkit.org>
+
+        Remove the chromium directories from WebCore/Modules
+        https://bugs.webkit.org/show_bug.cgi?id=114000
+
+        Reviewed by Ryosuke Niwa.
+
+        First step in cleaning the code: remove the chromium-specific files.
+
+        * Modules/filesystem/chromium/DOMFileSystemChromium.cpp: Removed.
+        * Modules/filesystem/chromium/DataTransferItemFileSystemChromium.cpp: Removed.
+        * Modules/filesystem/chromium/DraggedIsolatedFileSystem.cpp: Removed.
+        * Modules/filesystem/chromium/DraggedIsolatedFileSystem.h: Removed.
+        * Modules/indexeddb/chromium/IDBFactoryBackendInterfaceChromium.cpp: Removed.
+        * Modules/indexeddb/chromium/IDBFactoryBackendInterfaceChromium.h: Removed.
+        * Modules/speech/chromium/SpeechSynthesisChromium.cpp: Removed.
+        * Modules/webdatabase/chromium/DatabaseObserver.h: Removed.
+        * Modules/webdatabase/chromium/DatabaseTrackerChromium.cpp: Removed.
+        * Modules/webdatabase/chromium/QuotaTracker.cpp: Removed.
+        * Modules/webdatabase/chromium/QuotaTracker.h: Removed.
+        * Modules/webdatabase/chromium/SQLTransactionClientChromium.cpp: Removed.
+
 2013-04-04  Ryosuke Niwa  <rniwa@webkit.org>
 
         Remove Chromium code from WebCore/accessibility
