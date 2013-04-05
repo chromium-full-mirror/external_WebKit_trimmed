@@ -1,5 +1,25 @@
 2013-04-04  Benjamin Poulain  <bpoulain@apple.com>
 
+        Change class_as_selector-expected.html to be a ref-test
+        https://bugs.webkit.org/show_bug.cgi?id=113970
+
+        Reviewed by Geoffrey Garen.
+
+        The test checks style can be applied to text with a CSS class.
+        The reference is done by applying a style attribute directly
+        on each element.
+
+        * css1/basic/class_as_selector-expected.html: Added.
+        * platform/efl/css1/basic/class_as_selector-expected.png: Removed.
+        * platform/efl/css1/basic/class_as_selector-expected.txt: Removed.
+        * platform/gtk/css1/basic/class_as_selector-expected.txt: Removed.
+        * platform/mac/css1/basic/class_as_selector-expected.png: Removed.
+        * platform/mac/css1/basic/class_as_selector-expected.txt: Removed.
+        * platform/qt/css1/basic/class_as_selector-expected.png: Removed.
+        * platform/qt/css1/basic/class_as_selector-expected.txt: Removed.
+
+2013-04-04  Benjamin Poulain  <bpoulain@apple.com>
+
         Unskip 3 backface-visibility tests on OS X
 
         * platform/mac/TestExpectations:
