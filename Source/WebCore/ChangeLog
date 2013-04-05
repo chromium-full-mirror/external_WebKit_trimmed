@@ -1,3 +1,15 @@
+2013-04-05  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Remove Chromium code from WebCore/storage
+        https://bugs.webkit.org/show_bug.cgi?id=114049
+
+        Reviewed by Anders Carlsson.
+
+        Removed.
+
+        * storage/StorageNamespace.cpp:
+        * storage/chromium: Removed.
+
 2013-04-05  Seokju Kwon  <seokju.kwon@gmail.com>
 
         [SOUP] Remove unnecessary explicit keyword in SocketStreamError.h
