@@ -1,3 +1,18 @@
+2013-04-05  Bem Jones-Bey  <bjonesbe@adobe.com>
+
+        [regression] Security: Heap-use-after-free in WebCore::RenderBlock::logicalRightOffsetForLine
+        https://bugs.webkit.org/show_bug.cgi?id=111594
+
+        Reviewed by David Hyatt.
+
+        Swapping the bases was causing any floats in the right base to be
+        lost, so change the code so that it no longer swaps the bases.
+
+        Test: fast/ruby/float-object-doesnt-crash.html
+
+        * rendering/RenderRubyRun.cpp:
+        (WebCore::RenderRubyRun::removeChild): Don't swap the bases anymore.
+
 2013-04-05  Anders Carlsson  <andersca@apple.com>
 
         Remove dead code

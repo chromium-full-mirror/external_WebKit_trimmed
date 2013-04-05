@@ -1,3 +1,16 @@
+2013-04-05  Bem Jones-Bey  <bjonesbe@adobe.com>
+
+        [regression] Security: Heap-use-after-free in WebCore::RenderBlock::logicalRightOffsetForLine
+        https://bugs.webkit.org/show_bug.cgi?id=111594
+
+        Reviewed by David Hyatt.
+
+        Add test to verify that the use-after-free is fixed. Note that it will
+        only crash when run under a memory checking tool like ASAN.
+
+        * fast/ruby/float-object-doesnt-crash-expected.txt: Added.
+        * fast/ruby/float-object-doesnt-crash.html: Added.
+
 2013-04-05  Bear Travis  <betravis@adobe.com>
 
         [css exclusions] Dynamically removing shape-inside should cause relayout of child blocks' inline content
