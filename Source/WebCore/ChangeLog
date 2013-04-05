@@ -1,5 +1,59 @@
 2013-04-05  Ryosuke Niwa  <rniwa@webkit.org>
 
+        Remove Chromium code from WebCore/loader
+        https://bugs.webkit.org/show_bug.cgi?id=114011
+
+        Reviewed by Benjamin Poulain.
+
+        Removed.
+
+        * loader/DocumentLoader.cpp:
+        (WebCore::DocumentLoader::responseReceived):
+        * loader/DocumentThreadableLoader.h:
+        * loader/FrameLoader.cpp:
+        (WebCore::FrameLoader::FrameLoader):
+        (WebCore::FrameLoader::defaultObjectContentType):
+        (WebCore):
+        * loader/FrameLoader.h:
+        (FrameLoader):
+        * loader/FrameLoaderClient.h:
+        (FrameLoaderClient):
+        * loader/PingLoader.cpp:
+        (WebCore::PingLoader::loadImage):
+        (WebCore::PingLoader::sendPing):
+        (WebCore::PingLoader::sendViolationReport):
+        * loader/ResourceLoadScheduler.cpp:
+        (WebCore):
+        (WebCore::ResourceLoadScheduler::ResourceLoadScheduler):
+        (WebCore::ResourceLoadScheduler::scheduleLoad):
+        * loader/ResourceLoader.h:
+        * loader/SubresourceLoader.h:
+        * loader/ThreadableLoaderClient.h:
+        (ThreadableLoaderClient):
+        * loader/ThreadableLoaderClientWrapper.h:
+        (ThreadableLoaderClientWrapper):
+        * loader/appcache/ApplicationCacheHost.h:
+        (WebCore):
+        (ApplicationCacheHost):
+        * loader/cache/CachedRawResource.h:
+        (CachedRawResource):
+        (WebCore::CachedRawResourceClient::redirectReceived):
+        * loader/cache/CachedResource.cpp:
+        (WebCore):
+        (WebCore::CachedResource::load):
+        * loader/cache/CachedResource.h:
+        (WebCore::CachedResource::didSendData):
+        * loader/cache/CachedResourceLoader.cpp:
+        (WebCore::CachedResourceLoader::requestResource):
+        (WebCore::CachedResourceLoader::preload):
+        * loader/chromium: Removed.
+        * loader/chromium/CachedRawResourceChromium.cpp: Removed.
+        * loader/chromium/DocumentThreadableLoaderChromium.cpp: Removed.
+        * loader/chromium/ResourceLoaderChromium.cpp: Removed.
+        * loader/chromium/SubresourceLoaderChromium.cpp: Removed.
+
+2013-04-05  Ryosuke Niwa  <rniwa@webkit.org>
+
         Remove Chromium code from WebCore/editing
         https://bugs.webkit.org/show_bug.cgi?id=114008
 
