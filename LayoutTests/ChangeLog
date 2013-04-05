@@ -1,3 +1,9 @@
+2013-04-05  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed GTK gardening.
+
+        * platform/gtk/TestExpectations: Removing a couple of expectations for tests that are now passing.
+
 2013-04-05  Krzysztof Czech  <k.czech@samsung.com>
 
         [EFL] New baseline for accessibility/aria-option-role.html
