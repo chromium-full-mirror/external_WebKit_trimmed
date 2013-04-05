@@ -1,3 +1,10 @@
+2013-04-04  Benjamin Poulain  <bpoulain@apple.com>
+
+        Unskip 3 backface-visibility tests on OS X
+
+        * platform/mac/TestExpectations:
+        The 3 pixel tests pass on WebKit1 and WebKit2.
+
 2013-04-04  Simon Fraser  <simon.fraser@apple.com>
 
         Page content missing when flipping from an empty layer to a tiled layer
