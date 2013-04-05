@@ -1,3 +1,9 @@
+2013-04-04  Anders Carlsson  <andersca@apple.com>
+
+        Fix build.
+
+        * WebCore.xcodeproj/project.pbxproj:
+
 2013-04-04  Geoffrey Garen  <ggaren@apple.com>
 
         Removed empty files from the build
