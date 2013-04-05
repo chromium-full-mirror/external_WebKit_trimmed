@@ -1,3 +1,9 @@
+2013-04-04  Tim Horton  <timothy_horton@apple.com>
+
+        Unreviewed build fix.
+
+        * platform/graphics/GlyphPageTreeNode.cpp:
+
 2013-04-04  Anders Carlsson  <andersca@apple.com>
 
         Another build fix.
