@@ -1,3 +1,14 @@
+2013-04-05  Krzysztof Czech  <k.czech@samsung.com>
+
+        [EFL] New baseline for accessibility/aria-option-role.html
+        https://bugs.webkit.org/show_bug.cgi?id=114006
+
+        Unreviewed, EFL gardening.
+
+        * platform/efl-wk1/TestExpectations:
+        * platform/efl-wk2/TestExpectations:
+        * platform/efl/accessibility/aria-option-role-expected.txt: Added.
+
 2013-04-04  Benjamin Poulain  <bpoulain@apple.com>
 
         Change class_as_selector-expected.html to be a ref-test
