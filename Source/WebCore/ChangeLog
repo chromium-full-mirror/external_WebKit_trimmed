@@ -1,3 +1,17 @@
+2013-04-05  Jocelyn Turcotte  <jocelyn.turcotte@digia.com>
+
+        [Qt] PluginsX11: exposedRect offset is applied twice when painting windowless
+        https://bugs.webkit.org/show_bug.cgi?id=114020
+
+        Reviewed by Simon Hausmann.
+
+        Both XGetImage and QPainter::drawImage would apply the offset.
+        Since the XImage will only contain the exposed rect, no need to specify
+        the source rect to drawImage.
+
+        * plugins/qt/PluginViewQt.cpp:
+        (WebCore::PluginView::paintUsingXPixmap):
+
 2013-04-05  Seokju Kwon  <seokju.kwon@gmail.com>
 
         Web Inspector: crash in InspectorDOMAgent::innerHighlightQuad after r147566
