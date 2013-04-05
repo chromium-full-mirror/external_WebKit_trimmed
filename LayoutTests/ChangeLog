@@ -1,3 +1,13 @@
+2013-04-05  Rijubrata Bhaumik  <rijubrata.bhaumik@intel.com>
+
+        [EFL] Enable indexed database
+        https://bugs.webkit.org/show_bug.cgi?id=107248
+
+        Reviewed by Alexis Menard.
+
+        * platform/efl-wk1/TestExpectations:
+        * platform/efl/TestExpectations:
+
 2013-04-05  Bem Jones-Bey  <bjonesbe@adobe.com>
 
         [regression] Security: Heap-use-after-free in WebCore::RenderBlock::logicalRightOffsetForLine
