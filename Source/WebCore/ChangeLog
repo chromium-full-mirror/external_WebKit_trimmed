@@ -1,5 +1,94 @@
 2013-04-04  Ryosuke Niwa  <rniwa@webkit.org>
 
+        Remove code for 10.5 and earlier from Source/WebCore
+        https://bugs.webkit.org/show_bug.cgi?id=113754
+
+        Reviewed by Benjamin Poulain.
+
+        Removed the code for 10.5 and removed if-def for 10.6.
+
+        * WebCore.xcodeproj/project.pbxproj:
+        * page/ContextMenuController.cpp:
+        (WebCore::ContextMenuController::populate):
+        * platform/LocalizedStrings.cpp:
+        (WebCore::imageTitle):
+        * platform/graphics/cg/GraphicsContextCG.cpp:
+        (WebCore::GraphicsContext::setAllowsFontSmoothing):
+        * platform/graphics/cg/ImageCG.cpp:
+        (WebCore::Image::drawPattern):
+        * platform/graphics/cg/ImageSourceCG.cpp:
+        (WebCore::ImageSource::clear):
+        * platform/graphics/cg/PathCG.cpp:
+        (WebCore::Path::boundingRect):
+        * platform/graphics/cocoa/FontPlatformDataCocoa.mm:
+        (WebCore):
+        (WebCore::FontPlatformData::ctFont):
+        * platform/graphics/gstreamer/MediaPlayerPrivateGStreamerBase.cpp:
+        (WebCore::MediaPlayerPrivateGStreamerBase::supportsFullscreen):
+        * platform/graphics/mac/ComplexTextControllerCoreText.mm:
+        * platform/graphics/mac/FontCacheMac.mm:
+        (WebCore):
+        (WebCore::fontCacheRegisteredFontsChangedNotificationCallback):
+        (WebCore::FontCache::platformInit):
+        * platform/graphics/mac/FontCustomPlatformData.cpp:
+        (WebCore::FontCustomPlatformData::~FontCustomPlatformData):
+        (WebCore::createFontCustomPlatformData):
+        * platform/graphics/mac/MediaPlayerPrivateQTKit.mm:
+        (WebCore::MediaPlayerPrivateQTKit::createQTMovie):
+        (WebCore::MediaPlayerPrivateQTKit::supportsFullscreen):
+        (WebCore::MediaPlayerPrivateQTKit::setClosedCaptionsVisible):
+        (WebCore::MediaPlayerPrivateQTKit::cacheMovieScale):
+        * platform/graphics/mac/SimpleFontDataMac.mm:
+        (WebCore::SimpleFontData::platformInit):
+        * platform/graphics/mac/WebLayer.h:
+        * platform/mac/CursorMac.mm:
+        (WebCore::Cursor::ensurePlatformCursor):
+        * platform/mac/DisplaySleepDisabler.cpp:
+        (WebCore::DisplaySleepDisabler::DisplaySleepDisabler):
+        (WebCore):
+        * platform/mac/DisplaySleepDisabler.h:
+        (DisplaySleepDisabler):
+        * platform/mac/EmptyProtocolDefinitions.h:
+        * platform/mac/HTMLConverter.h:
+        * platform/mac/HTMLConverter.mm:
+        * platform/mac/PopupMenuMac.mm:
+        (WebCore::PopupMenuMac::populate):
+        * platform/mac/ScrollElasticityController.mm:
+        (systemUptime):
+        * platform/mac/SharedTimerMac.mm:
+        (PowerObserver):
+        (WebCore::PowerObserver::PowerObserver):
+        (WebCore::PowerObserver::~PowerObserver):
+        (WebCore::PowerObserver::didReceiveSystemPowerNotification):
+        * platform/mac/SuddenTermination.mm:
+        * platform/mac/WebCoreFullScreenWindow.mm:
+        (-[WebCoreFullScreenWindow initWithContentRect:styleMask:backing:defer:]):
+        * platform/mac/WebFontCache.mm:
+        (+[WebFontCache getTraits:inFamily:]):
+        (+[WebFontCache internalFontWithFamily:traits:weight:size:]):
+        * platform/mac/WebVideoFullscreenController.mm:
+        (SOFT_LINK_POINTER):
+        (-[WebVideoFullscreenController updateMenuAndDockForFullscreen]):
+        * platform/mac/WebVideoFullscreenHUDWindowController.mm:
+        (createControlWithMediaUIControlType):
+        (-[WebVideoFullscreenHUDWindowController windowDidLoad]):
+        * platform/network/Credential.h:
+        * platform/network/cf/DNSCFNet.cpp:
+        (WebCore::DNSResolveQueue::platformProxyIsEnabledInSystemPreferences):
+        * platform/network/cf/ProxyServerCFNet.cpp:
+        (WebCore):
+        (WebCore::proxyServersForURL):
+        * platform/network/cf/SocketStreamHandleCFNet.cpp:
+        (WebCore::SocketStreamHandle::chooseProxy):
+        * platform/network/mac/AuthenticationMac.mm:
+        (WebCore):
+        * platform/network/mac/WebCoreURLResponse.mm:
+        (WebCore::adjustMIMETypeIfNecessary):
+        * platform/text/TextChecking.h:
+        (WebCore):
+
+2013-04-04  Ryosuke Niwa  <rniwa@webkit.org>
+
         Qt build fix attempt after r147684.
 
         * html/canvas/CanvasRenderingContext.cpp:
