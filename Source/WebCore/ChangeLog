@@ -1,3 +1,18 @@
+2013-04-05  Brendan Long  <self@brendanlong.com>
+
+        [GStreamer] Segfault when attempting to install missing plugins
+        https://bugs.webkit.org/show_bug.cgi?id=114046
+        
+        gst_install_plugins_async expects a null terminated list, but we weren't
+        adding a null terminator.
+
+        Reviewed by Philippe Normand.
+
+        No new tests since this just fixes a segfault.
+
+        * platform/graphics/gstreamer/MediaPlayerPrivateGStreamer.cpp:
+        (WebCore::MediaPlayerPrivateGStreamer::handleMessage):
+
 2013-04-05  Benjamin Poulain  <benjamin@webkit.org>
 
         Remove the chromium code for WebCore's indexeddb module
