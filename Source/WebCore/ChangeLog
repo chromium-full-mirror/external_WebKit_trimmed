@@ -1,3 +1,48 @@
+2013-04-05  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Remove Chromium code from WebCore/rendering
+        https://bugs.webkit.org/show_bug.cgi?id=114017
+
+        Reviewed by Simon Fraser.
+
+        Removed.
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::setLogicalWidthForTextRun):
+        * rendering/RenderLayerBacking.cpp:
+        (WebCore::RenderLayerBacking::requiresHorizontalScrollbarLayer):
+        (WebCore::RenderLayerBacking::requiresVerticalScrollbarLayer):
+        (WebCore::RenderLayerBacking::requiresScrollCornerLayer):
+        * rendering/RenderLayerCompositor.cpp:
+        (WebCore::RenderLayerCompositor::paintContents):
+        (WebCore::shouldCompositeOverflowControls):
+        (WebCore::RenderLayerCompositor::requiresOverhangAreasLayer):
+        * rendering/RenderMediaControlsChromium.cpp: Removed.
+        * rendering/RenderMediaControlsChromium.h: Removed.
+        * rendering/RenderObject.cpp:
+        (WebCore::RenderObject::shouldRespectImageOrientation):
+        * rendering/RenderText.cpp:
+        (WebCore):
+        (WebCore::RenderText::previousOffsetForBackwardDeletion):
+        * rendering/RenderThemeChromiumAndroid.cpp: Removed.
+        * rendering/RenderThemeChromiumAndroid.h: Removed.
+        * rendering/RenderThemeChromiumCommon.cpp: Removed.
+        * rendering/RenderThemeChromiumCommon.h: Removed.
+        * rendering/RenderThemeChromiumDefault.cpp: Removed.
+        * rendering/RenderThemeChromiumDefault.h: Removed.
+        * rendering/RenderThemeChromiumFontProvider.cpp: Removed.
+        * rendering/RenderThemeChromiumFontProvider.h: Removed.
+        * rendering/RenderThemeChromiumFontProviderLinux.cpp: Removed.
+        * rendering/RenderThemeChromiumFontProviderWin.cpp: Removed.
+        * rendering/RenderThemeChromiumMac.h: Removed.
+        * rendering/RenderThemeChromiumMac.mm: Removed.
+        * rendering/RenderThemeChromiumSkia.cpp: Removed.
+        * rendering/RenderThemeChromiumSkia.h: Removed.
+        * rendering/RenderThemeChromiumWin.cpp: Removed.
+        * rendering/RenderThemeChromiumWin.h: Removed.
+        * rendering/RenderThemeMacShared.mm:
+        (WebCore::RenderThemeMacShared::paintSliderThumb):
+
 2013-04-05  Noam Rosenthal  <noam@webkit.org>
 
         [Texmap] css3/filters/filter-animation-from-none-hw.html does not animate
