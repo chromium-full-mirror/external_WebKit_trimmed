@@ -1,3 +1,10 @@
+2013-04-05  Roger Fong  <roger_fong@apple.com>
+
+        More VS2010 solution makefile fixes.
+        <rdar://problem/13588964>
+
+        * WebCore.vcxproj/WebCore.make:
+
 2013-04-05  Ed Bartosh  <bartosh@gmail.com>
 
         [EFL] --no-tiled-backing-store build fails because of not used #if USE(ACCELERATED_COMPOSITING)
