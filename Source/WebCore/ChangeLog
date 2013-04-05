@@ -1,3 +1,18 @@
+2013-04-05  Benjamin Poulain  <benjamin@webkit.org>
+
+        Remove the chromium code for WebCore's indexeddb module
+        https://bugs.webkit.org/show_bug.cgi?id=114004
+
+        Reviewed by Ryosuke Niwa.
+
+        * Modules/indexeddb/IDBBackingStore.cpp:
+        (WebCore::IDBBackingStore::IDBBackingStore):
+        * Modules/indexeddb/IDBDatabaseBackendImpl.cpp:
+        (WebCore::IDBDatabaseBackendImpl::openConnection):
+        (WebCore::IDBDatabaseBackendImpl::close):
+        * Modules/indexeddb/IDBFactoryBackendInterface.cpp:
+        * Modules/indexeddb/IDBTracing.h:
+
 2013-04-05  Ryosuke Niwa  <rniwa@webkit.org>
 
         Cleanup after git svn left empty directories.
