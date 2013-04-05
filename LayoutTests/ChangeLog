@@ -1,3 +1,17 @@
+2013-04-05  Mihai Maerean  <mmaerean@adobe.com>
+
+        [CSS Regions] Elements in a region should be assignable to a named flow
+        https://bugs.webkit.org/show_bug.cgi?id=74144
+
+        Reviewed by David Hyatt.
+
+        * fast/regions/flow-body-in-html-expected.txt: Added.
+        * fast/regions/flow-body-in-html.html: Added. To test the duplicate bug #103685.
+        * fast/regions/region-content-flown-into-region-expected.html: Added.
+        * fast/regions/region-content-flown-into-region.html: Added.
+        * fast/regions/universal-selector-children-to-the-same-region-expected.txt: Added.
+        * fast/regions/universal-selector-children-to-the-same-region.html: Added. To test the duplicate bug #103685.
+
 2013-04-05  Aivo Paas  <aivopaas@gmail.com>
 
         Updating mouse cursor on style changes without emitting fake mousemove event
