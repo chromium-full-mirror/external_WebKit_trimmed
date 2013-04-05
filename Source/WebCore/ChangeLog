@@ -1,3 +1,25 @@
+2013-04-04  Dean Jackson  <dino@apple.com>
+
+        Don't dispatch delayed click if snapshotted plugin was triggered by a click on the label
+        https://bugs.webkit.org/show_bug.cgi?id=113982
+
+        Reviewed by Tim Horton.
+
+        We regressed the way clicks were sent on to restarted plugins when we moved to a
+        Shadow Root - we were always sending the click. We should only send the click
+        on if the user clicked on the main plugin content, and not send it when you
+        click directly on the label.
+
+        * html/HTMLPlugInImageElement.cpp:
+        (WebCore::HTMLPlugInImageElement::didAddUserAgentShadowRoot): Keep a reference to the container and label.
+        (WebCore::HTMLPlugInImageElement::partOfSnapshotLabel): New method that detects if a Node was part
+            of the snapshot label.
+        (WebCore::HTMLPlugInImageElement::userDidClickSnapshot): Only record the event if you should forward it on.
+        * html/HTMLPlugInImageElement.h:
+        (HTMLPlugInImageElement): New parameter to userDidClickSnapshot and member variables for shadow content.
+        * rendering/RenderSnapshottedPlugIn.cpp:
+        (WebCore::RenderSnapshottedPlugIn::handleEvent): Ask the plugin if the clicked target was the snapshot label.
+
 2013-04-04  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Unreviewed EFL build fix.
