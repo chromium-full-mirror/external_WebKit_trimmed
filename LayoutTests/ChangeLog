@@ -1,3 +1,16 @@
+2013-04-05  Bear Travis  <betravis@adobe.com>
+
+        [css exclusions] Dynamically removing shape-inside should cause relayout of child blocks' inline content
+        https://bugs.webkit.org/show_bug.cgi?id=111029
+
+        Reviewed by David Hyatt.
+
+        Test that removed shape-insides correctly cause relayout in their blocks'
+        inline content.
+
+        * fast/exclusions/shape-inside/shape-inside-dynamic-nested-expected.html:
+        * fast/exclusions/shape-inside/shape-inside-dynamic-nested.html:
+
 2013-04-05  Mihai Maerean  <mmaerean@adobe.com>
 
         [CSS Regions] Elements in a region should be assignable to a named flow

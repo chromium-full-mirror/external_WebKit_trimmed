@@ -1,3 +1,59 @@
+2013-04-05  Bear Travis  <betravis@adobe.com>
+
+        [css exclusions] Dynamically removing shape-inside should cause relayout of child blocks' inline content
+        https://bugs.webkit.org/show_bug.cgi?id=111029
+
+        Reviewed by David Hyatt.
+
+        Preserve a removed ExclusionShapeInsideInfo for one additional layout pass
+        so that it can notify descendant inline content to relayout. This patch adds
+        a new 'needsRemoval' boolean to ExclusionShapeInsideInfo, which is set when
+        a style change removes but does not replace a shape-inside. When determining
+        whether a block needs to relayout inline children, ExclusionShapeInsideInfos with
+        the needsRemoval boolean set are included, but at other times (such as during
+        inline layout), they are ignored.
+
+        Added tests to the existing dynamic shape testfile
+        fast/exclusions/shape-inside/shape-inside-dynamic-nested.html
+
+        * rendering/ExclusionShapeInsideInfo.h:
+        (WebCore::ExclusionShapeInsideInfo::setNeedsRemoval): Get/Set the
+        needsRemoval boolean.
+        (WebCore::ExclusionShapeInsideInfo::needsRemoval): Ditto.
+        (ExclusionShapeInsideInfo):
+        (WebCore::ExclusionShapeInsideInfo::ExclusionShapeInsideInfo):
+        Initialize the needsRemoval boolean.
+        * rendering/LayoutState.cpp:
+        (WebCore::LayoutState::LayoutState): Propagate removed shape insides
+        for layout correctly. You only need to track one at a time, and a
+        removed shape inside should not take precedence over a set shape-inside.
+        * rendering/RenderBlock.cpp:
+        (WebCore::RenderBlock::updateExclusionShapeInsideInfoAfterStyleChange):
+        Set the ExclusionShapeInsideInfo needsRemoval boolean, rather than immediately
+        removing the info.
+        (WebCore::exclusionInfoRequiresRelayout): Account for the needsRemoval
+        boolean as another way of requiring relayout.
+        (WebCore::RenderBlock::updateRegionsAndExclusionsBeforeChildLayout):
+        Look up whether an ExclusionShapeInsideInfo has been removed.
+        (WebCore::RenderBlock::updateRegionsAndExclusionsAfterChildLayout):
+        Remove any ExclusionShapeInsides marked for removal after a layout pass.
+        (WebCore):
+        (WebCore::RenderBlock::layoutBlock): Call the new updateRegionsAndExclusions
+        Before/After methods.
+        * rendering/RenderBlock.h:
+        (WebCore::RenderBlock::exclusionShapeInsideInfo): Filter the result based
+        on whether it should include removed infos.
+        (RenderBlock):
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::RenderBlock::layoutExclusionShapeInsideInfo): Ditto.
+        * rendering/RenderDeprecatedFlexibleBox.cpp:
+        (WebCore::RenderDeprecatedFlexibleBox::layoutBlock): 
+        Same as RenderBlock::layoutBlock.
+        * rendering/RenderFlexibleBox.cpp:
+        (WebCore::RenderFlexibleBox::layoutBlock): Ditto.
+        * rendering/RenderGrid.cpp:
+        (WebCore::RenderGrid::layoutBlock): Ditto.
+
 2013-04-05  Mihai Maerean  <mmaerean@adobe.com>
 
         [CSS Regions] Elements in a region should be assignable to a named flow
