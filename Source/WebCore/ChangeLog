@@ -1,3 +1,50 @@
+2013-03-28  Allan Sandfeld Jensen  <allan.jensen@digia.com>
+
+        [Qt] Create ShadowBlur on demand.
+        https://bugs.webkit.org/show_bug.cgi?id=113506
+
+        Reviewed by Noam Rosenthal.
+
+        This patch creates ShadowBlur objects on demand instead of keeping a single one alive for
+        each GraphicsContext. This matches what other platforms does and fixes the problem with 
+        an active shadowblur being affected by changing shadow settings on the GraphicsContext.
+
+        The method mustUseShadowBlur is moved from ShadowBlur to GraphcisContext, so that it can
+        be used to determine if a ShadowBlur object should even be generated.
+
+        * platform/graphics/GraphicsContext.cpp:
+        (WebCore::GraphicsContext::hasBlurredShadow):
+        (WebCore::GraphicsContext::mustUseShadowBlur):
+        * platform/graphics/GraphicsContext.h:
+        (GraphicsContext):
+        * platform/graphics/ShadowBlur.cpp:
+        (WebCore::ShadowBlur::ShadowBlur):
+        * platform/graphics/ShadowBlur.h:
+        * platform/graphics/cairo/FontCairo.cpp:
+        (WebCore::drawGlyphsShadow):
+        * platform/graphics/cg/GraphicsContextCG.cpp:
+        (WebCore::GraphicsContext::fillRect):
+        (WebCore::GraphicsContext::fillRoundedRect):
+        (WebCore::GraphicsContext::fillRectWithRoundedHole):
+        * platform/graphics/qt/FontQt.cpp:
+        (WebCore::drawQtGlyphRun):
+        * platform/graphics/qt/GraphicsContextQt.cpp:
+        (GraphicsContextPlatformPrivate):
+        (WebCore::GraphicsContextPlatformPrivate::GraphicsContextPlatformPrivate):
+        (WebCore::GraphicsContextPlatformPrivate::~GraphicsContextPlatformPrivate):
+        (WebCore::GraphicsContext::restorePlatformState):
+        (WebCore::GraphicsContext::fillPath):
+        (WebCore::GraphicsContext::strokePath):
+        (WebCore::GraphicsContext::fillRect):
+        (WebCore::GraphicsContext::fillRoundedRect):
+        (WebCore::GraphicsContext::fillRectWithRoundedHole):
+        (WebCore::GraphicsContext::setPlatformShadow):
+        (WebCore::GraphicsContext::clearPlatformShadow):
+        * platform/graphics/qt/ImageQt.cpp:
+        (WebCore::BitmapImage::draw):
+        * platform/graphics/qt/StillImageQt.cpp:
+        (WebCore::StillImage::draw):
+
 2013-04-05  Ryosuke Niwa  <rniwa@webkit.org>
 
         Remove Chromium code from WebCore/page
