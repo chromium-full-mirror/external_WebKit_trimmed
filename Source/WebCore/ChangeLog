@@ -1,3 +1,15 @@
+2013-04-04  Geoffrey Garen  <ggaren@apple.com>
+
+        Removed empty files from the build
+        https://bugs.webkit.org/show_bug.cgi?id=113978
+
+        Reviewed by Anders Carlsson.
+
+        Anders made a list of all the empty files that are slowing down the Mac
+        build, and I grepped them away.
+
+        * WebCore.xcodeproj/project.pbxproj:
+
 2013-04-04  Anders Carlsson  <andersca@apple.com>
 
         Prune unneeded header #includes
