@@ -1,3 +1,86 @@
+2013-04-05  Antti Koivisto  <antti@apple.com>
+
+        Throttle compositing layer flushes during page loading
+        https://bugs.webkit.org/show_bug.cgi?id=113786
+
+        Reviewed by Simon Fraser.
+        
+        Page content can change rapidly during page loading triggering excessive layer flushes and repainting. We should avoid this unnecessary work.
+        
+        This patch reduces layer flushes (and painting) during loading by 50-70% on many popular pages.
+
+        * loader/FrameLoader.cpp:
+        (WebCore::FrameLoader::loadProgressingStatusChanged):        
+        * loader/FrameLoader.h:
+        * loader/ProgressTracker.cpp:
+        (WebCore::ProgressTracker::ProgressTracker):
+        (WebCore::ProgressTracker::reset):
+        (WebCore::ProgressTracker::progressStarted):
+        (WebCore::ProgressTracker::finalProgressComplete):
+        (WebCore::ProgressTracker::isLoadProgressing):
+        (WebCore::ProgressTracker::progressHeartbeatTimerFired):
+        * loader/ProgressTracker.h:
+        
+            Track if the document load is progressing. This is done with a heartbeat timer that checks every 100ms if we have received more than 1k of data.
+            If four heartbeats pass without progress then we consider the load stalled.
+
+        * page/FrameView.cpp:
+        (WebCore::FrameView::resetDeferredRepaintDelay):
+        
+            Disable throttling temporary on user interaction so the page stays as responsive as possible even during loading.
+
+        (WebCore::FrameView::updateLayerFlushThrottling):
+        
+            Enable throttling when the load is progressing, disable otherwise.
+
+        * page/FrameView.h:
+        * platform/graphics/GraphicsLayer.h:
+        (WebCore::GraphicsLayer::canThrottleLayerFlush):
+        * platform/graphics/ca/GraphicsLayerCA.cpp:
+        (WebCore::GraphicsLayerCA::platformCALayerDidCreateTiles):
+        (WebCore::GraphicsLayerCA::canThrottleLayerFlush):
+        
+            Don't throttle if new tiles have been added by the tile controller. They may have stale content and need to be flushed immediately.
+
+        (WebCore::GraphicsLayerCA::noteLayerPropertyChanged):
+        
+            Set the new TilesAdded change flag.
+
+        * platform/graphics/ca/GraphicsLayerCA.h:
+        * rendering/RenderLayerBacking.cpp:
+        (WebCore::RenderLayerBacking::notifyFlushRequired):
+        * rendering/RenderLayerCompositor.cpp:
+        (WebCore::RenderLayerCompositor::RenderLayerCompositor):
+        (WebCore::RenderLayerCompositor::notifyFlushRequired):
+        (WebCore::RenderLayerCompositor::scheduleLayerFlushNow):
+        
+            Factor the actual flush scheduling to private function.
+
+        (WebCore::RenderLayerCompositor::scheduleLayerFlush):
+        
+            Mark the compositor for flush and return without flushing if the flushes are currently being throttled.
+
+        (WebCore::RenderLayerCompositor::flushPendingLayerChanges):
+        
+            After a flush, start the throtting timer (currently 0.5s) coalescing the subsequent flushes.
+
+        (WebCore::RenderLayerCompositor::didChangeVisibleRect):
+        
+            Do immediately flush if needed.
+
+        (WebCore::RenderLayerCompositor::setLayerFlushThrottlingEnabled):
+        
+            Flush immediately if disabled.
+
+        (WebCore::RenderLayerCompositor::disableLayerFlushThrottlingTemporarilyForInteraction):
+        (WebCore::RenderLayerCompositor::isThrottlingLayerFlushes):
+        (WebCore::RenderLayerCompositor::startLayerFlushTimerIfNeeded):
+        (WebCore::RenderLayerCompositor::layerFlushTimerFired):
+        
+            Flush when the timer fires timer.
+
+        * rendering/RenderLayerCompositor.h:
+
 2013-04-05  Benjamin Poulain  <benjamin@webkit.org>
 
         Clean the chromium bits of WebCore's WebDatabase
