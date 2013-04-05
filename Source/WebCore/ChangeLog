@@ -1,3 +1,21 @@
+2013-04-04  peavo@outlook.com  <peavo@outlook.com>
+
+        WinCairo build fails to link.
+        https://bugs.webkit.org/show_bug.cgi?id=113873
+
+        Reviewed by Brent Fulgham.
+
+        Removed double guards for USE(ACCELERATED_COMPOSITING),
+        and moved methods out of USE(ACCELERATED_COMPOSITING) guard to fix linker errors. 
+
+        * page/FrameView.cpp:
+        (WebCore::FrameView::setWantsLayerForTopOverHangArea):
+        (WebCore::FrameView::setWantsLayerForBottomOverHangArea):
+        (WebCore::FrameView::setWantsLayerForHeader):
+        (WebCore::FrameView::setWantsLayerForFooter):
+        (WebCore::FrameView::setHeaderHeight):
+        (WebCore::FrameView::setFooterHeight):
+
 2013-04-04  Ryosuke Niwa  <rniwa@webkit.org>
 
         Remove code for 10.5 and earlier from Source/WebCore
