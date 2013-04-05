@@ -1,3 +1,19 @@
+2013-04-05  Chris Fleizach  <cfleizach@apple.com>
+
+        WebSpeech: crash at WebCore::SpeechSynthesis::speak
+        https://bugs.webkit.org/show_bug.cgi?id=113937
+
+        Reviewed by Tim Horton.
+
+        Protect against the case when invalid data is passed in.
+
+        Test: platform/mac/fast/speechsynthesis/speech-synthesis-crash-on-bad-utterance.html
+
+        * Modules/speech/SpeechSynthesis.cpp:
+        (WebCore::SpeechSynthesis::speak):
+        * Modules/speech/SpeechSynthesisUtterance.cpp:
+        (WebCore::SpeechSynthesisUtterance::setVoice):
+
 2013-04-05  Antti Koivisto  <antti@apple.com>
 
         Throttle compositing layer flushes during page loading

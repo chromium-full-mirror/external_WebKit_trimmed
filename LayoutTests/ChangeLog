@@ -1,3 +1,13 @@
+2013-04-05  Chris Fleizach  <cfleizach@apple.com>
+
+        WebSpeech: crash at WebCore::SpeechSynthesis::speak
+        https://bugs.webkit.org/show_bug.cgi?id=113937
+
+        Reviewed by Tim Horton.
+
+        * platform/mac/fast/speechsynthesis/speech-synthesis-crash-on-bad-utterance-expected.txt: Added.
+        * platform/mac/fast/speechsynthesis/speech-synthesis-crash-on-bad-utterance.html: Added.
+
 2013-04-05  Rijubrata Bhaumik  <rijubrata.bhaumik@intel.com>
 
         [EFL] Enable indexed database
