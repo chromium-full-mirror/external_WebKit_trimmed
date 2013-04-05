@@ -1,5 +1,14 @@
 2013-04-05  Ryosuke Niwa  <rniwa@webkit.org>
 
+        Cleanup after git svn left empty directories.
+
+        * loader/chromium: Removed.
+        * page/chromium: Removed.
+        * page/scrolling/chromium: Removed.
+        * plugins/chromium: Removed.
+
+2013-04-05  Ryosuke Niwa  <rniwa@webkit.org>
+
         Actually delete platform/chromium.
 
         * platform/chromium: Removed.
