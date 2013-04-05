@@ -1,3 +1,22 @@
+2013-04-04  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Remove Chromium code from WebCore/accessibility
+        https://bugs.webkit.org/show_bug.cgi?id=114001
+
+        Reviewed by Benjamin Poulain.
+
+        Removed.
+
+        * accessibility/AccessibilityObject.cpp:
+        (WebCore::AccessibilityObject::AccessibilityObject):
+        (WebCore::AccessibilityObject::detach):
+        (WebCore::AccessibilityObject::isDetached):
+        * accessibility/AccessibilityObject.h:
+        (AccessibilityObject):
+        * accessibility/chromium: Removed.
+        * accessibility/chromium/AXObjectCacheChromium.cpp: Removed.
+        * accessibility/chromium/AccessibilityObjectChromium.cpp: Removed.
+
 2013-04-05  Benjamin Poulain  <bpoulain@apple.com>
 
         Remove WTFURL from WebKit
