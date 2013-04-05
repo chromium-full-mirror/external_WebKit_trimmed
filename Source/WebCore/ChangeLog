@@ -1,3 +1,30 @@
+2013-04-05  Benjamin Poulain  <bpoulain@apple.com>
+
+        Remove WTFURL from WebKit
+        https://bugs.webkit.org/show_bug.cgi?id=113994
+
+        Reviewed by Ryosuke Niwa.
+
+        * GNUmakefile.list.am:
+        * WebCore.exp.in:
+        * WebCore.xcodeproj/project.pbxproj:
+        * platform/KURL.cpp:
+        (WebCore):
+        (WebCore::KURL::reportMemoryUsage):
+        (WebCore::KURL::isSafeToSendToAnotherThread):
+        * platform/KURL.h:
+        (KURL):
+        (WebCore):
+        * platform/KURLWTFURL.cpp: Removed.
+        * platform/KURLWTFURLImpl.h: Removed.
+        * platform/cf/KURLCFNet.cpp:
+        (WebCore::KURL::KURL):
+        (WebCore::KURL::createCFURL):
+        (WebCore):
+        * platform/mac/KURLMac.mm:
+        (WebCore::KURL::KURL):
+        (WebCore::KURL::createCFURL):
+
 2013-04-04  peavo@outlook.com  <peavo@outlook.com>
 
         WinCairo build fails to link.
