@@ -1,5 +1,120 @@
 2013-04-05  Ryosuke Niwa  <rniwa@webkit.org>
 
+        Remove Chromium code from WebCore/platform
+        https://bugs.webkit.org/show_bug.cgi?id=114014
+
+        Reviewed by Anders Carlsson.
+
+        Removed.
+
+        * platform/audio/chromium: Removed.
+        * platform/audio/chromium/AudioBusChromium.cpp: Removed.
+        * platform/audio/chromium/AudioDestinationChromium.cpp: Removed.
+        * platform/audio/chromium/AudioDestinationChromium.h: Removed.
+        * platform/audio/chromium/FFTFrameOpenMAXDLAndroid.cpp: Removed.
+        * platform/graphics/FontPlatformData.h:
+        * platform/graphics/chromium: Removed.
+        * platform/graphics/chromium/AnimationTranslationUtil.cpp: Removed.
+        * platform/graphics/chromium/AnimationTranslationUtil.h: Removed.
+        * platform/graphics/chromium/Canvas2DLayerBridge.cpp: Removed.
+        * platform/graphics/chromium/Canvas2DLayerBridge.h: Removed.
+        * platform/graphics/chromium/Canvas2DLayerManager.cpp: Removed.
+        * platform/graphics/chromium/Canvas2DLayerManager.h: Removed.
+        * platform/graphics/chromium/CrossProcessFontLoading.h: Removed.
+        * platform/graphics/chromium/CrossProcessFontLoading.mm: Removed.
+        * platform/graphics/chromium/DeferredImageDecoder.cpp: Removed.
+        * platform/graphics/chromium/DeferredImageDecoder.h: Removed.
+        * platform/graphics/chromium/DiscardablePixelRef.cpp: Removed.
+        * platform/graphics/chromium/DiscardablePixelRef.h: Removed.
+        * platform/graphics/chromium/DrawingBufferChromium.cpp: Removed.
+        * platform/graphics/chromium/Extensions3DChromium.h: Removed.
+        * platform/graphics/chromium/FontCacheAndroid.cpp: Removed.
+        * platform/graphics/chromium/FontCacheChromiumLinux.cpp: Removed.
+        * platform/graphics/chromium/FontCacheChromiumWin.cpp: Removed.
+        * platform/graphics/chromium/FontChromiumWin.cpp: Removed.
+        * platform/graphics/chromium/FontPlatformData.h: Removed.
+        * platform/graphics/chromium/FontPlatformDataChromiumWin.cpp: Removed.
+        * platform/graphics/chromium/FontPlatformDataChromiumWin.h: Removed.
+        * platform/graphics/chromium/FontRenderStyle.h: Removed.
+        * platform/graphics/chromium/FontUtilsChromiumWin.cpp: Removed.
+        * platform/graphics/chromium/FontUtilsChromiumWin.h: Removed.
+        * platform/graphics/chromium/GlyphPageTreeNodeChromiumWin.cpp: Removed.
+        * platform/graphics/chromium/GraphicsLayerChromium.cpp: Removed.
+        * platform/graphics/chromium/GraphicsLayerChromium.h: Removed.
+        * platform/graphics/chromium/IconChromium.cpp: Removed.
+        * platform/graphics/chromium/IconChromiumAndroid.cpp: Removed.
+        * platform/graphics/chromium/ImageBufferDataSkia.h: Removed.
+        * platform/graphics/chromium/ImageChromium.cpp: Removed.
+        * platform/graphics/chromium/ImageDecodingStore.cpp: Removed.
+        * platform/graphics/chromium/ImageDecodingStore.h: Removed.
+        * platform/graphics/chromium/ImageFrameGenerator.cpp: Removed.
+        * platform/graphics/chromium/ImageFrameGenerator.h: Removed.
+        * platform/graphics/chromium/LayerPainterChromium.h: Removed.
+        * platform/graphics/chromium/LazyDecodingPixelRef.cpp: Removed.
+        * platform/graphics/chromium/LazyDecodingPixelRef.h: Removed.
+        * platform/graphics/chromium/MediaPlayerPrivateChromium.cpp: Removed.
+        * platform/graphics/chromium/MediaPlayerPrivateChromium.h: Removed.
+        * platform/graphics/chromium/OpaqueRectTrackingContentLayerDelegate.cpp: Removed.
+        * platform/graphics/chromium/OpaqueRectTrackingContentLayerDelegate.h: Removed.
+        * platform/graphics/chromium/PlatformIcon.h: Removed.
+        * platform/graphics/chromium/ScaledImageFragment.cpp: Removed.
+        * platform/graphics/chromium/ScaledImageFragment.h: Removed.
+        * platform/graphics/chromium/SimpleFontDataChromiumWin.cpp: Removed.
+        * platform/graphics/chromium/SkSizeHash.h: Removed.
+        * platform/graphics/chromium/TextureUploader.h: Removed.
+        * platform/graphics/chromium/ThreadSafeDataTransport.cpp: Removed.
+        * platform/graphics/chromium/ThreadSafeDataTransport.h: Removed.
+        * platform/graphics/chromium/TransformSkMatrix44Conversions.cpp: Removed.
+        * platform/graphics/chromium/TransformSkMatrix44Conversions.h: Removed.
+        * platform/graphics/chromium/TransparencyWin.cpp: Removed.
+        * platform/graphics/chromium/TransparencyWin.h: Removed.
+        * platform/graphics/chromium/UniscribeHelper.cpp: Removed.
+        * platform/graphics/chromium/UniscribeHelper.h: Removed.
+        * platform/graphics/chromium/UniscribeHelperTextRun.cpp: Removed.
+        * platform/graphics/chromium/UniscribeHelperTextRun.h: Removed.
+        * platform/graphics/chromium/VDMXParser.cpp: Removed.
+        * platform/graphics/chromium/VDMXParser.h: Removed.
+        * platform/graphics/gpu/DrawingBuffer.cpp:
+        (WebCore):
+        * platform/graphics/gpu/SharedGraphicsContext3D.cpp:
+        (WebCore::SharedGraphicsContext3DImpl::getOrCreateContext):
+        * platform/mediastream/chromium: Removed.
+        * platform/mediastream/chromium/MediaStreamCenterChromium.cpp: Removed.
+        * platform/mediastream/chromium/MediaStreamCenterChromium.h: Removed.
+        * platform/mediastream/chromium/RTCDTMFSenderHandlerChromium.cpp: Removed.
+        * platform/mediastream/chromium/RTCDTMFSenderHandlerChromium.h: Removed.
+        * platform/mediastream/chromium/RTCDataChannelHandlerChromium.cpp: Removed.
+        * platform/mediastream/chromium/RTCDataChannelHandlerChromium.h: Removed.
+        * platform/mediastream/chromium/RTCPeerConnectionHandlerChromium.cpp: Removed.
+        * platform/mediastream/chromium/RTCPeerConnectionHandlerChromium.h: Removed.
+        * platform/network/chromium: Removed.
+        * platform/network/chromium/AuthenticationChallenge.h: Removed.
+        * platform/network/chromium/AuthenticationChallengeChromium.cpp: Removed.
+        * platform/network/chromium/BlobRegistryProxy.cpp: Removed.
+        * platform/network/chromium/BlobRegistryProxy.h: Removed.
+        * platform/network/chromium/CookieJarChromium.cpp: Removed.
+        * platform/network/chromium/DNSChromium.cpp: Removed.
+        * platform/network/chromium/ResourceError.h: Removed.
+        * platform/network/chromium/ResourceHandle.cpp: Removed.
+        * platform/network/chromium/ResourceHandleInternal.h: Removed.
+        * platform/network/chromium/ResourceRequest.cpp: Removed.
+        * platform/network/chromium/ResourceRequest.h: Removed.
+        * platform/network/chromium/ResourceResponse.cpp: Removed.
+        * platform/network/chromium/ResourceResponse.h: Removed.
+        * platform/network/chromium/SocketStreamError.h: Removed.
+        * platform/network/chromium/SocketStreamHandle.cpp: Removed.
+        * platform/network/chromium/SocketStreamHandle.h: Removed.
+        * platform/network/chromium/SocketStreamHandleInternal.h: Removed.
+        * platform/sql/chromium: Removed.
+        * platform/sql/chromium/SQLiteFileSystemChromium.cpp: Removed.
+        * platform/sql/chromium/SQLiteFileSystemChromiumPosix.cpp: Removed.
+        * platform/sql/chromium/SQLiteFileSystemChromiumWin.cpp: Removed.
+        * platform/text/chromium: Removed.
+        * platform/text/chromium/Hyphenation.cpp: Removed.
+        * platform/text/chromium/TextBreakIteratorInternalICUChromium.cpp: Removed.
+
+2013-04-05  Ryosuke Niwa  <rniwa@webkit.org>
+
         Remove Chromium code from WebCore/workers
         https://bugs.webkit.org/show_bug.cgi?id=114050
 
