@@ -1,5 +1,17 @@
 2013-04-05  Noam Rosenthal  <noam@webkit.org>
 
+        [Texmap] css3/filters/filter-animation-from-none-hw.html does not animate
+        https://bugs.webkit.org/show_bug.cgi?id=114026
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        Allow the filter's blending function to take place when animating from/to none.
+
+        * platform/graphics/GraphicsLayerAnimation.cpp:
+        (WebCore::applyFilterAnimation):
+
+2013-04-05  Noam Rosenthal  <noam@webkit.org>
+
         [CoordGfx] Enable filter animations
         https://bugs.webkit.org/show_bug.cgi?id=114027
 
