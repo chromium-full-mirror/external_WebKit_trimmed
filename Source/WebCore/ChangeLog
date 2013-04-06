@@ -1,3 +1,47 @@
+2013-04-06  Zan Dobersek  <zdobersek@igalia.com>
+
+        Remove the USE(SKIA_ON_MAC_CHROMIUM) guards
+        https://bugs.webkit.org/show_bug.cgi?id=114084
+
+        Reviewed by Ryosuke Niwa.
+
+        Remove the USE(SKIA_ON_MAC_CHROMIUM) guards. The guards were enabled only
+        for the Chromium port via the features.gypi file that was removed in r147714.
+
+        * platform/graphics/FloatPoint.h:
+        (FloatPoint):
+        * platform/graphics/FloatRect.h:
+        (FloatRect):
+        * platform/graphics/FloatSize.h:
+        (FloatSize):
+        * platform/graphics/FontPlatformData.cpp:
+        (WebCore):
+        * platform/graphics/FontPlatformData.h:
+        (FontPlatformData):
+        (WebCore::FontPlatformData::hash):
+        * platform/graphics/IntPoint.h:
+        (IntPoint):
+        * platform/graphics/IntRect.h:
+        (IntRect):
+        (WebCore):
+        * platform/graphics/IntSize.h:
+        (IntSize):
+        * platform/graphics/SimpleFontData.h:
+        (SimpleFontData):
+        (WebCore::SimpleFontData::widthForGlyph):
+        * platform/graphics/cg/FloatPointCG.cpp:
+        * platform/graphics/cg/FloatRectCG.cpp:
+        * platform/graphics/cg/FloatSizeCG.cpp:
+        * platform/graphics/cg/IntPointCG.cpp:
+        * platform/graphics/cg/IntRectCG.cpp:
+        * platform/graphics/cg/IntSizeCG.cpp:
+        * platform/graphics/mac/FontCustomPlatformData.cpp:
+        (WebCore::FontCustomPlatformData::~FontCustomPlatformData):
+        (WebCore::createFontCustomPlatformData):
+        * platform/graphics/mac/FontCustomPlatformData.h:
+        (WebCore::FontCustomPlatformData::FontCustomPlatformData):
+        (FontCustomPlatformData):
+
 2013-04-06  Robert Hogan  <robert@webkit.org>
 
         REGRESSION(r142152): Text wraps in menu
