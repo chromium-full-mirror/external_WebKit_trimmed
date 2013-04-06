@@ -1,3 +1,25 @@
+2013-04-05  Benjamin Poulain  <bpoulain@apple.com>
+
+        Change css1/basic/comments-expected.html to be a ref-test
+        https://bugs.webkit.org/show_bug.cgi?id=113996
+
+        Reviewed by Jer Noble.
+
+        The test css1/basic/comments.html verifies the handling
+        of comments inside a CSS declaration.
+
+        The test is changed to a ref-test by simply defining the style
+        directly on each element on the reference.
+
+        * css1/basic/comments-expected.html: Added.
+        * platform/efl/css1/basic/comments-expected.png: Removed.
+        * platform/efl/css1/basic/comments-expected.txt: Removed.
+        * platform/gtk/css1/basic/comments-expected.txt: Removed.
+        * platform/mac/css1/basic/comments-expected.png: Removed.
+        * platform/mac/css1/basic/comments-expected.txt: Removed.
+        * platform/qt/css1/basic/comments-expected.png: Removed.
+        * platform/qt/css1/basic/comments-expected.txt: Removed.
+
 2013-04-05  Mark Hahnenberg  <mhahnenberg@apple.com>
 
         tryCacheGetByID sets StructureStubInfo accessType to an incorrect value
