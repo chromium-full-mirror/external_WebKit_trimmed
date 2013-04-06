@@ -1,3 +1,31 @@
+2013-04-05  Kangil Han  <kangil.han@samsung.com>
+
+        Prefer prefix ++/-- operators for non-primitive types
+        https://bugs.webkit.org/show_bug.cgi?id=114033
+
+        Reviewed by Alexey Proskuryakov.
+
+        Post ++/-- creates a copy of current value and it is not necessary, so use prefix instead.
+
+        * bindings/js/Dictionary.cpp:
+        (WebCore::Dictionary::getOwnPropertiesAsStringHashMap):
+        (WebCore::Dictionary::getOwnPropertyNames):
+        * bindings/js/ScriptCallStackFactory.cpp:
+        (WebCore::createScriptCallStack):
+        * dom/ContainerNode.cpp:
+        (WebCore::willRemoveChildren):
+        * dom/Range.cpp:
+        (WebCore::Range::processAncestorsAndTheirSiblings):
+        * loader/FrameLoader.cpp:
+        (WebCore::FrameLoader::detachChildren):
+        * platform/graphics/gpu/LoopBlinnPathProcessor.cpp:
+        (WebCore):
+        (WebCore::LoopBlinnPathProcessor::subdivideCurvesSlow):
+        * rendering/InlineTextBox.cpp:
+        (WebCore::InlineTextBox::paintDocumentMarkers):
+        * xml/XPathFunctions.cpp:
+        (WebCore::XPath::Function::setArguments):
+
 2013-04-05  Hans Muller  <hmuller@adobe.com>
 
         [CSS Exclusions] Add support for the simple case of shape-margin polygonal shape-outside
