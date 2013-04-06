@@ -1,3 +1,20 @@
+2013-04-06  Benjamin Poulain  <benjamin@webkit.org>
+
+        Remove the Chromium code from Mac's FontPlatformData
+        https://bugs.webkit.org/show_bug.cgi?id=114103
+
+        Reviewed by Sam Weinig.
+
+        * platform/graphics/FontPlatformData.h:
+        (WebCore):
+        (FontPlatformData):
+        * platform/graphics/cocoa/FontPlatformDataCocoa.mm:
+        (WebCore::FontPlatformData::FontPlatformData):
+        (WebCore::FontPlatformData::platformDataInit):
+        (WebCore::FontPlatformData::platformDataAssign):
+        (WebCore::FontPlatformData::setFont):
+        (WebCore::FontPlatformData::ctFont):
+
 2013-04-06  Oliver Hunt  <oliver@apple.com>
 
         Unify the many and varied stack trace mechanisms, and make the result sane.
