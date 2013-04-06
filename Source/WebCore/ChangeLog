@@ -1,3 +1,26 @@
+2013-04-05  Hans Muller  <hmuller@adobe.com>
+
+        [CSS Exclusions] Add support for the simple case of shape-margin polygonal shape-outside
+        https://bugs.webkit.org/show_bug.cgi?id=113726
+
+        Reviewed by Dirk Schulze.
+
+        Add support for computing the shape-outside shape-margin boundary for a polygon.
+        This change is similar to the one added for padding polygons, see bug 112592.
+        The algorithm used for computing the margin boundary is is provisional. It works
+        correctly for convex polygons and will work correctly for non self-intersecting
+        polygons whose margin boundary is the same shape as the original polygon.
+
+        Tests: fast/exclusions/shape-outside-floats/shape-outside-floats-diamond-margin-polygon.html
+               fast/exclusions/shape-outside-floats/shape-outside-floats-left-margin-polygon.html
+               fast/exclusions/shape-outside-floats/shape-outside-floats-right-margin-polygon.html
+
+        * rendering/ExclusionPolygon.cpp:
+        (WebCore::appendArc): Generalized this method a little, to deal with margin and padding connecting arcs.
+        (WebCore::computeShapePaddingBounds): Pass the new appendArc() parameter.
+        (WebCore::computeShapeMarginBounds): Compute the margin boundary for a polygon, per the constraints summarized above.
+        (WebCore::ExclusionPolygon::getExcludedIntervals): Use the margin polygon for this computation.
+
 2013-04-05  Andy Estes  <aestes@apple.com>
 
         Returning NULL from willSendRequest should cancel a load from the memory cache
