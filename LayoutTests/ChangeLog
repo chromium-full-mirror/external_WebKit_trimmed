@@ -1,3 +1,28 @@
+2013-04-05  Benjamin Poulain  <bpoulain@apple.com>
+
+        Modernize fast/events/autoscroll.html
+        https://bugs.webkit.org/show_bug.cgi?id=112508
+
+        Reviewed by Jer Noble.
+
+        The test fast/events/autoscroll.html was introduced in
+        https://bugs.webkit.org/show_bug.cgi?id=12331 (r19102) to verify the page
+        does not scroll when the text is selected.
+
+        It seems reasonable to test the use case with a text dump instead of a pixel test.
+        This should reduces the maintenance needed to keep the test useful.
+
+        * fast/events/autoscroll.html: Removed.
+        * fast/events/no-scroll-on-input-text-selection-expected.txt: Added.
+        * fast/events/no-scroll-on-input-text-selection.html: Added.
+        * platform/efl/fast/events/autoscroll-expected.png: Removed.
+        * platform/efl/fast/events/autoscroll-expected.txt: Removed.
+        * platform/gtk/fast/events/autoscroll-expected.png: Removed.
+        * platform/gtk/fast/events/autoscroll-expected.txt: Removed.
+        * platform/mac-wk2/TestExpectations:
+        * platform/mac/fast/events/autoscroll-expected.png: Removed.
+        * platform/mac/fast/events/autoscroll-expected.txt: Removed.
+
 2013-04-05  Andy Estes  <aestes@apple.com>
 
         Returning NULL from willSendRequest should cancel a load from the memory cache
