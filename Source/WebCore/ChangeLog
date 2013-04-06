@@ -1,3 +1,18 @@
+2013-04-06  Geoffrey Garen  <ggaren@apple.com>
+
+        Rolled out 147820 and 147818 because they caused plugins tests to ASSERT
+        https://bugs.webkit.org/show_bug.cgi?id=114094
+
+        Reviewed by Anders Carlsson.
+
+        * bindings/js/ScriptCallStackFactory.cpp:
+        (WebCore::createScriptCallStack):
+        * inspector/ScriptCallFrame.cpp:
+        (WebCore::ScriptCallFrame::isEqual):
+        * inspector/ScriptCallFrame.h:
+        (ScriptCallFrame):
+        (WebCore::ScriptCallFrame::lineNumber):
+
 2013-04-06  Anders Carlsson  <andersca@apple.com>
 
         Remove VisitedLinks.{cpp|h}
