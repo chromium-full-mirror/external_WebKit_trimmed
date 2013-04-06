@@ -1,3 +1,22 @@
+2013-04-06  Oliver Hunt  <oliver@apple.com>
+
+        Unify the many and varied stack trace mechanisms, and make the result sane.
+        https://bugs.webkit.org/show_bug.cgi?id=114072
+
+        Reviewed by Filip Pizlo.
+
+        Now that we've fleshed out the StackFrames from Interpreter::getStackTrace
+        WebCore can just ask us for a stack trace rather than implementing its own
+        stack walking.
+
+        * bindings/js/ScriptCallStackFactory.cpp:
+        (WebCore::createScriptCallStack):
+        * inspector/ScriptCallFrame.cpp:
+        (WebCore::ScriptCallFrame::isEqual):
+        * inspector/ScriptCallFrame.h:
+        (ScriptCallFrame):
+        (WebCore::ScriptCallFrame::columnNumber):
+
 2013-04-06  Geoffrey Garen  <ggaren@apple.com>
 
         Removed v8 bindings hooks from IDL files
