@@ -1,5 +1,41 @@
 2013-04-06  Anders Carlsson  <andersca@apple.com>
 
+        Remove dead CachedMetadata code
+        https://bugs.webkit.org/show_bug.cgi?id=114093
+
+        Reviewed by Geoffrey Garen.
+
+        * CMakeLists.txt:
+        * GNUmakefile.list.am:
+        * Target.pri:
+        * WebCore.vcproj/WebCore.vcproj:
+        * WebCore.vcxproj/WebCore.vcxproj:
+        * WebCore.vcxproj/WebCore.vcxproj.filters:
+        * WebCore.xcodeproj/project.pbxproj:
+        * loader/CachedMetadata.cpp: Removed.
+        * loader/CachedMetadata.h: Removed.
+        * loader/ResourceLoader.h:
+        (ResourceLoader):
+        * loader/SubresourceLoader.cpp:
+        * loader/SubresourceLoader.h:
+        (SubresourceLoader):
+        * loader/ThreadableLoaderClient.h:
+        * loader/WorkerThreadableLoader.cpp:
+        * loader/WorkerThreadableLoader.h:
+        (MainThreadBridge):
+        * loader/cache/CachedResource.cpp:
+        (WebCore::CachedResource::reportMemoryUsage):
+        * loader/cache/CachedResource.h:
+        (WebCore):
+        (CachedResource):
+        * platform/network/ResourceHandle.cpp:
+        * platform/network/ResourceHandle.h:
+        (ResourceHandle):
+        * platform/network/ResourceHandleClient.h:
+        (ResourceHandleClient):
+
+2013-04-06  Anders Carlsson  <andersca@apple.com>
+
         Remove more dead Chromium code
         https://bugs.webkit.org/show_bug.cgi?id=114090
 
