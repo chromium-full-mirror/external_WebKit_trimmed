@@ -1,3 +1,124 @@
+2013-04-06  Geoffrey Garen  <ggaren@apple.com>
+
+        Removed v8 bindings hooks from IDL files
+        https://bugs.webkit.org/show_bug.cgi?id=114091
+
+        Reviewed by Anders Carlsson and Sam Weinig.
+
+        * Modules/encryptedmedia/MediaKeySession.idl:
+        * Modules/filesystem/DOMWindowFileSystem.idl:
+        * Modules/filesystem/WorkerContextFileSystem.idl:
+        * Modules/gamepad/NavigatorGamepad.idl:
+        * Modules/geolocation/NavigatorGeolocation.idl:
+        * Modules/indexeddb/DOMWindowIndexedDatabase.idl:
+        * Modules/indexeddb/WorkerContextIndexedDatabase.idl:
+        * Modules/mediastream/DOMWindowMediaStream.idl:
+        * Modules/mediastream/NavigatorMediaStream.idl:
+        * Modules/notifications/DOMWindowNotifications.idl:
+        * Modules/notifications/NotificationCenter.idl:
+        * Modules/notifications/WorkerContextNotifications.idl:
+        * Modules/quota/DOMWindowQuota.idl:
+        * Modules/speech/DOMWindowSpeech.idl:
+        * Modules/webaudio/AudioBufferSourceNode.idl:
+        * Modules/webaudio/AudioContext.idl:
+        * Modules/webaudio/AudioParam.idl:
+        * Modules/webaudio/DOMWindowWebAudio.idl:
+        * Modules/webdatabase/DOMWindowWebDatabase.idl:
+        * Modules/webdatabase/WorkerContextWebDatabase.idl:
+        * Modules/websockets/DOMWindowWebSocket.idl:
+        * Modules/websockets/WorkerContextWebSocket.idl:
+        * bindings/js/JSDOMBinding.cpp:
+        * bindings/js/ScriptController.h:
+        (ScriptController):
+        * bindings/scripts/test/TestNode.idl:
+        * bindings/scripts/test/TestObj.idl:
+        * css/CSSFontFaceLoadEvent.idl:
+        * css/CSSHostRule.idl:
+        * css/CSSRule.idl:
+        * css/CSSRuleList.idl:
+        * css/CSSStyleDeclaration.idl:
+        * css/CSSStyleSheet.idl:
+        * css/CSSValue.idl:
+        * css/FontLoader.idl:
+        * css/StyleSheet.idl:
+        * css/WebKitCSSRegionRule.idl:
+        * dom/Clipboard.idl:
+        * dom/CustomElementConstructor.idl:
+        * dom/CustomEvent.idl:
+        * dom/DOMNamedFlowCollection.idl:
+        * dom/DOMStringMap.idl:
+        * dom/DataTransferItemList.idl:
+        * dom/Document.idl:
+        * dom/DocumentFragment.idl:
+        * dom/Element.idl:
+        * dom/Event.idl:
+        * dom/EventTarget.idl:
+        * dom/MessageChannel.idl:
+        * dom/MouseEvent.idl:
+        * dom/MutationRecord.idl:
+        * dom/NamedNodeMap.idl:
+        * dom/Node.idl:
+        * dom/NodeList.idl:
+        * dom/RequestAnimationFrameCallback.idl:
+        * dom/ShadowRoot.idl:
+        * dom/Text.idl:
+        * history/HistoryItem.cpp:
+        (WebCore::HistoryItem::encodeBackForwardTreeNode):
+        (WebCore::HistoryItem::decodeBackForwardTree):
+        * html/DOMSettableTokenList.idl:
+        * html/DOMTokenList.idl:
+        * html/HTMLAllCollection.idl:
+        * html/HTMLAppletElement.idl:
+        * html/HTMLCollection.idl:
+        * html/HTMLDialogElement.idl:
+        * html/HTMLDivElement.idl:
+        * html/HTMLDocument.idl:
+        * html/HTMLElement.idl:
+        * html/HTMLEmbedElement.idl:
+        * html/HTMLFormControlsCollection.idl:
+        * html/HTMLFormElement.idl:
+        * html/HTMLImageElement.idl:
+        * html/HTMLInputElement.idl:
+        * html/HTMLMediaElement.idl:
+        * html/HTMLObjectElement.idl:
+        * html/HTMLOptionsCollection.idl:
+        * html/HTMLSelectElement.idl:
+        * html/HTMLSpanElement.idl:
+        * html/HTMLStyleElement.idl:
+        * html/HTMLTemplateElement.idl:
+        * html/HTMLTrackElement.idl:
+        * html/HTMLUnknownElement.idl:
+        * html/MediaKeyError.idl:
+        * html/MediaKeyEvent.idl:
+        * html/MicroDataItemValue.idl:
+        * html/canvas/CanvasRenderingContext2D.idl:
+        * html/canvas/DOMPath.idl:
+        * html/shadow/HTMLContentElement.idl:
+        * html/shadow/HTMLShadowElement.idl:
+        * html/track/TextTrack.idl:
+        * inspector/InjectedScriptHost.idl:
+        * inspector/InspectorIndexedDBAgent.cpp:
+        (WebCore::InspectorIndexedDBAgent::requestDatabaseNames):
+        (WebCore::InspectorIndexedDBAgent::requestDatabase):
+        (WebCore::InspectorIndexedDBAgent::requestData):
+        (WebCore::InspectorIndexedDBAgent::clearObjectStore):
+        (WebCore):
+        * loader/EmptyClients.h:
+        (EmptyFrameLoaderClient):
+        * loader/FrameLoaderClient.h:
+        (FrameLoaderClient):
+        * page/Console.idl:
+        * page/DOMWindow.idl:
+        * page/DOMWindowPagePopup.idl:
+        * page/History.idl:
+        * page/Location.idl:
+        * platform/graphics/skia/PatternSkia.cpp:
+        (WebCore::Pattern::platformDestroy):
+        (WebCore::Pattern::platformPattern):
+        * testing/Internals.cpp:
+        (WebCore::Internals::serializeObject):
+        (WebCore::Internals::deserializeBuffer):
+
 2013-04-06  Zan Dobersek  <zdobersek@igalia.com>
 
         Remove the USE(SKIA_ON_MAC_CHROMIUM) guards
