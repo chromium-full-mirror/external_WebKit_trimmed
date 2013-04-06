@@ -1,3 +1,15 @@
+2013-04-06  Timothy Hatcher  <timothy@apple.com>
+
+        Remove InjectedScriptHost.evaluateReturnsEvalFunction.
+
+        https://webkit.org/b/114099
+
+        * inspector/InjectedScriptHost.h:
+        (InjectedScriptHost):
+        * inspector/InjectedScriptHost.idl:
+        * inspector/InjectedScriptSource.js:
+        (InjectedScript.prototype._evaluateOn):
+
 2013-04-06  Benjamin Poulain  <bpoulain@apple.com>
 
         Remove the chromium code from WebCore/platform/mac

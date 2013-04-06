@@ -1,3 +1,13 @@
+2013-04-06  Timothy Hatcher  <timothy@apple.com>
+
+        Remove InjectedScriptHost.evaluateReturnsEvalFunction.
+
+        https://webkit.org/b/114099
+
+        Reviewed by Joseph Pecoraro.
+
+        * inspector/console/command-line-api-expected.txt:
+
 2013-04-06  Robert Hogan  <robert@webkit.org>
 
         REGRESSION(r142152): Text wraps in menu
