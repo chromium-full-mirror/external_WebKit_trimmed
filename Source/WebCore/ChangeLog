@@ -1,5 +1,14 @@
 2013-04-06  Anders Carlsson  <andersca@apple.com>
 
+        Another build fix.
+
+        Actually remove the right files from WebCore.vcxproj.
+
+        * WebCore.vcxproj/WebCore.vcxproj:
+        * WebCore.vcxproj/WebCore.vcxproj.filters:
+
+2013-04-06  Anders Carlsson  <andersca@apple.com>
+
         Fix build.
 
         ThreadableLoaderClientWrapper was still calling didReceiveCachedMetadata; I didn't notice it
