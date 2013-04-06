@@ -1,5 +1,15 @@
 2013-04-06  Anders Carlsson  <andersca@apple.com>
 
+        Fix build.
+
+        ThreadableLoaderClientWrapper was still calling didReceiveCachedMetadata; I didn't notice it
+        because the file was not in the Xcode project so I went ahead and added it.
+
+        * WebCore.xcodeproj/project.pbxproj:
+        * loader/ThreadableLoaderClientWrapper.h:
+
+2013-04-06  Anders Carlsson  <andersca@apple.com>
+
         Remove dead CachedMetadata code
         https://bugs.webkit.org/show_bug.cgi?id=114093
 
