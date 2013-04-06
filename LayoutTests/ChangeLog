@@ -1,3 +1,15 @@
+2013-04-05  Andy Estes  <aestes@apple.com>
+
+        Returning NULL from willSendRequest should cancel a load from the memory cache
+        https://bugs.webkit.org/show_bug.cgi?id=114075
+
+        Reviewed by Darin Adler.
+
+        * fast/loader/resources/cached-image.html: Added.
+        * fast/loader/willsendrequest-returns-null-for-memory-cache-load-expected.txt: Added.
+        * fast/loader/willsendrequest-returns-null-for-memory-cache-load.html: Added.
+        * platform/wk2/TestExpectations: Expect the test to fail in WKTR due to <http://webkit.org/b/114074>.
+
 2013-04-05  Chris Fleizach  <cfleizach@apple.com>
 
         AX: VoiceOver can't press on items

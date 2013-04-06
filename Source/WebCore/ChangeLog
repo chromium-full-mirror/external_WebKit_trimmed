@@ -1,3 +1,45 @@
+2013-04-05  Andy Estes  <aestes@apple.com>
+
+        Returning NULL from willSendRequest should cancel a load from the memory cache
+        https://bugs.webkit.org/show_bug.cgi?id=114075
+
+        Reviewed by Darin Adler.
+
+        When a resource is loaded from the memory cache and the client does not
+        implement the didLoadResourceFromMemoryCache delegate method, WebKit
+        synthesizes the typical sequence of resource load callbacks. One of
+        these is willSendRequest, which gives the client the opportunity to
+        modify the request. We should respect these modifications.
+
+        Handling any arbitrary modification is difficult given where in the
+        loading process we check the memory cache (see <http://webkit.org/b/113251>),
+        but we can handle the common case where the client cancels the load by
+        returning a NULL request.
+
+        Test: fast/loader/willsendrequest-returns-null-for-memory-cache-load.html
+
+        * loader/FrameLoader.cpp:
+        (WebCore::FrameLoader::willLoadMediaElementURL): Passed request to sendRemainingDelegateMessages.
+        (WebCore::FrameLoader::commitProvisionalLoad): Ditto.
+        (WebCore::FrameLoader::loadResourceSynchronously): Ditto.
+        (WebCore::FrameLoader::loadedResourceFromMemoryCache): Added an out
+        parameter to pass back a request potentially modified by
+        requestFromDelegate, which is also passed to sendRemainingDelegateMessages.
+        * loader/FrameLoader.h:
+        * loader/ResourceLoadNotifier.cpp:
+        (WebCore::ResourceLoadNotifier::dispatchDidFailLoading): Added a
+        function to dispatch didFailLoading and to call the correct InspectorInstrumentation.
+        (WebCore::ResourceLoadNotifier::sendRemainingDelegateMessages): If the
+        request is NULL, call dispatchDidFailLoading and return. This matches
+        the delegate callback sequence of a non memory cache load that is
+        cancelled by willSendRequest.
+        * loader/ResourceLoadNotifier.h:
+        * loader/cache/CachedResourceLoader.cpp:
+        (WebCore::CachedResourceLoader::shouldContinueAfterNotifyingLoadedFromMemoryCache):
+        Return false if the memory cache load is cancelled by the client.
+        (WebCore::CachedResourceLoader::requestResource): Return early if
+        shouldContinueAfterNotifyingLoadedFromMemoryCache is false.
+
 2013-04-05  Chris Fleizach  <cfleizach@apple.com>
 
         AX: VoiceOver can't press on items
