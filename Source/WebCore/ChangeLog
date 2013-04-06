@@ -1,3 +1,31 @@
+2013-04-05  Anders Carlsson  <andersca@apple.com>
+
+        Stop building Objective-C bindings for the SVG DOM
+        https://bugs.webkit.org/show_bug.cgi?id=114076
+
+        Reviewed by Geoffrey Garen.
+
+        The DOM SVG Objective-C bindings have never been exposed as API, and not building them cuts WebCore build by 10%.
+
+        * Configurations/FeatureDefines.xcconfig:
+        * Configurations/WebCore.xcconfig:
+        * WebCore.exp.in:
+        * WebCore.xcodeproj/project.pbxproj:
+        * bindings/objc/DOM.mm:
+        (WebCore::createElementClassMap):
+        (kitClass):
+        * bindings/objc/DOMCSS.mm:
+        (kitClass):
+        * bindings/objc/DOMEvents.mm:
+        * bindings/objc/DOMSVG.h: Removed.
+        * bindings/objc/DOMSVGException.h: Removed.
+        * bindings/objc/DOMSVGPathSegInternal.mm: Removed.
+        * bindings/objc/ExceptionHandlers.mm:
+        * html/HTMLEmbedElement.idl:
+        * html/HTMLFrameElement.idl:
+        * html/HTMLIFrameElement.idl:
+        * html/HTMLObjectElement.idl:
+
 2013-04-05  Oliver Hunt  <oliver@apple.com>
 
         Unify the many and varied stack trace mechanisms, and make the result sane.
