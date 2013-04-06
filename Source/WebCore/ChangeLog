@@ -1,3 +1,19 @@
+2013-04-06  Anders Carlsson  <andersca@apple.com>
+
+        Remove more dead Chromium code
+        https://bugs.webkit.org/show_bug.cgi?id=114090
+
+        Reviewed by Alp Toker.
+
+        * CMakeLists.txt:
+        * GNUmakefile.list.am:
+        * Target.pri:
+        * WebCore.vcproj/WebCore.vcproj:
+        * WebCore.vcxproj/WebCore.vcxproj:
+        * WebCore.xcodeproj/project.pbxproj:
+        * platform/StatsCounter.cpp: Removed.
+        * platform/StatsCounter.h: Removed.
+
 2013-04-06  Patrick Gansterer  <paroga@webkit.org>
 
         Build fix for WinCE after r143046.
