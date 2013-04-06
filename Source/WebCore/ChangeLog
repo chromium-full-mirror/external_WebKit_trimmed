@@ -1,3 +1,15 @@
+2013-04-06  Robert Hogan  <robert@webkit.org>
+
+        REGRESSION(r142152): Text wraps in menu
+        https://bugs.webkit.org/show_bug.cgi?id=113706
+
+        Reviewed by David Hyatt.
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::inlineLogicalWidth): Empty inline elements add their inline border/padding/margin to the width of the
+        line when we iterate through them in nextLineBreak(), so no need to add them again here when climbing back up
+        from their first child looking for border/padding/margin to add. (An empty inline element can have floating children.)
+
 2013-04-06  Geoffrey Garen  <ggaren@apple.com>
 
         Rolled out 147820 and 147818 because they caused plugins tests to ASSERT

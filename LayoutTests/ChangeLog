@@ -1,3 +1,13 @@
+2013-04-06  Robert Hogan  <robert@webkit.org>
+
+        REGRESSION(r142152): Text wraps in menu
+        https://bugs.webkit.org/show_bug.cgi?id=113706
+
+        Reviewed by David Hyatt.
+
+        * fast/inline/inline-with-empty-inline-children-expected.txt:
+        * fast/inline/inline-with-empty-inline-children.html:
+
 2013-04-05  Hans Muller  <hmuller@adobe.com>
 
         [CSS Exclusions] Add support for the simple case of shape-margin polygonal shape-outside
