@@ -1,3 +1,10 @@
+2013-04-06  Patrick Gansterer  <paroga@webkit.org>
+
+        Build fix for WinCE after r143046.
+
+        * platform/graphics/wince/ImageWinCE.cpp:
+        (WebCore::Image::drawPattern):
+
 2013-04-06  Mark Salisbury  <mark.salisbury@hp.com>
 
         [WinCE] Do not call missing method createDragImageFromImage()
