@@ -1,3 +1,28 @@
+2013-04-06  Benjamin Poulain  <bpoulain@apple.com>
+
+        Remove the chromium code from WebCore/platform/mac
+        https://bugs.webkit.org/show_bug.cgi?id=114104
+
+        Reviewed by Sam Weinig.
+
+        * platform/mac/NSScrollerImpDetails.h:
+        (WebCore::isScrollbarOverlayAPIAvailable):
+        * platform/mac/NSScrollerImpDetails.mm:
+        * platform/mac/ScrollAnimatorMac.mm:
+        (-[WebScrollbarPainterDelegate layer]):
+        (WebCore::scrollAnimationEnabledForSystem):
+        * platform/mac/ScrollElasticityController.mm:
+        (WebCore):
+        * platform/mac/ScrollbarThemeMac.h:
+        (ScrollbarThemeMac):
+        * platform/mac/ScrollbarThemeMac.mm:
+        (WebCore::ScrollbarTheme::nativeTheme):
+        (WebCore::ScrollbarThemeMac::paint):
+        (WebCore):
+        * platform/mac/ThemeMac.mm:
+        (WebCore::ThemeMac::ensuredView):
+        * platform/mac/WebCoreNSCellExtras.h:
+
 2013-04-06  Benjamin Poulain  <benjamin@webkit.org>
 
         Remove the Chromium code from Mac's FontPlatformData
