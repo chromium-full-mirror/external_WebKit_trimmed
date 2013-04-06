@@ -1,3 +1,14 @@
+2013-04-05  Chris Fleizach  <cfleizach@apple.com>
+
+        AX: VoiceOver can't press on items
+        https://bugs.webkit.org/show_bug.cgi?id=114071
+
+        Reviewed by Tim Horton.
+
+        * platform/mac-future/accessibility: Added.
+        * platform/mac-future/accessibility/press-action-is-first-expected.txt: Added.
+        * platform/mac/accessibility/press-action-is-first-expected.txt:
+
 2013-04-05  Benjamin Poulain  <bpoulain@apple.com>
 
         Change css1/basic/comments-expected.html to be a ref-test
