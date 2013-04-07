@@ -1,3 +1,20 @@
+2013-04-06  Benjamin Poulain  <benjamin@webkit.org>
+
+        Clean platform/graphics/cg of the chromium bits
+        https://bugs.webkit.org/show_bug.cgi?id=114106
+
+        Reviewed by Anders Carlsson.
+
+        * platform/graphics/cg/BitmapImageCG.cpp:
+        * platform/graphics/cg/GraphicsContextCG.cpp:
+        (WebCore::GraphicsContext::roundToDevicePixels):
+        * platform/graphics/cg/GraphicsContextPlatformPrivateCG.h:
+        (GraphicsContextPlatformPrivate):
+        * platform/graphics/cg/ImageBufferCG.cpp:
+        * platform/graphics/cg/ImageCG.cpp:
+        * platform/graphics/cg/PathCG.cpp:
+        * platform/graphics/cg/PatternCG.cpp:
+
 2013-04-06  Timothy Hatcher  <timothy@apple.com>
 
         Remove InjectedScriptHost.evaluateReturnsEvalFunction.
