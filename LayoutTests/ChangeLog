@@ -1,5 +1,13 @@
 2013-04-07  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
+        Unreviewed EFL gardening.
+
+        Marked another webaudio test as flaky.
+
+        * platform/efl/TestExpectations:
+
+2013-04-07  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
         Unreviewed gardening.
 
         Rebaseline several test cases that have line number information after r147872.
