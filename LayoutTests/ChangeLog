@@ -1,3 +1,13 @@
+2013-04-07  Robert Hogan  <robert@webkit.org>
+
+        table element may get larger when its contents are recreated
+        https://bugs.webkit.org/show_bug.cgi?id=111342
+
+        Reviewed by Darin Adler.
+
+        * fast/table/anonymous-table-section-removed-expected.txt: Added.
+        * fast/table/anonymous-table-section-removed.html: Added.
+
 2013-04-06  Timothy Hatcher  <timothy@apple.com>
 
         Remove InjectedScriptHost.evaluateReturnsEvalFunction.
