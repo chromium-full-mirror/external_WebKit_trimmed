@@ -1,3 +1,14 @@
+2013-04-07  Ed Bartosh  <bartosh@gmail.com>
+
+        [EFL] --minimal build fails because of incorrect usage of GENERATE_THEME in CMakeLists.txt
+        https://bugs.webkit.org/show_bug.cgi?id=113902
+
+        Unreviewed.
+
+        * platform/efl/DefaultTheme/CMakeLists.txt:
+        Put possibly empty variable after non-empty to avoid space
+        at the beginning of string parameter
+
 2013-04-07  Patrick Gansterer  <paroga@webkit.org>
 
         Add default implementation for KURL::fileSystemPath()
