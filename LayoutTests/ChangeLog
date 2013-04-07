@@ -1,5 +1,19 @@
 2013-04-07  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
+        Unreviewed gardening.
+
+        Rebaseline several test cases that have line number information after r147872.
+
+        * http/tests/inspector-enabled/console-exception-while-no-inspector-expected.txt:
+        * http/tests/security/window-onerror-exception-in-iframe-expected.txt:
+        * inspector/console/alert-toString-exception-expected.txt:
+        * storage/indexeddb/exception-in-event-aborts-expected.txt:
+        * storage/websql/sql-error-codes-expected.txt:
+        * storage/websql/statement-error-callback-expected.txt:
+        * storage/websql/transaction-callback-exception-crash-expected.txt:
+
+2013-04-07  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
         Unreviewed EFL gardening.
 
         Skip a few test failing due to missing Quota API support.
