@@ -2,6 +2,14 @@
 
         Unreviewed EFL gardening.
 
+        Skip a few test failing due to missing Quota API support.
+
+        * platform/efl/TestExpectations:
+
+2013-04-07  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
         Mark a few tests as crashing on EFL port.
 
         * platform/efl/TestExpectations:
