@@ -1,3 +1,16 @@
+2013-04-07  Oliver Hunt  <oliver@apple.com>
+
+        Inspector should display information about non-object exceptions
+        https://bugs.webkit.org/show_bug.cgi?id=114123
+
+        Reviewed by Adele Peterson.
+
+        Make use of the stack trace for line information when we're reporting
+        an exception
+
+        * bindings/js/JSDOMBinding.cpp:
+        (WebCore::reportException):
+
 2013-04-07  Robert Hogan  <robert@webkit.org>
 
         table element may get larger when its contents are recreated

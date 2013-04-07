@@ -1,3 +1,25 @@
+2013-04-07  Oliver Hunt  <oliver@apple.com>
+
+        Inspector should display information about non-object exceptions
+        https://bugs.webkit.org/show_bug.cgi?id=114123
+
+        Reviewed by Adele Peterson.
+
+        All these tests throw primitives as exceptions, and now they have source
+        and line number information
+
+        * fast/dom/exception-getting-event-handler-expected.txt:
+        * fast/dom/javascript-url-exception-isolation-expected.txt:
+        * fast/dom/nested-script-exceptions-expected.txt:
+        * fast/events/onerror-no-constructor-expected.txt:
+        * fast/events/window-onerror13-expected.txt:
+        * fast/events/window-onerror16-expected.txt:
+        * fast/events/window-onerror2-expected.txt:
+        * fast/events/window-onerror8-expected.txt:
+        * fast/js/uncaught-exception-line-number-expected.txt:
+        * fast/sub-pixel/inline-block-with-padding-expected.txt:
+        * platform/mac/fast/AppleScript/001-expected.txt:
+
 2013-04-07  Robert Hogan  <robert@webkit.org>
 
         table element may get larger when its contents are recreated
