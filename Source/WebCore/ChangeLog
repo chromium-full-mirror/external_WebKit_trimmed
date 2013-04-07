@@ -1,3 +1,10 @@
+2013-04-07  Patrick Gansterer  <paroga@webkit.org>
+
+        [WIN] Fix build without precompiled header after r144216.
+
+        * platform/network/cf/FormDataStreamCFNet.h:
+        * platform/network/mac/FormDataStreamMac.h:
+
 2013-04-07  Ed Bartosh  <bartosh@gmail.com>
 
         [EFL] --minimal build fails with error: WebCore::FrameSelection::notifyAccessibilityForSelectionChange()
