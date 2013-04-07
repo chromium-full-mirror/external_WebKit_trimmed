@@ -1,5 +1,23 @@
 2013-04-06  Benjamin Poulain  <benjamin@webkit.org>
 
+        Remove the chromium code from platform/graphics/mac
+        https://bugs.webkit.org/show_bug.cgi?id=114107
+
+        Reviewed by Anders Carlsson.
+
+        * platform/graphics/mac/FontCacheMac.mm:
+        (WebCore::FontCache::getFontDataForCharacters):
+        (WebCore::FontCache::createFontPlatformData):
+        * platform/graphics/mac/FontComplexTextMac.cpp:
+        (WebCore::Font::selectionRectForComplexText):
+        (WebCore::Font::drawComplexText):
+        (WebCore::Font::floatWidthForComplexText):
+        (WebCore::Font::offsetForPositionForComplexText):
+        * platform/graphics/mac/FontMac.mm:
+        (WebCore::hasBrokenCTFontGetVerticalTranslationsForGlyphs):
+
+2013-04-06  Benjamin Poulain  <benjamin@webkit.org>
+
         Clean platform/graphics/cg of the chromium bits
         https://bugs.webkit.org/show_bug.cgi?id=114106
 
