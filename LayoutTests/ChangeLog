@@ -2,6 +2,14 @@
 
         Unreviewed EFL gardening.
 
+        Mark a few tests as crashing on EFL port.
+
+        * platform/efl/TestExpectations:
+
+2013-04-07  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
         Generate missing baselines.
 
         * platform/efl/editing/pasteboard/paste-text-004-expected.png: Added.
