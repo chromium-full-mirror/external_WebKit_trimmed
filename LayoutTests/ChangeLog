@@ -2,6 +2,18 @@
 
         Unreviewed EFL gardening.
 
+        Generate missing baselines.
+
+        * platform/efl/editing/pasteboard/paste-text-004-expected.png: Added.
+        * platform/efl/svg/filters/feDropShadow-zero-deviation-expected.png: Added.
+        * platform/efl/svg/filters/feDropShadow-zero-deviation-expected.txt: Added.
+        * platform/efl/svg/filters/feGaussianBlur-zero-deviation-expected.png: Added.
+        * platform/efl/svg/filters/feGaussianBlur-zero-deviation-expected.txt: Added.
+
+2013-04-07  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
         Rebaseline several test cases.
 
         * platform/efl-wk2/http/tests/security/XFrameOptions/x-frame-options-deny-meta-tag-expected.txt:
