@@ -1,5 +1,14 @@
 2013-04-07  Patrick Gansterer  <paroga@webkit.org>
 
+        Fix compilation of LocaleWin with !ENABLE(CALENDAR_PICKER) && !ENABLE(DATE_AND_TIME_INPUT_TYPES)
+
+        * platform/text/win/LocaleWin.cpp:
+        (WebCore::LocaleWin::ensureShortMonthLabels):
+        (WebCore):
+        (WebCore::LocaleWin::ensureMonthLabels):
+
+2013-04-07  Patrick Gansterer  <paroga@webkit.org>
+
         [WIN] Fix build without precompiled header after r144216.
 
         * platform/network/cf/FormDataStreamCFNet.h:
