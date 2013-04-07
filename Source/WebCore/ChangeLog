@@ -1,3 +1,29 @@
+2013-04-07  David Kilzer  <ddkilzer@apple.com>
+
+        Remove the rest of SVG_DOM_OBJC_BINDINGS
+        <http://webkit.org/b/114112>
+
+        Reviewed by Geoffrey Garen.
+
+        * Configurations/WebCore.xcconfig:
+        - Remove EXCLUDED_SOURCE_FILE_NAMES_SVG_DOM_OBJC_BINDINGS.  Note
+          that DOMHTMLIFrameElementPrivate.h should not have been in
+          this list because the class contained methods other than just
+          -getSVGDocument.
+
+        * WebCore.xcodeproj/project.pbxproj:
+        - Remove DOMHTMLFrameElementPrivate.h since the only method it
+          contained was -[DOMHTMLFrameElement getSVGDocument], which was
+          part of the SVG DOM Objective-C bindings.
+
+        * bindings/objc/DOM.mm:
+        (kitClass):
+        * bindings/objc/DOMEvents.mm:
+        (kitClass):
+        * bindings/objc/ExceptionHandlers.mm:
+        (WebCore::raiseDOMException):
+        - Remove code in ENABLE(SVG_DOM_OBJC_BINDINGS).
+
 2013-04-07  Oliver Hunt  <oliver@apple.com>
 
         Inspector should display information about non-object exceptions
