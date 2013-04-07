@@ -1,5 +1,17 @@
 2013-04-06  Benjamin Poulain  <benjamin@webkit.org>
 
+        Get rid of skia
+        https://bugs.webkit.org/show_bug.cgi?id=114108
+
+        Reviewed by Anders Carlsson.
+
+        * platform/graphics/filters/skia/*: Removed.
+        * platform/graphics/skia/*: Removed.
+        * platform/image-decoders/skia/*: Removed.
+        * platform/image-encoders/skia/*: Removed.
+
+2013-04-06  Benjamin Poulain  <benjamin@webkit.org>
+
         Remove the chromium code from platform/graphics/mac
         https://bugs.webkit.org/show_bug.cgi?id=114107
 
