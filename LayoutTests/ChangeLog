@@ -1,5 +1,14 @@
 2013-04-08  Benjamin Poulain  <bpoulain@apple.com>
 
+        [Mac][WebKit2] The test images-enabled-unset-can-block-image-and-can-reload-in-place.html passes
+
+        Unreviewed.
+
+        * platform/mac-wk2/TestExpectations:
+        This test have been passing reliably for many revisions and pass locally.
+
+2013-04-08  Benjamin Poulain  <bpoulain@apple.com>
+
         Update the Mac WebKit2 TestExpectations for http/tests/canvas/canvas-slow-font-loading.html
 
         * platform/mac-wk2/TestExpectations: The test is flaky in release. Mark it as such.
