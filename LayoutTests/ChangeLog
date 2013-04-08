@@ -1,3 +1,15 @@
+2013-04-08  Yi Shen  <max.hong.shen@gmail.com>
+
+        Counter still gets incremented when counter-increment is set to none
+        https://bugs.webkit.org/show_bug.cgi?id=84985
+
+        Reviewed by Darin Adler.
+
+        When the counter-increment is set to none, no counters are incremented.
+
+        * fast/css/counters/counter-increment-tests-expected.txt: Added new test cases.
+        * fast/css/counters/counter-increment-tests.htm: Added new test cases.
+
 2013-04-08  Douglas Stockwell  <dstockwell@chromium.org>
 
         Crash in WebCore::ElementRuleCollector::collectMatchingRulesForList
