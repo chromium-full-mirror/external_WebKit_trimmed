@@ -1,3 +1,11 @@
+2013-04-08  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
+        Mark several ref tests as failure for EFL port.
+
+        * platform/efl/TestExpectations:
+
 2013-04-08  Benjamin Poulain  <benjamin@webkit.org>
 
         Regression(r147893) Caused several editing tests to fail
