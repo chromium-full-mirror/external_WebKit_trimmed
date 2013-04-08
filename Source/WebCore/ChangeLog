@@ -1,3 +1,42 @@
+2013-04-08  Andrei Bucur  <abucur@adobe.com>
+
+        Simplify ContainerNode::removeChildren
+        https://bugs.webkit.org/show_bug.cgi?id=113517
+
+        Reviewed by Darin Adler.
+
+        The patch is based on the work made by Elliott Sprehn. He kindly agreed
+        for me to finalize the last bits and pieces of the fix.
+
+        Simplify ContainerNode::removeChildren by merging the loops and removing
+        willRemoveChildren. This removes two traversals of the children, avoids
+        refing and derefing all the children once, avoids allocating a second
+        NodeVector of children, and means we detach() in the same order as
+        normal removal.
+
+        This does mean you can get into an infinite loop with DOMNodeRemoved
+        listeners by continously adding nodes but this is true in all other browsers
+        and the current behavior is bad because it means you don't get notified
+        of nodes added during removal (which other browsers do notify of). This
+        patch removes the containerNode.html test that originally tested for this
+        infinite loop and adds a new one that tests that all nodes get notified.
+
+        This makes PerformanceTests/Parser/innerHTML-setter.html 2-6% faster.
+
+        There's also a new test verifying ranges remain consistent if modified
+        inside an mutation event handler. Without the patch it's possible to create
+        a range with boundaries outside of the DOM tree.
+
+        Tests: fast/dom/Range/range-remove-children-event.html
+               fast/events/mutation-during-innerHTML.html
+
+        * dom/ContainerNode.cpp:
+        (WebCore::ContainerNode::removeChildren):
+        * dom/Document.cpp:
+        * dom/Document.h: nodeChildrenWillBeRemoved is not needed any more.
+        * dom/Range.cpp:
+        * dom/Range.h: nodeChildrenWillBeRemoved is not needed any more.
+
 2013-04-06  Simon Fraser  <simon.fraser@apple.com>
 
         Remove some #includes in headers in rendering code
