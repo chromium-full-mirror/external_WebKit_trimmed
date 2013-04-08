@@ -1,3 +1,32 @@
+2013-04-08  Tim Horton  <timothy_horton@apple.com>
+
+        REGRESSION (r138858): Crash in WebCore::FrameLoader::~FrameLoader() when opening page in a background tab
+        https://bugs.webkit.org/show_bug.cgi?id=109935
+        <rdar://problem/13225963>
+
+        Reviewed by Brady Eidson.
+
+        Previously, we were deciding if a Page could go into
+        the PageCache by blacklisting certain load types. Instead,
+        whitelist the load types that we know can go into the cache,
+        so that newly-added load types are not cached unless
+        that is explicitly desired.
+
+        The crash occurs when a page which is actively loading
+        is put into the page cache while doing a redirect with
+        FrameLoadTypeRedirectWithLockedBackForwardList (note that
+        this is a redirect that was not covered in the blacklist),
+        and then promptly removed from the page cache, resulting
+        in resources from the redirect target (the now-active page)
+        being incorrectly destroyed.
+
+        No new tests, only known crash repro case is extremely
+        timing dependent (and only happens in WebKit2, with tiled
+        drawing, in background tabs).
+
+        * history/PageCache.cpp:
+        (WebCore::PageCache::canCache):
+
 2013-04-08  Anders Carlsson  <andersca@apple.com>
 
         Fix build.
