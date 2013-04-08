@@ -1,3 +1,15 @@
+2013-04-08  Benjamin Poulain  <benjamin@webkit.org>
+
+        Regression(r147893) Caused several editing tests to fail
+        https://bugs.webkit.org/show_bug.cgi?id=114143
+
+        Unreviewed.
+
+        * editing/deleting/delete-ligature-003-expected.txt:
+        * editing/deleting/delete-ligature-003.html:
+        * editing/selection/context-menu-text-selection-expected.txt:
+        * editing/selection/context-menu-text-selection.html:
+
 2013-04-07  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Regression(r147893) Caused several editing tests to fail
