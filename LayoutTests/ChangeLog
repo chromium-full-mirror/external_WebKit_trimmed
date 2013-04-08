@@ -1,3 +1,10 @@
+2013-04-08  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening.
+
+        * platform/qt-5.0-wk1/fast/loader/willsendrequest-returns-null-for-memory-cache-load-expected.txt: Added after r147829.
+        * platform/qt/TestExpectations:
+
 2013-04-08  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Unreviewed EFL gardening.
