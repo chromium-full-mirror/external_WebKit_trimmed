@@ -1,3 +1,15 @@
+2013-04-08  Douglas Stockwell  <dstockwell@chromium.org>
+
+        Crash in WebCore::ElementRuleCollector::collectMatchingRulesForList
+        https://bugs.webkit.org/show_bug.cgi?id=113458
+
+        Reviewed by Darin Adler.
+
+        * fast/css/style-element-invalidation-crash-expected.txt: Added.
+        * fast/css/style-element-invalidation-crash.html: Added.
+        * fast/css/stylesheet.innerHTML-calls-didmutate.html: Removed.
+        * fast/css/stylesheet.innerHTML-calls-didmutate-expected.txt: Removed.
+
 2013-04-08  Antoine Quint  <graouts@apple.com>
 
         Stop skipping first part of test in LayoutTests/media/track/opera/interfaces/TextTrack/cues.html

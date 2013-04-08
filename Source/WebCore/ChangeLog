@@ -1,3 +1,27 @@
+2013-04-08  Douglas Stockwell  <dstockwell@chromium.org>
+
+        Crash in WebCore::ElementRuleCollector::collectMatchingRulesForList
+        https://bugs.webkit.org/show_bug.cgi?id=113458
+
+        Reviewed by Darin Adler.
+
+        A stylesheet which has been invalidated (type changed from "" or
+        "text/css") was not correctly removed from the list of active
+        style sheets when its children are changed.
+
+        This change releases StyleElement::m_sheet in advance of calling
+        DocumentStyleSheetCollection::updateActiveStyleSheets.
+
+        (StyleElement::clearSheet calls CSSStyleSheet::clearOwnerNode calls
+        CSSStyleSheet::didMutate calls Document::styleResolverChanged calls
+        DocumentStyleSheetCollection::updateActiveStyleSheets)
+
+        Test: fast/css/style-element-invalidation-crash.html
+
+        * dom/StyleElement.cpp:
+        (WebCore::StyleElement::clearSheet): Release m_sheet before we
+          trigger an update of the active style sheets.
+
 2013-04-08  Carlos Garcia Campos  <cgarcia@igalia.com>
 
         [GTK] DOM objects created wrapping a base class have incorrect GObject type
