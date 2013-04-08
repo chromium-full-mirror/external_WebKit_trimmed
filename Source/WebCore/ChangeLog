@@ -1,3 +1,14 @@
+2013-04-08  Robert Hogan  <robert@webkit.org>
+
+        Unreviewed, rolling out r147850.
+        http://trac.webkit.org/changeset/147850
+        https://bugs.webkit.org/show_bug.cgi?id=113706
+
+        Changeset crossed paths with 147505, which is the same fix.
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::inlineLogicalWidth):
+
 2013-04-08  Alexey Proskuryakov  <ap@apple.com>
 
         <rdar://problem/12834449> Crashes in WebSocketChannel::processFrame when processing a ping

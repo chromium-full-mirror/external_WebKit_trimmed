@@ -1,3 +1,14 @@
+2013-04-08  Robert Hogan  <robert@webkit.org>
+
+        Unreviewed, rolling out r147850.
+        http://trac.webkit.org/changeset/147850
+        https://bugs.webkit.org/show_bug.cgi?id=113706
+
+        Changeset crossed paths with 147505, which is the same fix.
+
+        * fast/inline/inline-with-empty-inline-children-expected.txt:
+        * fast/inline/inline-with-empty-inline-children.html:
+
 2013-04-08  Max Vujovic  <mvujovic@adobe.com>
 
         REGRESSION (r147502): Animations of CA filters broken
