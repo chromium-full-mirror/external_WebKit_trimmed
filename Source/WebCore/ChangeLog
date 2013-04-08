@@ -1,3 +1,17 @@
+2013-04-08  Andras Becsi  <andras.becsi@digia.com>
+
+        Fix the build with strict GCC 4.8
+
+        Unreviewed build fix.
+
+        Initialize dragImage to suppress GCC's warning about it being possibly used uninitialized,
+        which results is a build failure with GCC 4.8 that sets -Werror=maybe-uninitialized.
+
+        No new tests needed.
+
+        * page/DragController.cpp:
+        (WebCore::DragController::doImageDrag):
+
 2013-04-08  Zan Dobersek  <zdobersek@igalia.com>
 
         Remove the unused LayoutTestSupport class
