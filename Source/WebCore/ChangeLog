@@ -1,3 +1,18 @@
+2013-04-08  Seokju Kwon  <seokju.kwon@gmail.com>
+
+        [BlackBerry] Provide more specific error description for SocketStreamError
+        https://bugs.webkit.org/show_bug.cgi?id=114134
+
+        Reviewed by Rob Buis.
+
+        Pass the reason of a failure to SocketStreamError instance
+        and notify it via SocketStreamHandleClient::didFailSocketStream().
+
+        * platform/network/blackberry/SocketStreamError.h:
+        (WebCore::SocketStreamError::SocketStreamError):
+        * platform/network/blackberry/SocketStreamHandleBlackBerry.cpp:
+        (WebCore::SocketStreamHandle::notifyStatusReceived):
+
 2013-04-08  Youenn Fablet  <youennf@gmail.com>
 
         [GTK][EFL] HEAD requests changed to GET after 303 redirection
