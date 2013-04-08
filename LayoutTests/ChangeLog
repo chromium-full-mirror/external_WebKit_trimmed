@@ -1,3 +1,32 @@
+2013-04-08  Max Vujovic  <mvujovic@adobe.com>
+
+        REGRESSION (r147502): Animations of CA filters broken
+        https://bugs.webkit.org/show_bug.cgi?id=114067
+
+        Reviewed by Dean Jackson.
+
+        Revert r147502 [1] because it broke CA filter animations.
+        
+        [1]: http://trac.webkit.org/changeset/147502
+
+        * compositing/filters/sw-layer-overlaps-hw-shadow-expected.txt:
+        * compositing/filters/sw-nested-shadow-overlaps-hw-nested-shadow-expected.txt:
+        * compositing/filters/sw-shadow-overlaps-hw-layer-expected.txt:
+        * compositing/filters/sw-shadow-overlaps-hw-shadow-expected.txt:
+        * css3/filters/composited-layer-bounds-after-sw-blur-animation-expected.txt: Removed.
+        * css3/filters/composited-layer-bounds-after-sw-blur-animation.html: Removed.
+        * css3/filters/composited-layer-bounds-with-composited-blur-expected.txt: Removed.
+        * css3/filters/composited-layer-bounds-with-composited-blur.html: Removed.
+        * css3/filters/composited-layer-child-bounds-after-composited-to-sw-shadow-change-expected.txt: Removed.
+        * css3/filters/composited-layer-child-bounds-after-composited-to-sw-shadow-change.html: Removed.
+        * css3/filters/composited-layer-promotion-after-outset-overlap-change-using-composited-shadow-expected.txt: Removed.
+        * css3/filters/composited-layer-promotion-after-outset-overlap-change-using-composited-shadow.html: Removed.
+        * css3/filters/composited-layer-promotion-after-outset-overlap-change-using-sw-shadow-expected.txt: Removed.
+        * css3/filters/composited-layer-promotion-after-outset-overlap-change-using-sw-shadow.html: Removed.
+        * css3/filters/filter-change-repaint-composited-expected.png:
+        * css3/filters/filter-change-repaint-composited.html:
+        * platform/qt/TestExpectations:
+
 2013-04-08  Filip Pizlo  <fpizlo@apple.com>
 
         REGRESSION(r146669): Assertion hit in JSC::DFG::SpeculativeJIT::fillSpeculateCell() running webgl tests
