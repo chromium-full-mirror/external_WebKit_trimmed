@@ -1,3 +1,15 @@
+2013-04-08  Seokju Kwon  <seokju.kwon@gmail.com>
+
+        [EFL] Move some inspector tests to efl-wk1/TestExpectation
+        https://bugs.webkit.org/show_bug.cgi?id=114147
+
+        Unreviewed EFL gardening.
+
+        Some inspector tests fail on only EFL-WK1 since it does not support plugins yet.
+
+        * platform/efl-wk1/TestExpectations:
+        * platform/efl/TestExpectations:
+
 2013-04-08  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Unreviewed gardening.
