@@ -1,3 +1,13 @@
+2013-04-07  Benjamin Poulain  <benjamin@webkit.org>
+
+        Remove the android part of editing/selection/rtl-move-selection-right-left.html
+        https://bugs.webkit.org/show_bug.cgi?id=114137
+
+        Reviewed by Anders Carlsson.
+
+        * editing/selection/rtl-move-selection-right-left-expected.txt:
+        * editing/selection/rtl-move-selection-right-left.html:
+
 2013-04-07  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Unreviewed EFL gardening.
