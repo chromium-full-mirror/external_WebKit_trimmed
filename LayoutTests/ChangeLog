@@ -1,3 +1,11 @@
+2013-04-08  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
+        Marked a few tests as failing.
+
+        * platform/efl/TestExpectations:
+
 2013-04-08  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening.
