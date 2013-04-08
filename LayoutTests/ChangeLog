@@ -1,3 +1,17 @@
+2013-04-08  Arunprasad Rajkumar  <arunprasadr@nds.com>
+
+        Call Netscape Plugin's toString() and valueOf() instead of providing default implementation
+        https://bugs.webkit.org/show_bug.cgi?id=113139
+
+        Reviewed by Anders Carlsson.
+
+        * platform/qt-mac/TestExpectations:
+        * platform/wk2/TestExpectations:
+        * plugins/npruntime/tostring-expected.txt: Added.
+        * plugins/npruntime/tostring.html: Added.
+        * plugins/npruntime/valueof-expected.txt: Added.
+        * plugins/npruntime/valueof.html: Added.
+
 2013-04-08  Tim Horton  <timothy_horton@apple.com>
 
         REGRESSION (r138858): Crash in WebCore::FrameLoader::~FrameLoader() when opening page in a background tab

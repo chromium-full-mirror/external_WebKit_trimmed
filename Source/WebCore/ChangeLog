@@ -1,3 +1,26 @@
+2013-04-08  Arunprasad Rajkumar  <arunprasadr@nds.com>
+
+        Call Netscape Plugin's toString() and valueOf() instead of providing default implementation
+        https://bugs.webkit.org/show_bug.cgi?id=113139
+
+        Reviewed by Anders Carlsson.
+
+        Tests: plugins/npruntime/tostring.html
+               plugins/npruntime/valueof.html
+
+        * bridge/c/c_instance.cpp:
+        (JSC::Bindings::CInstance::~CInstance):
+        (JSC::Bindings::CInstance::invokeMethod):
+        (JSC::Bindings::CInstance::invokeDefaultMethod):
+        (Bindings):
+        (JSC::Bindings::CInstance::invokeConstruct):
+        (JSC::Bindings::CInstance::stringValue):
+        (JSC::Bindings::CInstance::booleanValue):
+        (JSC::Bindings::CInstance::valueOf):
+        (JSC::Bindings::CInstance::toJSPrimitive):
+        * bridge/c/c_instance.h:
+        (CInstance):
+
 2013-04-08  Tim Horton  <timothy_horton@apple.com>
 
         REGRESSION (r138858): Crash in WebCore::FrameLoader::~FrameLoader() when opening page in a background tab
