@@ -2,6 +2,14 @@
 
         Unreviewed EFL gardening.
 
+        Mark new accessibility test introduced in r147801 as failing for EFL.
+
+        * platform/efl/TestExpectations:
+
+2013-04-08  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
         Mark several ref tests as failure for EFL port.
 
         * platform/efl/TestExpectations:
