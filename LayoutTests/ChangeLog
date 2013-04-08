@@ -1,3 +1,9 @@
+2013-04-08  Jer Noble  <jer.noble@apple.com>
+
+        Unreviewed gardening. Remove expected results added by r147824.
+
+        * platform/mac-future/accessibility/press-action-is-first-expected.txt: Removed.
+
 2013-04-08  Andrei Bucur  <abucur@adobe.com>
 
         Simplify ContainerNode::removeChildren
