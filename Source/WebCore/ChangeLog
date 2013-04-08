@@ -1,3 +1,21 @@
+2013-04-08  Brendan Long  <b.long@cablelabs.com>
+
+        [Qt] Enable text tracks from track elements
+        https://bugs.webkit.org/show_bug.cgi?id=113522
+
+        Reviewed by Jocelyn Turcotte.
+
+        No new tests because they're already there. This just enables the feature.
+
+        * Target.pri:
+        * bindings/generic/RuntimeEnabledFeatures.cpp:
+        (WebCore):
+        * platform/qt/LocalizedStringsQt.cpp:
+        (WebCore):
+        (WebCore::textTrackSubtitlesText):
+        (WebCore::textTrackOffText):
+        (WebCore::textTrackNoLabelText):
+
 2013-04-08  Sergio Villar Senin  <svillar@igalia.com>
 
         [GTK] Toggle OverWrite mode when pressing the Insert key
