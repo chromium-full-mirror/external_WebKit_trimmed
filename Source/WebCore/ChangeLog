@@ -1,3 +1,17 @@
+2013-04-08  Sergio Villar Senin  <svillar@igalia.com>
+
+        [GTK] Toggle OverWrite mode when pressing the Insert key
+        https://bugs.webkit.org/show_bug.cgi?id=113384
+
+        Reviewed by Martin Robinson.
+
+        Perform an OverWrite command as a response to the emission of the
+        toggle-overwrite signal. Due to the nature of the command it will
+        only do that when being on a richly editable web content.
+
+        * platform/gtk/KeyBindingTranslator.cpp:
+        (WebCore::toggleOverwriteCallback):
+
 2013-04-08  Seokju Kwon  <seokju.kwon@gmail.com>
 
         [BlackBerry] Provide more specific error description for SocketStreamError
