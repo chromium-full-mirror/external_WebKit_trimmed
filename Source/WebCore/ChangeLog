@@ -1,3 +1,16 @@
+2013-04-08  Jocelyn Turcotte  <jocelyn.turcotte@digia.com>
+
+        [Qt] Avoid "QFont::setPixelSize: Pixel size <= 0 (0)"
+        https://bugs.webkit.org/show_bug.cgi?id=114175
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        QFont doesn't support a 0-size but WebCore does.
+        Leave our QFont in its default state in this case to avoid the warning.
+
+        * platform/graphics/qt/FontPlatformDataQt.cpp:
+        (WebCore::FontPlatformData::FontPlatformData):
+
 2013-04-08  Yi Shen  <max.hong.shen@gmail.com>
 
         Counter still gets incremented when counter-increment is set to none
