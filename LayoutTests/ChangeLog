@@ -1,3 +1,33 @@
+2013-04-07  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Regression(r147893) Caused several editing tests to fail
+        https://bugs.webkit.org/show_bug.cgi?id=114143
+
+        Reviewed by Benjamin Poulain.
+
+        r147893 removed some Android code from WebCore but failed to update the
+        layout tests accordingly. This patch remove Android-specific tests from
+        several editing layout tests.
+
+        * editing/deleting/paragraph-in-preserveNewline-expected.txt:
+        * editing/deleting/paragraph-in-preserveNewline.html:
+        * editing/deleting/whitespace-pre-1-expected.txt:
+        * editing/deleting/whitespace-pre-1.html:
+        * editing/execCommand/script-tests/toggle-compound-styles.js:
+        * editing/execCommand/toggle-compound-styles-expected.txt:
+        * editing/selection/5354455-1-expected.txt:
+        * editing/selection/5354455-1.html:
+        * editing/selection/click-in-margins-inside-editable-div-expected.txt:
+        * editing/selection/click-in-padding-with-multiple-line-boxes-expected.txt:
+        * editing/selection/extend-after-mouse-selection-expected.txt:
+        * editing/selection/extend-after-mouse-selection.html:
+        * editing/selection/programmatic-selection-on-mac-is-directionless-expected.txt:
+        * editing/selection/programmatic-selection-on-mac-is-directionless.html:
+        * editing/selection/script-tests/click-in-margins-inside-editable-div.js:
+        * editing/selection/script-tests/click-in-padding-with-multiple-line-boxes.js:
+        * editing/selection/selection-extend-should-not-move-across-caret-on-mac-expected.txt:
+        * editing/selection/selection-extend-should-not-move-across-caret-on-mac.html:
+
 2013-04-07  Benjamin Poulain  <benjamin@webkit.org>
 
         Remove the android part of editing/selection/rtl-move-selection-right-left.html
