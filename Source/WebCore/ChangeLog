@@ -1,3 +1,35 @@
+2013-04-06  Simon Fraser  <simon.fraser@apple.com>
+
+        Remove some #includes in headers in rendering code
+        https://bugs.webkit.org/show_bug.cgi?id=114079
+
+        Reviewed by Sam Weinig.
+
+        Clean up #includes in RenderObject, RenderLayer etc.
+        Moved makeMatrixRenderable() into RenderLayer.app, allowing
+        the removal of a TransformationMatrix.h include.
+        
+        Make some RenderLayer functions that deal with filters not inline,
+        to avoid including RenderLayerFilterInfo.h.
+
+        * platform/graphics/GraphicsLayer.h:
+        * platform/graphics/ImageOrientation.cpp:
+        * platform/graphics/cairo/GraphicsContextCairo.cpp:
+        * platform/graphics/qt/GraphicsContextQt.cpp:
+        * platform/graphics/transforms/AffineTransform.cpp:
+        * platform/graphics/transforms/AffineTransform.h:
+        * rendering/RenderBoxModelObject.h:
+        * rendering/RenderLayer.cpp:
+        (WebCore::makeMatrixRenderable):
+        (WebCore::RenderLayer::filterRenderer):
+        (WebCore::RenderLayer::filterInfo):
+        (WebCore::RenderLayer::ensureFilterInfo):
+        (WebCore::RenderLayer::removeFilterInfoIfNeeded):
+        * rendering/RenderLayer.h:
+        * rendering/RenderLayerBacking.h:
+        * rendering/RenderLineBoxList.h:
+        * rendering/RenderObject.h:
+
 2013-04-08  Robert Hogan  <robert@webkit.org>
 
         Unreviewed, rolling out r147850.
