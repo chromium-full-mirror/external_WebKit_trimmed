@@ -1,3 +1,15 @@
+2013-04-08  Youenn Fablet  <youennf@gmail.com>
+
+        [GTK][EFL] HEAD requests changed to GET after 303 redirection
+        https://bugs.webkit.org/show_bug.cgi?id=110127
+
+        Reviewed by Martin Robinson.
+
+        Made shouldRedirectAsGET always return false for HEAD requests.
+
+        * platform/network/soup/ResourceHandleSoup.cpp:
+        (WebCore::shouldRedirectAsGET):
+
 2013-04-08  Carlos Garcia Campos  <cgarcia@igalia.com>
 
         DragImage should not depend on Frame and CachedImage

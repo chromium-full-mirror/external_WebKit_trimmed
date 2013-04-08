@@ -1,3 +1,20 @@
+2013-04-08  Youenn Fablet  <youennf@gmail.com>
+
+        [GTK][EFL] HEAD requests changed to GET after 303 redirection
+        https://bugs.webkit.org/show_bug.cgi?id=110127
+
+        Reviewed by Martin Robinson.
+
+        Added tests checking HEAD redirection.
+        Redirected HEAD requests are expected to remain HEAD requests.
+        (http://tools.ietf.org/html/draft-ietf-httpbis-p2-semantics-21#section-7.4)
+
+        * http/tests/xmlhttprequest/head-redirection-expected.txt: Added.
+        * http/tests/xmlhttprequest/head-redirection.html: Added.
+        * http/tests/xmlhttprequest/resources/get_method.php: Added.
+        * http/tests/xmlhttprequest/resources/redirect_methods.php: Added.
+        * platform/mac/http/tests/xmlhttprequest/head-redirection-expected.txt: Added.
+
 2013-04-08  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Unreviewed EFL gardening.
