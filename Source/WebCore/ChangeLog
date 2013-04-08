@@ -1,3 +1,43 @@
+2013-04-07  Benjamin Poulain  <benjamin@webkit.org>
+
+        Do not allocate static AtomicStrings when searching for alternate font names
+        https://bugs.webkit.org/show_bug.cgi?id=114110
+
+        Reviewed by Geoffrey Garen.
+
+        FontCache's alternateFamilyName does some font name substitutions
+        when a font is not found for a given name.
+
+        In the vast majority of cases, no substitutions are made and
+        alternateFamilyName returns the null atom.
+        Given the usage the function had a couple of problems:
+        -It created 6 static AtomicString.
+        -It did a case insensitive comparison with 6 differents strings
+         before failing.
+
+        This patch aims at solving both issues.
+
+        Instead of creating all AtomicString statically, the alternate name
+        are simply created on the fly as needed. Because the operation is so
+        unfrequent, and it uses the fast constructor, doing so should not slow
+        down the function.
+
+        To avoid comparing the input to every string, every time, the length of
+        the input is first evaluated, and we only do the necessary string comparisons.
+
+        On x86_64, this reduces the binary size by 2128 bytes.
+
+        * platform/graphics/FontCache.cpp:
+        (WebCore::familyNameEqualIgnoringCase):
+        When comparing strings, we know:
+        -The family name is non null.
+        -The length of both strings is equal.
+        -The length is not null.
+        Make the comparison accordingly.
+
+        (WebCore::alternateFamilyName):
+        (WebCore::FontCache::getCachedFontPlatformData):
+
 2013-04-07  Zan Dobersek  <zdobersek@igalia.com>
 
         Remove remaining PLATFORM(CHROMIUM)-guarded code in WebCore
