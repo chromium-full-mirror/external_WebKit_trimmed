@@ -1,3 +1,15 @@
+2013-04-08  Antoine Quint  <graouts@apple.com>
+
+        Stop skipping first part of test in LayoutTests/media/track/opera/interfaces/TextTrack/cues.html
+        https://bugs.webkit.org/show_bug.cgi?id=104255
+
+        Updated test to match the one hosted by W3C which has corrected the reported error.
+
+        Reviewed by Eric Carlson.
+
+        * media/track/opera/interfaces/TextTrack/cues-expected.txt:
+        * media/track/opera/interfaces/TextTrack/cues.html:
+
 2013-04-08  Youenn Fablet  <youennf@gmail.com>
 
         [GTK][EFL] HEAD requests changed to GET after 303 redirection
