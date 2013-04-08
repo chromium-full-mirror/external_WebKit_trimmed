@@ -1,3 +1,9 @@
+2013-04-08  Benjamin Poulain  <bpoulain@apple.com>
+
+        Update the Mac WebKit2 TestExpectations for http/tests/canvas/canvas-slow-font-loading.html
+
+        * platform/mac-wk2/TestExpectations: The test is flaky in release. Mark it as such.
+
 2013-04-08  Arunprasad Rajkumar  <arunprasadr@nds.com>
 
         Call Netscape Plugin's toString() and valueOf() instead of providing default implementation
