@@ -1,3 +1,54 @@
+2013-04-08  Carlos Garcia Campos  <cgarcia@igalia.com>
+
+        DragImage should not depend on Frame and CachedImage
+        https://bugs.webkit.org/show_bug.cgi?id=21357
+
+        Reviewed by Sam Weinig.
+
+        Remove Frame and CachedImage dependencies from DragImage.
+
+        * dom/Clipboard.h:
+        (WebCore): Add forward delcaration for CacheImage since it's not
+        included anymore in DragImage.h.
+        * page/DragController.cpp:
+        (WebCore::DragController::startDrag): Use
+        Frame::dragImageForSelection() and call
+        dissolveDragImageToFraction() for the returned DragImage. Pass the
+        font rendering mode to createDragImageForLink, instead of a Frame
+        that is only used to get the font rendering mode.
+        (WebCore::DragController::doImageDrag): Get the suggested filename
+        for the cached image and pass it to
+        createDragImageIconForCachedImageFilename().
+        * platform/DragImage.cpp:
+        (WebCore::createDragImageForLink): Receive a FontRenderingMode
+        instead of a Frame.
+        * platform/DragImage.h:
+        (WebCore): Remove createDragImageForSelection, change
+        createDragImageForLink to receive a FontRenderingMode instead of a
+        frame, and rename createDragImageIconForCachedImage as
+        createDragImageIconForCachedImageFilename since it nows received
+        the suggested filename of the cached image.
+        * platform/blackberry/DragImageBlackBerry.cpp:
+        (WebCore::createDragImageIconForCachedImageFilename): Adapt to API
+        changes.
+        * platform/efl/DragImageEfl.cpp:
+        (WebCore::createDragImageIconForCachedImageFilename): Ditto.
+        * platform/gtk/DragImageGtk.cpp:
+        (WebCore::createDragImageIconForCachedImageFilename): Ditto.
+        * platform/mac/DragImageMac.mm:
+        (WebCore::dissolveDragImageToFraction): Return early if the passed
+        image is NULL.
+        (WebCore::createDragImageIconForCachedImageFilename): Adapt to API
+        changes.
+        (WebCore::createDragImageForLink): Ditto.
+        * platform/qt/DragImageQt.cpp:
+        (WebCore::createDragImageIconForCachedImageFilename): Ditto.
+        * platform/win/DragImageWin.cpp:
+        (WebCore::createDragImageIconForCachedImageFilename): Ditto.
+        (WebCore::createDragImageForLink): Ditto.
+        * platform/wx/DragImageWx.cpp:
+        (WebCore::createDragImageIconForCachedImageFilename): Ditto.
+
 2013-04-08  Raphael Kubo da Costa  <raphael.kubo.da.costa@intel.com>
 
         [EFL] REGRESSION(r147743): Use the correct `operator new' override in RenderThemeEfl.
