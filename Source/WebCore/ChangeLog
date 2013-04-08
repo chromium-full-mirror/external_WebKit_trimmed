@@ -1,3 +1,33 @@
+2013-04-08  Zan Dobersek  <zdobersek@igalia.com>
+
+        Remove WebCore::(enable|disable)SecureTextInput methods
+        https://bugs.webkit.org/show_bug.cgi?id=114126
+
+        Reviewed by Alexey Proskuryakov.
+
+        Remove the enableSecureTextInput and disableSecureTextInput methods and all the codepaths leading to them.
+        These were used only by the Chromium port and are as such not required anymore.
+
+        No new tests - no changes in functionality.
+
+        * GNUmakefile.list.am:
+        * WebCore.order:
+        * WebCore.xcodeproj/project.pbxproj:
+        * dom/Document.cpp:
+        (WebCore::Document::Document):
+        * dom/Document.h:
+        (Document):
+        * editing/FrameSelection.cpp:
+        (WebCore::FrameSelection::focusedOrActiveStateChanged):
+        * editing/FrameSelection.h:
+        (FrameSelection):
+        * html/PasswordInputType.cpp:
+        * html/PasswordInputType.h:
+        (PasswordInputType):
+        * page/Frame.cpp:
+        (WebCore::Frame::setDocument):
+        * platform/SecureTextInput.h: Removed.
+
 2013-04-08  Jer Noble  <jer.noble@apple.com>
 
         Unreviewed build fix; r147892 moved an export definition out of
