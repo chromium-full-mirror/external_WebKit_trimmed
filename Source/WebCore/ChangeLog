@@ -1,3 +1,167 @@
+2013-04-07  Zan Dobersek  <zdobersek@igalia.com>
+
+        Remove remaining PLATFORM(CHROMIUM)-guarded code in WebCore
+        https://bugs.webkit.org/show_bug.cgi?id=114081
+
+        Remove the remaining PLATFORM(CHROMIUM) build guards. There are still a couple of guards
+        that most likely apply only to Chromium, like OS(ANDROID) or USE(SKIA_ON_MAC_CHROMIUM),
+        but removal of these should go into separate patches.
+
+        * bindings/generic/RuntimeEnabledFeatures.cpp:
+        (WebCore):
+        * config.h:
+        * history/PageCache.cpp:
+        (WebCore):
+        (WebCore::logCanCacheFrameDecision):
+        (WebCore::logCanCachePageDecision):
+        (WebCore::PageCache::canCache):
+        * html/HTMLCanvasElement.cpp:
+        (WebCore::HTMLCanvasElement::getContext):
+        (WebCore::HTMLCanvasElement::shouldAccelerate):
+        * html/HTMLCanvasElement.h:
+        * html/HTMLMediaElement.cpp:
+        (WebCore::createFileURLForApplicationCacheResource):
+        (WebCore::HTMLMediaElement::loadResource):
+        * html/HTMLSelectElement.cpp:
+        (WebCore):
+        (WebCore::HTMLSelectElement::listBoxDefaultEventHandler):
+        * html/MediaDocument.cpp:
+        (WebCore::MediaDocument::defaultEventHandler):
+        * html/canvas/EXTDrawBuffers.cpp:
+        (WebCore::EXTDrawBuffers::satisfiesWebGLRequirements):
+        * html/canvas/WebGLRenderingContext.cpp:
+        (WebCore):
+        (WebCore::WebGLRenderingContext::create):
+        (WebCore::WebGLRenderingContext::WebGLRenderingContext):
+        (WebCore::WebGLRenderingContext::paintRenderingResultsToCanvas):
+        (WebCore::WebGLRenderingContext::platformLayer):
+        * inspector/InspectorInstrumentation.cpp:
+        (WebCore):
+        (WebCore::InspectorInstrumentation::willPaintImpl):
+        * inspector/InspectorTimelineAgent.cpp:
+        (WebCore::InspectorTimelineAgent::didBeginFrame):
+        * loader/DocumentLoader.cpp:
+        (WebCore::DocumentLoader::notifyFinished):
+        * page/FeatureObserver.cpp:
+        (WebCore::FeatureObserver::~FeatureObserver):
+        * platform/AsyncFileSystem.cpp:
+        (WebCore):
+        * platform/ContextMenu.h:
+        (ContextMenu):
+        * platform/ContextMenuItem.h:
+        * platform/Cursor.h:
+        * platform/DragData.cpp:
+        (WebCore):
+        * platform/DragData.h:
+        * platform/DragImage.h:
+        * platform/LocalizedStrings.h:
+        (WebCore):
+        * platform/Pasteboard.h:
+        (Pasteboard):
+        * platform/PlatformExportMacros.h:
+        * platform/PlatformInstrumentation.h:
+        (WebCore::PlatformInstrumentation::willDecodeImage):
+        (WebCore::PlatformInstrumentation::didDecodeImage):
+        (WebCore::PlatformInstrumentation::willResizeImage):
+        (WebCore::PlatformInstrumentation::didResizeImage):
+        * platform/PlatformMenuDescription.h:
+        (WebCore):
+        * platform/PlatformSpeechSynthesizer.h:
+        (PlatformSpeechSynthesizer):
+        * platform/PlatformWheelEvent.h:
+        (WebCore::PlatformWheelEvent::PlatformWheelEvent):
+        (PlatformWheelEvent):
+        * platform/ScrollAnimator.cpp:
+        (WebCore):
+        (WebCore::ScrollAnimator::handleWheelEvent):
+        * platform/ScrollAnimator.h:
+        (ScrollAnimator):
+        * platform/ScrollAnimatorNone.cpp:
+        (WebCore::ScrollAnimatorNone::scroll):
+        (WebCore::ScrollAnimatorNone::animationTimerFired):
+        * platform/ScrollView.cpp:
+        (WebCore::ScrollView::updateOverhangAreas):
+        * platform/ScrollableArea.cpp:
+        (WebCore::ScrollableArea::scrollPositionChanged):
+        * platform/Scrollbar.cpp:
+        * platform/SecureTextInput.cpp: Removed.
+        * platform/SecureTextInput.h:
+        (WebCore):
+        * platform/SuddenTermination.h:
+        (WebCore):
+        * platform/Widget.h:
+        (Widget):
+        * platform/graphics/ANGLEWebKitBridge.h:
+        * platform/graphics/BitmapImage.h:
+        * platform/graphics/FloatPoint.h:
+        (FloatPoint):
+        * platform/graphics/FloatRect.h:
+        (FloatRect):
+        * platform/graphics/FloatSize.h:
+        (FloatSize):
+        * platform/graphics/Font.cpp:
+        (WebCore):
+        (WebCore::Font::width):
+        * platform/graphics/Font.h:
+        (Font):
+        * platform/graphics/FontCache.cpp:
+        (WebCore):
+        * platform/graphics/FontCache.h:
+        (FontCache):
+        * platform/graphics/FontDescription.h:
+        * platform/graphics/FontPlatformData.cpp:
+        * platform/graphics/GlyphBuffer.h:
+        (WebCore):
+        (WebCore::GlyphBuffer::add):
+        * platform/graphics/GraphicsContext.cpp:
+        (WebCore::GraphicsContext::drawImage):
+        (WebCore::GraphicsContext::drawImageBuffer):
+        * platform/graphics/GraphicsContext3D.h:
+        (GraphicsContext3D):
+        * platform/graphics/GraphicsLayer.h:
+        (WebCore::GraphicsLayer::supportsBackgroundColorContent):
+        * platform/graphics/Icon.h:
+        (Icon):
+        * platform/graphics/ImageSource.cpp:
+        * platform/graphics/ImageSource.h:
+        (WebCore):
+        * platform/graphics/IntRect.h:
+        (IntRect):
+        (WebCore):
+        * platform/graphics/MediaPlayer.cpp:
+        * platform/graphics/PlatformLayer.h:
+        * platform/graphics/SimpleFontData.h:
+        (SimpleFontData):
+        (DerivedFontData):
+        * platform/graphics/filters/FECustomFilter.cpp:
+        (WebCore::FECustomFilter::resizeContext):
+        * platform/graphics/gpu/DrawingBuffer.h:
+        (WebCore):
+        (DrawingBuffer):
+        * platform/graphics/gpu/SharedGraphicsContext3D.cpp:
+        * platform/graphics/opengl/Extensions3DOpenGLCommon.cpp:
+        (WebCore::Extensions3DOpenGLCommon::getTranslatedShaderSourceANGLE):
+        * platform/image-decoders/ImageDecoder.h:
+        * platform/leveldb/LevelDBDatabase.cpp:
+        (WebCore::LevelDBDatabase::open):
+        * platform/network/BlobRegistry.cpp:
+        (WebCore::blobRegistry):
+        * platform/network/BlobRegistryImpl.cpp:
+        * platform/network/NetworkStateNotifier.cpp:
+        * platform/network/NetworkStateNotifier.h:
+        (NetworkStateNotifier):
+        * platform/network/NetworkingContext.h:
+        (NetworkingContext):
+        * platform/network/ResourceHandleClient.h:
+        * platform/network/ResourceRequestBase.cpp:
+        (WebCore):
+        * platform/text/cf/HyphenationCF.cpp:
+        * plugins/PluginViewNone.cpp:
+        (WebCore):
+        * testing/Internals.cpp:
+        * xml/XMLHttpRequest.cpp:
+        (WebCore::XMLHttpRequest::createRequest):
+
 2013-04-07  Ed Bartosh  <bartosh@gmail.com>
 
         [EFL] --minimal build fails because of incorrect usage of GENERATE_THEME in CMakeLists.txt
