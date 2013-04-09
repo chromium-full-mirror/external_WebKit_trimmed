@@ -1,3 +1,11 @@
+2013-04-09  Gyuyoung Kim  <gyuyoung.kim@samsung.com>
+
+        Unreviewed, gardening.
+
+        fast/dom/shadow/selections-in-shadow.html is passed on EFL layout test now.
+
+        * platform/efl/TestExpectations:
+
 2013-04-09  Ryosuke Niwa  <rniwa@webkit.org>
 
         REGRESSION: Autocorrection doesn't work in DumpRenderTree
