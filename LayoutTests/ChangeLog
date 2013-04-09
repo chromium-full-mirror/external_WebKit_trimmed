@@ -1,3 +1,9 @@
+2013-04-09  Benjamin Poulain  <bpoulain@apple.com>
+
+        Mark mouse-events-scaled-iframe.html as flaky
+
+        * platform/mac-wk2/TestExpectations:
+
 2013-04-09  Chris Fleizach  <cfleizach@apple.com>
 
         AX: The bounding paths should be made available through accessibility
