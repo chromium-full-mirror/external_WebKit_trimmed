@@ -1,5 +1,61 @@
 2013-04-08  Simon Fraser  <simon.fraser@apple.com>
 
+        Repaint rect too small on elements with shadows
+        https://bugs.webkit.org/show_bug.cgi?id=114225
+
+        Reviewed by Dain Adler.
+        
+        We assumed that shadows (box-shadow, text-shadow, svg shadows)
+        only required inflating the repaint rect by the blur radius of
+        the shadow. However, this is incorrect; the shadow can extend
+        further, which resulted in clipped or incorrectly invalidated
+        shadows.
+        
+        Fix by disambiguating the blur radius (which is 2x the standard
+        deviation of the Gaussian distribution used to generate the blur),
+        from the painting extent, which is how far the shadow visually
+        projects. Using a 1.4 multiplier of the blur radius is a good
+        approximation for the painting extent.
+        
+        Renamed ShadowData::blur() to ShadowData::radius(), and added
+        ShadowData::paintingExtent(). Use the latter in all places
+        which relate to invalidation.
+
+        Test: fast/box-shadow/shadow-repaint.html
+
+        * css/CSSComputedStyleDeclaration.cpp:
+        (WebCore::CSSComputedStyleDeclaration::valueForShadow):
+        * editing/mac/EditorMac.mm:
+        (WebCore::Editor::fontAttributesForSelectionStart):
+        * page/animation/CSSPropertyAnimation.cpp:
+        (WebCore::blendFunc):
+        * rendering/EllipsisBox.cpp:
+        (WebCore::EllipsisBox::paint):
+        * rendering/InlineTextBox.cpp:
+        (WebCore::InlineTextBox::applyShadowToGraphicsContext):
+        (WebCore::InlineTextBox::paintDecoration):
+        * rendering/RenderBoxModelObject.cpp:
+        (WebCore::applyBoxShadowForBackground):
+        (WebCore::areaCastingShadowInHole):
+        (WebCore::RenderBoxModelObject::paintBoxShadow):
+        * rendering/style/RenderStyle.cpp:
+        (WebCore::RenderStyle::getShadowExtent):
+        (WebCore::RenderStyle::getShadowInsetExtent):
+        (WebCore::RenderStyle::getShadowHorizontalExtent):
+        (WebCore::RenderStyle::getShadowVerticalExtent):
+        * rendering/style/ShadowData.cpp:
+        (WebCore::ShadowData::ShadowData):
+        (WebCore::ShadowData::operator==):
+        (WebCore::calculateShadowExtent):
+        * rendering/style/ShadowData.h:
+        (WebCore::ShadowData::ShadowData):
+        (WebCore::ShadowData::radius):
+        (WebCore::ShadowData::paintingExtent):
+        * rendering/svg/SVGRenderingContext.cpp:
+        (WebCore::SVGRenderingContext::prepareToRenderSVGContent):
+
+2013-04-08  Simon Fraser  <simon.fraser@apple.com>
+
         window.internals.repaintRectsAsText() is hard to use because it doesn't force layout
         https://bugs.webkit.org/show_bug.cgi?id=114219
 

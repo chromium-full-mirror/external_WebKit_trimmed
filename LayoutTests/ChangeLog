@@ -1,3 +1,70 @@
+2013-04-09  Simon Fraser  <simon.fraser@apple.com>
+
+        Repaint rect too small on elements with shadows
+        https://bugs.webkit.org/show_bug.cgi?id=114225
+
+        Reviewed by Darin Alder.
+        
+        New test for invalidation with box-shadow. Update test results affected
+        by shadow extent.
+
+        * compositing/geometry/foreground-layer-expected.txt:
+        * compositing/iframes/composited-parent-iframe-expected.txt:
+        * compositing/iframes/connect-compositing-iframe-delayed-expected.txt:
+        * compositing/iframes/connect-compositing-iframe-expected.txt:
+        * compositing/iframes/connect-compositing-iframe2-expected.txt:
+        * compositing/iframes/connect-compositing-iframe3-expected.txt:
+        * compositing/iframes/enter-compositing-iframe-expected.txt:
+        * compositing/iframes/iframe-resize-expected.txt:
+        * compositing/iframes/invisible-nested-iframe-show-expected.txt:
+        * compositing/iframes/overlapped-iframe-expected.txt:
+        * compositing/iframes/page-cache-layer-tree-expected.txt:
+        * compositing/iframes/scrolling-iframe-expected.txt:
+        * compositing/visible-rect/iframe-and-layers-expected.txt:
+        * fast/box-shadow/shadow-repaint-expected.txt: Added.
+        * fast/box-shadow/shadow-repaint.html: Added.
+        * platform/mac/fast/multicol/shadow-breaking-expected.png:
+        * platform/mac/fast/multicol/shadow-breaking-expected.txt:
+        * platform/mac/fast/repaint/moving-shadow-on-container-expected.txt:
+        * platform/mac/fast/repaint/moving-shadow-on-path-expected.png:
+        * platform/mac/fast/repaint/moving-shadow-on-path-expected.txt:
+        * platform/mac/svg/css/arrow-with-shadow-expected.png:
+        * platform/mac/svg/css/circle-in-mask-with-shadow-expected.png:
+        * platform/mac/svg/css/clippath-with-shadow-expected.png:
+        * platform/mac/svg/css/composite-shadow-example-expected.png:
+        * platform/mac/svg/css/composite-shadow-example-expected.txt:
+        * platform/mac/svg/css/composite-shadow-text-expected.txt:
+        * platform/mac/svg/css/composite-shadow-with-opacity-expected.png:
+        * platform/mac/svg/css/composite-shadow-with-opacity-expected.txt:
+        * platform/mac/svg/css/group-with-shadow-expected.png:
+        * platform/mac/svg/css/group-with-shadow-expected.txt:
+        * platform/mac/svg/css/mask-with-shadow-expected.png:
+        * platform/mac/svg/css/path-with-shadow-expected.png:
+        * platform/mac/svg/css/path-with-shadow-expected.txt:
+        * platform/mac/svg/css/shadow-and-opacity-expected.png:
+        * platform/mac/svg/css/shadow-and-opacity-expected.txt:
+        * platform/mac/svg/css/shadow-changes-expected.png:
+        * platform/mac/svg/css/shadow-changes-expected.txt:
+        * platform/mac/svg/css/shadow-with-large-radius-expected.png:
+        * platform/mac/svg/css/shadow-with-negative-offset-expected.png:
+        * platform/mac/svg/css/stars-with-shadow-expected.png:
+        * platform/mac/svg/css/stars-with-shadow-expected.txt:
+        * platform/mac/svg/css/text-gradient-shadow-expected.png:
+        * platform/mac/svg/css/text-gradient-shadow-expected.txt:
+        * platform/mac/svg/css/text-shadow-multiple-expected.png:
+        * platform/mac/svg/custom/repaint-shadow-expected.png:
+        * platform/mac/svg/custom/transform-with-shadow-and-gradient-expected.txt:
+        * svg/css/arrow-with-shadow-expected.txt:
+        * svg/css/circle-in-mask-with-shadow-expected.txt:
+        * svg/css/clippath-with-shadow-expected.txt:
+        * svg/css/mask-with-shadow-expected.txt:
+        * svg/css/shadow-with-large-radius-expected.txt:
+        * svg/css/shadow-with-negative-offset-expected.txt:
+        * svg/css/text-shadow-multiple-expected.txt:
+        * svg/custom/repaint-shadow-expected.txt:
+        * svg/filters/shadow-on-rect-with-filter-expected.txt:
+        * svg/repaint/repaint-webkit-svg-shadow-container-expected.txt:
+
 2013-04-09  Benjamin Poulain  <bpoulain@apple.com>
 
         Mark mouse-events-scaled-iframe.html as flaky
