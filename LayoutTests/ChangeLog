@@ -1,3 +1,31 @@
+2013-04-08  Steve Block  <steveblock@chromium.org>
+
+        Tests for exceptions of type DOMException.TYPE_ERR in encrypted-media-syntax.html are broken
+        https://bugs.webkit.org/show_bug.cgi?id=113119
+
+        Renames testException() to testDOMException() and tweaks the check.
+        Also adds a new testException() helper for checking non-DOM exceptions.
+
+        Reviewed by Darin Adler.
+
+        * media/encrypted-media/encrypted-media-not-loaded.html:
+        * media/encrypted-media/encrypted-media-syntax-expected.txt:
+        * media/encrypted-media/encrypted-media-syntax.html:
+        * media/encrypted-media/encrypted-media-v2-syntax.html:
+        * media/media-fullscreen.js:
+        (buttonClickHandler):
+        (canplaythrough):
+        * media/track/track-add-remove-cue.html:
+        * media/track/track-addtrack-kind.html:
+        * media/track/track-cue-mutable.html:
+        * media/video-buffered.html:
+        * media/video-play-require-user-gesture.html:
+        * media/video-seek-no-src-exception.html:
+        * media/video-seekable.html:
+        * media/video-test.js:
+        (testDOMException):
+        * media/video-volume.html:
+
 2013-04-08  Brady Eidson  <beidson@apple.com>
 
         Skip async plugin test while fixing the failure.
