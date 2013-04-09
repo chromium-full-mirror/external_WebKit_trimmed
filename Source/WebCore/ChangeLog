@@ -1,3 +1,10 @@
+2013-04-05  Roger Fong  <roger_fong@apple.com>
+
+        Build fix.
+
+        * platform/win/DragImageWin.cpp:
+        (WebCore::createDragImageIconForCachedImageFilename):
+
 2013-04-08  Geoffrey Garen  <ggaren@apple.com>
 
         Stop #include-ing all of JavaScriptCore in every DOM-related file
