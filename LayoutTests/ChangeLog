@@ -1,3 +1,14 @@
+2013-04-08  Benjamin Poulain  <bpoulain@apple.com>
+
+        [Mac][WebKit2] fast/css/sticky/sticky-top-zoomed.html is flaky on Mountain Lion
+
+        Unreviewed.
+
+        * platform/mac-wk2/TestExpectations:
+        * platform/mac/TestExpectations:
+        The test is flaky on MountainLion for WebKit1 and WebKit2. It fails systematically
+        in Debug or on older OS X.
+
 2013-04-08  Steve Block  <steveblock@chromium.org>
 
         Tests for exceptions of type DOMException.TYPE_ERR in encrypted-media-syntax.html are broken
