@@ -1,3 +1,16 @@
+2013-04-09  Tim Horton  <timothy_horton@apple.com>
+
+        [wk2] IconDatabase images should be decoded in the WebProcess
+        ​https://bugs.webkit.org/show_bug.cgi?id=112524
+        <rdar://problem/10133914>
+
+        Reviewed by Simon Fraser.
+
+        Move an ASSERT that dereferenced a pointer inside the null-check for that pointer.
+
+        * loader/icon/IconDatabase.cpp:
+        (WebCore::IconDatabase::setIconBitmapForIconURL):
+
 2013-04-09  Eric Carlson  <eric.carlson@apple.com>
 
         [Mac] user caption styles not applied to correct element
