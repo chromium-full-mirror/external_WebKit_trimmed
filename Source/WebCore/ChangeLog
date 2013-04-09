@@ -1,3 +1,17 @@
+2013-04-09  Commit Queue  <rniwa@webkit.org>
+
+        Unreviewed, rolling out r148010.
+        http://trac.webkit.org/changeset/148010
+        https://bugs.webkit.org/show_bug.cgi?id=114310
+
+        Causes problems with focus rings (Requested by anttik on
+        #webkit).
+
+        * css/StyleBuilder.cpp:
+        (WebCore::ApplyPropertyComputeLength::applyValue):
+        (WebCore::ApplyPropertyComputeLength::createHandler):
+        (WebCore::StyleBuilder::StyleBuilder):
+
 2013-04-09  Eric Carlson  <eric.carlson@apple.com>
 
         Unreviewed, another fix for the Windows build after r148050.
