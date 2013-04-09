@@ -2,6 +2,13 @@
 
         Unreviewed GTK gardening.
 
+        * platform/gtk/TestExpectations: Marking a bunch of CSS layout tests as flaky timeouts,
+        most likely due to libsoup dependency bump.
+
+2013-04-09  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed GTK gardening.
+
         * platform/gtk/TestExpectations:
         * platform/gtk/fast/js/dom-static-property-for-in-iteration-expected.txt: Added.
         * platform/gtk/fast/js/exception-linenums-in-html-3-expected.png: Removed.
