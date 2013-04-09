@@ -1,3 +1,12 @@
+2013-04-09  Simon Fraser  <simon.fraser@apple.com>
+
+        Rebaseline tests affected by r148049 or r148048.
+
+        * compositing/layer-creation/rotate3d-overlap-expected.txt:
+        * compositing/repaint/resize-repaint-expected.txt:
+        * compositing/repaint/resize-repaint.html: Allow the test to run
+        outside WTR/DRT.
+
 2013-04-09  Bem Jones-Bey  <bjonesbe@adobe.com>
 
         [CSS Exclusions] Properly position multiple stacked floats with non rectangular shape outside
