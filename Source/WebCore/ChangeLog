@@ -1,3 +1,74 @@
+2013-04-09  Eric Carlson  <eric.carlson@apple.com>
+
+        [Mac] user caption styles not applied to correct element
+        https://bugs.webkit.org/show_bug.cgi?id=114230
+
+        Reviewed by Jer Noble.
+
+        Test: media/track/track-css-user-override.html
+
+        * html/HTMLMediaElement.cpp:
+        (WebCore::HTMLMediaElement::updateActiveTextTrackCues): Drive by clean-up so we don't log excessively.
+
+        * html/shadow/MediaControlElements.cpp:
+        (WebCore::MediaControlTextTrackContainerElement::MediaControlTextTrackContainerElement): Initialize
+            new member variables.
+        (WebCore::MediaControlTextTrackContainerElement::updateDisplay): Set cue font size when it is
+            inserted into the tree.
+        (WebCore::MediaControlTextTrackContainerElement::updateTimerFired): Update the font size of 
+            all active cues.
+        (WebCore::MediaControlTextTrackContainerElement::updateSizes): Set size-relative CSS properties
+            after a time because this can be called during layout.
+        * html/shadow/MediaControlElements.h:
+
+        * html/shadow/MediaControls.cpp:
+        (WebCore::MediaControls::textTrackPreferencesChanged): Call closedCaptionTracksChanged before updateSizes.
+
+        * html/track/TextTrackCue.cpp:
+        (WebCore::TextTrackCue::setFontSize): New, set the cue's font size.
+        * html/track/TextTrackCue.h:
+
+        * html/track/TextTrackCueGeneric.cpp:
+        (WebCore::TextTrackCueGenericBoxElement::applyCSSProperties): Set cue properties on the cue element
+            instead of on the cue box to match what we do for the "cue" pseudo element.
+        (WebCore::TextTrackCueGeneric::setFontSize): New, set the cue's font size.
+        * html/track/TextTrackCueGeneric.h:
+
+        * html/track/TextTrackList.cpp:
+        (TextTrackList::remove): Drive-by cleanup, don't ASSERT when the media element is NULL.
+
+        * page/CaptionUserPreferences.cpp:
+        (WebCore::CaptionUserPreferences::setCaptionsStyleSheetOverride): New, allow user CSS overrides
+            to be tested in DRT.
+        (WebCore::CaptionUserPreferences::updateCaptionStyleSheetOveride): New, generate a user style
+            sheet override. Moved here from CaptionUserPreferencesMac.
+        * page/CaptionUserPreferences.h:
+
+        * page/CaptionUserPreferencesMac.h:
+        * page/CaptionUserPreferencesMac.mm:
+        (WebCore::CaptionUserPreferencesMac::captionsBackgroundCSS): Don't ignore background color importance.
+        (WebCore::CaptionUserPreferencesMac::captionsStyleSheetOverride): Implement even when we don't 
+            have the media accessibility framework so this can be tested in DRT. Apply all cue properties
+            to the element used for the "cue" pseudo element.
+
+        * platform/graphics/avfoundation/MediaPlayerPrivateAVFoundation.cpp:
+        (WebCore::MediaPlayerPrivateAVFoundation::didLoadingProgress): Drive-by cleanup, remove logging
+            because this method is called so frequently and the logging is not especially useful.
+        (WebCore::MediaPlayerPrivateAVFoundation::updateStates): Only log when the ready/network
+            state changes because this method is called so frequently.
+
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.mm:
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::platformLayer): Drive-by cleanup, remove logging
+            because this method is called so frequently and the logging is not especially useful.
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::setCurrentTrack): Make the logging more useful.
+
+        * testing/Internals.cpp:
+        (WebCore::Internals::resetToConsistentState): Reset captions style sheet override.
+        (WebCore::Internals::captionsStyleSheetOverride): New, return the captions style sheet override.
+        (WebCore::Internals::setCaptionsStyleSheetOverride): New, override the captions style sheet override.
+        * testing/Internals.h:
+        * testing/Internals.idl:
+
 2013-04-08  Simon Fraser  <simon.fraser@apple.com>
 
         Repaint rect too small on elements with shadows

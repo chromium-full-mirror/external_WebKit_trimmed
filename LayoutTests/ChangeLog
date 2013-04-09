@@ -1,3 +1,18 @@
+2013-04-09  Eric Carlson  <eric.carlson@apple.com>
+
+        [Mac] user caption styles not applied to correct element
+        https://bugs.webkit.org/show_bug.cgi?id=114230
+
+        Reviewed by Jer Noble.
+
+        * media/track/track-css-user-override-expected.txt: Added.
+        * media/track/track-css-user-override.html: Added.
+        * media/track/track-cue-container-rendering-position-expected.txt:
+        * media/track/track-cue-container-rendering-position.html:
+        * media/track/track-cue-rendering-expected.txt:
+        * media/track/track-cue-rendering.html: Font size is not applied instantly when a video element is
+            resized, so check after a very short delay.
+
 2013-04-09  Simon Fraser  <simon.fraser@apple.com>
 
         Repaint rect too small on elements with shadows
