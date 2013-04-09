@@ -1,3 +1,19 @@
+2013-04-08  Simon Fraser  <simon.fraser@apple.com>
+
+        window.internals.repaintRectsAsText() is hard to use because it doesn't force layout
+        https://bugs.webkit.org/show_bug.cgi?id=114219
+
+        Reviewed by Beth Dakin.
+
+        Force layout when setTracksRepaints() is set to true, to flush out any pending
+        repaints from a layout that hasn't happened yet. Also force layout in
+        trackedRepaintRectsAsText(), so that any pending layout happpens and thus
+        repaints.
+
+        * page/FrameView.cpp:
+        (WebCore::FrameView::setTracksRepaints):
+        (WebCore::FrameView::trackedRepaintRectsAsText):
+
 2013-04-09  Chris Fleizach  <cfleizach@apple.com>
 
         AX: Bounding paths should be made available through accessibility
