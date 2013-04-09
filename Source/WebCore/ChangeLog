@@ -1,3 +1,12 @@
+2013-04-09  Benjamin Poulain  <bpoulain@apple.com>
+
+        Remove the WebKit copy of GLU and the file using it
+        https://bugs.webkit.org/show_bug.cgi?id=114249
+
+        Reviewed by Darin Adler.
+
+        * platform/graphics/gpu/LoopBlinnPathProcessor.cpp: Removed.
+
 2013-04-09  Andreas Kling  <akling@apple.com>
 
         Throttle resize events during live window resize.
