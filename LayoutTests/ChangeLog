@@ -1,3 +1,27 @@
+2013-04-09  Suchit Agrawal  <a.suchit@samsung.com>
+
+        Table border doesn't show up
+        https://bugs.webkit.org/show_bug.cgi?id=13709
+
+        Reviewed by Antti Koivisto.
+
+        This test file have border width, outline offset, outline width, border
+        spacing and column rule width properties test cases.
+        * fast/borders/border-width-less-then-a-unit-of-pt-expected.html: Added.
+        * fast/borders/border-width-less-then-a-unit-of-pt.html: Added.
+
+        Test case table/mozilla_expected_failures/bug89315.html need to do rebaseline
+        in efl, gtk and mac.
+        * platform/efl/TestExpectations:
+        * platform/gtk/TestExpectations:
+        * platform/mac/TestExpectations:
+
+        Updated the test result for table/mozilla_expected_failures/bug89315.html
+        Border is expected for table in test table/mozilla_expected_failures/bug89315.html
+        * platform/qt/tables/mozilla_expected_failures/bugs/bug89315-expected.png:
+        * platform/qt/tables/mozilla_expected_failures/bugs/bug89315-expected.txt:
+        * tables/mozilla_expected_failures/bugs/bug89315-expected.txt:
+
 2013-04-09  Seokju Kwon  <seokju.kwon@gmail.com>
 
         [Qt] Unskip and update inspector tests

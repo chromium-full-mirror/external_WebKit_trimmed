@@ -1,3 +1,51 @@
+2013-04-09  Suchit Agrawal  <a.suchit@samsung.com>
+
+        Table border doesn't show up
+        https://bugs.webkit.org/show_bug.cgi?id=13709
+
+        Reviewed by Antti Koivisto.
+
+        Border issue is fixed when border width is less than 0.8pt
+
+        Border width is stored as unsigned. Border width (specified by
+        author) is converted into pixels and some times this pixel value
+        goes less than 1px. In this case, border width becomes 0px when
+        pixel value (double type) assigned to unsigned type.
+        Border width should not fall to 0px unless it is specified by
+        author.
+
+        Test: fast/borders/border-width-less-then-a-unit-of-pt.html
+
+        * css/StyleBuilder.cpp:
+        ApplyPropetyComputeLength class is replaced with 3 classes :
+        ApplyPropertyComputeBorderWidth, ApplyPropertyComputeTextSpacing
+        and ApplyPropertyComputeTransformOriginZ.
+
+        (WebCore::ApplyPropertyComputeBorderWidth::applyValue):
+        (WebCore::ApplyPropertyComputeBorderWidth::createHandler):
+        This class handles all width properties like border, outline,
+        etc. These all properties stores value in integer types.
+        Pixel value rounded of to 1px if value less than 1px and greater
+        than 0px.
+
+        (WebCore):
+        (ApplyPropertyComputeTextSpacing):
+        (WebCore::ApplyPropertyComputeTextSpacing::setValue):
+        (WebCore::ApplyPropertyComputeTextSpacing::applyValue):
+        (WebCore::ApplyPropertyComputeTextSpacing::createHandler):
+        This class handles all spacing properties like word-spacing,
+        letter-spacing etc.
+
+        (ApplyPropertyComputeTransformOriginZ):
+        (WebCore::ApplyPropertyComputeTransformOriginZ::setValue):
+        (WebCore::ApplyPropertyComputeTransformOriginZ::applyValue):
+        (WebCore::ApplyPropertyComputeTransformOriginZ::createHandler):
+        This class handles TransformOriginZ Property.
+
+        (WebCore::StyleBuilder::StyleBuilder):
+        ApplyProprtyComputeLength class usage changed with defined new
+        classes as per class definition.
+
 2013-04-09  Gabor Loki  <loki@webkit.org>
 
         Initialization skipped error on WinCario after r147643
