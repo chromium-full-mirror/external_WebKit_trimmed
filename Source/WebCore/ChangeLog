@@ -1,3 +1,27 @@
+2013-04-09  Bruno de Oliveira Abinader  <bruno.abinader@basyskom.com>
+
+        [Texmap] TextureMapperLayer refactor for readiblity
+        https://bugs.webkit.org/show_bug.cgi?id=114278
+
+        Reviewed by Noam Rosenthal.
+
+        Removes non-needed return values, function parameters and changes
+        boolean values with enums for readibility.
+
+        No behavioral changes, thus no tests.
+
+        * platform/graphics/texmap/TextureMapperLayer.cpp:
+        (WebCore::TextureMapperLayer::computeTransformsRecursive):
+        (WebCore::TextureMapperLayer::paintSelf):
+        (WebCore::TextureMapperLayer::sortByZOrder):
+        (WebCore::TextureMapperLayer::computeOverlapRegions):
+        (WebCore::TextureMapperLayer::paintUsingOverlapRegions):
+        (WebCore::commitSurface):
+        (WebCore::TextureMapperLayer::paintWithIntermediateSurface):
+        (WebCore::TextureMapperLayer::paintRecursive):
+        * platform/graphics/texmap/TextureMapperLayer.h:
+        (TextureMapperLayer):
+
 2013-04-09  Lamarque V. Souza  <Lamarque.Souza@basyskom.com>
 
         [WebSocket] Ignore incoming message in CLOSING state
