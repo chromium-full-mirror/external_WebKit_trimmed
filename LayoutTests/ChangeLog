@@ -1,3 +1,9 @@
+2013-04-09  Raphael Kubo da Costa  <raphael.kubo.da.costa@intel.com>
+
+        [EFL] Gardening. Unskip some tests that have been passing for a while.
+
+        * platform/efl/TestExpectations:
+
 2013-04-09  Zan Dobersek  <zdobersek@igalia.com>
 
         Unreviewed GTK gardening.
