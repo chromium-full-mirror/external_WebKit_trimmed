@@ -1,5 +1,13 @@
 2013-04-08  Benjamin Poulain  <bpoulain@apple.com>
 
+        [Mac][WebKit2] destroy-during-async-npp-new.html does not crash anymore
+
+        * platform/mac-wk2/TestExpectations:
+        The test destroy-during-async-npp-new.html has not crashed in a long time. Re-enable
+        it to see how the bots like it.
+
+2013-04-08  Benjamin Poulain  <bpoulain@apple.com>
+
         [Mac] Fix test expectations for ietestcenter/css3/grid/grid-items-003.htm
 
         Unreviewed.
