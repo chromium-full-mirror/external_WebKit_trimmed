@@ -1,3 +1,9 @@
+2013-04-09  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed GTK gardening.
+
+        * platform/gtk/TestExpectations: Adding failure expectations for two a11y tests that regressed with r147719.
+
 2013-04-09  Commit Queue  <rniwa@webkit.org>
 
         Unreviewed, rolling out r147995.
