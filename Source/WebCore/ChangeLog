@@ -1,3 +1,17 @@
+2013-04-09  Jeff Rogers  <jrogers@rim.com>
+
+        Add webp to supported image mime types if WEBP feature is enabled/used
+        https://bugs.webkit.org/show_bug.cgi?id=112819
+
+        Reviewed by Darin Adler.
+
+        Add WebP to list of supported image types in MIMETypeRegistry if enabled.
+
+        No new tests: WebP image decoding already covered by exisiting tests.
+
+        * platform/MIMETypeRegistry.cpp:
+        (WebCore::initializeSupportedImageMIMETypes):
+
 2013-04-09  Arnaud Renevier  <a.renevier@sisa.samsung.com>
 
         Whitespace in particular source code changes rendering; does not in Firefox
