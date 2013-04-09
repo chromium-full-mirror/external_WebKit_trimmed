@@ -1,3 +1,34 @@
+2013-04-08  Mihai Maerean  <mmaerean@adobe.com>
+
+        Rollout r147756: performance regression
+        https://bugs.webkit.org/show_bug.cgi?id=114176
+
+        Reviewed by Alexis Menard.
+
+        Rolling out the patch for https://bugs.webkit.org/show_bug.cgi?id=74144 "[CSS Regions] Elements in a region
+        should be assignable to a named flow" because of the performance regression in Parser/html5-full-render.html .
+
+        No new tests (because this is a rollout patch).
+
+        * dom/Element.cpp:
+        * dom/Element.h:
+        * dom/NodeRenderingContext.cpp:
+        (WebCore::NodeRenderingContext::parentRenderer):
+        (WebCore::NodeRenderingContext::shouldCreateRenderer):
+        (WebCore::NodeRenderingContext::moveToFlowThreadIfNeeded):
+        * dom/NodeRenderingContext.h:
+        * dom/PseudoElement.h:
+        * dom/Text.cpp:
+        (WebCore::Text::textRendererIsNeeded):
+        (WebCore::Text::updateTextRenderer):
+        * dom/Text.h:
+        * rendering/FlowThreadController.cpp:
+        * rendering/FlowThreadController.h:
+        * rendering/RenderObject.h:
+        * rendering/RenderRegion.h:
+        * svg/SVGElement.cpp:
+        * svg/SVGElement.h:
+        
 2013-04-08  Benjamin Poulain  <benjamin@webkit.org>
 
         Remove HTML Notification

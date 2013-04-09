@@ -1,3 +1,17 @@
+2013-04-08  Mihai Maerean  <mmaerean@adobe.com>
+
+        Rollout r147756: performance regression
+        https://bugs.webkit.org/show_bug.cgi?id=114176
+
+        Reviewed by Alexis Menard.
+
+        * fast/regions/flow-body-in-html-expected.txt: Removed.
+        * fast/regions/flow-body-in-html.html: Removed.
+        * fast/regions/region-content-flown-into-region-expected.html: Removed.
+        * fast/regions/region-content-flown-into-region.html: Removed.
+        * fast/regions/universal-selector-children-to-the-same-region-expected.txt: Removed.
+        * fast/regions/universal-selector-children-to-the-same-region.html: Removed.
+
 2013-04-08  Benjamin Poulain  <benjamin@webkit.org>
 
         Remove HTML Notification
