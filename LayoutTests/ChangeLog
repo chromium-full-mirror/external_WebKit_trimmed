@@ -1,3 +1,13 @@
+2013-04-09  Raphael Kubo da Costa  <raphael.kubo.da.costa@intel.com>
+
+        [EFL] Gardening.
+
+        Now unskip a few compositing-related tests which are not failing
+        anymore.
+
+        * platform/efl-wk2/TestExpectations:
+        * platform/efl/TestExpectations:
+
 2013-04-09  Suchit Agrawal  <a.suchit@samsung.com>
 
         Table border doesn't show up
