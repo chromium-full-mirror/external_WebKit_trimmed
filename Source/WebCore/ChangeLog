@@ -1,3 +1,18 @@
+2013-04-09  Lamarque V. Souza  <Lamarque.Souza@basyskom.com>
+
+        [WebSocket] Ignore incoming message in CLOSING state
+        https://bugs.webkit.org/show_bug.cgi?id=85934
+
+        Reviewed by Kent Tamura.
+
+        Change WebSocket implementation to suit the new WebSocket API, which
+        states that we should ignore messages in CLOSING state.
+
+        No new tests, updating existing tests.
+
+        * Modules/websockets/WebSocket.cpp:
+        (WebCore::WebSocket::didReceiveMessage):
+
 2013-04-09  Seokju Kwon  <seokju.kwon@gmail.com>
 
         Web Inspector: Add Localized strings after r144154 and r135127

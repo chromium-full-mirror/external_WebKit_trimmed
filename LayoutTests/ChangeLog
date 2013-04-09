@@ -1,3 +1,19 @@
+2013-04-09  Lamarque V. Souza  <Lamarque.Souza@basyskom.com>
+
+        [WebSocket] Ignore incoming message in CLOSING state
+        https://bugs.webkit.org/show_bug.cgi?id=85934
+
+        Reviewed by Kent Tamura.
+
+        * http/tests/websocket/tests/hybi/client-close-expected.txt: Rebaseline.
+        * http/tests/websocket/tests/hybi/client-close.html: Change expected results.
+        * http/tests/websocket/tests/hybi/client-close_wsh.py: Embed message in close frame
+        instead of using regular message sending call.
+        * http/tests/websocket/tests/hybi/fragmented-frames.html: Call WebSocket.close()
+        only after receiving all messages from server.
+        * http/tests/websocket/tests/hybi/unmasked-frames.html: Remove extra
+        WebSocket.close() call that caused regression.
+
 2013-04-09  Raphael Kubo da Costa  <raphael.kubo.da.costa@intel.com>
 
         [EFL] Move tables/mozilla_expected_failures/bugs/bug89315.html's expectations to efl/.
