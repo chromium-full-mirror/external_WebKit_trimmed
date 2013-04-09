@@ -1,3 +1,32 @@
+2013-04-09  Andreas Kling  <akling@apple.com>
+
+        Throttle resize events during live window resize.
+        <http://webkit.org/b/114292>
+        <rdar://problem/13411454>
+
+        Reviewed by Geoffrey Garen.
+
+        Limit resize events to one at max every 0.2 seconds during live window resize.
+        This mitigates heavy CPU usage during resize on pages with complex onresize handlers.
+        If there's a pending resize event when the live resize ends, it fires immediately.
+
+        * page/FrameView.cpp:
+        (WebCore::FrameView::sendResizeEvent):
+
+            Factored out dispatch of the resize event after layout so we can call it on a timer
+            instead of immediately while live window resize is active.
+
+        (WebCore::FrameView::FrameView):
+        (WebCore::FrameView::performPostLayoutTasks):
+        (WebCore::FrameView::delayedResizeEventTimerFired):
+        (WebCore::FrameView::willEndLiveResize):
+        (WebCore::FrameView::scheduleResizeEvent):
+        * page/FrameView.h:
+        * platform/ScrollableArea.h:
+
+            Made willStartLiveResize() and willEndLiveResize() virtual so we can override
+            them on FrameView.
+
 2013-04-09  Jeff Rogers  <jrogers@rim.com>
 
         Add webp to supported image mime types if WEBP feature is enabled/used
