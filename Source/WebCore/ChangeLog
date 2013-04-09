@@ -1,3 +1,23 @@
+2013-04-09  Arnaud Renevier  <a.renevier@sisa.samsung.com>
+
+        Whitespace in particular source code changes rendering; does not in Firefox
+        https://bugs.webkit.org/show_bug.cgi?id=100943
+
+        Reviewed by Darin Adler.
+
+        A render inline which requires a line box is considered a possible
+        trailing object. So, ensureLineBoxInsideIgnoredSpaces will be called
+        for it, even if it is placed after a text render ending with a single
+        space.
+
+        Tests: fast/text/whitespace/trailing-space-before-empty-span-1.html
+               fast/text/whitespace/trailing-space-before-empty-span-2.html
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (TrailingObjects):
+        (WebCore::TrailingObjects::appendBoxIfNeeded):
+        (WebCore::RenderBlock::LineBreaker::nextSegmentBreak):
+
 2013-04-09  Andrei Bucur  <abucur@adobe.com>
 
         Use DOM ordering for list counts

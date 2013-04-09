@@ -1,3 +1,20 @@
+2013-04-09  Arnaud Renevier  <a.renevier@sisa.samsung.com>
+
+        Whitespace in particular source code changes rendering; does not in Firefox
+        https://bugs.webkit.org/show_bug.cgi?id=100943
+
+        Reviewed by Darin Adler.
+
+        * fast/text/whitespace/trailing-space-before-empty-span-1-expected.html: Added.
+        * fast/text/whitespace/trailing-space-before-empty-span-1.html: A test
+            with a span whose text ends with a single span. A following span
+            is empty but requires a line box (because it has some padding).
+            The second span should be rendered.
+        * fast/text/whitespace/trailing-space-before-empty-span-2-expected.html: Added.
+        * fast/text/whitespace/trailing-space-before-empty-span-2.html: Same
+            test as trailing-space-before-empty-span-1.html except that second
+            span contains whitespace only text.
+
 2013-04-09  Andrei Bucur  <abucur@adobe.com>
 
         Use DOM ordering for list counts
