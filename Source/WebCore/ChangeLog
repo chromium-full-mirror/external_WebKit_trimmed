@@ -1,5 +1,19 @@
 2013-04-09  Jer Noble  <jer.noble@apple.com>
 
+        REGRESSION (r123837): Full screen transition is broken at apple.com
+        https://bugs.webkit.org/show_bug.cgi?id=95650
+
+        Reviewed by Simon Fraser.
+
+        Cancel any outstanding animations on <video> elements as they enter full screen, so as to
+        not confuse the WebKit/WebKit2 full screen window animation about the starting and destination
+        screen rects.
+
+        * css/fullscreen.css:
+        (video:-webkit-full-screen, audio:-webkit-full-screen):
+
+2013-04-09  Jer Noble  <jer.noble@apple.com>
+
         hang in mediaSelectionGroupForMediaCharacteristic
         https://bugs.webkit.org/show_bug.cgi?id=114054
 
