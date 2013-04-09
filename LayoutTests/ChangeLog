@@ -1,3 +1,15 @@
+2013-04-08  Filip Pizlo  <fpizlo@apple.com>
+
+        DFG should be able to inline string equality comparisons
+        https://bugs.webkit.org/show_bug.cgi?id=114224
+
+        Reviewed by Oliver Hunt.
+
+        * fast/js/regress/script-tests/string-equality.js: Added.
+        (foo):
+        * fast/js/regress/string-equality-expected.txt: Added.
+        * fast/js/regress/string-equality.html: Added.
+
 2013-04-08  Benjamin Poulain  <bpoulain@apple.com>
 
         [Mac][WebKit2] The test images-enabled-unset-can-block-image-and-can-reload-in-place.html passes
