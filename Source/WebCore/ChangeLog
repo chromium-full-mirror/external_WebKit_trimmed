@@ -1,3 +1,16 @@
+2013-04-06  Roger Fong  <roger_fong@apple.com>
+
+        Change requisite hardware checks for enabling antialiasing.
+        https://bugs.webkit.org/show_bug.cgi?id=114101
+        <rdar://problem/12342776>.
+
+        m_maySupportMultisampling should be true by default for all platforms/hardware now except older versions of AMD.
+
+        Reviewed by Dean Jackson.
+
+        * platform/graphics/opengl/Extensions3DOpenGLCommon.cpp:
+        (WebCore::Extensions3DOpenGLCommon::Extensions3DOpenGLCommon):
+
 2013-04-09  Commit Queue  <rniwa@webkit.org>
 
         Unreviewed, rolling out r148010.
