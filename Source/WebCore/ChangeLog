@@ -1,3 +1,15 @@
+2013-04-08  Patrick Gansterer  <paroga@webkit.org>
+
+        Do not define CAN_THEME_URL_ICON for PLATFORM(WIN_CAIRO)
+        https://bugs.webkit.org/show_bug.cgi?id=108444
+
+        Reviewed by Darin Adler.
+
+        Image::loadPlatformResource("urlIcon") returns nothing
+        since r30961 on Windows which makes the code useless.
+
+        * loader/icon/IconDatabase.cpp:
+
 2013-04-05  Roger Fong  <roger_fong@apple.com>
 
         Build fix.
