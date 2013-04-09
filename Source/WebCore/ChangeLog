@@ -1,3 +1,23 @@
+2013-04-08  Benjamin Poulain  <benjamin@webkit.org>
+
+        Remove HTML Notification
+        https://bugs.webkit.org/show_bug.cgi?id=114231
+
+        Reviewed by Ryosuke Niwa.
+
+        The feature is dead. It was only kept in the tree because of chromium.
+
+        * Configurations/FeatureDefines.xcconfig:
+        * Modules/notifications/Notification.cpp:
+        (WebCore):
+        (WebCore::Notification::Notification):
+        * Modules/notifications/Notification.h:
+        (Notification):
+        * Modules/notifications/NotificationCenter.h:
+        (NotificationCenter):
+        * Modules/notifications/NotificationCenter.idl:
+        * page/FeatureObserver.h:
+
 2013-04-08  Dean Jackson  <dino@apple.com>
 
         Don't try to remove a non-existent snapshot
