@@ -1,3 +1,15 @@
+2013-04-09  Chris Fleizach  <cfleizach@apple.com>
+
+        AX: Bounding paths should be made available through accessibility
+        https://bugs.webkit.org/show_bug.cgi?id=113817
+
+        Reviewed by Tim Horton.
+
+        Minor fix from review feedback.
+
+        * accessibility/mac/WebAccessibilityObjectWrapperMac.mm:
+        (-[WebAccessibilityObjectWrapper convertPointToScreenSpace:]):
+
 2013-04-09  Tim Horton  <timothy_horton@apple.com>
 
         [wk2] IconDatabase images should be decoded in the WebProcess
