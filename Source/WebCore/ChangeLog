@@ -1,3 +1,10 @@
+2013-04-09  Eric Carlson  <eric.carlson@apple.com>
+
+        Unreviewed, another fix for the Windows build after r148050.
+
+        * html/track/TextTrackCueGeneric.cpp:
+        (WebCore::TextTrackCueGeneric::setFontSize): Use lround().
+
 2013-04-09  Bem Jones-Bey  <bjonesbe@adobe.com>
 
         [CSS Exclusions] Properly position multiple stacked floats with non rectangular shape outside
