@@ -1,3 +1,33 @@
+2013-04-09  Jinwoo Song  <jinwoo7.song@samsung.com>
+
+        [WK2] Remove build warnings for unused parameters
+        https://bugs.webkit.org/show_bug.cgi?id=114234
+
+        Reviewed by Andreas Kling.
+
+        Fix build warnings -Wunused-parameter.
+
+        * Modules/indexeddb/IDBBackingStore.cpp:
+        (WebCore::IDBBackingStore::openInMemory):
+        * Modules/indexeddb/IDBDatabaseBackendImpl.cpp:
+        (WebCore::CreateIndexAbortOperation::perform):
+        (WebCore::DeleteIndexAbortOperation::perform):
+        (WebCore::CreateObjectStoreAbortOperation::perform):
+        (WebCore::DeleteObjectStoreAbortOperation::perform):
+        (WebCore::IDBDatabaseBackendImpl::VersionChangeAbortOperation::perform):
+        * Modules/indexeddb/IDBLevelDBCoding.cpp:
+        (WebCore::IDBLevelDBCoding::decodeBool):
+        (WebCore::IDBLevelDBCoding::KeyPrefix::KeyPrefix):
+        * Modules/indexeddb/IDBLevelDBCoding.h:
+        (WebCore::IDBLevelDBCoding::encodeIntSafely):
+        * bindings/js/IDBBindingUtilities.cpp:
+        (WebCore::canSet):
+        * platform/graphics/gstreamer/MediaPlayerPrivateGStreamerBase.cpp:
+        (WebCore::MediaPlayerPrivateGStreamerBase::createVideoSink):
+        * platform/leveldb/LevelDBDatabase.cpp:
+        (WebCore::ComparatorAdapter::FindShortestSeparator):
+        (WebCore::ComparatorAdapter::FindShortSuccessor):
+
 2013-04-09  Thiago Marcos P. Santos  <thiago.santos@intel.com>
 
         [WK2] Drop WebProcess capabilities on Linux using seccomp filters
