@@ -1,3 +1,15 @@
+2013-04-09  Gabor Loki  <loki@webkit.org>
+
+        Initialization skipped error on WinCario after r147643
+        https://bugs.webkit.org/show_bug.cgi?id=114258
+
+        Reviewed by Csaba Osztrogonác.
+
+        Build fix. Adding extra block statement to avoid error C2362 on WinCario
+
+        * platform/win/DragImageCairoWin.cpp:
+        (WebCore::createDragImageFromImage):
+
 2013-04-09  Jinwoo Song  <jinwoo7.song@samsung.com>
 
         [WK2] Remove build warnings for unused parameters
