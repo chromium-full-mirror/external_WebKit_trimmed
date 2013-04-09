@@ -1,3 +1,10 @@
+2013-04-09  Eric Carlson  <eric.carlson@apple.com>
+
+        Unreviewed correctness fix: use lroundf instead of lround for a float to int conversion.
+
+        * html/shadow/MediaControlElements.cpp:
+        (WebCore::MediaControlTextTrackContainerElement::updateTimerFired):
+
 2013-04-06  Roger Fong  <roger_fong@apple.com>
 
         Change requisite hardware checks for enabling antialiasing.
