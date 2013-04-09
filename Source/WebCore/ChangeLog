@@ -1,3 +1,28 @@
+2013-04-08  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Remove WebCore.gyp/gypi
+        https://bugs.webkit.org/show_bug.cgi?id=114239
+
+        Reviewed by Benjamin Poulain.
+
+        * WebCore.gyp: Removed.
+        * WebCore.gyp/.gitignore: Removed.
+        * WebCore.gyp/ConvertFileToHeaderWithCharacterArray.gypi: Removed.
+        * WebCore.gyp/MakeNames.gypi: Removed.
+        * WebCore.gyp/WebCore.gyp: Removed.
+        * WebCore.gyp/mac: Removed.
+        * WebCore.gyp/mac/adjust_visibility.sh: Removed.
+        * WebCore.gyp/mac/check_objc_rename.sh: Removed.
+        * WebCore.gyp/scripts: Removed.
+        * WebCore.gyp/scripts/action_csspropertynames.py: Removed.
+        * WebCore.gyp/scripts/action_cssvaluekeywords.py: Removed.
+        * WebCore.gyp/scripts/action_derivedsourcesallinone.py: Removed.
+        * WebCore.gyp/scripts/action_makenames.py: Removed.
+        * WebCore.gyp/scripts/action_useragentstylesheets.py: Removed.
+        * WebCore.gyp/scripts/rule_bison.py: Removed.
+        * WebCore.gyp/scripts/supplemental_idl_files.py: Removed.
+        * WebCore.gypi: Removed.
+
 2013-04-08  Mihai Maerean  <mmaerean@adobe.com>
 
         Rollout r147756: performance regression
