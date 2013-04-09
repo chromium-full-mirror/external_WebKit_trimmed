@@ -1,3 +1,33 @@
+2013-04-09  Bem Jones-Bey  <bjonesbe@adobe.com>
+
+        [CSS Exclusions] Properly position multiple stacked floats with non rectangular shape outside
+        https://bugs.webkit.org/show_bug.cgi?id=110372
+
+        Reviewed by Dean Jackson.
+
+        Stacked floats get positioned based on the bounding box of the shape,
+        not on the shape contours itself. This patch causes that to happen.
+
+        Test: fast/exclusions/shape-outside-floats/shape-outside-floats-stacked.html
+
+        * rendering/RenderBlock.cpp:
+        (WebCore::RenderBlock::computeLogicalLocationForFloat): Use the
+            "BoundingBoxOffset" mode so that we compute offsets based on the shape
+            bounding boxes of previous floats, not the shape contour.
+        (WebCore::RenderBlock::logicalLeftOffsetForLine): Check the
+            ShapeOutsideFloatOffsetMode to determine if the offset should be
+            adjusted for the shape contour or not.
+        (WebCore::RenderBlock::logicalRightOffsetForLine): Ditto.
+        * rendering/RenderBlock.h:
+        (WebCore::RenderBlock::logicalRightOffsetForLine): Add parameter for offset mode.
+        (WebCore::RenderBlock::logicalLeftOffsetForLine): Ditto.
+        (RenderBlock):
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::LineWidth::shrinkAvailableWidthForNewFloatIfNeeded): If the
+            new float is being added on top of a previous float on the same line,
+            undo the offset for the previous float's shape contour so that we
+            position the new float based on the bounding box.
+
 2013-04-09  Eric Carlson  <eric.carlson@apple.com>
 
         Unreviewed, fix the Windows build after r148050.
