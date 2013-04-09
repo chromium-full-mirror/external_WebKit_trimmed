@@ -1,3 +1,16 @@
+2013-04-09  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed GTK gardening.
+
+        * platform/gtk/TestExpectations:
+        * platform/gtk/fast/js/dom-static-property-for-in-iteration-expected.txt: Added.
+        * platform/gtk/fast/js/exception-linenums-in-html-3-expected.png: Removed.
+        * platform/gtk/fast/js/missing-style-end-tag-js-expected.png: Removed.
+        * platform/gtk/fast/text/international/003-expected.png:
+        * platform/gtk/fast/text/international/003-expected.txt:
+        * platform/gtk/fast/text/international/text-combine-image-test-expected.png: Added.
+        * platform/gtk/fast/text/international/text-combine-image-test-expected.txt:
+
 2013-04-09  Gyuyoung Kim  <gyuyoung.kim@samsung.com>
 
         Unreviewed, gardening.
