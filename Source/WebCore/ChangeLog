@@ -1,3 +1,15 @@
+2013-04-09  Thiago Marcos P. Santos  <thiago.santos@intel.com>
+
+        [WK2] Drop WebProcess capabilities on Linux using seccomp filters
+        https://bugs.webkit.org/show_bug.cgi?id=89875
+
+        Reviewed by Maciej Stachowiak.
+
+        Make the DATA_DIR global since it is now needed for WebCore and WebKit2.
+        It is now used to set a sandbox policy for the EFL port.
+
+        * PlatformEfl.cmake:
+
 2013-04-08  Ryosuke Niwa  <rniwa@webkit.org>
 
         Remove WebCore.gyp/gypi
