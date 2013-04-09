@@ -1,3 +1,17 @@
+2013-04-09  Rafael Brandao  <rafael.lobo@openbossa.org>
+
+        [CoordinatedGraphics] serviceScriptedAnimations expects time in seconds
+        https://bugs.webkit.org/show_bug.cgi?id=112582
+
+        Reviewed by Andreas Kling.
+
+        Add test to measure if the time interval is coherent with the unit
+        of DOMTimeStamp (milliseconds) by comparing it with Date.now() interval.
+
+        * fast/animation/request-animation-frame-time-unit-expected.txt: Added.
+        * fast/animation/request-animation-frame-time-unit.html: Added.
+        * fast/animation/script-tests/request-animation-frame-time-unit.js: Added.
+
 2013-04-09  Lamarque V. Souza  <Lamarque.Souza@basyskom.com>
 
         [WebSocket] Ignore incoming message in CLOSING state
