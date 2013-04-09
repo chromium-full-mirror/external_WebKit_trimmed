@@ -1,3 +1,57 @@
+2013-04-09  Chris Fleizach  <cfleizach@apple.com>
+
+        AX: The bounding paths should be made available through accessibility
+        https://bugs.webkit.org/show_bug.cgi?id=113817
+
+        Reviewed by David Kilzer.
+
+        This allows bounding paths to be returned for some web elements (image map areas and SVG shapes).
+        This provides more accuracy when assistive technologies highlight elements.
+        The Mac and iOS platforms share some code to help transform paths to their screen coordinates.
+
+        Tests: platform/iphone-simulator/accessibility/element-paths.html
+               platform/mac/accessibility/element-paths.html
+
+        * accessibility/AccessibilityImageMapLink.cpp:
+        (WebCore::AccessibilityImageMapLink::imageMapLinkRenderer):
+        (WebCore):
+        (WebCore::AccessibilityImageMapLink::elementPath):
+        (WebCore::AccessibilityImageMapLink::elementRect):
+        * accessibility/AccessibilityImageMapLink.h:
+        (AccessibilityImageMapLink):
+        (WebCore::AccessibilityImageMapLink::supportsPath):
+        * accessibility/AccessibilityObject.h:
+        (WebCore::AccessibilityObject::elementPath):
+        (WebCore::AccessibilityObject::supportsPath):
+        * accessibility/AccessibilityRenderObject.cpp:
+        (WebCore):
+        (WebCore::AccessibilityRenderObject::supportsPath):
+        (WebCore::AccessibilityRenderObject::elementPath):
+        * accessibility/AccessibilityRenderObject.h:
+        (AccessibilityRenderObject):
+        * accessibility/ios/WebAccessibilityObjectWrapperIOS.mm:
+        (-[WebAccessibilityObjectWrapper _accessibilityPath]):
+        (-[WebAccessibilityObjectWrapper convertPointToScreenSpace:]):
+        (-[WebAccessibilityObjectWrapper convertRectToScreenSpace:]):
+        (-[WebAccessibilityObjectWrapper accessibilityActivationPoint]):
+        (-[WebAccessibilityObjectWrapper accessibilityFrame]):
+        (-[WebAccessibilityObjectWrapper frameForTextMarkers:]):
+        * accessibility/mac/WebAccessibilityObjectWrapperBase.h:
+        (WebCore):
+        * accessibility/mac/WebAccessibilityObjectWrapperBase.mm:
+        (PathConversionInfo):
+        (ConvertPathToScreenSpaceFunction):
+        (-[WebAccessibilityObjectWrapperBase convertPathToScreenSpace:]):
+        (-[WebAccessibilityObjectWrapperBase convertPointToScreenSpace:]):
+        * accessibility/mac/WebAccessibilityObjectWrapperMac.mm:
+        (-[WebAccessibilityObjectWrapper additionalAccessibilityAttributeNames]):
+        (-[WebAccessibilityObjectWrapper convertPointToScreenSpace:]):
+        (WebTransformCGPathToNSBezierPath):
+        (-[WebAccessibilityObjectWrapper bezierPathFromPath:]):
+        (-[WebAccessibilityObjectWrapper path]):
+        (-[WebAccessibilityObjectWrapper position]):
+        (-[WebAccessibilityObjectWrapper accessibilityAttributeValue:]):
+
 2013-04-09  Benjamin Poulain  <bpoulain@apple.com>
 
         Remove the WebKit copy of GLU and the file using it

@@ -1,3 +1,20 @@
+2013-04-09  Chris Fleizach  <cfleizach@apple.com>
+
+        AX: The bounding paths should be made available through accessibility
+        https://bugs.webkit.org/show_bug.cgi?id=113817
+
+        Reviewed by David Kilzer.
+
+        Add new tests for Mac and iOS to verify that path output works.
+        Modify existing tests to indicate that there is a new AXAttribute, AXPath.
+
+        * platform/iphone-simulator/accessibility/element-paths-expected.txt: Added.
+        * platform/iphone-simulator/accessibility/element-paths.html: Added.
+        * platform/mac/accessibility/document-links-expected.txt:
+        * platform/mac/accessibility/element-paths-expected.txt: Added.
+        * platform/mac/accessibility/element-paths.html: Added.
+        * platform/mac/accessibility/image-map2-expected.txt:
+
 2013-04-09  Arnaud Renevier  <a.renevier@sisa.samsung.com>
 
         Whitespace in particular source code changes rendering; does not in Firefox
