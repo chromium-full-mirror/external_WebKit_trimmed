@@ -1,3 +1,29 @@
+2013-04-09  Jer Noble  <jer.noble@apple.com>
+
+        hang in mediaSelectionGroupForMediaCharacteristic
+        https://bugs.webkit.org/show_bug.cgi?id=114054
+
+        Reviewed by Eric Carlson.
+
+        No new tests; Fixes sporadic hangs in media/ tests.
+
+        -[AVURLAsset mediaSelectionGroupForMediaCharacteristic:] can deadlock in certain situations: When AVURLAsset
+        posts a synchronous AVAssetResourceLoader notification to the main thread, calling -mediaSelectionGroupForMediaCharacteristic:
+        on the main thread requires IO to occur if the media characteristics are not yet loaded. Instead of blocking,
+        bail out early if the media characteristics are not yet known.
+        
+        Add a new method, safeMediaSelectionGroupForLegibleMedia(), which first checks selection group availability
+        before calling mediaSelectionGroupForMediaCharacteristic:.
+
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.h:
+        (MediaPlayerPrivateAVFoundationObjC):
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.mm:
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::safeMediaSelectionGroupForLegibleMedia): Added.
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::createAVPlayerItem): Use new safe method.
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::tracksChanged): Ditto.
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::processTextTracks): Ditto.
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::setCurrentTrack): Ditto.
+
 2013-04-09  Chris Fleizach  <cfleizach@apple.com>
 
         AX: Bounding paths should be made available through accessibility
