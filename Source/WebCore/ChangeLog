@@ -1,3 +1,20 @@
+2013-04-10  Zan Dobersek  <zdobersek@igalia.com>
+
+        REGRESSION (r147719): Failures in two a11y tests on GTK
+        https://bugs.webkit.org/show_bug.cgi?id=114259
+
+        Reviewed by Ryosuke Niwa.
+
+        No new tests - covered by existing tests.
+
+        Partially revert r147719, restoring the possible creation of the AXObject cache 
+        and the subsequent call to its handleFocusedUIElementChanged method. Removing this
+        code caused regressions in accessibility tests on the GTK port, so the comment about
+        the AXObject cache is adjusted accordingly.
+
+        * dom/Document.cpp:
+        (WebCore::Document::setFocusedNode):
+
 2013-04-09  Philippe Normand  <pnormand@igalia.com>
 
         [GStreamer] playbin uri getter is invalid
