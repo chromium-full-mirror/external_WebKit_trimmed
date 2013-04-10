@@ -1,3 +1,25 @@
+2013-04-09  Adam Klein  <adamk@chromium.org>
+
+        Update Document's event listener type bitfield when adopting a Node
+        https://bugs.webkit.org/show_bug.cgi?id=114322
+
+        Reviewed by Darin Adler.
+
+        Without this, moving a Node between documents can silently deactivate
+        an event listener, if it's one of the types that whose creation is
+        optimized away by Document::hasListenerType.
+
+        An alternate approach would be to simply copy the old document's
+        bitfield over. It's a tradeoff between making adoption fast and making
+        the operation of any operation depending on these event types fast.
+        The latter seems like the right optimization given that adoption
+        doesn't happen very often.
+
+        Test: fast/events/event-listener-moving-documents.html
+
+        * dom/Node.cpp:
+        (WebCore::Node::didMoveToNewDocument): For each event listener type on the adopted node, update the new document's list of listener types.
+
 2013-04-09  Dean Jackson  <dino@apple.com>
 
         Add logging channel for animations

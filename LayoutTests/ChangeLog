@@ -1,3 +1,13 @@
+2013-04-09  Adam Klein  <adamk@chromium.org>
+
+        Update Document's event listener type bitfield when adopting a Node
+        https://bugs.webkit.org/show_bug.cgi?id=114322
+
+        Reviewed by Darin Adler.
+
+        * fast/events/event-listener-moving-documents-expected.txt: Added.
+        * fast/events/event-listener-moving-documents.html: Added.
+
 2013-04-09  Dongwoo Joshua Im  <dw.im@samsung.com>
 
         [CSS3] Parsing the property, text-justify.
