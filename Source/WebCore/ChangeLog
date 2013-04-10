@@ -1,3 +1,46 @@
+2013-04-10  Eric Carlson  <eric.carlson@apple.com>
+
+        Update all float attributes in HTMLMediaElement to double
+        https://bugs.webkit.org/show_bug.cgi?id=113615
+
+        Reviewed by Geoffrey Garen
+        Patch by Aaron Colwell
+
+        No new tests. Primary behavior doesn't change. Just time, playbackRate, and volume precision.
+        All existing LayoutTests/media tests still pass.
+
+        * WebCore.exp.in: Remove function that no longer need to be exported.
+
+        * html/HTMLMediaElement.cpp: Change all float attributes to double.
+        * html/HTMLMediaElement.h: Ditto.
+        * html/HTMLMediaElement.idl: Ditto.
+        * html/MediaController.cpp: Ditto.
+        * html/MediaController.h: Ditto.
+        * html/MediaControllerInterface.h: Ditto.
+        * html/TimeRanges.cpp: Ditto.
+        * html/TimeRanges.idl: Ditto.
+        * html/shadow/MediaControlElementTypes.cpp: Ditto.
+        * html/shadow/MediaControlElementTypes.h: Ditto.
+        * html/shadow/MediaControlElements.cpp: Ditto.
+        * html/shadow/MediaControlElements.h: Ditto.
+        * html/shadow/MediaControls.cpp: Ditto.
+        * html/shadow/MediaControlsApple.cpp: Ditto.
+        * html/shadow/MediaControlsBlackBerry.cpp: Ditto.
+        * html/shadow/MediaControlsBlackBerry.h: Ditto.
+        * html/shadow/MediaControlsGtk.cpp: Ditto.
+        * html/track/TextTrackCue.cpp: Ditto.
+        * html/track/TextTrackCue.h: Ditto.
+        * platform/Clock.h: Ditto.
+        * platform/ClockGeneric.cpp: Ditto.
+        * platform/ClockGeneric.h: Ditto.
+        * platform/graphics/MediaPlayer.cpp: Ditto.
+        * platform/graphics/MediaPlayer.h: Ditto.
+        * platform/graphics/MediaPlayerPrivate.h: Ditto.
+        * platform/mac/PlatformClockCA.cpp: Ditto.
+        * platform/mac/PlatformClockCA.h: Ditto.
+        * platform/mac/PlatformClockCM.h: Ditto.
+        * platform/mac/PlatformClockCM.mm: Ditto.
+
 2013-04-10  Patrick Gansterer  <paroga@webkit.org>
 
         Replace ENABLE_MICRODATA preprocessor statements in IDL files with Conditional attribute
