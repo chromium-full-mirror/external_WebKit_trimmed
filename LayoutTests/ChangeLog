@@ -1,3 +1,30 @@
+2013-04-10  Simon Fraser  <simon.fraser@apple.com>
+
+        Rebaseline four tiled drawing tests affeted by r148049.
+        
+        Move results from platform/mac/platform/mac-wk2/tiled-drawing to  platform/mac-wk2/tiled-drawing
+
+        * platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-body-layer-expected.txt:
+        * platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-expected.txt:
+        * platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-opacity-html-expected.txt:
+        * platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-positioned-expected.txt:
+        * platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-transformed-html-expected.txt:
+        * platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-zoomed-expected.txt:
+        * platform/mac-wk2/tiled-drawing/fixed-background/fixed-html-background-expected.txt:
+        * platform/mac-wk2/tiled-drawing/fixed/four-bars-expected.txt:
+        * platform/mac-wk2/tiled-drawing/fixed/four-bars-with-header-and-footer-expected.txt:
+        * platform/mac-wk2/tiled-drawing/fixed/four-bars-zoomed-expected.txt:
+        * platform/mac-wk2/tiled-drawing/fixed/negative-scroll-offset-in-view-expected.txt:
+        * platform/mac-wk2/tiled-drawing/sticky/sticky-vertical-expected.txt:
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-body-layer-expected.txt: Removed.
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-expected.txt: Removed.
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-opacity-html-expected.txt: Removed.
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-positioned-expected.txt: Removed.
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-transformed-html-expected.txt: Removed.
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-zoomed-expected.txt: Removed.
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-html-background-expected.txt: Removed.
+        * platform/mac/platform/mac-wk2/tiled-drawing/sticky/sticky-vertical-expected.txt: Removed.
+
 2013-04-10  Andrei Bucur  <abucur@adobe.com>
 
         [CSS Regions] Add tests for lists and counters
