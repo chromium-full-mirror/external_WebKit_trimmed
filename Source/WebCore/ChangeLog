@@ -1,3 +1,97 @@
+2013-04-10  Arvid Nilsson  <anilsson@rim.com>
+
+        [BlackBerry] Rename BlackBerry specific Texture class
+        https://bugs.webkit.org/show_bug.cgi?id=95781
+
+        Reviewed by Rob Buis.
+
+        Texture was a bit too generic and prone to name conflicts. Renamed it
+        to LayerTexture.
+
+        No change in behavior, no new tests.
+
+        PR 322882
+
+        * PlatformBlackBerry.cmake:
+        * platform/graphics/blackberry/LayerCompositingThread.cpp:
+        (WebCore::LayerCompositingThread::drawSurface):
+        (WebCore::LayerCompositingThread::contentsTexture):
+        * platform/graphics/blackberry/LayerCompositingThread.h:
+        (LayerCompositingThread):
+        * platform/graphics/blackberry/LayerCompositingThreadClient.h:
+        (WebCore):
+        (WebCore::LayerCompositingThreadClient::contentsTexture):
+        * platform/graphics/blackberry/LayerFilterRenderer.cpp:
+        (WebCore::LayerFilterRenderer::applyActions):
+        * platform/graphics/blackberry/LayerFilterRenderer.h:
+        (LayerFilterRenderer):
+        * platform/graphics/blackberry/LayerRendererSurface.h:
+        (WebCore::LayerRendererSurface::texture):
+        (LayerRendererSurface):
+        * platform/graphics/blackberry/LayerTexture.cpp: Renamed from Source/WebCore/platform/graphics/blackberry/Texture.cpp.
+        (WebCore):
+        (WebCore::LayerTexture::LayerTexture):
+        (WebCore::LayerTexture::~LayerTexture):
+        (WebCore::LayerTexture::updateContents):
+        (WebCore::LayerTexture::setContentsToColor):
+        (WebCore::LayerTexture::protect):
+        * platform/graphics/blackberry/LayerTexture.h: Renamed from Source/WebCore/platform/graphics/blackberry/Texture.h.
+        (WebCore):
+        (LayerTexture):
+        (WebCore::LayerTexture::create):
+        (WebCore::LayerTexture::textureId):
+        (WebCore::LayerTexture::isDirty):
+        (WebCore::LayerTexture::hasTexture):
+        (WebCore::LayerTexture::isColor):
+        (WebCore::LayerTexture::isOpaque):
+        (WebCore::LayerTexture::isProtected):
+        (WebCore::LayerTexture::protect):
+        (WebCore::LayerTexture::unprotect):
+        (WebCore::LayerTexture::size):
+        (WebCore::LayerTexture::width):
+        (WebCore::LayerTexture::height):
+        (WebCore::LayerTexture::bytesPerPixel):
+        (WebCore::LayerTexture::sizeInBytes):
+        (WebCore::LayerTexture::setTextureId):
+        (WebCore::LayerTexture::setSize):
+        * platform/graphics/blackberry/LayerTile.cpp:
+        (WebCore::LayerTile::setContents):
+        (WebCore::LayerTile::updateContents):
+        (WebCore::LayerTile::setTexture):
+        * platform/graphics/blackberry/LayerTile.h:
+        (WebCore::LayerTile::texture):
+        (LayerTile):
+        * platform/graphics/blackberry/LayerTiler.cpp:
+        (WebCore::LayerTiler::drawTile):
+        (WebCore::LayerTiler::contentsTexture):
+        * platform/graphics/blackberry/LayerTiler.h:
+        (LayerTiler):
+        (WebCore::LayerTiler::TextureJob::TextureJob):
+        (WebCore::LayerTiler::TextureJob::setContents):
+        (WebCore::LayerTiler::TextureJob::updateContents):
+        (TextureJob):
+        * platform/graphics/blackberry/TextureCacheCompositingThread.cpp:
+        (WebCore::TextureProtector::TextureProtector):
+        (TextureProtector):
+        (WebCore::TextureCacheCompositingThread::allocateTextureId):
+        (WebCore::freeTextureId):
+        (WebCore::TextureCacheCompositingThread::textureResized):
+        (WebCore::TextureCacheCompositingThread::textureSizeInBytesChanged):
+        (WebCore::TextureCacheCompositingThread::textureDestroyed):
+        (WebCore::TextureCacheCompositingThread::install):
+        (WebCore::TextureCacheCompositingThread::resizeTexture):
+        (WebCore::TextureCacheCompositingThread::evict):
+        (WebCore::TextureCacheCompositingThread::textureAccessed):
+        (WebCore::TextureCacheCompositingThread::prune):
+        (WebCore::TextureCacheCompositingThread::textureForTiledContents):
+        (WebCore::TextureCacheCompositingThread::textureForColor):
+        (WebCore::TextureCacheCompositingThread::updateContents):
+        * platform/graphics/blackberry/TextureCacheCompositingThread.h:
+        (WebCore::TextureCacheCompositingThread::createTexture):
+        (TextureCacheCompositingThread):
+        (WebCore::TextureCacheCompositingThread::ZombieTexture::ZombieTexture):
+        (ZombieTexture):
+
 2013-04-10  Andreas Kling  <akling@apple.com>
 
         Disallow programmatic movement of the browser window while user gestures are in progress.
