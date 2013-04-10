@@ -1,3 +1,17 @@
+2013-04-10  Noam Rosenthal  <noam@webkit.org>
+
+        [Texmap] In certain situations nested blending with overflow:hidden displays clipped results
+        https://bugs.webkit.org/show_bug.cgi?id=114290
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        Added a ref-test that exposes an issue with TextureMapper overlap blending when composited.
+        This ref-test does not show correct results on Mac, skipped in TestExpectations and created a bug.
+
+        * compositing/overlap-blending/nested-overlap-overflow-expected.html: Added.
+        * compositing/overlap-blending/nested-overlap-overflow.html: Added.
+        * platform/mac/TestExpectations: Skipped new tests and created bug.
+
 2013-04-10  Victor Costan  <costan@gmail.com>
 
         Blob content type normalization.

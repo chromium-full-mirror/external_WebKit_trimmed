@@ -1,3 +1,19 @@
+2013-04-10  Noam Rosenthal  <noam@webkit.org>
+
+        [Texmap] In certain situations nested blending with overflow:hidden displays clipped results
+        https://bugs.webkit.org/show_bug.cgi?id=114290
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        Always apply the clip when binding a surface, even if it hasn't changed.
+        Otherwise when binding a nested surface and rebinding its container surface,
+        the clip wouldn't apply.
+
+        Test: compositing/overlap-blending/nested-overlap-overflow.html
+
+        * platform/graphics/texmap/TextureMapperGL.cpp:
+        (WebCore::BitmapTextureGL::bind):
+
 2013-04-10  Antti Koivisto  <antti@apple.com>
 
         Use minimal tiles during live resize
