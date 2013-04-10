@@ -1,5 +1,26 @@
 2013-04-10  Chris Fleizach  <cfleizach@apple.com>
 
+        when ARIA button contains a link, label text is ignored (affects main buttons on m.facebook.com)
+        https://bugs.webkit.org/show_bug.cgi?id=113906
+
+        Reviewed by Tim Horton.
+
+        If an element does not expose any children, then it's safe to include all of its sub children when determining
+        the visible text.
+        The bug is that all elements were ignoring focusable elements (like <a>) when determining visible children text
+
+        Test: accessibility/link-inside-button-accessible-text.html
+
+        * accessibility/AccessibilityNodeObject.cpp:
+        (WebCore::shouldUseAccessiblityObjectInnerText):
+        * accessibility/AccessibilityNodeObject.h:
+        (AccessibilityNodeObject):
+        * accessibility/AccessibilityObject.h:
+        (WebCore::AccessibilityObject::isDescendantOfBarrenParent):
+        (AccessibilityObject):
+
+2013-04-10  Chris Fleizach  <cfleizach@apple.com>
+
         AX: Make sure all AX methods called from outside call prepareAccessibility
         https://bugs.webkit.org/show_bug.cgi?id=113818
 

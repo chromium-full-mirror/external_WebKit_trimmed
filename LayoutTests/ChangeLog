@@ -1,3 +1,20 @@
+2013-04-10  Chris Fleizach  <cfleizach@apple.com>
+
+        when ARIA button contains a link, label text is ignored (affects main buttons on m.facebook.com)
+        https://bugs.webkit.org/show_bug.cgi?id=113906
+
+        Reviewed by Tim Horton.
+
+        The static-text-role-uses-text-under-element.html relies on similar logic to this bug.
+
+        I realized that it was verifying the wrong thing and if we had looked closely at this layout test
+        we would have caught this regression earlier most likely.
+
+        * accessibility/link-inside-button-accessible-text-expected.txt: Added.
+        * accessibility/link-inside-button-accessible-text.html: Added.
+        * platform/mac/accessibility/static-text-role-uses-text-under-element-expected.txt:
+        * platform/mac/accessibility/static-text-role-uses-text-under-element.html:
+
 2013-04-10  Xabier Rodriguez Calvar  <calvaris@igalia.com>
 
         Clicking on the volume slider of HTML5 elements is pausing sometimes
