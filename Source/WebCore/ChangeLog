@@ -1,3 +1,20 @@
+2013-04-09  Philippe Normand  <pnormand@igalia.com>
+
+        [GStreamer] playbin uri getter is invalid
+        https://bugs.webkit.org/show_bug.cgi?id=113884
+
+        Reviewed by Martin Robinson.
+
+        When loading a new media location use the url stored as a member
+        variable instead of the one stored as a playbin property. The uri
+        property semantic changed in playbin since 0.10.36+. One should
+        now use current-uri but to avoid ifdefs depending on GStreamer
+        version we simply use the url already known as member variable.
+
+        Test: http/tests/media/video-redirect.html
+
+        * platform/graphics/gstreamer/MediaPlayerPrivateGStreamer.cpp:
+
 2013-04-09  Geoffrey Garen  <ggaren@apple.com>
 
         [JSC] Script run from an isolated world should bypass a page's CSP
