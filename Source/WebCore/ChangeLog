@@ -1,3 +1,11 @@
+2013-04-10  Jessie Berlin  <jberlin@apple.com>
+
+        Update the localizable strings file.
+
+        Rubber-stamped by Dan Bernstein.
+
+        * English.lproj/Localizable.strings:
+
 2013-04-10  Patrick Gansterer  <paroga@webkit.org>
 
         Replace ENABLE_CHANNEL_MESSAGING preprocessor statements in IDL files with Conditional attribute
