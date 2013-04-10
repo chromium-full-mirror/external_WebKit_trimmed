@@ -1,3 +1,16 @@
+2013-04-10  Alberto Garcia  <agarcia@igalia.com>
+
+        [BlackBerry] RenderThemeBlackBerry: get rid of all the SKIA code
+        https://bugs.webkit.org/show_bug.cgi?id=114339
+
+        Reviewed by Carlos Garcia Campos.
+
+        * platform/blackberry/RenderThemeBlackBerry.cpp:
+        (WebCore::RenderThemeBlackBerry::paintMediaSliderTrack):
+        (WebCore::RenderThemeBlackBerry::paintMediaSliderThumb):
+        (WebCore::RenderThemeBlackBerry::paintMediaVolumeSliderTrack):
+        (WebCore::RenderThemeBlackBerry::paintMediaVolumeSliderThumb):
+
 2013-04-10  Zan Dobersek  <zdobersek@igalia.com>
 
         REGRESSION (r147719): Failures in two a11y tests on GTK
