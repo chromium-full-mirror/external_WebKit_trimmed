@@ -1,3 +1,18 @@
+2013-04-10  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed GTK gardening. Rebaselining after r148049.
+
+        * platform/gtk/fast/multicol/shadow-breaking-expected.txt:
+        * platform/gtk/svg/css/composite-shadow-text-expected.txt:
+        * platform/gtk/svg/css/group-with-shadow-expected.txt:
+        * platform/gtk/svg/css/path-with-shadow-expected.txt:
+        * platform/gtk/svg/css/shadow-and-opacity-expected.txt:
+        * platform/gtk/svg/css/shadow-changes-expected.txt:
+        * platform/gtk/svg/css/text-gradient-shadow-expected.txt:
+        * platform/gtk/svg/css/text-shadow-multiple-expected.txt:
+        * platform/gtk/svg/custom/transform-with-shadow-and-gradient-expected.txt:
+        * platform/gtk/transitions/svg-text-shadow-transition-expected.txt:
+
 2013-04-09  Philippe Normand  <pnormand@igalia.com>
 
         [GStreamer] playbin uri getter is invalid
