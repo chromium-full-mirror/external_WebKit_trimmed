@@ -1,3 +1,26 @@
+2013-04-10  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Refactor Editor::markAndReplaceFor before fixing autocorrection bugs
+        https://bugs.webkit.org/show_bug.cgi?id=114344
+
+        Reviewed by Enrica Casucci.
+
+        This patch refactors Editor::markAndReplaceFor so that we can start fixing bugs in a sane state.
+        Extracted isAutomaticTextReplacementType and correctSpellcheckingPreservingTextCheckingParagraph,
+        and made convenience local variables const.
+
+        In particular, shouldMarkSpelling used to be assigned of false when shouldShowCorrectionPanel was true
+        in a middle of a function but this was removed in favor of explicitly checking this condition later
+        since shouldMarkSpelling was only referenced once after the assignment.
+
+        * editing/Editor.cpp:
+        (WebCore::isAutomaticTextReplacementType): Extracted.
+
+        (WebCore::correctSpellcheckingPreservingTextCheckingParagraph): Extracted.  Used highestAncestor
+        and rangeFromLocationAndLength to match the rest of the up-to-date editing code.
+
+        (WebCore::Editor::markAndReplaceFor): See above.
+
 2013-04-08  Anders Carlsson  <andersca@apple.com>
 
         Remove unneeded headers from FrameLoader.h
