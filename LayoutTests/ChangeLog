@@ -1,3 +1,20 @@
+2013-04-10  Noam Rosenthal  <noam@webkit.org>
+
+        [Texmap] Hierarchy of layers with opacity may result in wrong blending.
+        https://bugs.webkit.org/show_bug.cgi?id=113732
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        Added two ref-tests for nested composited overlaps.
+        This ref-test does not work on Mac due to a slight mismatch opacity value on CoreAnimation.
+        A new bug has been posted, and TestExpectations has been updated.
+
+        * compositing/overlap-blending/nested-non-overlap-clipping-expected.html: Added.
+        * compositing/overlap-blending/nested-non-overlap-clipping.html: Added.
+        * compositing/overlap-blending/nested-overlap-expected.html: Added.
+        * compositing/overlap-blending/nested-overlap.html: Added.
+        * platform/mac/TestExpectations: Skipped new tests and created bug.
+
 2013-04-10  Antti Koivisto  <antti@apple.com>
 
         Create fewer tiles when page is loading

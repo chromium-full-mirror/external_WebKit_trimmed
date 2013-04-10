@@ -1,3 +1,38 @@
+2013-04-10  Noam Rosenthal  <noam@webkit.org>
+
+        [Texmap] Hierarchy of layers with opacity may result in wrong blending.
+        https://bugs.webkit.org/show_bug.cgi?id=113732
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        This is a combination of three issues with nested intermediate surfaces:
+        - glScissor inside an intermediate surface should not be mirrored.
+        - The current surface should be passed to the next surface in paintOptions.
+        - When clipping for the non-overlap region, the containing surface offset 
+        should be applied.
+
+        Though the changes are separate, they cannot be tested separately as neither
+        fixes a testable case on its own. 
+
+        Tests: compositing/overlap-blending/nested-non-overlap-clipping.html
+               compositing/overlap-blending/nested-overlap.html
+
+        * platform/graphics/texmap/TextureMapperGL.cpp:
+        (WebCore::TextureMapperGL::ClipStack::reset):
+        (WebCore::TextureMapperGL::ClipStack::apply):
+        (WebCore::TextureMapperGL::beginPainting):
+        (WebCore::BitmapTextureGL::clearIfNeeded):
+        * platform/graphics/texmap/TextureMapperGL.h:
+        (ClipStack):
+            Do not mirror the scissor clip when painting to an FBO.
+            Also a minor refactor to avoid reading the viewport values from the driver.
+
+        * platform/graphics/texmap/TextureMapperLayer.cpp:
+        (WebCore::TextureMapperLayer::paintUsingOverlapRegions):
+            Apply the offset when clipping for a non-overlap region.
+        (WebCore::TextureMapperLayer::paintIntoSurface):
+            Make sure the current surface is passed to the next one.
+
 2013-04-10  Antti Koivisto  <antti@apple.com>
 
         Create fewer tiles when page is loading
