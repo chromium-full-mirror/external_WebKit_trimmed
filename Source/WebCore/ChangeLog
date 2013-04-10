@@ -1,3 +1,24 @@
+2013-04-10  Raphael Kubo da Costa  <raphael.kubo.da.costa@intel.com>
+
+        REGRESSION(r148034): IconDatabase::updateIconRecord crashes with null iconData and iconBitmap.
+        https://bugs.webkit.org/show_bug.cgi?id=114356
+
+        Reviewed by Tim Horton.
+
+        When loading an icon fails (for example, when a non-existent URI is
+        passed to the loader), updateIconRecord can be called with both
+        iconData and iconBitmap having no data.
+
+        This used to be fine before r148034, but causes an assertion now.
+
+        No new tests, existing tests such as fast/encoding/mispositioned-meta.html
+        were crashing.
+
+        * loader/icon/IconDatabase.cpp:
+        (WebCore::IconDatabase::updateIconRecord): Change the ASSERT() to check
+        for a NAND condition that only fails if both iconData and iconBitmap
+        are not 0.
+
 2013-04-10  JungJik Lee  <jungjik.lee@samsung.com>
 
         [Texmap] Update a dirty region which is not covered with keepRect.
