@@ -1,3 +1,13 @@
+2013-04-10  Robert Hogan  <robert@webkit.org>
+
+        Empty inline continuations should only get lineboxes if the padding applies to their side of the inline
+        https://bugs.webkit.org/show_bug.cgi?id=113896
+
+        Reviewed by David Hyatt.
+
+        * fast/inline/inline-with-empty-inline-continuations-expected.txt: Added.
+        * fast/inline/inline-with-empty-inline-continuations.html: Added.
+
 2013-04-10  Zoltan Horvath  <zoltan@webkit.org>
 
         [CSS Exclusions] Increasing padding does not correctly layout child blocks

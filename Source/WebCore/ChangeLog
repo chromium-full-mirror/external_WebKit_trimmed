@@ -1,3 +1,22 @@
+2013-04-10  Robert Hogan  <robert@webkit.org>
+
+        Empty inline continuations should only get lineboxes if the padding applies to their side of the inline
+        https://bugs.webkit.org/show_bug.cgi?id=113896
+
+        Reviewed by David Hyatt.
+
+        Test: fast/inline/inline-with-empty-inline-continuations.html
+
+        Where an empty inline is split across anonymous blocks we should only give lineboxes to the 'sides' of the
+        inline that have borders, padding or margin.
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::shouldApplyStartBorderPaddingOrMargin):
+        (WebCore):
+        (WebCore::shouldApplyEndBorderPaddingOrMargin):
+        (WebCore::hasInlineDirectionBordersPaddingOrMargin):
+        (WebCore::alwaysRequiresLineBox):
+
 2013-04-10  Zoltan Horvath  <zoltan@webkit.org>
 
         [CSS Exclusions] Increasing padding does not correctly layout child blocks
