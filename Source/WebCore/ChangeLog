@@ -1,3 +1,28 @@
+2013-04-10  Chris Fleizach  <cfleizach@apple.com>
+
+        AX: Make sure all AX methods called from outside call prepareAccessibility
+        https://bugs.webkit.org/show_bug.cgi?id=113818
+
+        Reviewed by Darin Adler.
+
+        Make sure any calls that can be made from outside WebCore are protected with the
+        prepareAccessibility method.
+
+        * accessibility/ios/WebAccessibilityObjectWrapperIOS.mm:
+        (-[WebAccessibilityObjectWrapper accessibilityMathRootIndexObject]):
+        (-[WebAccessibilityObjectWrapper accessibilityMathRadicandObject]):
+        (-[WebAccessibilityObjectWrapper accessibilityMathNumeratorObject]):
+        (-[WebAccessibilityObjectWrapper accessibilityMathDenominatorObject]):
+        (-[WebAccessibilityObjectWrapper accessibilityMathBaseObject]):
+        (-[WebAccessibilityObjectWrapper accessibilityMathSubscriptObject]):
+        (-[WebAccessibilityObjectWrapper accessibilityMathSuperscriptObject]):
+        (-[WebAccessibilityObjectWrapper accessibilityMathUnderObject]):
+        (-[WebAccessibilityObjectWrapper accessibilityMathOverObject]):
+        (-[WebAccessibilityObjectWrapper accessibilityMathFencedOpenString]):
+        (-[WebAccessibilityObjectWrapper accessibilityMathFencedCloseString]):
+        (-[WebAccessibilityObjectWrapper accessibilityIsMathTopObject]):
+        (-[WebAccessibilityObjectWrapper accessibilityMathType]):
+
 2013-04-10  Csaba Osztrogonác  <ossy@webkit.org>
 
         Unreviewed buildfix after r148123.
