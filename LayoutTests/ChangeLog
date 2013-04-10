@@ -1,3 +1,24 @@
+2013-04-09  Geoffrey Garen  <ggaren@apple.com>
+
+        [JSC] Script run from an isolated world should bypass a page's CSP
+        https://bugs.webkit.org/show_bug.cgi?id=100815
+
+        Reviewed by Oliver Hunt.
+
+        Enabled these tests, now that they pass.
+
+        I removed all the nonsense in these tests about setting an isolated world's
+        CSP and origin manually, since we have no use for those features.
+
+        * http/tests/security/isolatedWorld/bypass-main-world-csp-expected.txt:
+        * http/tests/security/isolatedWorld/bypass-main-world-csp-for-xhr-expected.txt:
+        * http/tests/security/isolatedWorld/bypass-main-world-csp-for-xhr.html:
+        * http/tests/security/isolatedWorld/bypass-main-world-csp.html:
+        * platform/efl/TestExpectations:
+        * platform/mac/TestExpectations:
+        * platform/qt/TestExpectations:
+        * platform/win/TestExpectations:
+
 2013-04-09  Adam Klein  <adamk@chromium.org>
 
         Update Document's event listener type bitfield when adopting a Node

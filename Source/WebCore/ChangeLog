@@ -1,3 +1,20 @@
+2013-04-09  Geoffrey Garen  <ggaren@apple.com>
+
+        [JSC] Script run from an isolated world should bypass a page's CSP
+        https://bugs.webkit.org/show_bug.cgi?id=100815
+
+        Reviewed by Oliver Hunt.
+
+        * bindings/js/ScriptController.cpp:
+        (WebCore::ScriptController::shouldBypassMainWorldContentSecurityPolicy):
+        * bindings/js/ScriptController.h: Test the current caller's DOM wrapper
+        world to decide whether CSP should be enforced.
+
+        Like most of CSP, this is a stupid policy because it doesn't address
+        second-order effects like <script> parsing or event handler execution,
+        which might be triggered indirectly by privileged scripts. These indirect
+        effects are still broken. Oh well.
+
 2013-04-09  Benjamin Poulain  <bpoulain@apple.com>
 
         Remove chromium exceptions from WebCore's gitattributes
