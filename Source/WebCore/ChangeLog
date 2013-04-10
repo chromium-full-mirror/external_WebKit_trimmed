@@ -1,3 +1,19 @@
+2013-04-10  Tim Horton  <timothy_horton@apple.com>
+
+        TileController doesn't remove tiles when the view is resized, leading to stale content
+        https://bugs.webkit.org/show_bug.cgi?id=114323
+        <rdar://problem/13520671>
+
+        Reviewed by Simon Fraser.
+
+        Ensure that tiles are removed if the view shrinks, so that they are not displayed
+        with stale content if the view later grows again (they will not be repainted by WebCore
+        while out-of-view).
+
+        * platform/graphics/ca/mac/TileController.h:
+        * platform/graphics/ca/mac/TileController.mm:
+        (WebCore::TileController::revalidateTiles):
+
 2013-04-10  Jessie Berlin  <jberlin@apple.com>
 
         Update the localizable strings file.
