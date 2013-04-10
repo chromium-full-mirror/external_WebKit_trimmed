@@ -1,3 +1,21 @@
+2013-04-10  Alexandru Chiculita  <achicu@adobe.com>
+
+        Layers with opacity and blur filters are reported as opaque to the compositor
+        https://bugs.webkit.org/show_bug.cgi?id=114295
+
+        Reviewed by Simon Fraser.
+
+        Test: compositing/contents-opaque/filter.html
+
+        Some filters like opacity and blur might still trigger transparency in the layer, even though the
+        background is opaque. I've added the special case in RenderLayer::backgroundIsKnownToBeOpaqueInRect to check
+        for filters that might have transparency. Note that this special case is required only for software drawn
+        filters, as the transparency is going to be backed in the GraphicsLayer content. Composited filters can
+        figure it out in the compositor.
+
+        * rendering/RenderLayer.cpp:
+        (WebCore::RenderLayer::backgroundIsKnownToBeOpaqueInRect):
+
 2013-04-10  Noam Rosenthal  <noam@webkit.org>
 
         [Texmap] In certain situations nested blending with overflow:hidden displays clipped results

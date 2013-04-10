@@ -1,3 +1,16 @@
+2013-04-10  Alexandru Chiculita  <achicu@adobe.com>
+
+        Layers with opacity and blur filters are reported as opaque to the compositor
+        https://bugs.webkit.org/show_bug.cgi?id=114295
+
+        Reviewed by Simon Fraser.
+
+        Added test to check for blur and opacity filters drawn in software mode which needs 
+        to force the layer report non-opaque to the compositor.
+
+        * compositing/contents-opaque/filter-expected.txt: Added.
+        * compositing/contents-opaque/filter.html: Added.
+
 2013-04-10  Noam Rosenthal  <noam@webkit.org>
 
         [Texmap] In certain situations nested blending with overflow:hidden displays clipped results
