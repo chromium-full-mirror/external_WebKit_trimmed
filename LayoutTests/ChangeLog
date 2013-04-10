@@ -1,3 +1,32 @@
+2013-04-09  Dongwoo Joshua Im  <dw.im@samsung.com>
+
+        [CSS3] Parsing the property, text-justify.
+        https://bugs.webkit.org/show_bug.cgi?id=100058
+
+        Reviewed by Andreas Kling.
+
+        This patch implements the parsing side of the "text-justify" property specified
+        in CSS3 working draft, with "-webkit-" prefix, under ENABLE_CSS3_TEXT flag.
+        Specification link : http://www.w3.org/TR/css3-text/#text-justify
+
+        * fast/css3-text/css3-text-justify/getComputedStyle/getComputedStyle-text-justify-expected.txt: Added.
+        * fast/css3-text/css3-text-justify/getComputedStyle/getComputedStyle-text-justify-inherited-expected.txt: Added.
+        * fast/css3-text/css3-text-justify/getComputedStyle/getComputedStyle-text-justify-inherited.html: Added.
+        * fast/css3-text/css3-text-justify/getComputedStyle/getComputedStyle-text-justify.html: Added.
+        * fast/css3-text/css3-text-justify/getComputedStyle/script-tests/getComputedStyle-text-justify-inherited.js: Added.
+        (testComputedStyle):
+        (ownValueTest):
+        (inheritanceTest):
+        * fast/css3-text/css3-text-justify/getComputedStyle/script-tests/getComputedStyle-text-justify.js: Added.
+        (testElementStyle):
+        (testComputedStyle):
+        (valueSettingTest):
+        (invalidValueSettingTest):
+        * platform/mac/TestExpectations: ditto
+        * platform/qt-4.8/TestExpectations: ditto
+        * platform/qt-mac/TestExpectations: ditto
+        * platform/qt/TestExpectations: ditto
+
 2013-04-09  Simon Fraser  <simon.fraser@apple.com>
 
         r148048 revealed that compositing/plugins/invalidate_rect.html was
