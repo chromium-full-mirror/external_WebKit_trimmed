@@ -1,3 +1,19 @@
+2013-04-10  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening. Rebaselining after r148049.
+
+        * platform/qt-5.0-wk2/compositing/iframes/page-cache-layer-tree-expected.txt: Removed.
+        * platform/qt/compositing/iframes/page-cache-layer-tree-expected.txt: Renamed from LayoutTests/platform/qt-5.0-wk1/compositing/iframes/page-cache-layer-tree-expected.txt.
+        * platform/qt/fast/multicol/shadow-breaking-expected.txt:
+        * platform/qt/svg/css/composite-shadow-text-expected.png:
+        * platform/qt/svg/css/composite-shadow-text-expected.txt:
+        * platform/qt/svg/css/group-with-shadow-expected.txt:
+        * platform/qt/svg/css/path-with-shadow-expected.txt:
+        * platform/qt/svg/css/shadow-and-opacity-expected.txt:
+        * platform/qt/svg/css/shadow-breaking-expected.png: Added.
+        * platform/qt/svg/css/text-shadow-multiple-expected.txt:
+        * platform/qt/transitions/svg-text-shadow-transition-expected.txt:
+
 2013-04-10  Zan Dobersek  <zdobersek@igalia.com>
 
         Unreviewed GTK gardening. Rebaselining after r148049.
