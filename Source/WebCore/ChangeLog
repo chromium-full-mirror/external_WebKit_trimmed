@@ -1,3 +1,36 @@
+2013-04-09  Joone Hur  <joone.hur@intel.com>
+
+        [GTK][AC] Adding contentsLayer for image and video
+        https://bugs.webkit.org/show_bug.cgi?id=113912
+
+        Reviewed by Gustavo Noronha Silva.
+
+        contentsLayer is a ClutterActor, which is added to the main layer 
+        as a child when GraphicsLayer needs to render an image or video. 
+
+        No new tests, already covered by existing AC tests.
+
+        * platform/graphics/clutter/GraphicsLayerActor.cpp:
+        (graphicsLayerActorUpdateTexture):
+        * platform/graphics/clutter/GraphicsLayerClutter.cpp:
+        (WebCore::GraphicsLayerClutter::GraphicsLayerClutter):
+        (WebCore::GraphicsLayerClutter::~GraphicsLayerClutter):
+        (WebCore):
+        (WebCore::GraphicsLayerClutter::setContentsToImage): Pass a Cairo surface to GraphicsLayer.
+        (WebCore::GraphicsLayerClutter::setContentsNeedsDisplay):
+        (WebCore::GraphicsLayerClutter::setContentsRect):
+        (WebCore::GraphicsLayerClutter::commitLayerChangesBeforeSublayers):
+        (WebCore::GraphicsLayerClutter::setupContentsLayer):
+        (WebCore::GraphicsLayerClutter::updateContentsImage): Set the Cairo surface for contentsLayer 
+        to upload it as a texture.
+        (WebCore::GraphicsLayerClutter::updateContentsNeedsDisplay):
+        (WebCore::GraphicsLayerClutter::updateContentsRect):
+        (WebCore::GraphicsLayerClutter::updateSublayerList):
+        * platform/graphics/clutter/GraphicsLayerClutter.h:
+        (WebCore::GraphicsLayerClutter::hasContentsLayer):
+        (GraphicsLayerClutter):
+        (WebCore::GraphicsLayerClutter::contentsLayer):
+
 2013-04-09  Alexey Proskuryakov  <ap@apple.com>
 
         REGRESSION: Blob URLs broken with NetworkProcess
