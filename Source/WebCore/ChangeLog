@@ -1,3 +1,21 @@
+2013-04-10  Antti Koivisto  <antti@apple.com>
+
+        Use minimal tiles during live resize
+        https://bugs.webkit.org/show_bug.cgi?id=114364
+
+        Reviewed by Darin Adler.
+
+        We currently update non-visible speculative tiles during resizing. We should just drop them.
+
+        * page/FrameView.cpp:
+        (WebCore::FrameView::willStartLiveResize):
+        (WebCore::FrameView::willEndLiveResize):
+        * page/FrameView.h:
+        * rendering/RenderLayerBacking.cpp:
+        (WebCore::computeTileCoverage):
+        
+            Use minimal coverage in live resize state.
+
 2013-04-10  Victor Costan  <costan@gmail.com>
 
         Blob content type normalization.
