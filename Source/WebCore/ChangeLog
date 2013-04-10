@@ -1,3 +1,17 @@
+2013-04-10  Andreas Kling  <akling@apple.com>
+
+        Disallow programmatic movement of the browser window while user gestures are in progress.
+        <http://webkit.org/b/114271>
+        <rdar://problem/13226530>
+
+        Reviewed by Oliver Hunt.
+
+        * page/DOMWindow.cpp:
+        (WebCore::DOMWindow::moveBy):
+        (WebCore::DOMWindow::moveTo):
+        (WebCore::DOMWindow::resizeBy):
+        (WebCore::DOMWindow::resizeTo):
+
 2013-04-10  Ryosuke Niwa  <rniwa@webkit.org>
 
         Refactor Editor::markAndReplaceFor before fixing autocorrection bugs
