@@ -1,3 +1,24 @@
+2013-04-10  Victor Costan  <costan@gmail.com>
+
+        Blob content type normalization.
+        https://bugs.webkit.org/show_bug.cgi?id=111380
+
+        Reviewed by Alexey Proskuryakov.
+
+        * http/tests/fast/files/script-tests/blob-constructor.js: added/updated test cases for Blob type normalization
+        * http/tests/fast/files/blob-constructor-expected.txt: added/updated test cases for Blob type normalization
+        * http/tests/fileapi/xhr-send-form-data-filename-escaping-expected.txt: Added.
+        * http/tests/fileapi/xhr-send-form-data-filename-escaping.html: Added.
+        * http/tests/fileapi/xhr-send-form-data-mimetype-normalization-expected.txt: Added.
+        * http/tests/fileapi/xhr-send-form-data-mimetype-normalization.html: Added.
+        * http/tests/local/formdata/resources/send-form-data-common.js:
+        (dumpResponse): return the HTTP response text so it can be used in JS test code
+        (sendFormData): passthrough the HTTP response text returned by dumpResponse()
+        (testSendingFormData): passthrough the HTTP response text returned by dumpResponse()
+        * http/tests/xmlhttprequest/post-blob-content-type-async-expected.txt: updated expectation for invalid Content-Type
+        * http/tests/xmlhttprequest/post-blob-content-type-sync-expected.txt: updated expectation for invalid Content-Type
+        * http/tests/xmlhttprequest/post-blob-content-type-tests.js: updated expectation for invalid Content-Type
+
 2013-04-10  Simon Fraser  <simon.fraser@apple.com>
 
         Rebaseline four tiled drawing tests affeted by r148049.

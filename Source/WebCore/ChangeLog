@@ -1,3 +1,40 @@
+2013-04-10  Victor Costan  <costan@gmail.com>
+
+        Blob content type normalization.
+        https://bugs.webkit.org/show_bug.cgi?id=111380
+
+        Reviewed by Alexey Proskuryakov.
+
+        Tests: http/tests/fast/files/blob-constructor.js
+               http/tests/fileapi/xhr-send-form-data-filename-escaping.html
+               http/tests/fileapi/xhr-send-form-data-mimetype-normalization.html
+
+        * WebCore.exp.in: exported Blob::isNormalizedContentType()
+        * bindings/js/JSBlobCustom.cpp:
+        (WebCore::JSBlobConstructor::constructJSBlob): remove checks on Blob type, BlobBuilder will normalize it
+        * fileapi/Blob.cpp:
+        (BlobType): utilities for normalizing a Blob's type according to the File API spec
+        (WebCore::BlobType::isValid): content type validity checks in the File API spec
+        (WebCore::BlobType::normalize): implements the normalization rules in the File API spec
+        (WebCore::BlobType::isNormalized): useful for ASSERTing that a Blob type has been normalized
+        (WebCore): implement Blob type normalization according to the File API spec
+        (WebCore::Blob::Blob): normalize the Blob type in the data URL
+        (WebCore::Blob::slice): normalize the Blob type argument
+        * fileapi/Blob.h:
+        (BlobType): utilities for normalizing a Blob's type according to the File API spec
+        (WebCore::Blob::create): assert that the deserialized Blob's type was normalized
+        * fileapi/File.cpp:
+        (WebCore::createBlobDataForFileWithType): assert that the File's MIME type is a normalized Blob type
+        * fileapi/WebKitBlobBuilder.cpp:
+        (WebCore::BlobBuilder::getBlob): normalize the Blob's type before building it
+        * platform/network/BlobData.h:
+        (WebCore::BlobData::setContentType): assert that the Blob type has been normalized
+        * platform/network/FormData.cpp:
+        (WebCore::FormData::appendKeyValuePairItems): assert that Blob's type has been normalized
+        * platform/network/FormDataBuilder.cpp:
+        (WebCore::FormDataBuilder::addContentTypeToMultiPartHeader): assert that the Content-Type field is normalized
+        * xml/XMLHttpRequest.cpp: when responseType is blob, normalize Content-Type before passing to Blob constructor
+
 2013-04-10  Tim Horton  <timothy_horton@apple.com>
 
         TileController doesn't remove tiles when the view is resized, leading to stale content
