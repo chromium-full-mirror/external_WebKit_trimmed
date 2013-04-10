@@ -1,3 +1,22 @@
+2013-04-09  Alexey Proskuryakov  <ap@apple.com>
+
+        REGRESSION: Blob URLs broken with NetworkProcess
+        https://bugs.webkit.org/show_bug.cgi?id=114320
+
+        Reviewed by Brady Eidson.
+
+        Update BlobResourceHandle to use modern resource client calls.
+
+        * platform/network/BlobResourceHandle.cpp:
+        (WebCore::BlobResourceHandle::readSync): Don't call notifyReceiveData if there is
+        no data (it's especially egregious when length is -1, signaling an error).
+        (WebCore::BlobResourceHandle::notifyResponseOnSuccess): Use didReceiveResponseAsync
+        when a client wants async callbacks. This is not very clean, as we don't wait
+        for response, but should be workable for blobs.
+        (WebCore::BlobResourceHandle::notifyResponseOnError): Ditto.
+        (WebCore::BlobResourceHandle::notifyReceiveData): Use didReceiveBuffer (clients
+        that only implement didReceiveData will have it automatically unwrapped).
+
 2013-04-09  Jer Noble  <jer.noble@apple.com>
 
         REGRESSION (r123837): Full screen transition is broken at apple.com
