@@ -1,3 +1,39 @@
+2013-04-10  Beth Dakin  <bdakin@apple.com>
+
+        FindBanner matches are offset when the WKView has a header or footer
+        https://bugs.webkit.org/show_bug.cgi?id=114314
+        -and corresponding-
+        <rdar://problem/13522434>
+
+        Reviewed by Simon Fraser.
+
+        There were already a few places in the code where we needed to adjust the 
+        scrollOffset() to pretend that (0,0) is that the top of the Document rather than 
+        the top of the header. To fix the FindBanner issues, we need to know that version 
+        of the offset in a few more places, so I added a function on ScrollView to fetch 
+        it called scrollOffsetRelativeToDocument().
+
+        New function subtracts out the headerHeight() to treat the top of 
+        the document as (0,0).
+        * WebCore.exp.in:
+        * platform/ScrollView.cpp:
+        (WebCore::ScrollView::scrollOffsetRelativeToDocument):
+
+        Use scrollOffsetRelativeToDocument() where we were previously making this 
+        calculation. Also re-name an inaccurately named variable where we are actually 
+        converting FROM a document offset to a ScrollableArea offset.
+        (WebCore::ScrollView::windowToContents):
+        * platform/ScrollView.h:
+        (ScrollView):
+
+        getRectToExpose needs to know about the actual visibleContentRect and the 
+        visibleContentRect that is relative to the Document. So this 
+        patch adds a new parameter to getRectToExpose for that purpose.
+        * rendering/RenderLayer.cpp:
+        (WebCore::RenderLayer::scrollRectToVisible):
+        (WebCore::RenderLayer::getRectToExpose):
+        * rendering/RenderLayer.h:
+
 2013-04-10  Chris Fleizach  <cfleizach@apple.com>
 
         when ARIA button contains a link, label text is ignored (affects main buttons on m.facebook.com)
