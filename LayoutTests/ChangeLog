@@ -1,3 +1,11 @@
+2013-04-09  Simon Fraser  <simon.fraser@apple.com>
+
+        r148048 revealed that compositing/plugins/invalidate_rect.html was
+        only succeeded through chance, and cannot work as designed because
+        plugin painting is async on some platforms. Mark it as flakey.
+
+        * platform/mac/TestExpectations:
+
 2013-04-09  Commit Queue  <rniwa@webkit.org>
 
         Unreviewed, rolling out r148010.
