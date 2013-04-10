@@ -1,3 +1,20 @@
+2013-04-10  Alexey Proskuryakov  <ap@apple.com>
+
+        <rdar://problem/13047266> External XML entities are not loaded with modern libxml2
+        https://bugs.webkit.org/show_bug.cgi?id=114377
+
+        Reviewed by Darin Adler.
+
+        Covered by http/tests/security/xss-DENIED-xml-external-entity.xhtml when using
+        new enough libxml2.
+
+        * xml/parser/XMLDocumentParserLibxml2.cpp:
+        (WebCore::switchToUTF16): Added a FIXME with an idea for improvement.
+        (WebCore::XMLParserContext::createStringParser): Apply XML_PARSE_NOENT in a non-hacky
+        way, so that the new libxml2 check doesn't fail.
+        (WebCore::XMLParserContext::createMemoryParser): Updated an unhelpful and incorrect
+        comment (XML_PARSE_NODICT actually means "Do not reuse the context dictionary").
+
 2013-04-10  Eric Carlson  <eric.carlson@apple.com>
 
         [Mac] in-band tracks sometimes not recognized
