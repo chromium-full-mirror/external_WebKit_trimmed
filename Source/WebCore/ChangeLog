@@ -1,3 +1,26 @@
+2013-04-10  Simon Fraser  <simon.fraser@apple.com>
+
+        Flesh out the Animations logging
+        https://bugs.webkit.org/show_bug.cgi?id=114388
+
+        Reviewed by Dean Jackson.
+
+        Log state changes and transition/animation creation and destruction
+        to the Animations log channel.
+
+        * page/animation/AnimationBase.cpp:
+        (WebCore::nameForState):
+        (WebCore::AnimationBase::updateStateMachine):
+        (WebCore::AnimationBase::fireAnimationEventsIfNeeded):
+        (WebCore::AnimationBase::goIntoEndingOrLoopingState):
+        (WebCore::AnimationBase::freezeAtTime):
+        * page/animation/CompositeAnimation.cpp:
+        (WebCore::CompositeAnimation::updateTransitions):
+        (WebCore::CompositeAnimation::updateKeyframeAnimations):
+        * page/animation/KeyframeAnimation.h:
+        (WebCore::KeyframeAnimation::keyframes):
+        (KeyframeAnimation):
+
 2013-04-10  Alexey Proskuryakov  <ap@apple.com>
 
         <rdar://problem/13047266> External XML entities are not loaded with modern libxml2
