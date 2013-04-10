@@ -1,3 +1,18 @@
+2013-04-10  Beth Dakin  <bdakin@apple.com>
+
+        Inspector highlights are offset when the WKView has a header
+        https://bugs.webkit.org/show_bug.cgi?id=114389
+        -and corresponding-
+        <rdar://problem/13522434>
+
+        Reviewed by Sam Weinig.
+
+        rootViewToContents() and contentsToRootView() need to factor in the 
+        headerHeight(), much like windowToContents() and contentsToWindow() do already. 
+        * platform/ScrollView.cpp:
+        (WebCore::ScrollView::rootViewToContents):
+        (WebCore::ScrollView::contentsToRootView):
+
 2013-04-10  Simon Fraser  <simon.fraser@apple.com>
 
         Flesh out the Animations logging
