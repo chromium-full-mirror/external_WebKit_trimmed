@@ -1,3 +1,20 @@
+2013-04-10  Eric Carlson  <eric.carlson@apple.com>
+
+        [Mac] in-band tracks sometimes not recognized
+        https://bugs.webkit.org/show_bug.cgi?id=114380
+
+        Reviewed by Jer Noble.
+
+        No new tests, covered by existing in-band tests.
+
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.mm:
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::createAVPlayerItem): Don't call selectMediaOption,
+            availableMediaCharacteristicsWithMediaSelectionOptions is unlikely to be loaded at this time.
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::processTextTracks): Disable automatic text track
+            selection.
+        (WebCore::assetMetadataKeyNames): Watch for the status of availableMediaCharacteristicsWithMediaSelectionOptions
+            to change.
+
 2013-04-10  Hans Muller  <hmuller@adobe.com>
 
         [CSS Exclusions] Zoom causes shape-inside to fail when shape-padding is specified
