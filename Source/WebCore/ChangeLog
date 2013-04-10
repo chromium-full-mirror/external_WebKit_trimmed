@@ -1,3 +1,21 @@
+2013-04-10  Zoltan Horvath  <zoltan@webkit.org>
+
+        [CSS Exclusions] Increasing padding does not correctly layout child blocks
+        https://bugs.webkit.org/show_bug.cgi?id=112929
+
+        Reviewed by David Hyatt.
+
+        If a child block has changed dimension inside a shape and it has affected the block siblings
+        we need to relayout the content inside the shape.
+
+        Test: fast/exclusions/shape-inside/shape-inside-sibling-block-dimension-change-needs-relayout.html
+
+        * rendering/RenderBlock.cpp:
+        (WebCore::RenderBlock::updateRegionsAndExclusionsAfterChildLayout): Add condition for dimension change.
+        (WebCore::RenderBlock::layoutBlock): Call updateRegionsAndExclusionsAfterChildLayout with the new parameter.
+        * rendering/RenderBlock.h:
+        (RenderBlock): Add extra parameter to updateRegionsAndExclusionsAfterChildLayout(...)
+
 2013-04-10  Geoffrey Garen  <ggaren@apple.com>
 
         Removed bitrotted TimeoutChecker code

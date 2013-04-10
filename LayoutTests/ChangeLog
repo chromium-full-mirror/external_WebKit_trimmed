@@ -1,3 +1,16 @@
+2013-04-10  Zoltan Horvath  <zoltan@webkit.org>
+
+        [CSS Exclusions] Increasing padding does not correctly layout child blocks
+        https://bugs.webkit.org/show_bug.cgi?id=112929
+
+        Reviewed by David Hyatt.
+
+        If a child block has changed dimension inside a shape and it has affected the block siblings
+        we need to relayout the content inside the shape.
+
+        * fast/exclusions/shape-inside/shape-inside-sibling-block-dimension-change-needs-relayout-expected.html: Added.
+        * fast/exclusions/shape-inside/shape-inside-sibling-block-dimension-change-needs-relayout.html: Added.
+
 2013-04-10  Alexandru Chiculita  <achicu@adobe.com>
 
         Layers with opacity and blur filters are reported as opaque to the compositor
