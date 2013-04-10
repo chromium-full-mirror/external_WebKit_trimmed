@@ -1,3 +1,31 @@
+2013-04-10  Antti Koivisto  <antti@apple.com>
+
+        Create fewer tiles when page is loading
+        https://bugs.webkit.org/show_bug.cgi?id=114294
+
+        Reviewed by Anders Carlsson.
+
+        We currently create speculative tiles immediately. Page is often changing rapidly during loading and
+        keeping the speculative tiles up to date creates extra work.
+        
+        Tests: platform/mac-wk2/tiled-drawing/tile-coverage-after-scroll-speculative.html
+               platform/mac-wk2/tiled-drawing/tile-coverage-speculative.html
+        
+       * loader/FrameLoader.cpp:
+        (WebCore::FrameLoader::loadProgressingStatusChanged):
+        * page/FrameView.cpp:
+        (WebCore::FrameView::adjustTiledBackingCoverage):
+        (WebCore::FrameView::setWasScrolledByUser):
+        
+            User scrolling enables speculative tiling no matter what the load status.
+
+        * page/FrameView.h:
+        * rendering/RenderLayerBacking.cpp:
+        (WebCore::computeTileCoverage):
+        (WebCore::RenderLayerBacking::adjustTiledBackingCoverage):
+        
+            Cover only the viewport during loading.
+
 2013-04-10  Alberto Garcia  <agarcia@igalia.com>
 
         [BlackBerry] RenderThemeBlackBerry: get rid of all the SKIA code

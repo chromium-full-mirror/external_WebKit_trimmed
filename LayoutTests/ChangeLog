@@ -1,3 +1,30 @@
+2013-04-10  Antti Koivisto  <antti@apple.com>
+
+        Create fewer tiles when page is loading
+        https://bugs.webkit.org/show_bug.cgi?id=114294
+
+        Reviewed by Anders Carlsson.
+        
+        Reduced initial tile counts and new tests for speculative tiles.
+
+        * platform/mac-wk2/tiled-drawing/fixed-background/fixed-background-no-image-expected.txt:
+        * platform/mac-wk2/tiled-drawing/tile-coverage-after-scroll-expected.txt:
+        * platform/mac-wk2/tiled-drawing/tile-coverage-after-scroll-speculative-expected.txt: Added.
+        * platform/mac-wk2/tiled-drawing/tile-coverage-after-scroll-speculative.html: Added.
+        * platform/mac-wk2/tiled-drawing/tile-coverage-scroll-to-bottom-expected.txt:
+        * platform/mac-wk2/tiled-drawing/tile-coverage-speculative-expected.txt: Added.
+        * platform/mac-wk2/tiled-drawing/tile-coverage-speculative.html: Added.
+        * platform/mac-wk2/tiled-drawing/tiled-drawing-zoom-expected.txt:
+        * platform/mac-wk2/tiled-drawing/tiled-drawing-zoom-scrolled-expected.txt:
+        * platform/mac-wk2/tiled-drawing/use-tiled-drawing-expected.txt:
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-body-layer-expected.txt:
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-expected.txt:
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-opacity-html-expected.txt:
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-positioned-expected.txt:
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-transformed-html-expected.txt:
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-body-background-zoomed-expected.txt:
+        * platform/mac/platform/mac-wk2/tiled-drawing/fixed-background/fixed-html-background-expected.txt:
+
 2013-04-10  Anton Obzhirov  <a.obzhirov@samsung.com>
 
         [GTK] Add support for Page Visibility
