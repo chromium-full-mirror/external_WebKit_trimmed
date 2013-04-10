@@ -1,3 +1,14 @@
+2013-04-10  Patrick Gansterer  <paroga@webkit.org>
+
+        Replace ENABLE_JAVASCRIPT_DEBUGGER preprocessor statements in IDL files with Conditional attribute
+        https://bugs.webkit.org/show_bug.cgi?id=114352
+
+        Reviewed by Timothy Hatcher.
+
+        The Conditional attribute does not need a preprocessor, which is source of much pain on native windows.
+
+        * page/Console.idl:
+
 2013-04-10  Alexandru Chiculita  <achicu@adobe.com>
 
         Layers with opacity and blur filters are reported as opaque to the compositor
