@@ -1,3 +1,9 @@
+2013-04-11  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Mac Lion build fix attempt after r148197.
+
+        * page/scrolling/mac/ScrollingStateNodeMac.mm:
+
 2013-04-11  Alexey Proskuryakov  <ap@apple.com>
 
         <rdar://problem/10416316> [Mac] WebSocket doesn't work with authenticating proxies
