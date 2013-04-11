@@ -1,3 +1,19 @@
+2013-04-11  ChangSeok Oh  <changseok.oh@collabora.com>
+
+        [GTK][AC] use a smart pointer for GList and ClutterCanvas
+        https://bugs.webkit.org/show_bug.cgi?id=114057
+
+        Reviewed by Gustavo Noronha Silva.
+
+        We can make simple code & prevent possible memory leak by using a proper smart pointer.
+        Especially if we get children by clutter_actor_get_children, we should free it after using.
+
+        No functionality changed.
+
+        * platform/graphics/clutter/GraphicsLayerActor.cpp:
+        (graphicsLayerActorUpdateTexture):
+        (graphicsLayerActorRemoveAll):
+
 2013-04-11  Arvid Nilsson  <anilsson@rim.com>
 
         [BlackBerry][CSS Filters] Blur filter fails to recompute blur size when layer size changes
