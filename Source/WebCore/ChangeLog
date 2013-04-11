@@ -1,3 +1,18 @@
+2013-04-10  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Cleanup local variables in Editor::markAndReplaceFor
+        https://bugs.webkit.org/show_bug.cgi?id=114383
+
+        Reviewed by Enrica Casucci.
+
+        Added resultEndLocation, which is the sum of resultLocation and resultLength.
+
+        Also replaced ambiguousBoundaryOffset by useAmbiguousBoundaryOffset since the ambiguous offset is always
+        selectionOffset -1 to avoid the extra house keeping and obnoxious -1 check.
+
+        * editing/Editor.cpp:
+        (WebCore::Editor::markAndReplaceFor):
+
 2013-04-10  Benjamin Poulain  <bpoulain@apple.com>
 
         Mass remove all the empty directories
