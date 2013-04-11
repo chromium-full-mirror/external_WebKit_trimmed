@@ -1,3 +1,19 @@
+2013-04-11  Eli Fidler  <efidler@blackberry.com>
+
+        [BlackBerry] Use the platform list of languages with fonts instead of hardcoding
+        https://bugs.webkit.org/show_bug.cgi?id=114452
+
+        Reviewed by Rob Buis.
+
+        BlackBerry PR 325244
+        Internally reviewed by Jeff Rogers
+
+        No functional change, but platform font changes won't need a WebKit change
+        going forward.
+
+        * page/blackberry/SettingsBlackBerry.cpp:
+        (WebCore::Settings::initializeDefaultFontFamilies):
+
 2013-04-11  Dirk Schulze  <krit@webkit.org>
 
         [CSS Shaders] Parse parameters descriptor
