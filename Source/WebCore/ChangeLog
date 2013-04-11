@@ -1,5 +1,38 @@
 2013-04-11  Arvid Nilsson  <anilsson@rim.com>
 
+        [BlackBerry] Accelerated compositing debug rectangle incorrectly drawn for layers with surfaces
+        https://bugs.webkit.org/show_bug.cgi?id=114275
+
+        Reviewed by Carlos Garcia Campos.
+
+        The drawDebugBorder method was updated to mirror the logic in
+        compositeLayersRecursive, i.e. if we're compositing a surface to the
+        screen, use the transformed bounds stored in the surface. The bounds
+        stored in the layer should only be used when drawing the layer to the
+        surface.
+
+        Speaking of which, also update the code to skip border drawing when
+        drawing a layer to a surface. Drawing the borders inside the surface
+        would only result in messing up the surface contents, especially when
+        CSS filters like blur were the reason for having a surface in the first
+        place - the border would be blurred and hard to discern.
+
+        Only manually testable, the debug border is disabled during layout
+        tests.
+
+        PR 323746
+
+        * platform/graphics/blackberry/LayerRenderer.cpp:
+        (WebCore::LayerRenderer::drawDebugBorder):
+        * platform/graphics/blackberry/LayerRendererSurface.cpp:
+        (WebCore::LayerRendererSurface::drawRect):
+        (WebCore::LayerRendererSurface::transformedBounds): Added.
+        (WebCore):
+        * platform/graphics/blackberry/LayerRendererSurface.h:
+        (LayerRendererSurface):
+
+2013-04-11  Arvid Nilsson  <anilsson@rim.com>
+
         [BlackBerry] Compiler warning in LayerWebKitThread.cpp
         https://bugs.webkit.org/show_bug.cgi?id=114277
 
