@@ -1,3 +1,35 @@
+2013-04-11  Dirk Schulze  <krit@webkit.org>
+
+        [CSS Shaders] Parse mix descriptor
+        https://bugs.webkit.org/show_bug.cgi?id=114414
+
+        Reviewed by Antti Koivisto.
+
+        Add support for the 'mix' descriptor in the filter at-rule to support blend modes
+        and composite operators in CSS Shaders.
+        Each pixel in the fragment shader will be blended and composited with the
+        backdrop by taking these values into account.
+
+        https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html#custom-filter-mix
+
+        Tests: css3/filters/custom-with-at-rule-syntax/parsing-mix-property-invalid.html
+               css3/filters/custom-with-at-rule-syntax/parsing-mix-property-valid.html
+
+        * css/CSSComputedStyleDeclaration.cpp:
+        (WebCore::CSSComputedStyleDeclaration::getPropertyCSSValue):
+        * css/CSSParser.cpp: Added 'mix' property and fail parsing if not inside
+            of an @filter rule.
+        (WebCore::CSSParser::parseValue):
+        (WebCore::CSSParser::parseFilterRuleMix): New helper function to verify
+            values.
+        (WebCore):
+        * css/CSSParser.h:
+        * css/CSSProperty.cpp:
+        (WebCore::CSSProperty::isInheritedProperty):
+        * css/CSSPropertyNames.in: Added new property name 'mix'.
+        * css/StyleResolver.cpp:
+        (WebCore::StyleResolver::applyProperty):
+
 2013-04-11  Zalan Bujtas  <zalan@apple.com>
 
         Parent box with background-size auto and gradient image does not get properly repainted when child box is resized. 
