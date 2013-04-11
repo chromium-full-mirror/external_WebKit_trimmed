@@ -1,3 +1,21 @@
+2013-04-11  Arvid Nilsson  <anilsson@rim.com>
+
+        [BlackBerry] Compiler warning in LayerWebKitThread.cpp
+        https://bugs.webkit.org/show_bug.cgi?id=114277
+
+        Reviewed by Carlos Garcia Campos.
+
+        All the relevant WTF::Vector APIs use size_t, storing the position in
+        an int resulted in a compiler warning. Fixed by switching to size_t.
+
+        No change in behavior, no new tests.
+
+        PR 323753
+
+        * platform/graphics/blackberry/LayerWebKitThread.cpp:
+        (WebCore::LayerWebKitThread::remove):
+        (WebCore::LayerWebKitThread::replaceSublayer):
+
 2013-04-11  Mikhail Pozdnyakov  <mikhail.pozdnyakov@intel.com>
 
         [CoordinatedGraphics] Use ScrollingStateTree to handle fixed elements positioning while scrolling
