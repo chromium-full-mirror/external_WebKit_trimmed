@@ -1,3 +1,72 @@
+2013-04-10  No'am Rosenthal  <noam@webkit.org>
+
+        Allow direct compositing of background images
+        https://bugs.webkit.org/show_bug.cgi?id=108203
+
+        Reviewed by Simon Fraser.
+
+        Use setContentsToImage for background images, if the GraphicsLayer has only a background
+        bitmap image and nothing else. Compute the contentsRect/contentsTileRect from the box model.
+        Added new properties to GraphicsLayer, contentsTilePhase and contentsTileSize, which controls the "single tile rect",
+        which allows us to compute the pattern-space transform of a tile, thus allowing background-size
+        and other characteristics of background images.
+
+        This feature is explicitly disabled when there is any composition with a background color or if
+        there are several background images, as in that case having a single backing store has some
+        advantages over directly compositing in hardware.
+
+        Currently, this feature is disabled for all ports, allowing ports to implement their backend
+        and decide when to enable it.
+
+        Note that RenderBoxModelObject::getGeometryForBackgroundImage crops the contents rect to the 
+        area that contains the tiles, which allows us to assume full tiling in GraphicsLayer.
+        In this way contentsTileSize/Phase is equivalent to GraphicsContext::drawTiledImage.
+
+        Tests: compositing/patterns/direct-pattern-compositing-add-text.html
+               compositing/patterns/direct-pattern-compositing-change.html
+               compositing/patterns/direct-pattern-compositing-contain.html
+               compositing/patterns/direct-pattern-compositing-cover.html
+               compositing/patterns/direct-pattern-compositing-load.html
+               compositing/patterns/direct-pattern-compositing-padding.html
+               compositing/patterns/direct-pattern-compositing-position.html
+               compositing/patterns/direct-pattern-compositing-rotation.html
+               compositing/patterns/direct-pattern-compositing-size.html
+               compositing/patterns/direct-pattern-compositing.html
+
+        * platform/graphics/GraphicsLayer.h:
+        (GraphicsLayer):
+        (WebCore::GraphicsLayer::setContentsTileSize):
+        (WebCore::GraphicsLayer::setContentsTilePhase):
+        (WebCore::GraphicsLayer::contentsTileSize):
+        (WebCore::GraphicsLayer::contentsTilePhase):
+        (WebCore::GraphicsLayer::supportsContentsTiling):
+                Add a contentsTileRect property that enables tile-repeat of background images.
+
+        * rendering/RenderBox.cpp:
+        (WebCore::RenderBox::imageChanged):
+                Pass background image changes to the layer backing.
+
+        * rendering/RenderBoxModelObject.cpp:
+        * rendering/RenderBoxModelObject.h:
+        (WebCore::RenderBoxModelObject::getGeometryForBackgroundImage):
+                Expose a function that performs the geometry calculations needed to determine 
+                the tileRect for a background image. This function is also responsible
+                for cropping the contentsRect to fit the area that is drawn into.
+
+        * rendering/RenderLayerBacking.h:
+        * rendering/RenderLayerBacking.cpp:
+        (WebCore::RenderLayerBacking::contentChanged):
+        (WebCore::RenderLayerBacking::updateGraphicsLayerConfiguration):
+        (WebCore::RenderLayerBacking::updateGraphicsLayerGeometry):
+        (WebCore::RenderLayerBacking::updateDirectlyCompositedContents):
+        (WebCore::RenderLayerBacking::resetContentsRect):
+        (WebCore::hasBoxDecorationsOrBackgroundImage):
+        (WebCore::RenderLayerBacking::updateDirectlyCompositedBackgroundColor):
+        (WebCore::canCreateTiledImage):
+        (WebCore::RenderLayerBacking::updateDirectlyCompositedBackgroundImage):
+        (WebCore::backgroundRectForBox):
+                Allow background images to be directly composited if conditions allow (see bug description).
+
 2013-04-10  Patrick Gansterer  <paroga@webkit.org>
 
         Replace ENABLE_LEGACY_WEB_AUDIO preprocessor statements in IDL files with Conditional attribute
