@@ -1,3 +1,16 @@
+2013-04-11  Adenilson Cavalcanti  <cavalcantii@gmail.com>
+
+        Build fix: use of uninitialized variable in ScrollingStateTree
+        https://bugs.webkit.org/show_bug.cgi?id=114443
+
+        Reviewed by Anders Carlsson.
+
+        Initialize pointer to zero before use, fixes build.
+        No new tests, no changes on behavior.
+
+        * page/scrolling/ScrollingStateTree.cpp:
+        (WebCore::ScrollingStateTree::attachNode):
+
 2013-04-11  Dirk Schulze  <krit@webkit.org>
 
         [CSS Shaders] Parse mix descriptor
