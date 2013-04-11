@@ -1,3 +1,33 @@
+2013-04-11  Dirk Schulze  <krit@webkit.org>
+
+        [CSS Shaders] Parse parameters descriptor
+        https://bugs.webkit.org/show_bug.cgi?id=114455
+
+        Reviewed by Dean Jackson.
+
+        Add support for the 'parameters' descriptor in the filter at-rule to support
+        parameterization of CSS Shaders.
+
+        https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html#custom-filter-parameters
+
+        Tests: css3/filters/custom-with-at-rule-syntax/parsing-parameters-property-invalid.html
+               css3/filters/custom-with-at-rule-syntax/parsing-parameters-property-valid.html
+
+        * css/CSSComputedStyleDeclaration.cpp:
+        (WebCore::CSSComputedStyleDeclaration::getPropertyCSSValue):
+        * css/CSSParser.cpp: Added 'parameters' property and fail parsing if not inside
+            of an @filter rule.
+        (WebCore::CSSParser::parseValue):
+        (WebCore::CSSParser::parseFilterRuleParameters): New helper function to verify
+            values.
+        (WebCore):
+        * css/CSSParser.h:
+        * css/CSSProperty.cpp:
+        (WebCore::CSSProperty::isInheritedProperty):
+        * css/CSSPropertyNames.in: Added new property name 'parameters'.
+        * css/StyleResolver.cpp:
+        (WebCore::StyleResolver::applyProperty):
+
 2013-04-11  Arunprasad Rajkumar  <arunprasadr@nds.com>
 
         Default Implementation of toString for NPObject shouldn't return NPClass & NPObject address as String
