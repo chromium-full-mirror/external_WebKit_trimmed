@@ -1,3 +1,17 @@
+2013-04-11  Sukolsak Sakshuwong  <sukolsak@gmail.com>
+
+        MutationRecord is not exposed
+        https://bugs.webkit.org/show_bug.cgi?id=114288
+
+        Reviewed by Darin Adler.
+
+        Expose MutationRecord on DOMWindow. This patch is copied from a patch
+        by Adam Klein. https://codereview.chromium.org/13861028
+
+        Test: fast/dom/MutationObserver/mutation-record-constructor.html
+
+        * page/DOMWindow.idl:
+
 2013-04-11  Beth Dakin  <bdakin@apple.com>
 
         Cannot scroll to footer on a page with overflow:hidden on the body

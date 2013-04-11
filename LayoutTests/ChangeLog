@@ -1,3 +1,18 @@
+2013-04-11  Sukolsak Sakshuwong  <sukolsak@gmail.com>
+
+        MutationRecord is not exposed
+        https://bugs.webkit.org/show_bug.cgi?id=114288
+
+        Reviewed by Darin Adler.
+
+        This test is copied from a patch by Adam Klein.
+        https://codereview.chromium.org/13861028
+        The test expectation of "typeof MutationRecord" is changed from
+        "function" to "object". (See bug 114457)
+
+        * fast/dom/MutationObserver/mutation-record-constructor-expected.txt: Added.
+        * fast/dom/MutationObserver/mutation-record-constructor.html: Added.
+
 2013-04-11  Dirk Schulze  <krit@webkit.org>
 
         [CSS Shaders] Parse parameters descriptor
