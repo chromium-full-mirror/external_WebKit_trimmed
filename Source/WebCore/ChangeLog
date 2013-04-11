@@ -1,3 +1,32 @@
+2013-04-10  Benjamin Poulain  <bpoulain@apple.com>
+
+        Mass remove all the empty directories
+
+        Rubberstamped by Ryosuke Niwa.
+
+        * Modules/intents: Removed.
+        * Modules/protocolhandler: Removed.
+        * Modules/speech/mac: Removed.
+        * accessibility/efl: Removed.
+        * accessibility/gtk: Removed.
+        * bridge/jni/jsc: Removed.
+        * editing/android: Removed.
+        * editing/gtk: Removed.
+        * history/android: Removed.
+        * page/android: Removed.
+        * platform/android: Removed.
+        * platform/clutter: Removed.
+        * platform/graphics/blackberry/skia: Removed.
+        * platform/graphics/harfbuzz/ng: Removed.
+        * platform/graphics/pango: Removed.
+        * platform/image-decoders/cg: Removed.
+        * platform/image-decoders/qt: Removed.
+        * platform/network/android: Removed.
+        * platform/network/soup/cache/webkit: Removed.
+        * platform/text/android: Removed.
+        * platform/text/wince: Removed.
+        * platform/track: Removed.
+
 2013-04-10  Simon Fraser  <simon.fraser@apple.com>
 
         Log when the animation timer fires
