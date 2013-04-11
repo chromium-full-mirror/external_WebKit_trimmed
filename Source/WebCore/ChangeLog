@@ -1,3 +1,35 @@
+2013-04-04  Allan Sandfeld Jensen  <allan.jensen@digia.com>
+
+        Use CSS4 image-rendering to determing image scaling quality
+        https://bugs.webkit.org/show_bug.cgi?id=113405
+
+        Reviewed by Simon Fraser.
+
+        Implement the new CSS4 image-rendering property values.
+
+        Image scaling now uses low-quality (pixelated) scaling for
+        crisp-edges, pixelated and optimizeSpeed values, and always
+        use high quality (smooth) scaling for -webkit-smooth and
+        optimizeQuality. The latter can be used to disable low quality
+        scaling during CSS animations or live resizing.
+
+        The new values are protected with a new CSS4_IMAGES feature, but
+        the crisp-edge value has been introduced before to displace the
+        deprecated -webkit-optimize-contrast value, and optimizeSpeed
+        and optimizeQuality values are supported for SVG compatibility.
+
+        * css/CSSParser.cpp:
+        (WebCore::isValidKeywordPropertyAndValue):
+        * css/CSSPrimitiveValueMappings.h:
+        (WebCore::CSSPrimitiveValue::CSSPrimitiveValue):
+        (WebCore::CSSPrimitiveValue::operator EImageRendering):
+        * css/CSSValueKeywords.in:
+        * rendering/RenderBoxModelObject.cpp:
+        (WebCore::ImageQualityController::shouldPaintAtLowQuality):
+        * rendering/RenderHTMLCanvas.cpp:
+        (WebCore::RenderHTMLCanvas::paintReplaced):
+        * rendering/style/RenderStyleConstants.h:
+
 2013-04-11  Adenilson Cavalcanti  <cavalcantii@gmail.com>
 
         Build fix: use of uninitialized variable in ScrollingStateTree
