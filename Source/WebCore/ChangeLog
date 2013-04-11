@@ -1,3 +1,16 @@
+2013-04-11  Allan Sandfeld Jensen  <allan.jensen@digia.com>
+
+        handleMouseMoveEvent should let hit-testing hit-test scrollbars
+        https://bugs.webkit.org/show_bug.cgi?id=114430
+
+        Reviewed by Antonio Gomes.
+
+        Allow hit-testing to hit-test frame scrollbars so handleMouseMoveEvent
+        does not have to do it itself.
+
+        * page/EventHandler.cpp:
+        (WebCore::EventHandler::handleMouseMoveEvent):
+
 2013-04-11  Brian Holt  <brian.holt@samsung.com>
 
         [Gtk] Combo boxes should be arrow-out-of-able similar to list boxes when caret-browsing is enabled.
