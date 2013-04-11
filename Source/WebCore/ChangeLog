@@ -1,3 +1,43 @@
+2013-04-11  Martin Robinson  <mrobinson@igalia.com>
+
+        [GTK] Add accelerated 2D canvas support using cairo-gl
+        https://bugs.webkit.org/show_bug.cgi?id=104672
+
+        Reviewed by Alejandro G. Castro.
+
+        No new tests. We do not yet have the ability to run tests against
+        accelerated content.
+
+        * platform/graphics/GraphicsContext.cpp:
+        (WebCore): We don't use the stub implementation of isAcceleratedContext any longer.
+        * platform/graphics/ImageBuffer.cpp:
+        (WebCore): Ditto for ImageBuffer::platformLayer.
+        * platform/graphics/cairo/GLContext.h:
+        (GLContext): Added method to get a cairo_device_t from the context.
+        * platform/graphics/cairo/GraphicsContextCairo.cpp:
+        (WebCore::GraphicsContext::isAcceleratedContext): Return true when we are a CairoGL surface.
+        * platform/graphics/cairo/ImageBufferCairo.cpp:
+        (WebCore::ImageBufferData::ImageBufferData): Initialize the size and the texture to 0.
+        (WebCore::createCairoGLSurface): Added this helper.
+        (WebCore::ImageBuffer::ImageBuffer): When we are in accelerated rendering mode, create
+        a CairoGL surface.
+        (WebCore::ImageBuffer::platformTransformColorSpace): Do not implement this for accelerated
+        contexts yet.
+        (WebCore::mapSurfaceToImage): Added this helper, since we don't require Cairo 1.12 yet,
+        which provides an builtin implementation.
+        (WebCore::unmapSurfaceFromImage): Ditto.
+        (WebCore::getImageData): Map the surface to an image surface first.
+        (WebCore::ImageBuffer::putByteArray): Ditto.
+        (WebCore::ImageBufferData::paintToTextureMapper): Connect the accelerated canvas into the
+        TextureMapper infrastructure.
+        (WebCore::ImageBuffer::platformLayer): This lets the TextureMapper at the ImageBufferData.
+        * platform/graphics/cairo/ImageBufferDataCairo.h:
+        (ImageBufferData): Subclass TexturMapperPlatformLayer where appropriate.
+        * platform/graphics/egl/GLContextEGL.cpp: Added implementation of cairoDevice.
+        * platform/graphics/egl/GLContextEGL.h: Ditto.
+        * platform/graphics/glx/GLContextGLX.cpp: Ditto
+        * platform/graphics/glx/GLContextGLX.h: Ditto.
+
 2013-04-11  Anders Carlsson  <andersca@apple.com>
 
         Implement removing storage area items
