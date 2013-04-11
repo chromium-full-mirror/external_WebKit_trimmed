@@ -1,5 +1,19 @@
 2013-04-10  Patrick Gansterer  <paroga@webkit.org>
 
+        Replace ENABLE_LEGACY_WEB_AUDIO preprocessor statements in IDL files with Conditional attribute
+        https://bugs.webkit.org/show_bug.cgi?id=114351
+
+        Reviewed by Ryosuke Niwa.
+
+        The Conditional attribute does not need a preprocessor, which is source of much pain on native windows.
+
+        * Modules/webaudio/AudioBufferSourceNode.idl:
+        * Modules/webaudio/AudioContext.idl:
+        * Modules/webaudio/AudioParam.idl:
+        * Modules/webaudio/OscillatorNode.idl:
+
+2013-04-10  Patrick Gansterer  <paroga@webkit.org>
+
         Replace ENABLE_DIRECTORY_UPLOAD preprocessor statements in IDL files with Conditional attribute
         https://bugs.webkit.org/show_bug.cgi?id=114350
 
