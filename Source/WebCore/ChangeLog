@@ -1,3 +1,21 @@
+2013-04-11  Zalan Bujtas  <zalan@apple.com>
+
+        Parent box with background-size auto and gradient image does not get properly repainted when child box is resized. 
+        https://bugs.webkit.org/show_bug.cgi?id=114424
+
+        Reviewed by Antti Koivisto.
+        
+        Initiate full repaint on fill layer, when the image is generated and the background
+        property defines auto size.
+        http://www.w3.org/TR/css3-background/#background-size
+        'If the image has neither an intrinsic width nor an intrinsic height, its size is determined as for 'contain'.'
+
+        Extended fast/repaint/background-shorthand-with-gradient-and-height-changes.html
+        to cover this case too.
+
+        * rendering/RenderObject.cpp:
+        (WebCore::mustRepaintFillLayers):
+
 2013-04-11  ChangSeok Oh  <changseok.oh@collabora.com>
 
         [GTK][AC] use a smart pointer for GList and ClutterCanvas

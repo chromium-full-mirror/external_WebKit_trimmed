@@ -1,3 +1,13 @@
+2013-04-11  Zalan Bujtas  <zalan@apple.com>
+
+        Parent box with background-size auto and gradient image does not get properly repainted when child box is resized. 
+        https://bugs.webkit.org/show_bug.cgi?id=114424
+
+        Reviewed by Antti Koivisto.
+
+        * fast/repaint/background-shorthand-with-gradient-and-height-changes-expected.txt:
+        * fast/repaint/background-shorthand-with-gradient-and-height-changes.html:
+
 2013-04-11  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening. Remove platform specific expected after r148195.
