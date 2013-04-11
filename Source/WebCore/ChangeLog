@@ -1,3 +1,18 @@
+2013-04-11  Beth Dakin  <bdakin@apple.com>
+
+        Cannot scroll to footer on a page with overflow:hidden on the body
+        https://bugs.webkit.org/show_bug.cgi?id=114462
+        -and corresponding-
+        <rdar://problem/13530042>
+
+        Reviewed by Simon Fraser.
+
+        Add a new scenario in which we want to overrideHidden -- whenever we are the 
+        mainFrame and there is a header or footer.
+
+        * page/FrameView.cpp:
+        (WebCore::FrameView::applyOverflowToViewport):
+
 2013-04-11  Commit Queue  <rniwa@webkit.org>
 
         Unreviewed, rolling out r148034, r148052, r148097, and
