@@ -1,3 +1,38 @@
+2013-04-11  Rune Lillesveen  <rune@opera.com>
+
+        Incorrect evaluation of resolution media queries
+        https://bugs.webkit.org/show_bug.cgi?id=114029
+
+        Reviewed by Kenneth Rohde Christiansen.
+
+        The implementation used the physical resolution to evaluate the
+        resolution media features. Changed to use the actual CSS resolution,
+        also known as the device-pixel-ratio, instead. Unified the code for
+        evaluating the resolution and device-pixel-ratio media features.
+
+        No new tests, covered by existing tests.
+
+        * WebCore.exp.in:
+        * css/CSSPrimitiveValue.h:
+        (WebCore::CSSPrimitiveValue::isResolution):
+        * css/MediaQueryEvaluator.cpp:
+        (WebCore::evalResolution):
+        (WebCore::device_pixel_ratioMediaFeatureEval):
+        (WebCore::resolutionMediaFeatureEval):
+        * page/Screen.cpp:
+        * page/Screen.h:
+        * page/Settings.cpp:
+        (WebCore):
+        * page/Settings.h:
+        (Settings):
+        * testing/InternalSettings.cpp:
+        (WebCore::InternalSettings::Backup::Backup):
+        (WebCore::InternalSettings::Backup::restoreTo):
+        * testing/InternalSettings.h:
+        (Backup):
+        (InternalSettings):
+        * testing/InternalSettings.idl:
+
 2013-04-11  Carlos Garcia Campos  <cgarcia@igalia.com>
 
         FrameLoaderClient::assignIdentifierToInitialRequest() not called for the main resource when loaded from the memory cache
