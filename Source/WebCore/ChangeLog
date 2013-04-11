@@ -1,3 +1,19 @@
+2013-04-11  Brendan Long  <b.long@cablelabs.com>
+
+        TextTrackList's .onremovetrack is missing from IDL
+        https://bugs.webkit.org/show_bug.cgi?id=103421
+
+        Reviewed by Eric Carlson.
+
+        Fixed test media/track/opera/interfaces/TextTrackList/onremovetrack.html
+
+        * html/track/TextTrackList.cpp:
+        (TextTrackList::remove):
+        (TextTrackList::scheduleRemoveTrackEvent):
+        * html/track/TextTrackList.h:
+        (TextTrackList):
+        * html/track/TextTrackList.idl:
+
 2013-04-11  Alberto Garcia  <agarcia@igalia.com>
 
         [BlackBerry] Upstream the filesystem code
