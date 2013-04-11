@@ -1,5 +1,44 @@
 2013-04-11  Arvid Nilsson  <anilsson@rim.com>
 
+        [BlackBerry][CSS Filters] Blur filter fails to recompute blur size when layer size changes
+        https://bugs.webkit.org/show_bug.cgi?id=114272
+
+        Reviewed by Rob Buis.
+
+        Blur appeared blocky or pixelated when surface changed size after
+        creating the filter actions. The initial image size was used to
+        determine the blur size (expressed in texture coordinate system).
+        Fixed by recomputing the blur size when the surface size changes, using
+        a new Uniform1f subclass that can use a functor to compute the uniform
+        value per-frame.
+
+        This fixes css3/filters/effect-blur-hw.html. This can only be verified
+        by manual inspection because the BlackBerry port is not currently using
+        pixel tests.
+
+        PR 323730
+
+        * platform/graphics/blackberry/LayerFilterRenderer.cpp:
+        (WebCore):
+        (SurfaceFunctor):
+        (WebCore::SurfaceFunctor::SurfaceFunctor):
+        (InverseSurfaceWidth):
+        (WebCore::InverseSurfaceWidth::InverseSurfaceWidth):
+        (WebCore::InverseSurfaceWidth::operator()):
+        (InverseSurfaceHeight):
+        (WebCore::InverseSurfaceHeight::InverseSurfaceHeight):
+        (WebCore::LayerFilterRenderer::actionsForOperations):
+        * platform/graphics/blackberry/LayerFilterRenderer.h:
+        (Uniform1f):
+        (WebCore):
+        (Uniform1fWithFunctor):
+        (WebCore::Uniform1fWithFunctor::create):
+        (WebCore::Uniform1fWithFunctor::Uniform1fWithFunctor):
+        (WebCore::Uniform1fWithFunctor::apply):
+        (WebCore::Uniform1f::createWithFunctor):
+
+2013-04-11  Arvid Nilsson  <anilsson@rim.com>
+
         [BlackBerry] Accelerated compositing debug rectangle incorrectly drawn for layers with surfaces
         https://bugs.webkit.org/show_bug.cgi?id=114275
 
