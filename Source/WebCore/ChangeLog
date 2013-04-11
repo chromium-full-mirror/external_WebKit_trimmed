@@ -1,3 +1,16 @@
+2013-04-11  Raphael Kubo da Costa  <raphael.kubo.da.costa@intel.com>
+
+        IconDatabase: Simplify boolean logic in assertion.
+        https://bugs.webkit.org/show_bug.cgi?id=114425
+
+        Reviewed by Andreas Kling.
+
+        Follow-up to r148097; drop the overzealous use of !! to turn a
+        PassRefPtr into a boolean.
+
+        * loader/icon/IconDatabase.cpp:
+        (WebCore::IconDatabase::updateIconRecord):
+
 2013-04-11  Arvid Nilsson  <anilsson@rim.com>
 
         [BlackBerry] LayerTexture refactoring
