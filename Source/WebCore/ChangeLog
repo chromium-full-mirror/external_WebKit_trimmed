@@ -1,3 +1,31 @@
+2013-04-11  Michelangelo De Simone  <michelangelo@webkit.org>
+
+        [CSS Shaders] Parse the geometry descriptor
+        https://bugs.webkit.org/show_bug.cgi?id=110815
+
+        Added initial parsing for the "geometry" descriptor, as per specification:
+        https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html#geometry
+        This descriptor allows to specify the mesh geometry for custom filters.
+
+        Reviewed by Dirk Schulze.
+
+        Tests: css3/filters/custom-with-at-rule-syntax/parsing-geometry-property-invalid.html
+               css3/filters/custom-with-at-rule-syntax/parsing-geometry-property-valid.html
+
+        * css/CSSComputedStyleDeclaration.cpp:
+        (WebCore::CSSComputedStyleDeclaration::getPropertyCSSValue):
+        * css/CSSParser.cpp:
+        (WebCore::CSSParser::parseValue):
+        (WebCore::CSSParser::parseGeometry): New method that parses the geometry
+        descriptor (grid()).
+        (WebCore):
+        * css/CSSParser.h:
+        * css/CSSProperty.cpp:
+        (WebCore::CSSProperty::isInheritedProperty):
+        * css/CSSPropertyNames.in: Added conditional "geometry" property.
+        * css/CSSValueKeywords.in: Added conditional "attached" value keyword; detached
+        was already there.
+
 2013-04-11  Anders Carlsson  <andersca@apple.com>
 
         Make StorageAreaMap dispatch session storage events
