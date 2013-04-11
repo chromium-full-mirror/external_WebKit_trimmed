@@ -1,3 +1,92 @@
+2013-04-11  Arvid Nilsson  <anilsson@rim.com>
+
+        [BlackBerry] LayerTexture refactoring
+        https://bugs.webkit.org/show_bug.cgi?id=114276
+
+        Reviewed by Carlos Garcia Campos.
+
+        Remove the GpuHandle and HostType typedefs from LayerTexture, they
+        don't make any sense now that we removed the Skia code paths. With Skia
+        they used to be an OpenGL texture ID and an SkBitmap respectively, but
+        now it's just BlackBerry::Platform::Graphics::Buffer all around.
+
+        This allows us to rename textureId() into buffer() which is more to the
+        point. The texture ID concept is now up for grabs and can be used to
+        consolidate all the various code for extracting an OpenGL texture from
+        a BlackBerry::Platform::Graphics::Buffer. This opportunity is seized in
+        LayerTexture::platformTexture(), a name which makes more sense than
+        textureId() for anyone familiar with the GraphicsContext3D code. We can
+        also leverage the Platform3DObject typedef to avoid including gl2.h.
+
+        The vertex attribute state was getting trampled when interacting with
+        BlackBerry::Platform::Graphics in the LayerFilterRenderer. Some
+        additional GL state save/restore incantations when accessing the OpenGL
+        texture for a LayerTexture in the new LayerTexture::platformTexture()
+        method fixes various CSS Filters test cases.
+
+        Since we removed the Skia integration from LayerTiler, nobody cares
+        about the dirty rect, tile rect or opaqueness of the tile contents. So
+        remove those parameters from the updateContents code path.
+
+        No change in behavior except for fixing CSS Filters tests like
+        css3/filters/effect-blur-hw.html. This can only be verified by manually
+        looking at the tests, we don't have pixel test support to catch this
+        kind of regression.
+
+        PR 322882
+
+        * platform/graphics/blackberry/LayerCompositingThread.cpp:
+        (WebCore::LayerCompositingThread::drawSurface):
+        * platform/graphics/blackberry/LayerFilterRenderer.cpp:
+        (WebCore::LayerFilterRenderer::ping):
+        (WebCore::LayerFilterRenderer::pong):
+        (WebCore::LayerFilterRenderer::pushSnapshot):
+        (WebCore::LayerFilterRenderer::popSnapshot):
+        (WebCore::LayerFilterRenderer::applyActions):
+        * platform/graphics/blackberry/LayerRenderer.cpp:
+        (WebCore::LayerRenderer::useSurface):
+        * platform/graphics/blackberry/LayerTexture.cpp:
+        (WebCore::LayerTexture::LayerTexture):
+        (WebCore::LayerTexture::updateContents):
+        (WebCore::LayerTexture::setContentsToColor):
+        (WebCore::LayerTexture::protect):
+        (WebCore::LayerTexture::platformTexture):
+        (WebCore):
+        * platform/graphics/blackberry/LayerTexture.h:
+        (WebCore::LayerTexture::isDirty):
+        (WebCore::LayerTexture::buffer):
+        (LayerTexture):
+        (WebCore::LayerTexture::setBuffer):
+        * platform/graphics/blackberry/LayerTile.cpp:
+        (WebCore::LayerTile::setContents):
+        (WebCore::LayerTile::updateContents):
+        * platform/graphics/blackberry/LayerTile.h:
+        (WebCore::LayerTile::hasTexture):
+        (LayerTile):
+        * platform/graphics/blackberry/LayerTiler.cpp:
+        (WebCore::LayerTiler::updateTextureContentsIfNeeded):
+        (WebCore::LayerTiler::uploadTexturesIfNeeded):
+        (WebCore::LayerTiler::performTileJob):
+        (WebCore::LayerTiler::drawTile):
+        * platform/graphics/blackberry/LayerTiler.h:
+        (WebCore::LayerTiler::TextureJob::TextureJob):
+        (WebCore::LayerTiler::TextureJob::setContents):
+        (WebCore::LayerTiler::TextureJob::updateContents):
+        (TextureJob):
+        (LayerTiler):
+        * platform/graphics/blackberry/TextureCacheCompositingThread.cpp:
+        (WebCore::TextureCacheCompositingThread::createBuffer):
+        (WebCore::TextureCacheCompositingThread::collectGarbage):
+        (WebCore::TextureCacheCompositingThread::install):
+        (WebCore::TextureCacheCompositingThread::resizeTexture):
+        (WebCore::TextureCacheCompositingThread::evict):
+        (WebCore::TextureCacheCompositingThread::textureForContents):
+        (WebCore::TextureCacheCompositingThread::updateContents):
+        * platform/graphics/blackberry/TextureCacheCompositingThread.h:
+        (TextureCacheCompositingThread):
+        (WebCore::TextureCacheCompositingThread::ZombieTexture::ZombieTexture):
+        (ZombieTexture):
+
 2013-04-11  Alberto Garcia  <agarcia@igalia.com>
 
         [BlackBerry] RenderThemeBlackBerry: upstream missing code
