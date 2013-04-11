@@ -1,3 +1,19 @@
+2013-04-11  Brian Holt  <brian.holt@samsung.com>
+
+        [Gtk] Combo boxes should be arrow-out-of-able similar to list boxes when caret-browsing is enabled.
+        https://bugs.webkit.org/show_bug.cgi?id=76796
+
+        Reviewed by Chris Fleizach.
+
+        Adding a new test to verify that it is possible to arrow out of
+        combo boxes when caret browsing is enabled. Updated failing tests
+        to reflect changed accessibility events in the DRT.
+
+        * platform/gtk/accessibility/aria-slider-required-attributes-expected.txt: Updated.
+        * platform/gtk/accessibility/caret-browsing-select-focus-expected.txt: Added.
+        * platform/gtk/accessibility/caret-browsing-select-focus.html: Added.
+        * platform/gtk/accessibility/combo-box-collapsed-selection-changed-expected.txt: Updated.
+
 2013-04-11  Dirk Schulze  <krit@webkit.org>
 
         [CSS Shaders] Parse mix descriptor

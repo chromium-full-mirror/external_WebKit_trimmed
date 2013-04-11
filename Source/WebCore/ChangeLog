@@ -1,3 +1,17 @@
+2013-04-11  Brian Holt  <brian.holt@samsung.com>
+
+        [Gtk] Combo boxes should be arrow-out-of-able similar to list boxes when caret-browsing is enabled.
+        https://bugs.webkit.org/show_bug.cgi?id=76796
+
+        Reviewed by Chris Fleizach.
+
+        When using caret-browsing with the right and left arrows, the
+        behaviour of menuLists should be the same as listBoxes. This means
+        not default-handling the event and passing it up the stack instead.
+
+        * html/HTMLSelectElement.cpp:
+        (WebCore::HTMLSelectElement::menuListDefaultEventHandler):
+
 2013-04-11  Alexey Proskuryakov  <ap@apple.com>
 
         Remove some ResourceHandle.h includes
