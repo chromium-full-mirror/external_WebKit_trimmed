@@ -1,3 +1,148 @@
+2013-04-11  Alberto Garcia  <agarcia@igalia.com>
+
+        [BlackBerry] Upstream the filesystem code
+        https://bugs.webkit.org/show_bug.cgi?id=114437
+
+        Reviewed by Rob Buis.
+
+        This patch contains contributions from many members of the
+        BlackBerry WebKit team.
+
+        * platform/blackberry/AsyncFileWriterBlackBerry.cpp: Added.
+        (WebCore):
+        (WebCore::AsyncFileWriterBlackBerry::write):
+        * platform/blackberry/AsyncFileWriterBlackBerry.h: Added.
+        (WTF):
+        (WTF::BlackBerry::Platform::WebFileWriter):
+        (WebCore):
+        * platform/blackberry/DOMFileSystemBlackBerry.cpp: Added.
+        (WebCore):
+        (WebCore::DOMFileSystemBase::createFileSystemURL):
+        (WebCore::DOMFileSystemBase::crackFileSystemURL):
+        (WebCore::DOMFileSystemBase::supportsToURL):
+        (WebCore::DOMFileSystemBase::isValidType):
+        * platform/blackberry/LocalFileSystemBlackBerry.cpp: Added.
+        (WebCore):
+        (WebCore::fileSystemTypeString):
+        (WebCore::openFileSystem):
+        (WebCore::LocalFileSystem::deleteFileSystem):
+        (WebCore::LocalFileSystem::readFileSystem):
+        (WebCore::LocalFileSystem::requestFileSystem):
+        * platform/blackberry/PlatformAsyncFileSystemCallbacks.cpp: Added.
+        (WebCore):
+        (WebCore::PlatformAsyncFileSystemCallbacks::notifyOpenFileSystem):
+        (WebCore::PlatformAsyncFileSystemCallbacks::notifySucceed):
+        (WebCore::PlatformAsyncFileSystemCallbacks::notifyFail):
+        (WebCore::getFileMetadata):
+        (WebCore::PlatformAsyncFileSystemCallbacks::notifyReadMetadata):
+        (WebCore::PlatformAsyncFileSystemCallbacks::notifyCreateSnapshotFileAndReadMetadata):
+        (WebCore::PlatformAsyncFileSystemCallbacks::notifyReadDirectory):
+        (WebCore::PlatformAsyncFileSystemCallbacks::notifyCreateFileWriter):
+        (WebCore::PlatformAsyncFileSystemCallbacks::createAsyncFileSystem):
+        (WebCore::PlatformAsyncFileSystemCallbacks::createAsyncFileWriter):
+        (WebCore::PlatformAsyncFileSystemCallbacks::deleteMe):
+        * platform/blackberry/PlatformAsyncFileSystemCallbacks.h: Added.
+        (WebCore):
+        * platform/blackberry/PlatformBlob.cpp: Added.
+        (WebCore):
+        (WebCore::PlatformBlob::nextDataItem):
+        * platform/blackberry/PlatformBlob.h: Added.
+        (WebCore):
+        * platform/blackberry/PlatformFileWriterClient.cpp: Added.
+        (WebCore):
+        (WebCore::PlatformFileWriterClient::notifyWrite):
+        (WebCore::PlatformFileWriterClient::notifyTruncate):
+        (WebCore::PlatformFileWriterClient::notifyFail):
+        * platform/blackberry/PlatformFileWriterClient.h: Added.
+        (WebCore):
+        (WTF):
+        (WTF::WebCore::PlatformFileWriterClient):
+        * platform/blackberry/WorkerAsyncFileSystemBlackBerry.cpp: Added.
+        (WebCore):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::WorkerAsyncFileSystemBlackBerry):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::~WorkerAsyncFileSystemBlackBerry):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::waitForOperationToComplete):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::openFileSystemOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::deleteFileSystemOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::moveOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::copyOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::removeOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::removeRecursivelyOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::readMetadataOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::createFileOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::createDirectoryOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::fileExistsOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::directoryExistsOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::readDirectoryOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::createWriterOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::createSnapshotFileAndReadMetadataOnMainThread):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::openFileSystem):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::deleteFileSystem):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::move):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::copy):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::remove):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::removeRecursively):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::readMetadata):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::createFile):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::createDirectory):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::fileExists):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::directoryExists):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::readDirectory):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::createWriter):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::createSnapshotFileAndReadMetadata):
+        * platform/blackberry/WorkerAsyncFileSystemBlackBerry.h: Added.
+        (WebCore):
+        (WorkerAsyncFileSystemBlackBerry):
+        (WebCore::WorkerAsyncFileSystemBlackBerry::create):
+        * platform/blackberry/WorkerAsyncFileWriterBlackBerry.cpp: Added.
+        (WebCore):
+        (WebCore::WorkerAsyncFileWriterBlackBerry::writeOnMainThread):
+        (WebCore::WorkerAsyncFileWriterBlackBerry::truncateOnMainThread):
+        (WebCore::WorkerAsyncFileWriterBlackBerry::abortOnMainThread):
+        (WebCore::WorkerAsyncFileWriterBlackBerry::write):
+        (WebCore::WorkerAsyncFileWriterBlackBerry::truncate):
+        (WebCore::WorkerAsyncFileWriterBlackBerry::abort):
+        (WebCore::WorkerAsyncFileWriterBlackBerry::waitForOperationToComplete):
+        (WebCore::WorkerAsyncFileWriterBlackBerry::platformWriterClient):
+        * platform/blackberry/WorkerAsyncFileWriterBlackBerry.h: Added.
+        (WebCore):
+        * platform/blackberry/WorkerPlatformAsyncFileSystemCallbacks.cpp: Added.
+        (WebCore):
+        (WebCore::performTaskOnMainThread):
+        (WebCore::postTaskToMainThread):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifyStop):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifyOpenFileSystem):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifySucceed):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifyFail):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifyReadMetadata):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifyReadDirectory):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifyCreateFileWriter):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::createAsyncFileSystem):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::createAsyncFileWriter):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::deleteMe):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::postTaskToWorkerThread):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifyOpenFileSystemOnWorkerThread):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifySucceedOnWorkerThread):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifyFailOnWorkerThread):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifyReadMetadataOnWorkerThread):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifyReadDirectoryEntryOnWorkerThread):
+        (WebCore::WorkerPlatformAsyncFileSystemCallbacks::notifyCreateFileWriterOnWorkerThread):
+        * platform/blackberry/WorkerPlatformAsyncFileSystemCallbacks.h: Added.
+        (WebCore):
+        * platform/blackberry/WorkerPlatformFileWriterClient.cpp: Added.
+        (WebCore):
+        (WebCore::WorkerPlatformFileWriterClient::notifyWriteOnWorkerThread):
+        (WebCore::WorkerPlatformFileWriterClient::notifyFailOnWorkerThread):
+        (WebCore::WorkerPlatformFileWriterClient::notifyTruncateOnWorkerThread):
+        (WebCore::WorkerPlatformFileWriterClient::notifyWrite):
+        (WebCore::WorkerPlatformFileWriterClient::notifyTruncate):
+        (WebCore::WorkerPlatformFileWriterClient::notifyFail):
+        (WebCore::WorkerPlatformFileWriterClient::postTaskToWorkerThreadIfNeeded):
+        * platform/blackberry/WorkerPlatformFileWriterClient.h: Added.
+        (WebCore):
+        (WTF):
+        (WTF::WebCore::WorkerPlatformFileWriterClient):
+
 2013-04-11  Ryosuke Niwa  <rniwa@webkit.org>
 
         Mac Lion build fix attempt after r148197.
