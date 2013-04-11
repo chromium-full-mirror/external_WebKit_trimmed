@@ -1,3 +1,28 @@
+2013-04-11  Alexey Proskuryakov  <ap@apple.com>
+
+        <rdar://problem/10416316> [Mac] WebSocket doesn't work with authenticating proxies
+        https://bugs.webkit.org/show_bug.cgi?id=114464
+
+        Reviewed by Brady Eidson.
+
+        * platform/mac/WebCoreSystemInterface.h:
+        * platform/mac/WebCoreSystemInterface.mm:
+        Updated for new wkCopyCONNECTProxyResponse signature.
+
+        * platform/network/cf/SocketStreamHandleCFNet.cpp:
+        (WebCore::SocketStreamHandle::executePACFileURL): Fixed a typo in a comment.
+        (WebCore::SocketStreamHandle::addCONNECTCredentials): Don't crash even if the rest
+        of the fix didn't work (which would be the case on some OS versions).
+        (WebCore::SocketStreamHandle::readStreamCallback): Replaced most breaks with returns,
+        because breaks were confusing in such a huge switch. Changed null proxyResponse
+        to not be treated as authentication success, because it's not. Merged two parts
+        of WaitingForConnect state handling for clarity.
+        (WebCore::SocketStreamHandle::writeStreamCallback): Don't blindly assume that we
+        can start WebSocket handshake after kCFStreamEventCanAcceptBytes. Perhaps it's
+        nothing but a failed CONNECT, and a read callback still needs to send authentication.
+        Without this, establishing connections was flaky. Added a check for Closed state,
+        matching read callback.
+
 2013-04-11  Sukolsak Sakshuwong  <sukolsak@gmail.com>
 
         MutationRecord is not exposed
