@@ -1,3 +1,17 @@
+2013-04-10  Simon Fraser  <simon.fraser@apple.com>
+
+        Log when the animation timer fires
+        https://bugs.webkit.org/show_bug.cgi?id=114393
+
+        Reviewed by Dean Jackson.
+
+        Logging to the Animations log channel when the updateAnimationTimer
+        fires is useful, because it indicates whether we're running
+        software animations.
+
+        * page/animation/AnimationController.cpp:
+        (WebCore::AnimationControllerPrivate::updateAnimationTimer):
+
 2013-04-10  Beth Dakin  <bdakin@apple.com>
 
         Inspector highlights are offset when the WKView has a header
