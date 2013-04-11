@@ -1,3 +1,13 @@
+2013-04-11  Arunprasad Rajkumar  <arunprasadr@nds.com>
+
+        Default Implementation of toString for NPObject shouldn't return NPClass & NPObject address as String
+        https://bugs.webkit.org/show_bug.cgi?id=114450
+
+        Reviewed by Anders Carlsson.
+
+        * bridge/c/c_instance.cpp:
+        (JSC::Bindings::CInstance::stringValue):
+
 2013-04-11  Robert Hogan  <robert@webkit.org>
 
         REGRESSION (142152): ensure we skip past out-of-flow objects when detecting whitespace to ignore after leading empty inlines
