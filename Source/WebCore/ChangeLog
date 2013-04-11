@@ -1,3 +1,36 @@
+2013-04-10  Alexey Proskuryakov  <ap@apple.com>
+
+        Remove some includes of CachedImage.h
+        https://bugs.webkit.org/show_bug.cgi?id=114411
+
+        Reviewed by Dan Bernstein.
+
+        * css/CSSCrossfadeValue.h: Initializing CachedResourceHandle with 0 requires a
+        definition of a class it holds, but default construction does not.
+
+        * rendering/RenderImageResource.cpp:
+        * rendering/RenderImageResource.h:
+        Moved definitions of virtual functions to a .cpp file. There is no win from having
+        them inline, and now we don't need CachedImage.h in the header.
+
+        * bindings/js/JSNodeCustom.cpp:
+        * dom/Clipboard.cpp:
+        (WebCore::Clipboard::Clipboard):
+        * platform/mac/ClipboardMac.h:
+        * rendering/InlineFlowBox.cpp:
+        * rendering/RenderBox.cpp:
+        * rendering/RenderListItem.cpp:
+        * rendering/RenderListMarker.cpp:
+        * rendering/RenderTableCol.cpp:
+        * rendering/RenderTableRow.cpp:
+        * rendering/RenderTableSection.cpp:
+        * svg/graphics/SVGImageCache.cpp:
+        Removed unnecessary includes.
+
+        * platform/mac/PasteboardMac.mm:
+        * rendering/RenderSnapshottedPlugIn.cpp:
+        Added ones where they are now necessary.
+
 2013-04-10  No'am Rosenthal  <noam@webkit.org>
 
         Allow direct compositing of background images
