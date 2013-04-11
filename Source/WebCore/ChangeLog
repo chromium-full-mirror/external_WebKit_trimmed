@@ -1,3 +1,23 @@
+2013-04-11  Robert Hogan  <robert@webkit.org>
+
+        REGRESSION (142152): ensure we skip past out-of-flow objects when detecting whitespace to ignore after leading empty inlines
+        https://bugs.webkit.org/show_bug.cgi?id=114311
+
+        Reviewed by Emil A Eklund.
+
+        When we hit an empty inline in line layout and try to detect whether it has any whitespace after it that we ought to ignore, then
+        we need to skip past out-of-flow and floating objects when looking for that whitespace. Failure to do so will result in us
+        adding the width from the first space we encounter to our line width and over-estimating the real width of the line.
+
+        We're hitting this bug now because we have broadened the category of empty inlines that get lineboxes so we go into line layout 
+        and have to deal with them and their subsequent whitespace there. Previously this sort of whitespace would have been simply
+        consumed by |skipLeadingWhitespace|.
+
+        Test: fast/inline/out-of-flow-objects-and-whitespace-after-empty-inline.html
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::shouldSkipWhitespaceAfterStartObject):
+
 2013-04-11  Ryosuke Niwa  <rniwa@webkit.org>
 
         Autocorrected text doesn't have a marker of type autocorrected

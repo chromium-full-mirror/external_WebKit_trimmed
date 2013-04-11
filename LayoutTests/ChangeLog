@@ -1,3 +1,13 @@
+2013-04-11  Robert Hogan  <robert@webkit.org>
+
+        REGRESSION (142152): ensure we skip past out-of-flow objects when detecting whitespace to ignore after leading empty inlines
+        https://bugs.webkit.org/show_bug.cgi?id=114311
+
+        Reviewed by Emil A Eklund.
+
+        * fast/inline/out-of-flow-objects-and-whitespace-after-empty-inline-expected.txt: Added.
+        * fast/inline/out-of-flow-objects-and-whitespace-after-empty-inline.html: Added.
+
 2013-04-11  Ryosuke Niwa  <rniwa@webkit.org>
 
         Autocorrected text doesn't have a marker of type autocorrected
