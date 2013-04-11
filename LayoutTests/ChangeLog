@@ -1,5 +1,11 @@
 2013-04-11  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
 
+        [Qt] Unreviewed gardening. Remove platform specific expected after r148195.
+
+        * platform/qt/fast/events/backspace-navigates-back-expected.txt: Removed.
+
+2013-04-11  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
+
         [Qt] Unreviewed gardending. Greening bots.
 
         * platform/qt-5.0-wk1/loader/go-back-cached-main-resource-expected.txt: Rebaselining after r148182.
