@@ -1,3 +1,22 @@
+2013-04-11  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Autocorrected text doesn't have a marker of type autocorrected
+        https://bugs.webkit.org/show_bug.cgi?id=114337
+
+        Reviewed by Darin Adler.
+
+        The bug was caused by markAndReplaceFor's text replacement errornously assuming that there are
+        no other text checking result starting at the same offset. That resulted in us adjusting location
+        offsets of the subsequent results pointing at the replaced text, hit an assertion, and blow up.
+
+        Fixed the bug by skipping all remaining results for the replaced text since they're no longer
+        applicable.
+
+        Tests: Existing autocorection tests have been updated to assert new behavior.
+
+        * editing/Editor.cpp:
+        (WebCore::Editor::markAndReplaceFor):
+
 2013-04-11  Michelangelo De Simone  <michelangelo@webkit.org>
 
         [CSS Shaders] Parse the geometry descriptor
