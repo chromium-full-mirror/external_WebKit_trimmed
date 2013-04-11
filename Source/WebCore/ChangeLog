@@ -1,3 +1,20 @@
+2013-04-11  Alberto Garcia  <agarcia@igalia.com>
+
+        [BlackBerry] RenderThemeBlackBerry: upstream missing code
+        https://bugs.webkit.org/show_bug.cgi?id=114343
+
+        Reviewed by Xan Lopez.
+
+        Add implementations of sliderTickSize() and
+        sliderTickOffsetFromTrackCenter(), as well as a missing header.
+
+        * platform/blackberry/RenderThemeBlackBerry.cpp:
+        (WebCore):
+        (WebCore::RenderThemeBlackBerry::sliderTickSize):
+        (WebCore::RenderThemeBlackBerry::sliderTickOffsetFromTrackCenter):
+        * platform/blackberry/RenderThemeBlackBerry.h:
+        (RenderThemeBlackBerry):
+
 2013-04-11  Allan Sandfeld Jensen  <allan.jensen@digia.com>
 
         HitTestRequest::AllowFrameScrollbars does not test main frame scrollbar
