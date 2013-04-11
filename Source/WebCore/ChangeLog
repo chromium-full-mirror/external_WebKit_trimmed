@@ -1,3 +1,28 @@
+2013-04-11  Alexey Proskuryakov  <ap@apple.com>
+
+        Remove some ResourceHandle.h includes
+        https://bugs.webkit.org/show_bug.cgi?id=114416
+
+        Reviewed by Ryosuke Niwa.
+
+        * loader/CrossOriginAccessControl.h:
+        * loader/CrossOriginPreflightResultCache.h:
+        These files don't need ResourceHandle.h, just ResourceHandleTypes.h.
+
+        * loader/TextTrackLoader.cpp:
+        * loader/ThreadableLoader.h:
+        * loader/appcache/ApplicationCacheGroup.h:
+        * loader/cache/MemoryCache.h:
+        * loader/mac/ResourceLoaderMac.mm:
+        * page/Settings.cpp:
+        * platform/network/AuthenticationChallengeBase.cpp:
+        * platform/network/cf/CookieJarCFNet.cpp:
+        * platform/network/cf/ResourceRequestCFNet.cpp:
+        * xml/XSLTProcessorLibxslt.cpp:
+        * xml/parser/XMLDocumentParser.cpp:
+        * xml/parser/XMLDocumentParserLibxml2.cpp:
+        Just straightforward removal of includes.
+
 2013-04-04  Allan Sandfeld Jensen  <allan.jensen@digia.com>
 
         Use CSS4 image-rendering to determing image scaling quality
