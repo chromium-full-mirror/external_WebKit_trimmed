@@ -1,3 +1,15 @@
+2013-04-11  Anders Carlsson  <andersca@apple.com>
+
+        Make StorageAreaMap dispatch session storage events
+        https://bugs.webkit.org/show_bug.cgi?id=114454
+
+        Reviewed by Beth Dakin.
+
+        Export storage symbols and headers needed by WebKit2.
+
+        * WebCore.exp.in:
+        * WebCore.xcodeproj/project.pbxproj:
+
 2013-04-11  Allan Sandfeld Jensen  <allan.jensen@digia.com>
 
         handleMouseMoveEvent should let hit-testing hit-test scrollbars
