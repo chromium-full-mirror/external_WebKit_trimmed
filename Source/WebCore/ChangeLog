@@ -1,3 +1,60 @@
+2013-04-11  Mikhail Pozdnyakov  <mikhail.pozdnyakov@intel.com>
+
+        [CoordinatedGraphics] Use ScrollingStateTree to handle fixed elements positioning while scrolling
+        https://bugs.webkit.org/show_bug.cgi?id=114353
+
+        Reviewed by Noam Rosenthal.
+        
+        ScrollingCoordinatorCoordinatedGraphics should implement threaded scrolling interface and
+        re-use threaded scrolling approach (ScrollingStateTree and ViewportConstraints) to handle
+        fixed/sticky elements positioning while scrolling. The rationals are below.
+
+        Before the change ScrollingCoordinatorCoordinatedGraphics was implementing Chromium-specific
+        interface which is going to be removed eventually as there is no ScrollingCoordinatorChromium
+        existing.
+
+        Tested by existing manual tests (fixed-position.html for example.
+
+        * CMakeLists.txt:
+        * Target.pri:
+            Included ScrollingStateTree files.
+
+        * page/scrolling/ScrollingStateFixedNode.cpp:
+        * page/scrolling/ScrollingStateFixedNode.h:
+        * page/scrolling/ScrollingStateNode.cpp:
+        * page/scrolling/ScrollingStateNode.h:
+        * page/scrolling/ScrollingStateScrollingNode.cpp:
+        * page/scrolling/ScrollingStateScrollingNode.h:
+        * page/scrolling/ScrollingStateStickyNode.cpp:
+        * page/scrolling/ScrollingStateStickyNode.h:
+        * page/scrolling/ScrollingStateTree.cpp:
+        * page/scrolling/ScrollingStateTree.h:
+            Removed ENABLE(THREADED_SCROLLING) code guards.
+
+        * page/scrolling/coordinatedgraphics/ScrollingCoordinatorCoordinatedGraphics.cpp:
+        (WebCore::ScrollingCoordinatorCoordinatedGraphics::ScrollingCoordinatorCoordinatedGraphics):
+        (WebCore::ScrollingCoordinatorCoordinatedGraphics::~ScrollingCoordinatorCoordinatedGraphics):
+        (WebCore):
+        (WebCore::ScrollingCoordinatorCoordinatedGraphics::attachToStateTree):
+        (WebCore::ScrollingCoordinatorCoordinatedGraphics::detachFromStateTree):
+        (WebCore::ScrollingCoordinatorCoordinatedGraphics::clearStateTree):
+        (WebCore::ScrollingCoordinatorCoordinatedGraphics::updateViewportConstrainedNode):
+        * page/scrolling/coordinatedgraphics/ScrollingCoordinatorCoordinatedGraphics.h:
+            ScrollingCoordinatorCoordinatedGraphics is using threaded scrolling approach to handle fixed
+            elements positioning while scrolling.
+
+        (WebCore):
+        (ScrollingCoordinatorCoordinatedGraphics):
+        * page/scrolling/coordinatedgraphics/ScrollingStateNodeCoordinatedGraphics.cpp: Added.
+        (WebCore):
+        (WebCore::ScrollingStateNode::platformScrollLayer):
+        (WebCore::ScrollingStateNode::setScrollPlatformLayer):
+        (WebCore::ScrollingStateNode::setScrollLayer):
+        * page/scrolling/coordinatedgraphics/ScrollingStateScrollingNodeCoordinatedGraphics.cpp: Added.
+        (WebCore):
+        (WebCore::ScrollingStateScrollingNode::counterScrollingPlatformLayer):
+        (WebCore::ScrollingStateScrollingNode::setCounterScrollingLayer):
+
 2013-04-11  Allan Sandfeld Jensen  <allan.jensen@digia.com>
 
         [Qt] EventHandler should handle Space and BackSpace 
