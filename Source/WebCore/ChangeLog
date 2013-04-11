@@ -1,3 +1,15 @@
+2013-04-11  Anders Carlsson  <andersca@apple.com>
+
+        Implement StorageManager::getValues
+        https://bugs.webkit.org/show_bug.cgi?id=114461
+
+        Reviewed by Beth Dakin.
+
+        Expose the item hash map.
+
+        * storage/StorageMap.h:
+        (WebCore::StorageMap::items):
+
 2013-04-11  Eli Fidler  <efidler@blackberry.com>
 
         [BlackBerry] Use the platform list of languages with fonts instead of hardcoding
