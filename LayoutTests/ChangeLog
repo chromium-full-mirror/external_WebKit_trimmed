@@ -1,3 +1,13 @@
+2013-04-12  Jer Noble  <jer.noble@apple.com>
+
+        TimeRanges::nearest() returns incorrect results.
+        https://bugs.webkit.org/show_bug.cgi?id=114483
+
+        Reviewed by Eric Carlson.
+
+        * media/timeranges-nearest-expected.txt: Added.
+        * media/timeranges-nearest.html: Added.
+
 2013-04-12  Eric Carlson  <eric.carlson@apple.com>
 
         Support "forced" subtitles
