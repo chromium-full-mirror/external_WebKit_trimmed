@@ -1,3 +1,10 @@
+2013-04-12  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening.
+
+        * platform/qt/TestExpectations:
+        * platform/qt/fast/js/global-constructors-expected.txt: Rebaselining after r148236.
+
 2013-04-11  Shezan Baig  <sbaig1@bloomberg.net>
 
         Selection gaps don't repaint correctly with transforms
