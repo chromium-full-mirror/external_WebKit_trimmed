@@ -1,3 +1,23 @@
+2013-04-11  Shezan Baig  <sbaig1@bloomberg.net>
+
+        Selection gaps don't repaint correctly with transforms
+        https://bugs.webkit.org/show_bug.cgi?id=111000
+
+        Reviewed by Simon Fraser.
+
+        * fast/repaint/selection-gap-absolute-child-expected.txt: Added.
+        * fast/repaint/selection-gap-absolute-child.html: Added.
+        * fast/repaint/selection-gap-fixed-child-expected.txt: Added.
+        * fast/repaint/selection-gap-fixed-child.html: Added.
+        * fast/repaint/selection-gap-flipped-absolute-child-expected.txt: Added.
+        * fast/repaint/selection-gap-flipped-absolute-child.html: Added.
+        * fast/repaint/selection-gap-flipped-fixed-child-expected.txt: Added.
+        * fast/repaint/selection-gap-flipped-fixed-child.html: Added.
+        * fast/repaint/selection-gap-transformed-absolute-child-expected.txt: Added.
+        * fast/repaint/selection-gap-transformed-absolute-child.html: Added.
+        * fast/repaint/selection-gap-transformed-fixed-child-expected.txt: Added.
+        * fast/repaint/selection-gap-transformed-fixed-child.html: Added.
+
 2013-04-11  Ryosuke Niwa  <rniwa@webkit.org>
 
         Remove passing test expectations for ietestcenter/css3/grid/grid-items-003.htm since it started failing on

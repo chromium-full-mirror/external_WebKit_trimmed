@@ -1,3 +1,25 @@
+2013-04-11  Shezan Baig  <sbaig1@bloomberg.net>
+
+        Selection gaps don't repaint correctly with transforms
+        https://bugs.webkit.org/show_bug.cgi?id=111000
+
+        Reviewed by Simon Fraser.
+
+        When computing offsetFromRepaintContainer, we need to add UseTransforms
+        to the MapCoordinateFlags argument. Note that ApplyContainerFlip is
+        the default value for the flag, so this change effectively only adds
+        the UseTransforms flag.
+
+        Tests: fast/repaint/selection-gap-absolute-child.html
+               fast/repaint/selection-gap-fixed-child.html
+               fast/repaint/selection-gap-flipped-absolute-child.html
+               fast/repaint/selection-gap-flipped-fixed-child.html
+               fast/repaint/selection-gap-transformed-absolute-child.html
+               fast/repaint/selection-gap-transformed-fixed-child.html
+
+        * rendering/RenderBlock.cpp:
+        (WebCore::RenderBlock::selectionGapRectsForRepaint):
+
 2013-04-11  Oliver Hunt  <oliver@apple.com>
 
         Add more type validation to debug builds
