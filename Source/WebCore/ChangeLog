@@ -1,3 +1,45 @@
+2013-04-11  Oliver Hunt  <oliver@apple.com>
+
+        Add more type validation to debug builds
+        https://bugs.webkit.org/show_bug.cgi?id=114478
+
+        Reviewed by Mark Hahnenberg.
+
+        Add a bunch more type checks to the JS DOM bindings.
+
+        * Modules/mediastream/MediaStream.idl:
+        * Modules/webaudio/AudioDestinationNode.idl:
+        * WebCore.xcodeproj/project.pbxproj:
+        * bindings/js/JSDOMBinding.h:
+        (WebCore::getExistingWrapper):
+        (WebCore):
+        (WebCore::createNewWrapper):
+        * bindings/scripts/CodeGeneratorJS.pm:
+        (GetNativeTypeForConversions):
+        (GetGnuVTableRefForInterface):
+        (GetGnuVTableNameForInterface):
+        (GetGnuMangledNameForInterface):
+        (GetGnuVTableOffsetForType):
+        (GetWinVTableRefForInterface):
+        (GetWinVTableNameForInterface):
+        (GetWinMangledNameForInterface):
+        (GetNamespaceForInterface):
+        (GetImplementationLacksVTableForInterface):
+        (GetSkipVTableValidationForInterface):
+        (GenerateImplementation):
+        * bindings/scripts/IDLAttributes.txt:
+        * css/CSSRuleList.idl:
+        * css/CSSStyleDeclaration.idl:
+        * dom/Clipboard.idl:
+        * dom/DOMStringMap.idl:
+        * dom/MutationRecord.idl:
+        * dom/NodeList.idl:
+        * html/DOMTokenList.idl:
+        * html/track/TextTrack.idl:
+        * inspector/ScriptProfileNode.idl:
+        * storage/Storage.idl:
+        * xml/XPathNSResolver.idl:
+
 2013-04-11  Ryosuke Niwa  <rniwa@webkit.org>
 
         Remove ResourceLoadInfo
