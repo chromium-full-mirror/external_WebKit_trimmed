@@ -1,3 +1,35 @@
+2013-04-12  Ryosuke Niwa  <rniwa@webkit.org>
+
+        [Mac] REGRESSION: Auto substitution strips new lines
+        https://bugs.webkit.org/show_bug.cgi?id=114537
+
+        Reviewed by Enrica Casucci.
+
+        The bug was caused by SpellingCorrectionCommand's use of InsertTextCommand. This command can't insert
+        new lines and there's even an assertion for it. Use TypingCommand::insertText instead.
+
+        Since TypingCommand::insertText calls appliedEditing on its own, we need to avoid calling that again in
+        CompositeEditCommand::apply after SpellingCorrectionCommand::doApply. Replaced the check in apply to use
+        callsAppliedEditingInDoApply instead of isTypingCommand, and added callsAppliedEditingInDoApply to both
+        TypingCommand and SpellingCorrectionCommand to return true (it returns false by default).
+
+        Test: platform/mac/editing/spelling/autocorrection-with-multi-line-text.html
+
+        * editing/CompositeEditCommand.cpp:
+        (WebCore::CompositeEditCommand::apply): Use TypingCommand::insertText instead of InsertTextCommand
+        (WebCore::CompositeEditCommand::callsAppliedEditingInDoApply): Added. Returns false.
+        * editing/CompositeEditCommand.h:
+        (CompositeEditCommand):
+        * editing/SpellingCorrectionCommand.cpp:
+        (WebCore::SpellingCorrectionCommand::doApply):
+        (WebCore::SpellingCorrectionCommand::callsAppliedEditingInDoApply): Added. Returns true.
+        * editing/SpellingCorrectionCommand.h:
+        (SpellingCorrectionCommand):
+        * editing/TypingCommand.cpp:
+        (WebCore::TypingCommand::callsAppliedEditingInDoApply): Added. Returns true.
+        * editing/TypingCommand.h:
+        (TypingCommand):
+
 2013-04-12  Brendan Long  <b.long@cablelabs.com>
 
         Refactor TextTrack and TextTrackList to make it easier to add audio and video tracks
