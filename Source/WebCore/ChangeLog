@@ -1,3 +1,40 @@
+2013-04-12  Oliver Hunt  <oliver@apple.com>
+
+        Make CodeGeneratorJS plant comments to explain failures in the binding validation
+        https://bugs.webkit.org/show_bug.cgi?id=114528
+
+        Reviewed by Sam Weinig.
+
+        No change in behaviour, just make the generated bindings include comments
+        to aid diagnosing issues that may be non-obvious.
+
+        * bindings/scripts/CodeGeneratorJS.pm:
+        (GenerateImplementation):
+        * bindings/scripts/test/JS/JSTestActiveDOMObject.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestCustomNamedGetter.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestEventConstructor.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestEventTarget.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestException.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestInterface.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestMediaQueryListListener.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestNamedConstructor.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestObj.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestOverloadedConstructors.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestSerializedScriptValueInterface.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestTypedefs.cpp:
+        (WebCore::toJS):
+
 2013-04-12  Tim Horton  <timothy_horton@apple.com>
 
         REGRESSION (r138858): GIFs don't start playing when they come out of background tabs
