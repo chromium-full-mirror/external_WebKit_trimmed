@@ -1,3 +1,26 @@
+2013-04-11  Alexey Proskuryakov  <ap@apple.com>
+
+        Move CachedRawResourceClient into a separate file
+        https://bugs.webkit.org/show_bug.cgi?id=114491
+
+        Reviewed by Mark Rowe.
+
+        * GNUmakefile.list.am:
+        * Target.pri:
+        * WebCore.vcproj/WebCore.vcproj:
+        * WebCore.vcxproj/WebCore.vcxproj:
+        * WebCore.vcxproj/WebCore.vcxproj.filters:
+        * WebCore.xcodeproj/project.pbxproj:
+        * loader/DocumentLoader.cpp:
+        * loader/DocumentLoader.h:
+        * loader/DocumentThreadableLoader.h:
+        * loader/archive/cf/LegacyWebArchive.cpp:
+        * loader/cache/CachedRawResource.cpp:
+        * loader/cache/CachedRawResource.h:
+        * loader/cache/CachedRawResourceClient.h: Added.
+        * loader/icon/IconLoader.h:
+        * platform/graphics/avfoundation/objc/WebCoreAVFResourceLoader.h:
+
 2013-04-12  Commit Queue  <rniwa@webkit.org>
 
         Unreviewed, rolling out r148262.
