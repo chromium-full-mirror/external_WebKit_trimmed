@@ -1,3 +1,27 @@
+2013-04-12  Martin Robinson  <mrobinson@igalia.com>
+
+        r148197 broke the GTK+ build
+        https://bugs.webkit.org/show_bug.cgi?id=114525
+
+        Reviewed by Anders Carlsson.
+
+        Re-add the ENABLE(SCROLLING_THREAD) guards to scrolling thread files
+        and extend them with USE(COORDINATED_GRAPHICS). This code is unused
+        by other configurations currently.
+
+        * page/scrolling/ScrollingStateFixedNode.cpp: Re-add guards.
+        * page/scrolling/ScrollingStateFixedNode.h: Ditto.
+        * page/scrolling/ScrollingStateNode.cpp: Ditto.
+        * page/scrolling/ScrollingStateNode.h: Ditto.
+        * page/scrolling/ScrollingStateScrollingNode.cpp: Ditto.
+        * page/scrolling/ScrollingStateScrollingNode.h: Ditto.
+        * page/scrolling/ScrollingStateStickyNode.cpp: Ditto.
+        * page/scrolling/ScrollingStateStickyNode.h: Ditto.
+        * page/scrolling/ScrollingStateTree.cpp: Ditto.
+        * page/scrolling/ScrollingStateTree.h: Ditto.
+        * page/scrolling/mac/ScrollingStateNodeMac.mm: Ditto.
+        * page/scrolling/mac/ScrollingStateScrollingNodeMac.mm: Ditto.
+
 2013-04-12  Jer Noble  <jer.noble@apple.com>
 
         (AVFoundation) WebKit fails to detect live stream.
