@@ -1,3 +1,10 @@
+2013-04-12  Mark Rowe  <mrowe@apple.com>
+
+        Build fix.
+
+        * platform/graphics/avfoundation/objc/WebCoreAVFResourceLoader.h:
+        Add missing #include and forward declaration.
+
 2013-04-12  Zan Dobersek  <zdobersek@igalia.com>
 
         Unreviewed functionality fix for ports enabling the MicroData feature.
