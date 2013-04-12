@@ -1,3 +1,20 @@
+2013-04-11  Nico Weber  <thakis@chromium.org>
+
+        Remove debugging code that is no longer used with current mac sdks.
+        https://bugs.webkit.org/show_bug.cgi?id=114486
+
+        Reviewed by Dan Bernstein.
+
+        This code compared __MAC_OS_X_VERSION_MAX_ALLOWED and friends to
+        107 and 106 instead of the correct 1070 and 1060. Instead of fixing
+        this, rip the code out completely: Since WebKit now only targets
+        current systems, the ifdef is always false anyways.
+
+        No tests, as this only removes debugging code.
+
+        * platform/graphics/mac/SimpleFontDataMac.mm:
+        (WebCore::SimpleFontData::platformInit):
+
 2013-04-11  Oliver Hunt  <oliver@apple.com>
 
         Fix windows build and land new binding test results
