@@ -1,3 +1,29 @@
+2013-04-12  Ryosuke Niwa  <rniwa@webkit.org>
+
+        [Mac] Enable spellchecking tests added in r141471
+        https://bugs.webkit.org/show_bug.cgi?id=108525
+
+        Reviewed by Darin Adler.
+
+        Made automatic quote substitution, dash substitution, text replacement, and spelling correction
+        togglable via internals object. These functions are no-op when text replacement is not used.
+
+        This allows us to disable automatic spelling correction in spellcheck tests.
+
+        Enabled several tests added in r141471.
+
+        * WebCore.exp.in:
+        * testing/Internals.cpp:
+        (WebCore::Internals::setContinuousSpellCheckingEnabled): Don't null check editor() since it's not
+        null whenever frame() is not null.
+        (WebCore::Internals::setAutomaticQuoteSubstitutionEnabled): Added.
+        (WebCore::Internals::setAutomaticLinkDetectionEnabled): Added.
+        (WebCore::Internals::setAutomaticDashSubstitutionEnabled): Added.
+        (WebCore::Internals::setAutomaticTextReplacementEnabled): Added.
+        (WebCore::Internals::setAutomaticSpellingCorrectionEnabled): Added.
+        * testing/Internals.h:
+        * testing/Internals.idl:
+
 2013-04-12  Alberto Garcia  <agarcia@igalia.com>
 
         [BlackBerry] Upstream the filesystem code

@@ -1,3 +1,49 @@
+2013-04-12  Ryosuke Niwa  <rniwa@webkit.org>
+
+        [Mac] Enable spellchecking tests added in r141471
+        https://bugs.webkit.org/show_bug.cgi?id=108525
+
+        Reviewed by Darin Adler.
+
+        Updated the tests not to assume spelling correction suggestions were listed in a context menu since
+        only Chromium port did this.
+
+        * editing/spelling/resources/util.js:
+        (initSpellTest): Disable automatic text replacements.
+
+        * editing/spelling/spelling-with-underscore-selection-expected.txt: Removed.
+        * editing/spelling/spelling-with-underscore-selection.html: Removed.
+
+        This test erroneously assumed a specific word breaking behavior that doesn't include the underscore
+        when selecting a word especially since Chromium was the only port that was running these tests.
+
+        * editing/spelling/spelling-double-clicked-word-with-underscores-expected.txt: Removed.
+        * editing/spelling/spelling-double-clicked-word-with-underscores.html: Removed.
+
+        Ditto.
+
+        * editing/spelling/spelling-should-select-single-word-expected.txt: Removed.
+        * editing/spelling/spelling-should-select-single-word.html: Removed.
+
+        Removed since this test doesn't do anything useful without the assertion for the context menu.
+
+        * editing/spelling/spelling-double-clicked-word-expected.txt:
+        * editing/spelling/spelling-double-clicked-word.html:
+        * editing/spelling/spelling-exactly-selected-word-expected.txt:
+        * editing/spelling/spelling-exactly-selected-word.html:
+        * editing/spelling/spelling-with-punctuation-selection-expected.txt:
+        * editing/spelling/spelling-with-punctuation-selection.html:
+        * editing/spelling/spelling-with-whitespace-selection-expected.txt:
+        * editing/spelling/spelling-with-whitespace-selection.html:
+
+        * platform/efl/TestExpectations:
+        * platform/gtk/TestExpectations:
+        * platform/mac/TestExpectations:
+        * platform/qt/TestExpectations:
+        * platform/win/TestExpectations:
+        * platform/wincairo/TestExpectations:
+        * platform/wk2/TestExpectations:
+
 2013-04-12  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening.
