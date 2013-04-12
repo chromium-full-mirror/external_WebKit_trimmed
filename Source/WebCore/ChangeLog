@@ -1,5 +1,11 @@
 2013-04-12  Mark Rowe  <mrowe@apple.com>
 
+        And again, with the correct case this time.
+
+        * platform/graphics/avfoundation/objc/WebCoreAVFResourceLoader.h:
+
+2013-04-12  Mark Rowe  <mrowe@apple.com>
+
         Build fix.
 
         * platform/graphics/avfoundation/objc/WebCoreAVFResourceLoader.h:
