@@ -1,3 +1,52 @@
+2013-04-12  Eric Carlson  <eric.carlson@apple.com>
+
+        Support "forced" subtitles
+        https://bugs.webkit.org/show_bug.cgi?id=114460
+
+        Reviewed by Jer Noble.
+
+        Test: media/track/track-forced-subtitles.html
+
+        * html/HTMLMediaElement.cpp:
+        (WebCore::HTMLMediaElement::configureTextTrackGroup): Enable a forced track if nothing else is enabled.
+        (WebCore::HTMLMediaElement::configureTextTracks): Include forced tracks with captions+subtitles.
+
+        * html/track/InbandTextTrack.cpp:
+        (WebCore::InbandTextTrack::InbandTextTrack): Deal with kind=forced.
+
+        * html/track/TextTrack.cpp:
+        (WebCore::TextTrack::forcedKeyword): New keyword.
+        (WebCore::TextTrack::isValidKindKeyword): Include forced.
+        (WebCore::TextTrack::platformTextTrack): Ditto.
+        * html/track/TextTrack.h:
+
+        * page/CaptionUserPreferences.cpp:
+        (WebCore::CaptionUserPreferences::primaryAudioTrackLanguageOverride): New override to support testing.
+        * page/CaptionUserPreferences.h:
+
+        * page/CaptionUserPreferencesMac.mm:
+        (WebCore::CaptionUserPreferencesMac::textTrackSelectionScore): Support forced tracks.
+        * platform/graphics/InbandTextTrackPrivate.h:
+
+        * platform/graphics/PlatformTextTrack.h: Add Forced, minor cleanup.
+
+        * platform/graphics/avfoundation/InbandTextTrackPrivateAVF.cpp:
+        (WebCore::InbandTextTrackPrivateAVF::processCue): Drive-by enhancement: log cue position.
+
+        * platform/graphics/avfoundation/objc/InbandTextTrackPrivateAVFObjC.mm:
+        (WebCore::InbandTextTrackPrivateAVFObjC::kind): Support forced.
+        (WebCore::InbandTextTrackPrivateAVFObjC::label): Drive-by cleanup.
+
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.mm:
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::processTextTracks): Don't filter out forced tracks.
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::languageOfPrimaryAudioTrack): Log the language returned.
+
+        * testing/Internals.cpp:
+        (WebCore::Internals::setPrimaryAudioTrackLanguageOverride): New.
+        (WebCore::Internals::setCaptionDisplayMode): New.
+        * testing/Internals.h:
+        * testing/Internals.idl:
+
 2013-04-12  Ryosuke Niwa  <rniwa@webkit.org>
 
         [Mac] Some ligatures are applied across different fronts
