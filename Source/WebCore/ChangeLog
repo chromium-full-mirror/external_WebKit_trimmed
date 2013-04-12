@@ -1,3 +1,42 @@
+2013-04-11  Jer Noble  <jer.noble@apple.com>
+
+        Add support for MediaPlayer::minTimeSeekable()
+        https://bugs.webkit.org/show_bug.cgi?id=114484
+
+        Reviewed by Eric Carlson.
+
+        Plumb a new minTimeSeekable() method through MediaPlayer and
+        MediaPlayerPrivate and use this new method in the existing
+        HTMLMediaElement::minTimeSeekable() method.
+
+        * html/HTMLMediaElement.cpp:
+        (WebCore::HTMLMediaElement::minTimeSeekable): Pass to MediaPlayer.
+        * platform/graphics/MediaPlayer.cpp:
+        (WebCore::NullMediaPlayerPrivate::minTimeSeekable): Return 0.
+        (WebCore::MediaPlayer::minTimeSeekable): Pass to MediaPlayerPrivate.
+        * platform/graphics/MediaPlayer.h:
+        * platform/graphics/MediaPlayerPrivate.h:
+        (WebCore::MediaPlayerPrivateInterface::seekable): Define in terms of 
+            minTimeSeekable()
+        (WebCore::MediaPlayerPrivateInterface::minTimeSeekable): Default to 0.
+        * platform/graphics/avfoundation/MediaPlayerPrivateAVFoundation.cpp:
+        (WebCore::MediaPlayerPrivateAVFoundation::MediaPlayerPrivateAVFoundation):
+            Initialize new m_cachedMinTimeSeekable ivar.
+        (WebCore::MediaPlayerPrivateAVFoundation::maxTimeSeekableDouble):
+            Renamed from maxTimeSeekable().
+        (WebCore::MediaPlayerPrivateAVFoundation::minTimeSeekable): Added.
+            Cache value of platformMinTimeSeekable().
+        (WebCore::MediaPlayerPrivateAVFoundation::seekableTimeRangesChanged):
+            Reset m_cachedMinTimeSeekable.
+        * platform/graphics/avfoundation/MediaPlayerPrivateAVFoundation.h:
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.h:
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.mm:
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::seekToTime): float -> double.
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::platformMinTimeSeekable):
+            Added. Retrieve the lowest value from -[m_playerItem seekableTimeRanges].
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::platformMaxTimeSeekable):
+            float -> double.
+
 2013-04-12  Commit Queue  <rniwa@webkit.org>
 
         Unreviewed, rolling out r147942, r148026, and r148092.
