@@ -1,3 +1,46 @@
+2013-04-11  Oliver Hunt  <oliver@apple.com>
+
+        Fix windows build and land new binding test results
+
+        * bindings/scripts/CodeGeneratorJS.pm:
+        (GenerateImplementation):
+        * bindings/scripts/test/JS/JSTestActiveDOMObject.cpp:
+        (WebCore):
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestCustomNamedGetter.cpp:
+        (WebCore):
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestEventConstructor.cpp:
+        (WebCore):
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestEventTarget.cpp:
+        (WebCore):
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestException.cpp:
+        (WebCore):
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestInterface.cpp:
+        (WebCore):
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestMediaQueryListListener.cpp:
+        (WebCore):
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestNamedConstructor.cpp:
+        (WebCore):
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestObj.cpp:
+        (WebCore):
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestOverloadedConstructors.cpp:
+        (WebCore):
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestSerializedScriptValueInterface.cpp:
+        (WebCore):
+        (WebCore::toJS):
+        * bindings/scripts/test/JS/JSTestTypedefs.cpp:
+        (WebCore):
+        (WebCore::toJS):
+
 2013-04-11  Shezan Baig  <sbaig1@bloomberg.net>
 
         Selection gaps don't repaint correctly with transforms
