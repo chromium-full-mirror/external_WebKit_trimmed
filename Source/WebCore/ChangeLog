@@ -1,3 +1,11 @@
+2013-04-12  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed functionality fix for ports enabling the MicroData feature.
+
+        * html/DOMSettableTokenList.idl: Add the SkipVTableValidation IDL attribute to the DOMSettableTokenList interface.
+        This removes crashes in the MicroData layout tests that are occurring on EFL and GTK builders, the two ports being
+        the only ports that enable this feature.
+
 2013-04-11  Alexey Proskuryakov  <ap@apple.com>
 
         Move CachedRawResourceClient into a separate file
