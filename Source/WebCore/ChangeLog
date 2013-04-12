@@ -1,5 +1,30 @@
 2013-04-12  Ryosuke Niwa  <rniwa@webkit.org>
 
+        [Mac] Some ligatures are applied across different fronts
+        https://bugs.webkit.org/show_bug.cgi?id=113604
+
+        Reviewed by Darin Adler.
+
+        The bug was caused by applyFontTransforms applying ligatures without updating the font data in the glyph buffer.
+
+        Suppose we have characters AB and A uses font X and B uses font Y. Further suppose that we have ligatures for AB
+        in Y. The problem was that WithIterator::advanceInternal calls applyFontTransforms on AB to apply this ligature
+        even though A and B use different fonts. Since X doesn't contain the same ligature for A to be paired with that
+        of B in X, we get a blank A.
+
+        Fixed the bug by resetting lastGlyphCount after calling applyFontTransforms. This ensures that we don't call
+        applyFontTransforms across different fonts.
+
+        No new tests since this requires a variant of Osaka font that doesn't come with OS X.
+
+        The bug 114482 tracks the effort to add a test for this bug fix. I've already asked someone to create a custom
+        font for us so that we can test this bug fix but that's going to a while.
+
+        * platform/graphics/WidthIterator.cpp:
+        (WebCore::WidthIterator::advanceInternal):
+
+2013-04-12  Ryosuke Niwa  <rniwa@webkit.org>
+
         [Mac] Enable spellchecking tests added in r141471
         https://bugs.webkit.org/show_bug.cgi?id=108525
 
