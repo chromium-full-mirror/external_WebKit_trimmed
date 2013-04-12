@@ -1,3 +1,38 @@
+2013-04-11  Commit Queue  <rniwa@webkit.org>
+
+        Unreviewed, rolling out r148247.
+        http://trac.webkit.org/changeset/148247
+        https://bugs.webkit.org/show_bug.cgi?id=114490
+
+        Cairo dep fails to build on builders due to missing EGL
+        headers (Requested by zdobersek on #webkit).
+
+        * platform/graphics/GraphicsContext.cpp:
+        (WebCore):
+        * platform/graphics/ImageBuffer.cpp:
+        (WebCore):
+        * platform/graphics/cairo/GLContext.h:
+        (GLContext):
+        * platform/graphics/cairo/GraphicsContextCairo.cpp:
+        * platform/graphics/cairo/ImageBufferCairo.cpp:
+        (WebCore::ImageBufferData::ImageBufferData):
+        (WebCore::ImageBuffer::ImageBuffer):
+        (WebCore::ImageBuffer::platformTransformColorSpace):
+        (WebCore::getImageData):
+        (WebCore::ImageBuffer::putByteArray):
+        (WebCore):
+        * platform/graphics/cairo/ImageBufferDataCairo.h:
+        (ImageBufferData):
+        * platform/graphics/egl/GLContextEGL.cpp:
+        (WebCore::GLContextEGL::GLContextEGL):
+        (WebCore::GLContextEGL::~GLContextEGL):
+        * platform/graphics/egl/GLContextEGL.h:
+        * platform/graphics/glx/GLContextGLX.cpp:
+        (WebCore::GLContextGLX::GLContextGLX):
+        (WebCore::GLContextGLX::~GLContextGLX):
+        * platform/graphics/glx/GLContextGLX.h:
+        (GLContextGLX):
+
 2013-04-11  Nico Weber  <thakis@chromium.org>
 
         Remove debugging code that is no longer used with current mac sdks.
