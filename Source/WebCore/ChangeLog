@@ -1,3 +1,43 @@
+2013-04-12  Alberto Garcia  <agarcia@igalia.com>
+
+        [BlackBerry] Upstream the filesystem code
+        https://bugs.webkit.org/show_bug.cgi?id=114437
+
+        Reviewed by Rob Buis.
+
+        These are the changes for AsyncFileSystemBlackBerry.
+
+        This patch contains contributions from many members of the
+        BlackBerry WebKit team.
+
+        * platform/blackberry/AsyncFileSystemBlackBerry.cpp:
+        (WebCore::AsyncFileSystem::isAvailable):
+        (WebCore):
+        (WebCore::AsyncFileSystem::create):
+        (WebCore::AsyncFileSystem::openFileSystem):
+        (WebCore::AsyncFileSystemBlackBerry::openFileSystem):
+        (WebCore::AsyncFileSystem::deleteFileSystem):
+        (WebCore::AsyncFileSystemBlackBerry::AsyncFileSystemBlackBerry):
+        (WebCore::AsyncFileSystemBlackBerry::~AsyncFileSystemBlackBerry):
+        (WebCore::AsyncFileSystemBlackBerry::move):
+        (WebCore::AsyncFileSystemBlackBerry::copy):
+        (WebCore::AsyncFileSystemBlackBerry::remove):
+        (WebCore::AsyncFileSystemBlackBerry::removeRecursively):
+        (WebCore::AsyncFileSystemBlackBerry::readMetadata):
+        (WebCore::AsyncFileSystemBlackBerry::createFile):
+        (WebCore::AsyncFileSystemBlackBerry::createDirectory):
+        (WebCore::AsyncFileSystemBlackBerry::fileExists):
+        (WebCore::AsyncFileSystemBlackBerry::directoryExists):
+        (WebCore::AsyncFileSystemBlackBerry::readDirectory):
+        (WebCore::AsyncFileSystemBlackBerry::createWriter):
+        (WebCore::AsyncFileSystemBlackBerry::createSnapshotFileAndReadMetadata):
+        (WebCore::AsyncFileSystemBlackBerry::fileSystemURLToPath):
+        * platform/blackberry/AsyncFileSystemBlackBerry.h:
+        (WTF):
+        (WTF::BlackBerry::Platform::WebFileSystem):
+        (WebCore::AsyncFileSystemBlackBerry::create):
+        (AsyncFileSystemBlackBerry):
+
 2013-04-12  Jocelyn Turcotte  <jocelyn.turcotte@digia.com>
 
         Apply our MSVC 2012 optimizer bug workaround to all minor releases
