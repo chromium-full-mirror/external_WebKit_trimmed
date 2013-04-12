@@ -1,5 +1,11 @@
 2013-04-12  Ryosuke Niwa  <rniwa@webkit.org>
 
+        Unreviewed. Don't forget to skip the test in WebKit2 for now.
+
+        * platform/mac-wk2/TestExpectations:
+
+2013-04-12  Ryosuke Niwa  <rniwa@webkit.org>
+
         [Mac] REGRESSION: Auto substitution strips new lines
         https://bugs.webkit.org/show_bug.cgi?id=114537
 
