@@ -1,3 +1,17 @@
+2013-04-12  Jer Noble  <jer.noble@apple.com>
+
+        (AVFoundation) WebKit fails to detect live stream.
+        https://bugs.webkit.org/show_bug.cgi?id=114474
+
+        Reviewed by Eric Carlson.
+
+        Remove a workaround (added by r88944) for an error in an Apple.com javascript
+        media controller. The error has been fixed, and the workaround is causing problems
+        with other media streams.
+
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.mm:
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::platformDuration):
+
 2013-04-12  Carlos Garcia Campos  <cgarcia@igalia.com>
 
         [GTK] Split GtkAuthenticationDialog in two widgets
