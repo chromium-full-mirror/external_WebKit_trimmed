@@ -1,5 +1,35 @@
 2013-04-12  Oliver Hunt  <oliver@apple.com>
 
+        make the codegenerator actually emit polymorphism check in the "no vtable" path
+        https://bugs.webkit.org/show_bug.cgi?id=114533
+
+        Reviewed by David Kilzer.
+
+        Make the "no vtable" check correct so that we actually plant a polymorphism
+        check.  Update a few interfaces to have the correct validation attributes.        
+
+        * Modules/webdatabase/SQLTransaction.idl:
+        * bindings/scripts/CodeGeneratorJS.pm:
+        (GenerateImplementation):
+        * bindings/scripts/test/JS/JSTestInterface.cpp:
+        (WebCore::toJS):
+        * bindings/scripts/test/TestInterface.idl:
+        * html/track/TextTrackCue.idl:
+        * svg/SVGAnimatedAngle.idl:
+        * svg/SVGAnimatedBoolean.idl:
+        * svg/SVGAnimatedEnumeration.idl:
+        * svg/SVGAnimatedInteger.idl:
+        * svg/SVGAnimatedLength.idl:
+        * svg/SVGAnimatedLengthList.idl:
+        * svg/SVGAnimatedNumber.idl:
+        * svg/SVGAnimatedNumberList.idl:
+        * svg/SVGAnimatedPreserveAspectRatio.idl:
+        * svg/SVGAnimatedRect.idl:
+        * svg/SVGAnimatedString.idl:
+        * svg/SVGAnimatedTransformList.idl:
+
+2013-04-12  Oliver Hunt  <oliver@apple.com>
+
         Make CodeGeneratorJS plant comments to explain failures in the binding validation
         https://bugs.webkit.org/show_bug.cgi?id=114528
 
