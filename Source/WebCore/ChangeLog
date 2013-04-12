@@ -1,3 +1,25 @@
+2013-04-11  Alexey Proskuryakov  <ap@apple.com>
+
+        Reduce includes of CachedSVGDocument.h
+        https://bugs.webkit.org/show_bug.cgi?id=114489
+
+        Reviewed by Jon Honeycutt.
+
+        * loader/cache/CachedSVGDocumentReference.cpp: Added.
+        * loader/cache/CachedSVGDocumentReference.h:
+        Moved function implementations to newly added .cpp file, and removed an include
+        of CachedSVGDocument.h.
+
+        * css/WebKitCSSSVGDocumentValue.h: Just removed an unnecessary include.
+
+        * CMakeLists.txt:
+        * GNUmakefile.list.am:
+        * Target.pri:
+        * WebCore.vcproj/WebCore.vcproj:
+        * WebCore.vcxproj/WebCore.vcxproj:
+        * WebCore.vcxproj/WebCore.vcxproj.filters:
+        * WebCore.xcodeproj/project.pbxproj:
+
 2013-04-11  Commit Queue  <rniwa@webkit.org>
 
         Unreviewed, rolling out r148247.
