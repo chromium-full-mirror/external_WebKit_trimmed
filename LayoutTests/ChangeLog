@@ -1,3 +1,14 @@
+2013-04-12  Alexey Proskuryakov  <ap@apple.com>
+
+        <rdar://problem/13277362> REGRESSION (r141981): Crash when closing a Google Docs document
+        https://bugs.webkit.org/show_bug.cgi?id=114541
+
+        Reviewed by Brady Eidson.
+
+        * http/tests/ssl/ping-with-unsafe-redirect.html: Added.
+        * http/tests/ssl/resources/ping-with-unsafe-redirect-frame.html: Added.
+        * http/tests/ssl/resources/redirect-ping-to-http.php: Added.
+
 2013-04-12  Ryosuke Niwa  <rniwa@webkit.org>
 
         Unreviewed. Don't forget to skip the test in WebKit2 for now.

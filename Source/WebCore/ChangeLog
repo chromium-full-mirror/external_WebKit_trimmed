@@ -1,3 +1,16 @@
+2013-04-12  Alexey Proskuryakov  <ap@apple.com>
+
+        <rdar://problem/13277362> REGRESSION (r141981): Crash when closing a Google Docs document
+        https://bugs.webkit.org/show_bug.cgi?id=114541
+
+        Reviewed by Brady Eidson.
+
+        Test: http/tests/ssl/ping-with-unsafe-redirect.html
+
+        * loader/FrameNetworkingContext.h:
+        (WebCore::FrameNetworkingContext::shouldClearReferrerOnHTTPSToHTTPRedirect):
+        Added a null check. All NetworkingContext functions except for this one had it already.
+
 2013-04-12  Ryosuke Niwa  <rniwa@webkit.org>
 
         [Mac] REGRESSION: Auto substitution strips new lines
