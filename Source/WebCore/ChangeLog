@@ -1,3 +1,99 @@
+2013-04-12  Brendan Long  <b.long@cablelabs.com>
+
+        Refactor TextTrack and TextTrackList to make it easier to add audio and video tracks
+        https://bugs.webkit.org/show_bug.cgi?id=114330
+
+        Reviewed by Jer Noble.
+
+        No new tests because this doesn't add new functionality.
+
+        * CMakeLists.txt: Only compile text track files if ENABLE(VIDEO_TRACK), and add TrackListBase
+        * Target.pri: Add TrackListBase
+        * WebCore.vcproj/WebCore.vcproj: Correct InbandTextTrackPrivate.h's location and add TrackListBase
+        * WebCore.xcodeproj/project.pbxproj: Add TrackListBase
+        * html/HTMLMediaElement.cpp: Renamed "track" functions to "textTrack"
+        (WebCore::HTMLMediaElement::mediaPlayerDidAddTextTrack): Renamed.
+        (WebCore::HTMLMediaElement::mediaPlayerDidRemoveTextTrack): Renamed.
+        (WebCore::HTMLMediaElement::addTextTrack): Renamed.
+        (WebCore::HTMLMediaElement::removeTextTrack): Renamed.
+        (WebCore::HTMLMediaElement::removeAllInbandTracks): Use renamed functions.
+        (WebCore::HTMLMediaElement::didAddTextTrack): Renamed.
+        (WebCore::HTMLMediaElement::didRemoveTextTrack): Renamed.
+        * html/HTMLMediaElement.h:
+        Renamed "track" functions to "textTrack" and only forward-declare TextTrackList if ENABLE(VIDEO_TRACK)
+        * html/HTMLTrackElement.cpp: Renamed "track" functions to "textTrack"
+        (WebCore::HTMLTrackElement::insertedInto):
+        (WebCore::HTMLTrackElement::removedFrom):
+        * html/track/TextTrack.cpp:
+        Move media element, label, language and kind into TrackBase and move EventTarget functions into TextTrack.
+        (WebCore::TextTrack::TextTrack): Added.
+        (WebCore::TextTrack::interfaceName): Added.
+        (WebCore::TextTrack::scriptExecutionContext): Added.
+        (WebCore::TextTrack::eventTargetData): Added.
+        (WebCore::TextTrack::ensureEventTargetData): Added.
+        (WebCore::TextTrack::isValidKind): Added to support TrackBase::setKind()
+        (WebCore::TextTrack::setKind): Override to support textTrackKindChanged()
+        (WebCore::TextTrack::isRendered): Use kind(), label() and language() instead of m_kind, etc.
+        (WebCore::TextTrack::platformTextTrack): Ditto.
+        (WebCore::TextTrack::isMainProgramContent): Ditto.
+        * html/track/TextTrack.h:
+        Same as TextTrack.cpp, plus added defaultKindKeyword() so TrackBase::setKind() will work and added
+        toTextTrack().
+        * html/track/TextTrackList.cpp:
+        Move functionality into TrackListBase, add toTextTrack() casts, use
+        TrackBase where necesssary and use owner() instead of m_owner.
+
+        Moved EventTarget functions into TrackListBase.
+        (TextTrackList::TextTrackList):
+        (TextTrackList::getTrackIndexRelativeToRenderedTracks):
+        (TextTrackList::item):
+        (TextTrackList::invalidateTrackIndexesAfterTrack):
+        (TextTrackList::append):
+        (TextTrackList::remove):
+        (TextTrackList::contains):
+        * html/track/TextTrackList.h:
+        Move EventTarget, RefCounted and m_inbandTracks into TrackListBase.
+        Override length(), contains() and remove().
+        * html/track/TrackBase.cpp: Remove EventTarget functions.
+        (WebCore::TrackBase::TrackBase):
+        Remove EventTarget, add label and language
+        (WebCore::TrackBase::setKind): Added
+        * html/track/TrackBase.h:
+        Don't extend EventTarget (AudioTrack and VideoTrack aren't). Handle
+        kind, label, language and media element.
+        (WebCore::TrackBase::setMediaElement): Added.
+        (WebCore::TrackBase::mediaElement): Added.
+        (WebCore::TrackBase::kind): Added.
+        (WebCore::TrackBase::label): Added.
+        (WebCore::TrackBase::setLabel): Added.
+        (WebCore::TrackBase::language): Added.
+        (WebCore::TrackBase::setLanguage): Added.
+        * html/track/TrackListBase.cpp:
+        Added. Handles functionality common to TextTrackList, AudioTrackList and
+        VideoTrackList.
+        (TrackListBase::TrackListBase): Added.
+        (TrackListBase::~TrackListBase): Added.
+        (TrackListBase::length): Added.
+        (TrackListBase::remove): Added.
+        (TrackListBase::contains): Added.
+        (TrackListBase::scheduleAddTrackEvent): Added.
+        (TrackListBase::scheduleRemoveTrackEvent): Added.
+        (TrackListBase::scheduleChangeEvent): Added.
+        (TrackListBase::asyncEventTimerFired): Added.
+        * html/track/TrackListBase.h:
+        Copied from Source/WebCore/html/track/TextTrackList.h. Handles
+        functionality common to TextTrackList, AudioTrackList and VideoTrackList.
+        (WebCore::TrackListBase::scriptExecutionContext): Added.
+        (WebCore::TrackListBase::clearOwner): Added.
+        (WebCore::TrackListBase::owner): Added.
+        (WebCore::TrackListBase::isFiringEventListeners): Added.
+        * platform/graphics/MediaPlayer.cpp:
+        (WebCore::MediaPlayer::addTextTrack): Renamed (was addTrack)
+        (WebCore::MediaPlayer::removeTextTrack): Renamed (was removeTrack)
+        * platform/graphics/MediaPlayer.h:
+        (WebCore::MediaPlayerClient::mediaPlayerDidAddTextTrack): Renamed (was mediaPlayerDidAddTrack)
+        (WebCore::MediaPlayerClient::mediaPlayerDidRemoveTextTrack): Renamed (was mediaPlayerDidRemoveTrack)
+
 2013-04-12  Oliver Hunt  <oliver@apple.com>
 
         make the codegenerator actually emit polymorphism check in the "no vtable" path
