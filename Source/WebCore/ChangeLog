@@ -1,3 +1,20 @@
+2013-04-11  Sukolsak Sakshuwong  <sukolsak@gmail.com>
+
+        Unable to paste twice in input field when specific CSS present
+        https://bugs.webkit.org/show_bug.cgi?id=108675
+
+        Reviewed by Ryosuke Niwa.
+
+        When we are pre-rendering text in ReplaceSelectionCommand, we shouldn't care
+        whether the content is clipped by its ancestors or not. This bug was caused
+        by the fact the plainText() method returned an empty string because the text
+        was fully clipped by its ancestors. Make plainText ignore style visibility.
+
+        Test: editing/inserting/insert-text-into-text-field.html
+
+        * editing/ReplaceSelectionCommand.cpp:
+        (WebCore::ReplacementFragment::ReplacementFragment):
+
 2013-04-11  Martin Robinson  <mrobinson@igalia.com>
 
         [GTK] Add accelerated 2D canvas support using cairo-gl
