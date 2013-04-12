@@ -1,5 +1,34 @@
 2013-04-11  Ryosuke Niwa  <rniwa@webkit.org>
 
+        Remove ResourceLoadInfo
+        https://bugs.webkit.org/show_bug.cgi?id=113302
+
+        Reviewed by Benjamin Poulain.
+
+        Co-authored by Christophe Dumez.
+
+        Removed ResourceLoadInfo since it had been only used by Chromium port.
+
+        * GNUmakefile.list.am:
+        * Target.pri:
+        * WebCore.order:
+        * WebCore.vcproj/WebCore.vcproj:
+        * WebCore.vcxproj/WebCore.vcxproj:
+        * WebCore.vcxproj/WebCore.vcxproj.filters:
+        * WebCore.xcodeproj/project.pbxproj:
+        * inspector/InspectorResourceAgent.cpp:
+        (WebCore::buildObjectForResourceResponse):
+        * loader/FrameLoader.cpp:
+        (WebCore::FrameLoader::loadResourceSynchronously):
+        * platform/network/ResourceLoadInfo.h: Removed.
+        * platform/network/ResourceResponseBase.cpp:
+        (WebCore):
+        (WebCore::ResourceResponseBase::reportMemoryUsage):
+        * platform/network/ResourceResponseBase.h:
+        (ResourceResponseBase):
+
+2013-04-11  Ryosuke Niwa  <rniwa@webkit.org>
+
         Another Mac Lion build fix attempt after r148197.
 
         * page/scrolling/mac/ScrollingStateScrollingNodeMac.mm:
