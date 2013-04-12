@@ -1,3 +1,9 @@
+2013-04-11  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Another Mac Lion build fix attempt after r148197.
+
+        * page/scrolling/mac/ScrollingStateScrollingNodeMac.mm:
+
 2013-04-11  Sukolsak Sakshuwong  <sukolsak@gmail.com>
 
         Unable to paste twice in input field when specific CSS present
