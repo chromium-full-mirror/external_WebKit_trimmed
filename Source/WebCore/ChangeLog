@@ -1,3 +1,56 @@
+2013-04-12  Commit Queue  <rniwa@webkit.org>
+
+        Unreviewed, rolling out r147942, r148026, and r148092.
+        http://trac.webkit.org/changeset/147942
+        http://trac.webkit.org/changeset/148026
+        http://trac.webkit.org/changeset/148092
+        https://bugs.webkit.org/show_bug.cgi?id=114521
+
+        "r147942 is buggy. Rollback all the patches depending on it."
+        (Requested by abucur on #webkit).
+
+        * dom/ContainerNode.cpp:
+        (WebCore::willRemoveChildren):
+        (WebCore):
+        (WebCore::ContainerNode::removeChildren):
+        * dom/Document.cpp:
+        (WebCore::Document::nodeChildrenWillBeRemoved):
+        (WebCore):
+        * dom/Document.h:
+        (Document):
+        * dom/Node.cpp:
+        * dom/Node.h:
+        (Node):
+        * dom/NodeTraversal.cpp:
+        * dom/NodeTraversal.h:
+        (ElementTraversal):
+        (NodeTraversal):
+        * dom/Range.cpp:
+        (WebCore::boundaryNodeChildrenWillBeRemoved):
+        (WebCore):
+        (WebCore::Range::nodeChildrenWillBeRemoved):
+        * dom/Range.h:
+        * html/HTMLLIElement.cpp:
+        (WebCore::HTMLLIElement::attach):
+        * html/HTMLOListElement.cpp:
+        (WebCore::HTMLOListElement::updateItemValues):
+        (WebCore::HTMLOListElement::recalculateItemCount):
+        * rendering/RenderCounter.cpp:
+        (WebCore::previousInPreOrder):
+        (WebCore::previousSiblingOrParent):
+        (WebCore::parentElement):
+        (WebCore::nextInPreOrder):
+        * rendering/RenderListItem.cpp:
+        (WebCore::enclosingList):
+        (WebCore::RenderListItem::nextListItem):
+        (WebCore::previousListItem):
+        (WebCore::RenderListItem::calcValue):
+        (WebCore::RenderListItem::explicitValueChanged):
+        (WebCore::previousOrNextItem):
+        (WebCore::RenderListItem::updateListMarkerNumbers):
+        * rendering/RenderListItem.h:
+        (RenderListItem):
+
 2013-04-12  Jer Noble  <jer.noble@apple.com>
 
         TimeRanges::nearest() returns incorrect results.

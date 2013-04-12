@@ -1,3 +1,81 @@
+2013-04-12  Commit Queue  <rniwa@webkit.org>
+
+        Unreviewed, rolling out r147942, r148026, and r148092.
+        http://trac.webkit.org/changeset/147942
+        http://trac.webkit.org/changeset/148026
+        http://trac.webkit.org/changeset/148092
+        https://bugs.webkit.org/show_bug.cgi?id=114521
+
+        "r147942 is buggy. Rollback all the patches depending on it."
+        (Requested by abucur on #webkit).
+
+        * fast/dom/MutationObserver/added-out-of-order-expected.txt:
+        * fast/dom/MutationObserver/added-out-of-order.html:
+        * fast/dom/Range/range-remove-children-event-expected.txt: Removed.
+        * fast/dom/Range/range-remove-children-event.html: Removed.
+        * fast/dom/containerNode-expected.txt: Added.
+        * fast/dom/containerNode.html: Added.
+        * fast/dom/shadow/shadow-and-list-elements-expected.html:
+        * fast/events/mutation-during-innerHTML-expected.txt: Removed.
+        * fast/events/mutation-during-innerHTML.html: Removed.
+        * fast/lists/positioned-count-crash-expected.txt:
+        * fast/regions/counters/extract-list-items-001-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-001.html: Removed.
+        * fast/regions/counters/extract-list-items-002-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-002.html: Removed.
+        * fast/regions/counters/extract-list-items-003-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-003.html: Removed.
+        * fast/regions/counters/extract-list-items-004-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-004.html: Removed.
+        * fast/regions/counters/extract-list-items-005-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-005.html: Removed.
+        * fast/regions/counters/extract-list-items-006-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-006.html: Removed.
+        * fast/regions/counters/extract-list-items-007-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-007.html: Removed.
+        * fast/regions/counters/extract-list-items-008-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-008.html: Removed.
+        * fast/regions/counters/extract-list-items-009-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-009.html: Removed.
+        * fast/regions/counters/extract-list-items-010-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-010.html: Removed.
+        * fast/regions/counters/extract-list-items-011-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-011.html: Removed.
+        * fast/regions/counters/extract-list-items-012-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-012.html: Removed.
+        * fast/regions/counters/extract-list-items-013-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-013.html: Removed.
+        * fast/regions/counters/extract-list-items-014-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-014.html: Removed.
+        * fast/regions/counters/extract-list-items-015-expected.html: Removed.
+        * fast/regions/counters/extract-list-items-015.html: Removed.
+        * fast/regions/counters/extract-numbered-paragraphs-divs-001-expected.html: Removed.
+        * fast/regions/counters/extract-numbered-paragraphs-divs-001.html: Removed.
+        * fast/regions/counters/extract-numbered-paragraphs-divs-002-expected.html: Removed.
+        * fast/regions/counters/extract-numbered-paragraphs-divs-002.html: Removed.
+        * fast/regions/counters/extract-numbered-paragraphs-expected.html: Removed.
+        * fast/regions/counters/extract-numbered-paragraphs.html: Removed.
+        * fast/regions/counters/extract-numbered-spans-display-only-some-expected.html: Removed.
+        * fast/regions/counters/extract-numbered-spans-display-only-some.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-001-expected.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-001.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-002-expected.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-002.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-003-expected.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-003.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-001-expected.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-001.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-002-expected.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-002.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-003-expected.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-003.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-004-expected.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-004.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-005-expected.html: Removed.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-005.html: Removed.
+        * fast/regions/counters/extract-unordered-lists-in-regions-expected.html: Removed.
+        * fast/regions/counters/extract-unordered-lists-in-regions.html: Removed.
+
 2013-04-12  Jer Noble  <jer.noble@apple.com>
 
         TimeRanges::nearest() returns incorrect results.
