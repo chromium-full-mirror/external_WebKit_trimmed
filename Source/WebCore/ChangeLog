@@ -1,3 +1,28 @@
+2013-04-12  Tim Horton  <timothy_horton@apple.com>
+
+        REGRESSION (r138858): GIFs don't start playing when they come out of background tabs
+        https://bugs.webkit.org/show_bug.cgi?id=108864
+        <rdar://problem/13140489>
+
+        Reviewed by Antti Koivisto.
+
+        * loader/cache/CachedImage.cpp:
+        (WebCore::CachedImage::resumeAnimatingImagesForLoader): Added.
+        Iterate through all of the loader's cached resources. If they are bitmap images
+        which claim to be animatable, notify the image's observers that the animation advanced
+        by one frame. In reality, the image is still on the same frame, but will now be repainted,
+        restarting the animation loop.
+        * loader/cache/CachedImage.h:
+        * page/FrameView.cpp:
+        (WebCore::FrameView::setIsInWindow):
+        When the FrameView is brought into a window, repaint all animated images.
+        * platform/graphics/BitmapImage.cpp:
+        (WebCore::BitmapImage::canAnimate): Added. 
+        Return whether or not the image should animate (claims to animate, has not already
+        finished its animation, and has an ImageObserver) *and* has more than one frame.
+        * platform/graphics/BitmapImage.h:
+        (BitmapImage): Add canAnimate.
+
 2013-04-12  Martin Robinson  <mrobinson@igalia.com>
 
         r148197 broke the GTK+ build
