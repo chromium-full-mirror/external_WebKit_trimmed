@@ -1,3 +1,18 @@
+2013-04-09  Roger Fong  <roger_fong@apple.com>
+
+        Update AVFoundationCF code following http://trac.webkit.org/changeset/148291.
+        https://bugs.webkit.org/show_bug.cgi?id=114548.
+
+        Reviewed by Eric Carlson.
+
+        * platform/graphics/avfoundation/cf/MediaPlayerPrivateAVFoundationCF.cpp:
+        (WebCore::MediaPlayerPrivateAVFoundationCF::seekToTime):
+        (WebCore::MediaPlayerPrivateAVFoundationCF::platformMinTimeSeekable):
+        (WebCore):
+        (WebCore::MediaPlayerPrivateAVFoundationCF::platformMaxTimeSeekable):
+        * platform/graphics/avfoundation/cf/MediaPlayerPrivateAVFoundationCF.h:
+        (MediaPlayerPrivateAVFoundationCF):
+
 2013-04-12  Simon Fraser  <simon.fraser@apple.com>
 
         Demystify some code in RenderLayer::updateScrollableAreaSet()
