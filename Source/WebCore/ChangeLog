@@ -1,3 +1,18 @@
+2013-04-13  Andreas Kling  <akling@apple.com>
+
+        Remove unused method CSSStyleDeclaration::makeMutable().
+        <http://webkit.org/b/114567>
+
+        Reviewed by Anders Carlsson.
+
+        * css/CSSComputedStyleDeclaration.cpp:
+        * css/CSSComputedStyleDeclaration.h:
+        (CSSComputedStyleDeclaration):
+        * css/CSSStyleDeclaration.h:
+        (CSSStyleDeclaration):
+        * css/PropertySetCSSStyleDeclaration.cpp:
+        * css/PropertySetCSSStyleDeclaration.h:
+
 2013-04-13  Antoine Quint  <graouts@apple.com>
 
         Width of last of consecutive tabs may be incorrect with "white-space: pre-wrap"
