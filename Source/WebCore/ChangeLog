@@ -1,3 +1,71 @@
+2013-04-13  Andreas Kling  <akling@apple.com>
+
+        Rename/tweak some StylePropertySet/CSSStyleDeclaration copying functions.
+        <http://webkit.org/b/114569>
+
+        Reviewed by Anders Carlsson.
+
+        - StylePropertySet::copy() -> mutableCopy()
+
+            This function now returns a MutableStylePropertySet, and this is also reflected in the name.
+
+        - CSSStyleDeclaration::copy() -> copyProperties()
+
+            Renamed to reflect that it's the properties being copied, not the CSSStyleDeclaration.
+            They also now return MutableStylePropertySets.
+
+        - StylePropertySet::copyPropertiesInSet()
+        - CSSStyleDeclaration::copyPropertiesInSet()
+
+            These functions now return MutableStylePropertySets.
+
+        * css/CSSComputedStyleDeclaration.cpp:
+        (WebCore::CSSComputedStyleDeclaration::copyProperties):
+        (WebCore::CSSComputedStyleDeclaration::copyPropertiesInSet):
+        * css/CSSComputedStyleDeclaration.h:
+        (CSSComputedStyleDeclaration):
+        * css/CSSStyleDeclaration.h:
+        (CSSStyleDeclaration):
+        * css/PropertySetCSSStyleDeclaration.cpp:
+        (WebCore::PropertySetCSSStyleDeclaration::copyProperties):
+        * css/PropertySetCSSStyleDeclaration.h:
+        * css/StylePropertySet.cpp:
+        (WebCore::StylePropertySet::mutableCopy):
+        (WebCore::StylePropertySet::copyPropertiesInSet):
+        * css/StylePropertySet.h:
+        (StylePropertySet):
+        * css/StyleRule.cpp:
+        (WebCore::StyleRule::StyleRule):
+        (WebCore::StyleRule::mutableProperties):
+        (WebCore::StyleRulePage::StyleRulePage):
+        (WebCore::StyleRulePage::mutableProperties):
+        (WebCore::StyleRuleFontFace::StyleRuleFontFace):
+        (WebCore::StyleRuleFontFace::mutableProperties):
+        (WebCore::StyleRuleViewport::StyleRuleViewport):
+        (WebCore::StyleRuleViewport::mutableProperties):
+        (WebCore::StyleRuleFilter::StyleRuleFilter):
+        (WebCore::StyleRuleFilter::mutableProperties):
+        * css/ViewportStyleResolver.cpp:
+        (WebCore::ViewportStyleResolver::addViewportRule):
+        * css/WebKitCSSKeyframeRule.cpp:
+        (WebCore::StyleKeyframe::mutableProperties):
+        * dom/Element.cpp:
+        (WebCore::UniqueElementData::UniqueElementData):
+        * dom/StyledElement.cpp:
+        (WebCore::StyledElement::ensureMutableInlineStyle):
+        * editing/ApplyStyleCommand.cpp:
+        (WebCore::copyStyleOrCreateEmpty):
+        * editing/EditingStyle.cpp:
+        (WebCore::copyEditingProperties):
+        (WebCore::editingStyleFromComputedStyle):
+        (WebCore::EditingStyle::EditingStyle):
+        (WebCore::EditingStyle::init):
+        (WebCore::EditingStyle::copy):
+        (WebCore::EditingStyle::mergeStyle):
+        (WebCore::getPropertiesNotIn):
+        * editing/FrameSelection.cpp:
+        (WebCore::FrameSelection::copyTypingStyle):
+
 2013-04-13  Dirk Schulze  <krit@webkit.org>
 
         Rename StyleBuilder to DeprecatedStyleBuilder
