@@ -1,3 +1,20 @@
+2013-04-13  Antoine Quint  <graouts@apple.com>
+
+        Width of last of consecutive tabs may be incorrect with "white-space: pre-wrap"
+        https://bugs.webkit.org/show_bug.cgi?id=114562
+
+        Reviewed by Dan Bernstein.
+
+        When we measure the last word of a RenderText, make sure we use the correct x
+        position taking into account the current accumulated word measurements up to
+        this character. This is of particular importance in the case of tabs where the
+        measured width would differ based on the x position.
+
+        Test: fast/text/tab-last-word-in-renderer-pre-wrap.html
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::setLogicalWidthForTextRun):
+
 2013-04-13  Mark Salisbury  <mark.salisbury@hp.com>
 
         [Windows, WinCairo] ImageBufferCairo.cpp fails to compile after 148247, 148264.
