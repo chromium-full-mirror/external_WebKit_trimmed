@@ -1,3 +1,9 @@
+2013-04-13  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Update Mac WebKit2 test expectations for flaky and failing tests.
+
+        * platform/mac-wk2/TestExpectations:
+
 2013-04-13  Antoine Quint  <graouts@apple.com>
 
         Width of last of consecutive tabs may be incorrect with "white-space: pre-wrap"
