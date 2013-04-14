@@ -1,5 +1,20 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        Specialize propertyCount() in StylePropertySet subclasses.
+        <http://webkit.org/b/114590>
+
+        Reviewed by Antti Koivisto.
+
+        Avoid branching on m_isMutable in code that already knows which type of set it is.
+
+        * css/StylePropertySet.h:
+        (WebCore::ImmutableStylePropertySet::propertyCount):
+        (ImmutableStylePropertySet):
+        (WebCore::MutableStylePropertySet::propertyCount):
+        (MutableStylePropertySet):
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         Move property setting/removing functions to MutableStylePropertySet.
         <http://webkit.org/b/114589>
 
