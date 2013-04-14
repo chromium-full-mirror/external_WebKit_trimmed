@@ -1,5 +1,14 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        Remove unused function declaration StylePropertySet::setNeedsStyleRecalc().
+
+        Rubber-stamped by Antti Koivisto.
+
+        * css/StylePropertySet.h:
+        (StylePropertySet):
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         Move StylePropertySet internal storage access helpers to subclass.
         <http://webkit.org/b/114592>
 
