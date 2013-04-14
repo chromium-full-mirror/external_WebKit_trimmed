@@ -1,5 +1,51 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        Move property setting/removing functions to MutableStylePropertySet.
+        <http://webkit.org/b/114589>
+
+        Reviewed by Antti Koivisto.
+
+        Move all functions for setting/removing properties from StylePropertySet to MutableStylePropertySet.
+        Had to change SVGElement::animatedSMILStyleProperties() & friends to hand out MutableStylePropertySet*
+        which was always the internal type anyway.
+
+        * css/StylePropertySet.cpp:
+        (WebCore::MutableStylePropertySet::removeShorthandProperty):
+        (WebCore::MutableStylePropertySet::removeProperty):
+        (WebCore::MutableStylePropertySet::removePrefixedOrUnprefixedProperty):
+        (WebCore::MutableStylePropertySet::setProperty):
+        (WebCore::MutableStylePropertySet::appendPrefixingVariantProperty):
+        (WebCore::MutableStylePropertySet::setPrefixingVariantProperty):
+        (WebCore::MutableStylePropertySet::mergeAndOverrideOnConflict):
+        (WebCore::MutableStylePropertySet::removeBlockProperties):
+        (WebCore::MutableStylePropertySet::removePropertiesInSet):
+        (WebCore::MutableStylePropertySet::findCSSPropertyWithID):
+        (WebCore::MutableStylePropertySet::removeEquivalentProperties):
+        * css/StylePropertySet.h:
+        (StylePropertySet):
+        (MutableStylePropertySet):
+        * editing/ApplyStyleCommand.cpp:
+        (WebCore::ApplyStyleCommand::applyRelativeFontStyleChange):
+        (WebCore::ApplyStyleCommand::removeEmbeddingUpToEnclosingBlock):
+        (WebCore::ApplyStyleCommand::applyInlineStyleToNodeRange):
+        * editing/EditingStyle.cpp:
+        (WebCore::EditingStyle::triStateOfStyle):
+        (WebCore::removePropertiesInStyle):
+        (WebCore::reconcileTextDecorationProperties):
+        * svg/SVGAnimateElement.cpp:
+        (WebCore::applyCSSPropertyToTarget):
+        * svg/SVGElement.cpp:
+        (WebCore::SVGElement::animatedSMILStyleProperties):
+        (WebCore::SVGElement::ensureAnimatedSMILStyleProperties):
+        * svg/SVGElement.h:
+        (SVGElement):
+        * svg/SVGElementRareData.h:
+        (WebCore::SVGElementRareData::animatedSMILStyleProperties):
+        (WebCore::SVGElementRareData::ensureAnimatedSMILStyleProperties):
+        (SVGElementRareData):
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         EditingStyle should have a MutableStylePropertySet internally.
         <http://webkit.org/b/114588>
 
