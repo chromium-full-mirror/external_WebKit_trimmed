@@ -1,5 +1,28 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        Move parseDeclaration() and clear() to MutableStylePropertySet.
+        <http://webkit.org/b/114583>
+
+        Reviewed by Anders Carlsson.
+
+        ...and remove ASSERT(isMutable()) from the function bodies.
+
+        * svg/SVGFontFaceElement.cpp:
+        (WebCore::SVGFontFaceElement::removedFrom):
+
+            Use clear() directly instead of taking an empty string through the CSS parser.
+
+        * css/StylePropertySet.cpp:
+        (WebCore::MutableStylePropertySet::parseDeclaration):
+        (WebCore::MutableStylePropertySet::clear):
+        * css/StylePropertySet.h:
+        (StylePropertySet):
+        (MutableStylePropertySet):
+        * dom/StyledElement.cpp:
+        (WebCore::StyledElement::setInlineStyleFromString):
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         Move CSSOM classes to using MutableStylePropertySet over StylePropertySet.
         <http://webkit.org/b/114581>
 
