@@ -1,3 +1,53 @@
+2013-04-10  Sam Weinig  <sam@webkit.org>
+
+        Make Frame's ScriptController an OwnPtr and remove the #include
+        https://bugs.webkit.org/show_bug.cgi?id=114105
+
+        Reviewed by Dean Jackson.
+
+        * Modules/websockets/WebSocket.cpp:
+        * bindings/generic/BindingSecurity.cpp:
+        * bindings/js/JSEventListener.cpp:
+        * bindings/js/JSLazyEventListener.cpp:
+        * bindings/js/PageScriptDebugServer.cpp:
+        * bindings/js/ScriptEventListener.cpp:
+        * bindings/js/ScriptState.cpp:
+        * bindings/objc/DOM.mm:
+        * bindings/objc/DOMAbstractView.mm:
+        * bindings/objc/DOMInternal.mm:
+        * dom/DocumentStyleSheetCollection.cpp:
+        * dom/EventTarget.cpp:
+        * dom/ScriptElement.cpp:
+        * history/CachedFrame.cpp:
+        * html/HTMLCanvasElement.cpp:
+        * html/HTMLDocument.cpp:
+        * html/HTMLElement.cpp:
+        * html/HTMLFormElement.cpp:
+        * html/HTMLPlugInElement.cpp:
+        * html/HTMLPlugInImageElement.cpp:
+        * html/parser/HTMLParserOptions.cpp:
+        * inspector/InspectorAgent.cpp:
+        * inspector/InspectorController.cpp:
+        * inspector/InspectorFrontendClientLocal.cpp:
+        * inspector/InspectorFrontendHost.cpp:
+        * inspector/InspectorInstrumentation.cpp:
+        * inspector/InspectorOverlay.cpp:
+        * inspector/InspectorPageAgent.cpp:
+        * inspector/PageRuntimeAgent.cpp:
+        * loader/DocumentWriter.cpp:
+        * loader/NavigationScheduler.cpp:
+        * loader/SubframeLoader.cpp:
+        * loader/cache/CachedResourceLoader.cpp:
+        * page/DOMWindow.cpp:
+        * page/EventSource.cpp:
+        * page/Frame.cpp:
+        * page/Frame.h:
+        * page/Navigator.cpp:
+        * page/Page.cpp:
+        * page/PageGroup.cpp:
+        * xml/XMLHttpRequest.cpp:
+        * xml/XMLTreeViewer.cpp:
+
 2013-04-13  Anders Carlsson  <andersca@apple.com>
 
         Add form delegate method that's invoked right before sending a submit event to a form element
