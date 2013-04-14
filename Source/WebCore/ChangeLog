@@ -1,5 +1,44 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        Move StylePropertySet internal storage access helpers to subclass.
+        <http://webkit.org/b/114592>
+
+        Reviewed by Antti Koivisto.
+
+        Removed mutablePropertyVector() since most call sites are inside MutableStylePropertySet
+        and can access m_propertyVector directly. The few ones that aren't can just cast.
+
+        For ImmutableStylePropertySet, moved value/metadata array accessors to the subclass
+        and remove "immutable" from their names.
+
+        * css/StylePropertySet.cpp:
+        (WebCore::StylePropertySet::immutableCopyIfNeeded):
+        (WebCore::ImmutableStylePropertySet::ImmutableStylePropertySet):
+        (WebCore::ImmutableStylePropertySet::~ImmutableStylePropertySet):
+        (WebCore::MutableStylePropertySet::MutableStylePropertySet):
+        (WebCore::MutableStylePropertySet::removeProperty):
+        (WebCore::MutableStylePropertySet::removePrefixedOrUnprefixedProperty):
+        (WebCore::MutableStylePropertySet::setProperty):
+        (WebCore::MutableStylePropertySet::appendPrefixingVariantProperty):
+        (WebCore::MutableStylePropertySet::parseDeclaration):
+        (WebCore::MutableStylePropertySet::addParsedProperties):
+        (WebCore::MutableStylePropertySet::clear):
+        (WebCore::MutableStylePropertySet::removePropertiesInSet):
+        (WebCore::MutableStylePropertySet::findCSSPropertyWithID):
+        (WebCore::MutableStylePropertySet::removeEquivalentProperties):
+        (WebCore::StylePropertySet::reportMemoryUsage):
+        * css/StylePropertySet.h:
+        (PropertyReference):
+        (StylePropertySet):
+        (ImmutableStylePropertySet):
+        (WebCore::ImmutableStylePropertySet::valueArray):
+        (WebCore::ImmutableStylePropertySet::metadataArray):
+        (WebCore::StylePropertySet::PropertyReference::propertyMetadata):
+        (WebCore::StylePropertySet::PropertyReference::propertyValue):
+        (WebCore::StylePropertySet::propertyCount):
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         Specialize propertyCount() in StylePropertySet subclasses.
         <http://webkit.org/b/114590>
 
