@@ -1,3 +1,14 @@
+2013-04-13  Sam Weinig  <sam@webkit.org>
+
+        Fix three crashes seen on the bots after "Make Frame's ScriptController an OwnPtr and remove the #include"
+
+        * xml/XMLHttpRequest.cpp:
+        (WebCore::XMLHttpRequest::open):
+        Check that the frame is not null (as it can be in cases like http/tests/xmlhttprequest/detaching-frame-2.html).
+        We used to be getting lucky, in that shouldBypassMainWorldContentSecurityPolicy(), the function that is ultimately
+        called, only operates on global state. Now that we need to actually dereference the Frame to get the ScriptController,
+        we see this crash.
+
 2013-04-13  Sukolsak Sakshuwong  <sukolsak@gmail.com>
 
         Selection direction is not preserved when applying styles
