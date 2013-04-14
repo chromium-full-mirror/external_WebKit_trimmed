@@ -1,5 +1,31 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        EditingStyle should have a MutableStylePropertySet internally.
+        <http://webkit.org/b/114588>
+
+        Reviewed by Anders Carlsson.
+
+        Switch EditingStyle::m_mutableStyle to a RefPtr<MutableStylePropertySet>.
+
+        * css/StylePropertySet.cpp:
+        (WebCore::StylePropertySet::copyBlockProperties):
+        * css/StylePropertySet.h:
+        (StylePropertySet):
+        * editing/EditingStyle.cpp:
+        (WebCore::EditingStyle::setStyle):
+        (WebCore::EditingStyle::mergeStyleFromRules):
+        (WebCore::StyleChange::StyleChange):
+        (WebCore::setTextDecorationProperty):
+        (WebCore::StyleChange::extractTextStyles):
+        (WebCore::diffTextDecorations):
+        (WebCore::getPropertiesNotIn):
+        * editing/EditingStyle.h:
+        (WebCore::EditingStyle::style):
+        (EditingStyle):
+        (StyleChange):
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         Move addParsedProperty/addParsedProperties to MutableStylePropertySet.
         <http://webkit.org/b/114587>
 
