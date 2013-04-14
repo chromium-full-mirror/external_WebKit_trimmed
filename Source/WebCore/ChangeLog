@@ -1,5 +1,26 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        Only MutableStylePropertySets should be able to have CSSOM wrappers.
+        <http://webkit.org/b/114595>
+
+        Reviewed by Antti Koivisto.
+
+        Tighten typing so that only MutableStylePropertySets can have CSSOM wrappers associated.
+        This allows us to get rid of the out-of-line base class destructor.
+
+        * WebCore.exp.in:
+        * css/StylePropertySet.cpp:
+        (WebCore::MutableStylePropertySet::~MutableStylePropertySet):
+        (WebCore::MutableStylePropertySet::cssStyleDeclaration):
+        (WebCore::MutableStylePropertySet::ensureInlineCSSStyleDeclaration):
+        * css/StylePropertySet.h:
+        (StylePropertySet):
+        (MutableStylePropertySet):
+        * dom/StyledElement.cpp:
+        (WebCore::StyledElement::inlineStyleCSSOMWrapper):
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         Remove unused function declaration StylePropertySet::setNeedsStyleRecalc().
 
         Rubber-stamped by Antti Koivisto.
