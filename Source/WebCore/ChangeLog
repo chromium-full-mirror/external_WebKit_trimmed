@@ -1,5 +1,70 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        Move CSSOM classes to using MutableStylePropertySet over StylePropertySet.
+        <http://webkit.org/b/114581>
+
+        Reviewed by Anders Carlsson.
+
+        Moved ensureCSSStyleDeclaration() and ensureInlineCSSStyleDeclaration() from StylePropertySet
+        to MutableStylePropertySet.
+
+        StyleRule & co now return a MutableStylePropertySet* from mutableProperties() to aid with...
+
+        CSSStyleDeclaration now only deals with MutableStylePropertySets. This was already the case
+        in practice, we just didn't have any compile-time foot-shooting protection.
+        In other words, if there's a CSSOM wrapper for a given StylePropertySet, it's guaranteed to
+        be mutable, and the pointer types now reflect this.
+
+        * WebCore.exp.in:
+        * css/PropertySetCSSStyleDeclaration.cpp:
+        (WebCore::StyleRuleCSSStyleDeclaration::StyleRuleCSSStyleDeclaration):
+        (WebCore::StyleRuleCSSStyleDeclaration::reattach):
+        * css/PropertySetCSSStyleDeclaration.h:
+        (WebCore::PropertySetCSSStyleDeclaration::PropertySetCSSStyleDeclaration):
+        (PropertySetCSSStyleDeclaration):
+        (WebCore::StyleRuleCSSStyleDeclaration::create):
+        (StyleRuleCSSStyleDeclaration):
+        (WebCore::InlineCSSStyleDeclaration::InlineCSSStyleDeclaration):
+        * css/StylePropertySet.cpp:
+        (WebCore::MutableStylePropertySet::ensureCSSStyleDeclaration):
+        (WebCore::MutableStylePropertySet::ensureInlineCSSStyleDeclaration):
+        * css/StylePropertySet.h:
+        (StylePropertySet):
+        (MutableStylePropertySet):
+        * css/StyleRule.cpp:
+        (WebCore::StyleRule::mutableProperties):
+        (WebCore::StyleRulePage::mutableProperties):
+        (WebCore::StyleRuleFontFace::mutableProperties):
+        (WebCore::StyleRuleViewport::mutableProperties):
+        (WebCore::StyleRuleFilter::mutableProperties):
+        * css/StyleRule.h:
+        (StyleRule):
+        (StyleRuleFontFace):
+        (StyleRulePage):
+        (StyleRuleViewport):
+        (StyleRuleFilter):
+        * css/WebKitCSSKeyframeRule.cpp:
+        (WebCore::StyleKeyframe::mutableProperties):
+        * css/WebKitCSSKeyframeRule.h:
+        (StyleKeyframe):
+        * dom/Attr.cpp:
+        (WebCore::Attr::style):
+        * dom/Attr.h:
+        (Attr):
+        * editing/EditingStyle.cpp:
+        (WebCore::EditingStyle::removeStyleAddedByNode):
+        (WebCore::EditingStyle::removeStyleConflictingWithStyleOfNode):
+        (WebCore::EditingStyle::triStateOfStyle):
+        (WebCore::styleFromMatchedRulesForElement):
+        (WebCore::EditingStyle::removeStyleFromRulesAndContext):
+        * editing/FrameSelection.cpp:
+        (WebCore::FrameSelection::copyTypingStyle):
+        * editing/FrameSelection.h:
+        * inspector/InspectorCSSAgent.cpp:
+        (WebCore::InspectorCSSAgent::buildObjectForAttributesStyle):
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         Move create() methods from StylePropertySet to MutableStylePropertySet.
         <http://webkit.org/b/114574>
 
