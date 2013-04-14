@@ -1,5 +1,22 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        CSSParser should return ImmutableStylePropertySets.
+        <http://webkit.org/b/114585>
+
+        Reviewed by Anders Carlsson.
+
+        The StylePropertySets created by CSSParser were already immutable.
+        Let this be reflected in the pointer types returned.
+
+        * css/CSSParser.cpp:
+        (WebCore::CSSParser::parseInlineStyleDeclaration):
+        (WebCore::CSSParser::parseDeclaration):
+        (WebCore::CSSParser::createStylePropertySet):
+        * css/CSSParser.h:
+        (CSSParser):
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         Move StylePropertySet::createImmutable() to ImmutableStylePropertySet.
         <http://webkit.org/b/114584>
 
