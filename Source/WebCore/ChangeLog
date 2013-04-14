@@ -1,5 +1,11 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        Hawtfix Mac build.
+
+        * WebCore.exp.in:
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         Only MutableStylePropertySets should be able to have CSSOM wrappers.
         <http://webkit.org/b/114595>
 
