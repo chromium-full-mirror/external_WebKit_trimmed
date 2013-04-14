@@ -1,5 +1,24 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        Move StylePropertySet::createImmutable() to ImmutableStylePropertySet.
+        <http://webkit.org/b/114584>
+
+        Reviewed by Anders Carlsson.
+
+        StylePropertySet::createImmutable() -> ImmutableStylePropertySet::create()
+        Also, immutableCopyIfNeeded() now returns a PassRefPtr<ImmutableStylePropertySet>.
+
+        * css/CSSParser.cpp:
+        (WebCore::CSSParser::createStylePropertySet):
+        * css/StylePropertySet.cpp:
+        (WebCore::ImmutableStylePropertySet::create):
+        (WebCore::StylePropertySet::immutableCopyIfNeeded):
+        * css/StylePropertySet.h:
+        (StylePropertySet):
+        (ImmutableStylePropertySet):
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         Move parseDeclaration() and clear() to MutableStylePropertySet.
         <http://webkit.org/b/114583>
 
