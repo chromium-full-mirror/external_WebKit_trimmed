@@ -1,5 +1,34 @@
 2013-04-14  Andreas Kling  <akling@apple.com>
 
+        Move addParsedProperty/addParsedProperties to MutableStylePropertySet.
+        <http://webkit.org/b/114587>
+
+        Reviewed by Antti Koivisto.
+
+        All CSSParser methods that mutate an existing StylePropertySet now take a MutableStylePropertySet*
+        instead of a StylePropertySet*.
+
+        * css/CSSParser.cpp:
+        (WebCore::parseColorValue):
+        (WebCore::parseSimpleLengthValue):
+        (WebCore::parseKeywordValue):
+        (WebCore::parseTranslateTransformValue):
+        (WebCore::CSSParser::parseValue):
+        (WebCore::CSSParser::parseDeclaration):
+        * css/CSSParser.h:
+        (CSSParser):
+        * css/StylePropertySet.cpp:
+        (WebCore::StylePropertySet::setProperty):
+        (WebCore::MutableStylePropertySet::addParsedProperties):
+        (WebCore::MutableStylePropertySet::addParsedProperty):
+        * css/StylePropertySet.h:
+        (StylePropertySet):
+        (MutableStylePropertySet):
+        * css/ViewportStyleResolver.h:
+        (ViewportStyleResolver):
+
+2013-04-14  Andreas Kling  <akling@apple.com>
+
         CSSParser should return ImmutableStylePropertySets.
         <http://webkit.org/b/114585>
 
