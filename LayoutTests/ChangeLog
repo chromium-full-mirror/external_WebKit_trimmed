@@ -1,3 +1,9 @@
+2013-04-14  Andreas Kling  <akling@apple.com>
+
+        Re-skip editing/spelling/spelling-changed-text.html on Mac/WK1.
+
+        * platform/mac/TestExpectations:
+
 2013-04-13  Sukolsak Sakshuwong  <sukolsak@gmail.com>
 
         Selection direction is not preserved when applying styles
