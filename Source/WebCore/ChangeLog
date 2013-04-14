@@ -1,3 +1,79 @@
+2013-04-14  Andreas Kling  <akling@apple.com>
+
+        Move create() methods from StylePropertySet to MutableStylePropertySet.
+        <http://webkit.org/b/114574>
+
+        Reviewed by Antti Koivisto.
+
+        Move the two create() methods that create MutableStylePropertySets from StylePropertySet
+        to MutableStylePropertySet, and make them actually return MutableStylePropertySets.
+        Switch to using {Pass,}RefPtr<MutableStylePropertySet> where appropriate to keep things building.
+
+        * css/CSSComputedStyleDeclaration.cpp:
+        (WebCore::CSSComputedStyleDeclaration::copyPropertiesInSet):
+        * css/CSSParser.cpp:
+        (WebCore::CSSParser::parseFontFaceValue):
+        * css/DOMWindowCSS.cpp:
+        (WebCore::DOMWindowCSS::supports):
+        * css/ElementRuleCollector.cpp:
+        (WebCore::leftToRightDeclaration):
+        (WebCore::rightToLeftDeclaration):
+        * css/FontLoader.cpp:
+        (WebCore::FontLoader::resolveFontStyle):
+        * css/StylePropertySet.cpp:
+        (WebCore::StylePropertySet::copyPropertiesInSet):
+        (WebCore::MutableStylePropertySet::create):
+        * css/StylePropertySet.h:
+        (StylePropertySet):
+        (MutableStylePropertySet):
+        * css/StyleResolver.cpp:
+        (WebCore::StyleResolver::resolveVariables):
+        * css/WebKitCSSMatrix.cpp:
+        (WebCore::WebKitCSSMatrix::setMatrixValue):
+        * dom/Attr.cpp:
+        (WebCore::Attr::style):
+        * dom/Document.cpp:
+        (WebCore::Document::createCSSStyleDeclaration):
+        * dom/StyledElement.cpp:
+        (WebCore::StyledElement::ensureMutableInlineStyle):
+        (WebCore::StyledElement::rebuildPresentationAttributeStyle):
+        * editing/ApplyStyleCommand.cpp:
+        (WebCore::copyStyleOrCreateEmpty):
+        * editing/EditingStyle.cpp:
+        (WebCore::editingStyleFromComputedStyle):
+        (WebCore::HTMLAttributeEquivalent::attributeValueAsCSSValue):
+        (WebCore::EditingStyle::setProperty):
+        (WebCore::EditingStyle::extractAndRemoveTextDirection):
+        (WebCore::styleFromMatchedRulesForElement):
+        (WebCore::EditingStyle::mergeStyleFromRulesForSerialization):
+        (WebCore::EditingStyle::forceInline):
+        * editing/Editor.cpp:
+        (WebCore::Editor::setBaseWritingDirection):
+        * editing/EditorCommand.cpp:
+        (WebCore::executeApplyStyle):
+        (WebCore::executeToggleStyleInList):
+        (WebCore::executeApplyParagraphStyle):
+        (WebCore::executeMakeTextWritingDirectionLeftToRight):
+        (WebCore::executeMakeTextWritingDirectionNatural):
+        (WebCore::executeMakeTextWritingDirectionRightToLeft):
+        * html/HTMLTableElement.cpp:
+        (WebCore::leakBorderStyle):
+        (WebCore::HTMLTableElement::createSharedCellStyle):
+        (WebCore::leakGroupBorderStyle):
+        * html/canvas/CanvasRenderingContext2D.cpp:
+        (WebCore::CanvasRenderingContext2D::setFont):
+        * inspector/InspectorStyleSheet.cpp:
+        (WebCore::InspectorStyle::setPropertyText):
+        (WebCore::InspectorStyleSheetForInlineStyle::getStyleAttributeRanges):
+        * page/DragController.cpp:
+        (WebCore::DragController::concludeEditDrag):
+        * svg/SVGElementRareData.h:
+        (WebCore::SVGElementRareData::ensureAnimatedSMILStyleProperties):
+        * svg/SVGFontFaceElement.cpp:
+        (WebCore::SVGFontFaceElement::SVGFontFaceElement):
+        * svg/SVGStyledElement.cpp:
+        (WebCore::SVGStyledElement::getPresentationAttribute):
+
 2013-04-13  Sam Weinig  <sam@webkit.org>
 
         Fix three crashes seen on the bots after "Make Frame's ScriptController an OwnPtr and remove the #include"
