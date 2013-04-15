@@ -1,3 +1,12 @@
+2013-04-15  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
+        Rebaseline fast/js/global-constructors.html for EFL port due to
+        addition of MutationRecordConstructor.
+
+        * platform/efl/fast/js/global-constructors-expected.txt:
+
 2013-04-14  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Unreviewed EFL gardening.
