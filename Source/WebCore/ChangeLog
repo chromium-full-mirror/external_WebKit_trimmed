@@ -1,3 +1,77 @@
+2013-04-15  Noam Rosenthal  <noam@webkit.org>
+
+        Coordinated Graphics: Remove GraphicsLayerTextureMapper dependency from CoordinatedGraphicsScene.
+        https://bugs.webkit.org/show_bug.cgi?id=108295
+
+        Since all the changes to the TextureMapperLayer tree now come in a single IPC message via
+        CoordinatedGraphicsState, we don't need the additional buffering done in GraphicsLayerTextureMapper.
+
+        This reduces unnecessary function calls, and also streamlines GraphicsLayerTextureMapper to be used
+        only in WebKit1 (without CoordinatedGraphics).
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        No new tests, refactor only.
+
+        * platform/graphics/texmap/GraphicsLayerTextureMapper.cpp:
+        (WebCore::GraphicsLayerTextureMapper::GraphicsLayerTextureMapper):
+        (WebCore::GraphicsLayerTextureMapper::setNeedsDisplay):
+        (WebCore::GraphicsLayerTextureMapper::setNeedsDisplayInRect):
+        (WebCore::GraphicsLayerTextureMapper::setDrawsContent):
+        (WebCore::GraphicsLayerTextureMapper::prepareBackingStoreIfNeeded):
+        (WebCore::GraphicsLayerTextureMapper::updateDebugBorderAndRepaintCount):
+        (WebCore::GraphicsLayerTextureMapper::updateBackingStoreIfNeeded):
+        (WebCore):
+        * platform/graphics/texmap/GraphicsLayerTextureMapper.h:
+        (GraphicsLayerTextureMapper):
+            Removed references to m_hasOwnBackingStore, which was done to separate the CoordinatedGraphics
+            path from the WK1 path.
+
+        * platform/graphics/texmap/TextureMapperLayer.h:
+        (WebCore::TextureMapperLayer::drawsContent):
+        (WebCore::TextureMapperLayer::contentsAreVisible):
+        (WebCore::TextureMapperLayer::size):
+        (WebCore::TextureMapperLayer::opacity):
+        (WebCore::TextureMapperLayer::transform):
+        (WebCore::TextureMapperLayer::isShowingRepaintCounter):
+        (WebCore::TextureMapperLayer::fixedToViewport):
+        (TextureMapperLayer):
+            Added a few public functions needed by CoordinatedGraphicsScene.
+
+        * platform/graphics/texmap/coordinated/CoordinatedGraphicsScene.cpp:
+        (WebCore::layerShouldHaveBackingStore):
+        (WebCore::CoordinatedGraphicsScene::paintToCurrentGLContext):
+        (WebCore::CoordinatedGraphicsScene::paintToGraphicsContext):
+        (WebCore::CoordinatedGraphicsScene::adjustPositionForFixedLayers):
+        (WebCore::CoordinatedGraphicsScene::createCanvasIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::syncCanvasIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::destroyCanvasIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::setLayerRepaintCountIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::setLayerChildrenIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::setLayerFiltersIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::setLayerState):
+        (WebCore::CoordinatedGraphicsScene::getLayerByIDIfExists):
+        (WebCore::CoordinatedGraphicsScene::createLayer):
+        (WebCore::CoordinatedGraphicsScene::deleteLayer):
+        (WebCore::CoordinatedGraphicsScene::setRootLayerID):
+        (WebCore::CoordinatedGraphicsScene::prepareContentBackingStore):
+        (WebCore::CoordinatedGraphicsScene::createBackingStoreIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::removeBackingStoreIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::resetBackingStoreSizeToLayerSize):
+        (WebCore::CoordinatedGraphicsScene::createTilesIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::removeTilesIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::updateTilesIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::assignImageBackingToLayer):
+        (WebCore::CoordinatedGraphicsScene::commitSceneState):
+        (WebCore::CoordinatedGraphicsScene::ensureRootLayer):
+        (WebCore::CoordinatedGraphicsScene::setLayerAnimationsIfNeeded):
+        (WebCore::CoordinatedGraphicsScene::findScrollableContentsLayerAt):
+        * platform/graphics/texmap/coordinated/CoordinatedGraphicsScene.h:
+        (CoordinatedGraphicsScene):
+        (WebCore::CoordinatedGraphicsScene::layerByID):
+        (WebCore::CoordinatedGraphicsScene::rootLayer):
+            Use TextureMapperLayer instead of GraphicsLayer and GraphicsLayerTextureMapper.
+
 2013-04-15  Antti Koivisto  <antti@apple.com>
 
         Dynamically triggered subframe loads are causing tile churn
