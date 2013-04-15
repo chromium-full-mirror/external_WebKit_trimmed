@@ -1,3 +1,10 @@
+2013-04-15  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening.
+
+        * platform/qt-5.0-wk1/TestExpectations:
+        * platform/qt/TestExpectations:
+
 2013-04-15  Rune Lillesveen  <rune@opera.com>
 
         color-index media feature not supported
