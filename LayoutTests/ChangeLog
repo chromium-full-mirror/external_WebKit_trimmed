@@ -1,3 +1,18 @@
+2013-04-15  Rune Lillesveen  <rune@opera.com>
+
+        color-index media feature not supported
+        https://bugs.webkit.org/show_bug.cgi?id=114468
+
+        Reviewed by Kenneth Rohde Christiansen.
+
+        Added testcases for checking support and handling invalid values for
+        the color-index media feature.
+
+        * fast/media/mq-color-index-01-expected.html: Added.
+        * fast/media/mq-color-index-01.html: Added.
+        * fast/media/mq-color-index-02-expected.txt: Added.
+        * fast/media/mq-color-index-02.html: Added.
+
 2013-04-15  Seokju Kwon  <seokju.kwon@gmail.com>
 
         [EFL] Unskip some inspector tests related to styles

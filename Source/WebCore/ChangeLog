@@ -1,3 +1,27 @@
+2013-04-15  Rune Lillesveen  <rune@opera.com>
+
+        color-index media feature not supported
+        https://bugs.webkit.org/show_bug.cgi?id=114468
+
+        Reviewed by Kenneth Rohde Christiansen.
+
+        Support the color-index media feature. Currently assumes that no WebKit
+        browser will have an output device that uses a color lookup table.
+
+        Tests: fast/media/mq-color-index-01.html
+               fast/media/mq-color-index-02.html
+
+        * css/MediaFeatureNames.h:
+        (MediaFeatureNames):
+        * css/MediaQueryEvaluator.cpp:
+        (WebCore::color_indexMediaFeatureEval):
+        (WebCore):
+        (WebCore::min_color_indexMediaFeatureEval):
+        (WebCore::max_color_indexMediaFeatureEval):
+        * css/MediaQueryExp.cpp:
+        (WebCore::featureWithPositiveInteger):
+        (WebCore::featureWithoutValue):
+
 2013-04-15  Balazs Kelemen  <kbalazs@webkit.org>
 
         [CoordGfx] Background color should not be part of GraphicsLayerState
