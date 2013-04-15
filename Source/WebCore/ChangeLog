@@ -1,3 +1,22 @@
+2013-04-15  Robert Hogan  <robert@webkit.org>
+
+        An inline element with an absolutely positioned child does not correctly calculate/render padding and margin
+        https://bugs.webkit.org/show_bug.cgi?id=47554
+
+        Reviewed by David Hyatt.
+
+        When looking for padding/margin to add from the start of a child's parent skip past any leading positioned siblings as 
+        we don't add the padding/margin of the common parent when skipping past them in |skipLeadingWhitespace|. We
+        don't need to worry about the case of trailing positioned objects as we will account for their parent's
+        border/margin/padding when we encounter them in |nextSegmentBreak|.
+
+        Test: fast/inline/padding-before-leading-positioned-element-contributes-width.html
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::previousInFlowSibling):
+        (WebCore):
+        (WebCore::inlineLogicalWidth):
+
 2013-04-15  peavo@outlook.com  <peavo@outlook.com>
 
         [WinCairo] Compile fix.

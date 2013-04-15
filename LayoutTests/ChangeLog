@@ -1,3 +1,13 @@
+2013-04-15  Robert Hogan  <robert@webkit.org>
+
+        An inline element with an absolutely positioned child does not correctly calculate/render padding and margin
+        https://bugs.webkit.org/show_bug.cgi?id=47554
+
+        Reviewed by David Hyatt.
+
+        * fast/inline/padding-before-leading-positioned-element-contributes-width-expected.txt: Added.
+        * fast/inline/padding-before-leading-positioned-element-contributes-width.html: Added.
+
 2013-04-15  Alexey Proskuryakov  <ap@apple.com>
 
         Flaky Test: http/tests/ssl/ping-with-unsafe-redirect.html
