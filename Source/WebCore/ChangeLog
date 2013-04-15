@@ -1,3 +1,15 @@
+2013-04-15  Eric Carlson  <eric.carlson@apple.com>
+
+        HTMLMediaElement::removeTextTrack should clear track client
+        https://bugs.webkit.org/show_bug.cgi?id=114630
+
+        Reviewed by Jer Noble.
+
+        No new tests, this is clean-up that prevents a potential crash.
+
+        * html/HTMLMediaElement.cpp:
+        (WebCore::HTMLMediaElement::removeTextTrack): Clear the track client.
+
 2013-04-15  Robert Hogan  <robert@webkit.org>
 
         An inline element with an absolutely positioned child does not correctly calculate/render padding and margin
