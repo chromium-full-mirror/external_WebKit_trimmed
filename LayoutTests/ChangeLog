@@ -1,3 +1,13 @@
+2013-04-15  Seokju Kwon  <seokju.kwon@gmail.com>
+
+        [EFL] Unskip some inspector tests related to styles
+        https://bugs.webkit.org/show_bug.cgi?id=114609
+
+        Unreviewed gardening.
+
+        * platform/efl-wk2/TestExpectations: Old issues. Fixed on the latest codebase.
+        * platform/efl/TestExpectations: Fixed by r128637.
+
 2013-04-15  Grzegorz Czajkowski  <g.czajkowski@samsung.com>
 
         Unreviewed EFL gardening.
