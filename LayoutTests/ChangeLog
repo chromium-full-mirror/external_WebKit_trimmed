@@ -1,3 +1,14 @@
+2013-04-15  Seokju Kwon  <seokju.kwon@gmail.com>
+
+        [EFL] Remove inspector/styles/paste-property-expected.txt from efl-wk2
+        https://bugs.webkit.org/show_bug.cgi?id=114604
+
+        Unreviewed gardening.
+
+        Remove an improper file after r147420.
+
+        * platform/efl-wk2/inspector/styles/paste-property-expected.txt: Removed.
+
 2013-04-15  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Unreviewed EFL gardening.
