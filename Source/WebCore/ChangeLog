@@ -1,3 +1,33 @@
+2013-04-15  Arvid Nilsson  <anilsson@rim.com>
+
+        [BlackBerry][CSS Filters] Non-image content disappears when filter applied
+        https://bugs.webkit.org/show_bug.cgi?id=114498
+
+        Reviewed by Carlos Garcia Campos.
+
+        Applying a filter to a div with simple text content caused the div to
+        disappear.
+
+        In https://bugs.webkit.org/show_bug.cgi?id=114276, we added some GL
+        state save/restore code for vertex attributes to make sure the state
+        changes done by BlackBerry::Platform::Graphics don't interfere with
+        GL code executing in WebKit. However, saving and restoring vertex
+        attribute state won't do much good if those attributes were never
+        enabled to begin with. Fixed by enabling vertex attributes
+        appropriately when setting them, so that state can be saved and
+        restored.
+
+        All the CSS Filters layout tests apply the filters to simple rectangles
+        or images, there's nothing sufficiently complex that we manage to
+        trigger this GL state conflict in the BlackBerry port. This suggests
+        adding a new platform-specific layout test would be appropriate, but
+        since we don't use pixel tests yet, such a test would not help detect
+        regressions. Ultimately we decided against adding a layout test for
+        this bug at this time.
+
+        * platform/graphics/blackberry/LayerFilterRenderer.cpp:
+        (WebCore::LayerFilterRenderer::applyActions):
+
 2013-04-14  Jaehun Lim  <ljaehun.lim@samsung.com>
 
         [css3-text] Parsing -webkit-hanging value for text-indent from css3-text
