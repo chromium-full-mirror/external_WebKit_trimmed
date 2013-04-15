@@ -2,6 +2,12 @@
 
         Unreviewed GTK gardening.
 
+        * platform/gtk/TestExpectations: Adding failure expectations for tests introduced in r147829 and r148136.
+
+2013-04-15  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed GTK gardening.
+
         * platform/gtk/fast/js/global-constructors-expected.txt: Rebaselining after r148236.
 
 2013-04-15  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
