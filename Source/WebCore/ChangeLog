@@ -1,3 +1,13 @@
+2013-04-15  Csaba Osztrogonác  <ossy@webkit.org>
+
+        Debug buildfix after r148433.
+        https://bugs.webkit.org/show_bug.cgi?id=108295
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        * platform/graphics/texmap/TextureMapperLayer.h:
+        (WebCore::TextureMapperLayer::children): Added.
+
 2013-04-15  Noam Rosenthal  <noam@webkit.org>
 
         Coordinated Graphics: Remove GraphicsLayerTextureMapper dependency from CoordinatedGraphicsScene.
