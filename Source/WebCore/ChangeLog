@@ -1,3 +1,32 @@
+2013-04-15  Antti Koivisto  <antti@apple.com>
+
+        Dynamically triggered subframe loads are causing tile churn
+        https://bugs.webkit.org/show_bug.cgi?id=114440
+        
+        Reviewed by Andreas Kling.
+        
+        In some cases we switch in and out of minimal tiles multiple times during page loading. This
+        creates tile churn where we create speculative tiles and then throw them out. This can be
+        caused by various reasons including dynamically created subframes.
+
+        * page/FrameView.cpp:
+        (WebCore::FrameView::setIsVisuallyNonEmpty):
+        
+            Stay in minimal tiles modes until there is some visual contents. This avoids switching out from minimal
+            tiles while awaiting response for the initial requests.
+
+        * page/FrameView.h:
+        * rendering/RenderLayerBacking.cpp:
+        (WebCore::RenderLayerBacking::RenderLayerBacking):
+        (WebCore::computeTileCoverage):
+        * rendering/RenderLayerBacking.h:
+        (WebCore::RenderLayerBacking::didSwitchToFullTileCoverageDuringLoading):
+        (WebCore::RenderLayerBacking::setDidSwitchToFullTileCoverageDuringLoading):
+        
+            Only switch into minimal coverage mode once per page load.
+
+        (RenderLayerBacking):
+
 2013-04-15  Rune Lillesveen  <rune@opera.com>
 
         color-index media feature not supported
