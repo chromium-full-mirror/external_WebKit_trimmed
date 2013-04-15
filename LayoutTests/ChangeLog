@@ -1,3 +1,29 @@
+2013-04-14  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
+        Rebaseline several SVG tests for EFL port.
+
+        * platform/efl-wk2/svg/css/group-with-shadow-expected.png:
+        * platform/efl-wk2/svg/filters/shadow-on-rect-with-filter-expected.png:
+        * platform/efl/svg/css/arrow-with-shadow-expected.png:
+        * platform/efl/svg/css/arrow-with-shadow-expected.txt: Removed.
+        * platform/efl/svg/css/circle-in-mask-with-shadow-expected.txt: Removed.
+        * platform/efl/svg/css/clippath-with-shadow-expected.txt: Removed.
+        * platform/efl/svg/css/composite-shadow-example-expected.png:
+        * platform/efl/svg/css/composite-shadow-example-expected.txt:
+        * platform/efl/svg/css/composite-shadow-with-opacity-expected.png:
+        * platform/efl/svg/css/composite-shadow-with-opacity-expected.txt:
+        * platform/efl/svg/css/group-with-shadow-expected.txt:
+        * platform/efl/svg/css/path-with-shadow-expected.txt:
+        * platform/efl/svg/css/shadow-and-opacity-expected.txt:
+        * platform/efl/svg/css/shadow-with-large-radius-expected.txt: Removed.
+        * platform/efl/svg/css/shadow-with-negative-offset-expected.txt: Removed.
+        * platform/efl/svg/css/text-gradient-shadow-expected.txt:
+        * platform/efl/svg/css/text-shadow-multiple-expected.txt:
+        * platform/efl/svg/filters/shadow-on-rect-with-filter-expected.txt: Removed.
+        * platform/efl/transitions/svg-text-shadow-transition-expected.txt:
+
 2013-04-14  Jaehun Lim  <ljaehun.lim@samsung.com>
 
         [css3-text] Parsing -webkit-hanging value for text-indent from css3-text
