@@ -1,5 +1,13 @@
 2013-04-16  Jer Noble  <jer.noble@apple.com>
 
+        Unreviewed build fix; add new JSAudioBuffer.cpp file to more build systems.
+
+        * GNUmakefile.list.am:
+        * Target.pri:
+        * UseJSC.cmake:
+
+2013-04-16  Jer Noble  <jer.noble@apple.com>
+
         Repeated use of decodeAudioData() causes leak
         https://bugs.webkit.org/show_bug.cgi?id=114709
 
