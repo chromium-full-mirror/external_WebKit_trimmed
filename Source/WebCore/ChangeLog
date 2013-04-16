@@ -1,3 +1,34 @@
+2013-04-16  Tim Horton  <timothy_horton@apple.com>
+
+        PlugIn Snapshotting: Crashes refreshing non-main-frame PDFPlugins
+        https://bugs.webkit.org/show_bug.cgi?id=114702
+        <rdar://problem/13542020>
+
+        Reviewed by Dean Jackson.
+
+        If:
+
+            a) a plugin fails all the tests in willCreatePlugIn, so it is WaitingForSnapshot there
+            b) primary plugin detection attempts to restart a plugin between the
+               time that willCreatePlugIn and didCreatePlugIn fire
+            c) when didCreatePlugIn fires, shouldAlwaysAutoStart() returns true,
+               because the plug-in is whitelisted,
+
+        we end up reattach()ing and going to Restarted state, and then going straight
+        to Playing state in didCreatePlugIn.
+
+        Instead, primary plugin promotion should be deferred until after the plugin is created,
+        so that we can take that one last bit of information (shouldAlwaysAutoStart) into account
+        before restarting and reattaching the plug-in.
+
+        * html/HTMLPlugInImageElement.cpp:
+        (WebCore::HTMLPlugInImageElement::HTMLPlugInImageElement):
+        (WebCore::HTMLPlugInImageElement::setIsPrimarySnapshottedPlugIn):
+        (WebCore::HTMLPlugInImageElement::restartSnapshottedPlugIn):
+        (WebCore::HTMLPlugInImageElement::subframeLoaderWillCreatePlugIn):
+        (WebCore::HTMLPlugInImageElement::subframeLoaderDidCreatePlugIn):
+        * html/HTMLPlugInImageElement.h:
+
 2013-04-16  Wei James  <james.wei@intel.com>
 
         ASSERTION FAILED: i < size(), UNKNOWN in WebCore::ChannelMergerNode::process
