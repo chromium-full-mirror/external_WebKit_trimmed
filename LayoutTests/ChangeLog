@@ -1,3 +1,9 @@
+2013-04-16  Ádám Kallai  <kadam@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening.
+
+        * platform/qt/TestExpectations: Skipped a failing test after r148203. Unskip now passing test after r147619.
+
 2013-04-15  Timothy Hatcher  <timothy@apple.com>
 
         Web Inspector: Make var and function declarations work again in the Console.
