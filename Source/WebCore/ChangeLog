@@ -1,3 +1,9 @@
+2013-04-16  Sam Weinig  <sam@webkit.org>
+
+        Windows build fix.
+
+        * page/win/FrameWin.cpp:
+
 2013-04-16  Dean Jackson  <dino@apple.com>
 
         PlugIns that resize in user gestures should be immune to snapshotting
