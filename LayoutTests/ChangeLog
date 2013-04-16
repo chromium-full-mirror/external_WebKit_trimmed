@@ -1,3 +1,15 @@
+2013-04-16  Pan Deng  <pan.deng@intel.com>
+
+        Web Inspector: [Network] Cover the type of preflight xhr.
+        https://bugs.webkit.org/show_bug.cgi?id=113471.
+
+        Reviewed by Vsevolod Vlasov.
+
+        Add the Network resource type test to make sure the xhr-preflight is "xhr".
+
+        * http/tests/inspector/network-preflight-options-expected.txt:
+        * http/tests/inspector/network-preflight-options.html:
+
 2013-04-16  Ádám Kallai  <kadam@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening.
