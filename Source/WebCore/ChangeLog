@@ -1,3 +1,16 @@
+2013-04-15  Timothy Hatcher  <timothy@apple.com>
+
+        Web Inspector: Make var and function declarations work again in the Console.
+
+        https://webkit.org/b/114534
+        rdar://problem/13614477
+
+        Reviewed by Oliver Hunt.
+
+        * inspector/InjectedScriptSource.js:
+        (InjectedScript.prototype._evaluateOn): Use 'with' when not evaluating
+        on a call frame.
+
 2013-04-15  Seokju Kwon  <seokju.kwon@gmail.com>
 
         Web Inspector: Add missing Localized strings

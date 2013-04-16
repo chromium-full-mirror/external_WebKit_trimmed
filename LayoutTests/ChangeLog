@@ -1,3 +1,18 @@
+2013-04-15  Timothy Hatcher  <timothy@apple.com>
+
+        Web Inspector: Make var and function declarations work again in the Console.
+
+        https://webkit.org/b/114534
+        rdar://problem/13614477
+
+        Reviewed by Oliver Hunt.
+
+        * inspector/console/command-line-api-expected.txt:
+        * inspector/console/console-eval-syntax-error-expected.txt:
+        * inspector/extensions/extensions-eval-expected.txt:
+        * platform/mac/http/tests/inspector/console-resource-errors-expected.txt:
+        Updated test results.
+
 2013-04-15  James Craig  <james@cookiecrook.com>
 
         WebKit should not expose AXSubrole:AXDescriptionList on Mountain Lion as it causes a regression in VoiceOver behavior
