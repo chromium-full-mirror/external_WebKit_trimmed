@@ -1,3 +1,15 @@
+2013-04-16  Anthony Scian  <ascian@blackberry.com>
+
+        [BlackBerry] LayerTexture: check if the graphics context is NULL
+        https://bugs.webkit.org/show_bug.cgi?id=114674
+
+        Reviewed by Rob Buis.
+
+        Internal PR: 256522
+
+        * platform/graphics/blackberry/LayerTexture.cpp:
+        (WebCore::LayerTexture::setContentsToColor):
+
 2013-04-13  Andreas Kling  <akling@apple.com>
 
         REGRESSION(r148128): window.resizeTo doesn't work from Safari address bar.
