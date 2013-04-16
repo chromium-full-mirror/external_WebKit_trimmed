@@ -1,3 +1,13 @@
+2013-04-16  Chris Fleizach  <cfleizach@apple.com>
+
+        AX: aria-valuetext is not exposed on OS X.
+        https://bugs.webkit.org/show_bug.cgi?id=114628
+
+        Reviewed by Tim Horton.
+
+        * platform/mac/accessibility/aria-valuetext-on-native-slider-expected.txt: Added.
+        * platform/mac/accessibility/aria-valuetext-on-native-slider.html: Added.
+
 2013-04-16  Pan Deng  <pan.deng@intel.com>
 
         Web Inspector: [Network] Cover the type of preflight xhr.

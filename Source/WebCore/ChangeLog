@@ -1,3 +1,29 @@
+2013-04-16  Chris Fleizach  <cfleizach@apple.com>
+
+        AX: aria-valuetext is not exposed on OS X.
+        https://bugs.webkit.org/show_bug.cgi?id=114628
+
+        Reviewed by Tim Horton.
+
+        aria-valuetext is only being exposed on ARIA controls. That's because there were
+        checks in place so that ONLY ARIA defined controls would return anything related to valuetext.
+        We should allow this to work on native controls as well.
+
+        Test: platform/mac/accessibility/aria-valuetext-on-native-slider.html
+
+        * accessibility/AccessibilityNodeObject.cpp:
+        (WebCore::AccessibilityNodeObject::valueDescription):
+        (WebCore):
+        (WebCore::AccessibilityNodeObject::valueForRange):
+        (WebCore::AccessibilityNodeObject::maxValueForRange):
+        (WebCore::AccessibilityNodeObject::minValueForRange):
+        * accessibility/AccessibilityNodeObject.h:
+        (AccessibilityNodeObject):
+        * accessibility/AccessibilityObject.cpp:
+        (WebCore::AccessibilityObject::isRangeControl):
+             Rename isARIAControl to isRangeControl and make it apply to all elements.
+        * accessibility/AccessibilityObject.h:
+
 2013-04-15  Jon Lee  <jonlee@apple.com>
 
         RenderView should bail out of paintBoxDecorations() when painting with a different renderer
