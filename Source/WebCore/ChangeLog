@@ -1,3 +1,23 @@
+2013-04-16  Robert Hogan  <robert@webkit.org>
+
+        Float at exact multiple of line-height affects too many lines
+        https://bugs.webkit.org/show_bug.cgi?id=112744
+
+        Reviewed by David Hyatt.
+
+        Tests: fast/block/float/float-with-fractional-height-vertical-lr.html
+               fast/block/float/float-with-fractional-height.html
+
+        When adding floats to the interval tree used for testing floats' overlap with lineboxes
+        truncate the dimensions of the float rather than rounding them. This matches the
+        treatment of linebox dimensions so ensures the test for overlap is comparing like
+        with like.
+
+        * rendering/RenderBlock.cpp:
+        (WebCore::::collectIfNeeded):
+        (WebCore::RenderBlock::FloatingObjects::intervalForFloatingObject):
+        (WebCore::::string):
+
 2013-04-16  Chris Fleizach  <cfleizach@apple.com>
 
         AX: aria-valuetext is not exposed on OS X.
