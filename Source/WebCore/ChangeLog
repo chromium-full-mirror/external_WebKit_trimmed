@@ -1,3 +1,18 @@
+2013-04-15  Chris Fleizach  <cfleizach@apple.com>
+
+        activating a focused link to an in-page fragment ID should transfer focus to the target of the link when possible
+        https://bugs.webkit.org/show_bug.cgi?id=17450
+
+        Reviewed by Maciej Stachowiak.
+
+        When a fragment is scrolled to due to an activation event or on load, focus should attempt to 
+        move to the fragment if possible.
+
+        Test: fast/dom/fragment-activation-focuses-target.html
+
+        * page/FrameView.cpp:
+        (WebCore::FrameView::scrollToAnchor):
+
 2013-04-12  Maciej Stachowiak  <mjs@apple.com>
 
         Remove V8-specific extended attributes from IDL files
