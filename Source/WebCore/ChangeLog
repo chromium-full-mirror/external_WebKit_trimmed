@@ -1,3 +1,36 @@
+2013-04-12  Maciej Stachowiak  <mjs@apple.com>
+
+        Remove V8-specific extended attributes from IDL files
+        https://bugs.webkit.org/show_bug.cgi?id=114523
+
+        Reviewed by Geoffrey Garen.
+
+        No tests because no behavior change is expected.
+
+        * Modules/encryptedmedia/MediaKeyMessageEvent.idl:
+        * Modules/encryptedmedia/MediaKeyNeededEvent.idl:
+        * Modules/encryptedmedia/MediaKeySession.idl:
+        * Modules/encryptedmedia/MediaKeys.idl:
+        * Modules/filesystem/HTMLInputElementFileSystem.idl:
+        * Modules/indexeddb/IDBAny.idl:
+        * Modules/mediasource/MediaSource.idl:
+        * Modules/mediasource/SourceBuffer.idl:
+        * Modules/mediasource/SourceBufferList.idl:
+        * Modules/mediastream/MediaStream.idl:
+        * Modules/webaudio/AudioDestinationNode.idl:
+        * html/track/TextTrackCue.idl:
+        * html/track/TextTrackCueList.idl:
+        * html/track/TextTrackList.idl:
+        * html/track/TextTrackRegion.idl:
+        * html/track/TextTrackRegionList.idl:
+        * html/track/TrackEvent.idl:
+        * storage/Storage.idl:
+        * svg/SVGDocument.idl:
+        * svg/SVGElement.idl:
+        * workers/WorkerContext.idl:
+        * xml/XMLHttpRequest.idl:
+        * xml/XPathNSResolver.idl:
+
 2013-04-15  Anders Carlsson  <andersca@apple.com>
 
         ScriptWrappable subclasses shouldn't have to include WeakInlines.h
