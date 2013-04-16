@@ -1,3 +1,80 @@
+2013-04-15  Dean Jackson  <dino@apple.com>
+
+        Plugins that resize might need to be snapshotted.
+        https://bugs.webkit.org/show_bug.cgi?id=102157
+        <rdar://problem/12696259>
+
+        Reviewed by Tim Horton.
+
+        A plugin could avoid snapshotting if it started very
+        small (below the threshold where we autostart), and then
+        resized to be large (above the threshold). Detect this
+        case and tell the plugin to snapshot.
+
+        There unfortunately is a bit of state to track when doing
+        this. We have to start the snapshotting in a post-layout
+        task, so we carry a flag to say we're checking size but
+        not wanting the plugin to update (which would restart it).
+        We also might be a plugin that would have already restarted
+        due to a similar plugin being clicked or detected as dominant.
+        So this patch introduces a member variable that tracks what
+        decision has been made on snapshotting.
+
+        I also added some more logging to be more clear about what is
+        happening to plugins going through the snapshot process, and
+        changed the order of the tests in the algorithm so that domain
+        detection comes before examining the size.
+
+        * html/HTMLPlugInImageElement.cpp:
+        (WebCore::HTMLPlugInImageElement::HTMLPlugInImageElement): Initialise
+            the two new member variables.
+        (WebCore::HTMLPlugInImageElement::setDisplayState): Mark a restarted
+            plugin as NeverSnapshot. This means that if it later resizes above the
+            threshold, it won't trigger the snapshot detection.
+        (WebCore::HTMLPlugInImageElement::checkSnapshotStatus): Renamed from
+            updateSnapshotInfo. This now updates the snapshot, but also runs
+            the check for size changes.
+        (WebCore::addPlugInsFromNodeListMatchingPlugInOrigin): Gather all plugins
+            that look like a restarting plugin, not just those snapshotted. That
+            way they can all be marked as NeverSnapshot.
+        (WebCore::HTMLPlugInImageElement::restartSimilarPlugIns): Bless every
+            plugin that looks similar, whether or not it is snapshotted.
+        (WebCore::HTMLPlugInImageElement::userDidClickSnapshot): More logging.
+        (WebCore::HTMLPlugInImageElement::setIsPrimarySnapshottedPlugIn): Ditto.
+        (WebCore::HTMLPlugInImageElement::checkSizeChangeForSnapshotting): New
+            method. If the plugin was below the threshold and is now above it,
+            begin the snapshotting process.
+        (WebCore::HTMLPlugInImageElement::subframeLoaderWillCreatePlugIn): Plugins
+            that were marked as NeverSnapshot should start immediately. Move the origin
+            test earlier in the method. If a plugin avoided snapshotting due to size,
+            remember the size.
+        (WebCore::HTMLPlugInImageElement::subframeLoaderDidCreatePlugIn): Mark the
+            plugin as NeverSnapshot.
+
+        * html/HTMLPlugInImageElement.h:
+        (HTMLPlugInImageElement): Four new member variables:
+            - the decision we made regarding snapshotting (or not), uses the SnapshotDecision enum
+            - the size when it avoided snapshotting
+            - a flag to indicate the post layout update was triggered due to
+              a size change
+        (WebCore::HTMLPlugInImageElement::needsCheckForSizeChange): New method.
+        (WebCore::HTMLPlugInImageElement::setNeedsCheckForSizeChange): New method.
+        (WebCore::HTMLPlugInImageElement::snapshotDecision): Return the decision
+            regarding snapshotting or not snapshotting.
+
+        * page/FrameView.cpp:
+        (WebCore::FrameView::addWidgetToUpdate): Guard updating the widget. We don't
+            want to do it when we're checking for a size change in the plugin.
+        (WebCore::FrameView::updateWidget): Call new name.
+
+        * plugins/PluginViewBase.h:
+        (WebCore::PluginViewBase::beginSnapshottingRunningPlugin): Empty virtual
+            method to snapshot a running plugin.
+
+        * rendering/RenderEmbeddedObject.cpp:
+        (WebCore::RenderEmbeddedObject::layout): If the plugin has increased in
+            size add it to the post layout list so that it will be checked.
+
 2013-04-15  Chris Fleizach  <cfleizach@apple.com>
 
         activating a focused link to an in-page fragment ID should transfer focus to the target of the link when possible
