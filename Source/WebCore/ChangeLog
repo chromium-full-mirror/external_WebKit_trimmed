@@ -1,3 +1,10 @@
+2013-04-16  Ryosuke Niwa  <rniwa@webkit.org>
+
+        More Windows build fixes.
+
+        * platform/win/DragDataWin.cpp:
+        * platform/win/PasteboardWin.cpp:
+
 2013-04-16  Sam Weinig  <sam@webkit.org>
 
         Windows build fix.
