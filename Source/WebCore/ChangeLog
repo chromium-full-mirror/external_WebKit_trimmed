@@ -1,3 +1,38 @@
+2013-04-15  Maciej Stachowiak  <mjs@apple.com>
+
+        Remove more traces of the now-obsolete support for V8
+        https://bugs.webkit.org/show_bug.cgi?id=114657
+
+        Reviewed by Ryosuke Niwa.
+
+        In addition to passing existing tests, I verified that the ElementFactory
+        and ElementWrapperFactory files were all textually identical before and after.
+
+        * dom/CustomEvent.cpp:
+        (WebCore): Remove Use(V8) bock.
+        * dom/CustomEvent.h:
+        (CustomEvent): ditto
+        * dom/MessageEvent.cpp:
+        (WebCore::MessageEvent::MessageEvent): ditto
+        (WebCore::MessageEvent::initMessageEvent): ditto
+        * dom/Node.h:
+        (Node): ditto
+        * dom/make_event_factory.pl:
+        (generateImplementation): Remove V8 support.
+        * dom/make_names.pl: Remove gobs of V8 support and simplify.
+        (printJSElementIncludes): 
+        (printConditionalElementIncludes):
+        (printFactoryCppFile):
+        (printWrapperFunctions):
+        (printWrapperFactoryCppFile):
+        (printWrapperFactoryHeaderFile):
+        * inspector/InjectedScriptCanvasModuleSource.js: Remove V8 stack
+        trace code.
+        * platform/qt/PlatformSupport.h: Remove a macro only used for V8 
+        bindings.
+        * svg/SVGZoomAndPan.h:
+        (SVGZoomAndPan): Remove mention of V8 from comment.
+
 2013-04-15  Ryosuke Niwa  <rniwa@webkit.org>
 
         Potential use after free in ApplyStyleCommand::splitAncestorsWithUnicodeBidi
