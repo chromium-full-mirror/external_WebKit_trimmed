@@ -1,3 +1,27 @@
+2013-04-16  Dean Jackson  <dino@apple.com>
+
+        PlugIns that resize in user gestures should be immune to snapshotting
+        https://bugs.webkit.org/show_bug.cgi?id=114697
+        <rdar://problem/13666258>
+
+        Reviewed by Tim Horton.
+
+        Now that we snapshot plugins if they resize above the snapshotting threshold,
+        we need to make sure that we don't do it in response to a user gesture
+        such as a click.
+
+        Due to the complexities of real-world content and the way they often do
+        things using timeout, I copied the code from the generic user gesture
+        timeout, which gives a 5 second grace period after clicks.
+
+        * html/HTMLPlugInImageElement.cpp:
+        (WebCore::documentHadRecentUserGesture): New static function to share the code for
+            checking the time since the last click (or whatever).
+        (WebCore::HTMLPlugInImageElement::checkSizeChangeForSnapshotting): Make sure
+            to test for a user gesture.
+        (WebCore::HTMLPlugInImageElement::subframeLoaderWillCreatePlugIn): Move the
+            code into the new function.
+
 2013-04-15  Sam Weinig  <sam@webkit.org>
 
         Remove more #includes from Frame.h
