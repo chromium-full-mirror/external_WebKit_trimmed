@@ -1,3 +1,17 @@
+2013-04-15  James Craig  <james@cookiecrook.com>
+
+        WebKit should not expose AXSubrole:AXDescriptionList on Mountain Lion as it causes a regression in VoiceOver behavior
+        https://bugs.webkit.org/show_bug.cgi?id=113975
+
+        Reviewed by Chris Fleizach.
+
+        Serve NSAccessibilityDescriptionListSubrole or NSAccessibilityDefinitionListSubrole
+        depending on platform. Updated existing test coverage.
+
+        * platform/mac/accessibility/lists-expected.txt:
+        * platform/mac/accessibility/role-subrole-roledescription-expected.txt:
+        * platform/mac/accessibility/role-subrole-roledescription.html:
+
 2013-04-15  Anders Carlsson  <andersca@apple.com>
 
         plugins/get-url-beforeunload-destroys-plugin.html crashes in WebKit1
