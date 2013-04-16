@@ -1,3 +1,47 @@
+2013-04-16  Max Vujovic  <mvujovic@adobe.com>
+
+        [CSS Shaders] Remove the cache of validated programs
+        https://bugs.webkit.org/show_bug.cgi?id=112844
+
+        Reviewed by Dean Jackson.
+
+        Since we're caching CustomFilterProgram(s) now, we don't need another cache for
+        CustomFilterValidatedProgram(s). With this patch, CustomFilterProgram stores a reference
+        to a lazily created CustomFilterValidatedProgram, and CustomFilterGlobalContext no longer
+        has a validated program cache.
+
+        Also, this patch removes the CustomFilterValidatedProgram's stored reference to
+        CustomFilterGlobalContext. The removal of the validated program cache would cause
+        this reference to become weak. Validated programs only needed to keep the global context
+        reference in order to create a CustomFilterCompiledProgram. In this patch, we create
+        CustomFilterCompiledProgram(s) in FECustomFilter instead of in CustomFilterValidatedProgram,
+        so validated programs don't need to store the global context reference anymore.
+
+        No new tests. Just Refactoring.
+
+        * platform/graphics/filters/CustomFilterCompiledProgram.cpp:
+        (WebCore::CustomFilterCompiledProgram::CustomFilterCompiledProgram):
+        * platform/graphics/filters/CustomFilterGlobalContext.cpp:
+        (WebCore::CustomFilterGlobalContext::~CustomFilterGlobalContext):
+        * platform/graphics/filters/CustomFilterGlobalContext.h:
+        (CustomFilterGlobalContext):
+        * platform/graphics/filters/CustomFilterProgram.cpp:
+        (WebCore::CustomFilterProgram::validatedProgram):
+        (WebCore::CustomFilterProgram::setValidatedProgram):
+        * platform/graphics/filters/CustomFilterProgram.h:
+        * platform/graphics/filters/CustomFilterValidatedProgram.cpp:
+        (WebCore::CustomFilterValidatedProgram::CustomFilterValidatedProgram):
+        (WebCore::CustomFilterValidatedProgram::compiledProgram):
+        (WebCore::CustomFilterValidatedProgram::setCompiledProgram):
+        (WebCore::CustomFilterValidatedProgram::~CustomFilterValidatedProgram):
+        * platform/graphics/filters/CustomFilterValidatedProgram.h:
+        (CustomFilterValidatedProgram):
+        * platform/graphics/filters/FECustomFilter.cpp:
+        (WebCore::FECustomFilter::prepareForDrawing):
+        * rendering/FilterEffectRenderer.cpp:
+        * rendering/RenderLayer.cpp:
+        (WebCore::RenderLayer::computeFilterOperations):
+
 2013-04-16  Anthony Scian  <ascian@blackberry.com>
 
         [BlackBerry] LayerTexture: check if the graphics context is NULL
