@@ -1,3 +1,63 @@
+2013-04-15  Sam Weinig  <sam@webkit.org>
+
+        Remove more #includes from Frame.h
+        https://bugs.webkit.org/show_bug.cgi?id=114642
+
+        Reviewed by Anders Carlsson.
+
+        Convert Editor, FrameSelection, EventHandler and AnimationController into
+        OwnPtrs, to avoid inclusion.
+
+        * accessibility/AXObjectCache.cpp:
+        * accessibility/AccessibilityObject.cpp:
+        * accessibility/atk/WebKitAccessibleInterfaceEditableText.cpp:
+        * accessibility/mac/WebAccessibilityObjectWrapperMac.mm:
+        * bindings/objc/DOM.mm:
+        * dom/CharacterData.cpp:
+        * dom/ContainerNode.cpp:
+        * dom/Element.cpp:
+        * editing/AlternativeTextController.cpp:
+        * editing/CompositeEditCommand.cpp:
+        * editing/DeleteButtonController.h:
+        * editing/EditingStyle.cpp:
+        * editing/InsertLineBreakCommand.cpp:
+        * editing/SpellChecker.cpp:
+        * editing/SpellingCorrectionCommand.cpp:
+        * editing/TextInsertionBaseCommand.cpp:
+        * history/CachedFrame.cpp:
+        * html/HTMLAnchorElement.cpp:
+        * html/HTMLInputElement.cpp:
+        * html/HTMLPlugInElement.cpp:
+        * html/HTMLSelectElement.cpp:
+        * html/HTMLTextAreaElement.cpp:
+        * html/HTMLTextFormControlElement.cpp:
+        * html/TextFieldInputType.cpp:
+        * html/shadow/ClearButtonElement.cpp:
+        * html/shadow/MediaControlElements.cpp:
+        * html/shadow/SliderThumbElement.cpp:
+        * inspector/InspectorPageAgent.h:
+        * loader/FrameLoader.cpp:
+        * page/DOMWindow.cpp:
+        * page/Frame.cpp:
+        * page/Frame.h:
+        * page/FrameView.cpp:
+        * page/FrameView.h:
+        * page/Page.cpp:
+        * page/TouchAdjustment.cpp:
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.h:
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.mm:
+        * platform/gtk/PasteboardGtk.cpp:
+        * platform/qt/ClipboardQt.cpp:
+        * rendering/HitTestResult.cpp:
+        * rendering/RenderBlock.cpp:
+        * rendering/RenderEmbeddedObject.cpp:
+        * rendering/RenderLayer.cpp:
+        * rendering/RenderNamedFlowThread.cpp:
+        * rendering/RenderObject.cpp:
+        * rendering/RenderSnapshottedPlugIn.cpp:
+        * svg/graphics/SVGImage.cpp:
+        * testing/Internals.cpp:
+
 2013-04-16  Jessie Berlin  <jberlin@apple.com>
 
         Speculative Windows build fix.
