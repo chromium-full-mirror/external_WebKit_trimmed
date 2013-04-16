@@ -1,3 +1,26 @@
+2013-04-15  Anders Carlsson  <andersca@apple.com>
+
+        ScriptWrappable subclasses shouldn't have to include WeakInlines.h
+        https://bugs.webkit.org/show_bug.cgi?id=114641
+
+        Reviewed by Alexey Proskuryakov.
+
+        Remove ScriptWrappableInlines.h includes, they're not needed anymore.
+
+        * css/WebKitCSSMatrix.cpp:
+        * dom/ClientRect.cpp:
+        * dom/ClientRectList.cpp:
+        * dom/Clipboard.cpp:
+        * dom/DOMStringMap.cpp:
+        * dom/Event.cpp:
+        * dom/MutationRecord.cpp:
+        * fileapi/FileList.cpp:
+        * page/BarInfo.cpp:
+        * plugins/DOMMimeTypeArray.cpp:
+        * plugins/DOMPlugin.cpp:
+        * plugins/DOMPluginArray.cpp:
+        * storage/Storage.cpp:
+
 2013-04-15  Igor Oliveira  <igor.o@sisa.samsung.com>
 
         Call directly RenderBlock::deleteLineBoxTree
