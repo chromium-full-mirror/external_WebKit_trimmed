@@ -1,3 +1,15 @@
+2013-04-16  Jochen Eisinger  <jochen@chromium.org>
+
+        Flaky Test: http/tests/security/cookies/third-party-cookie-blocking-user-action.html
+        https://bugs.webkit.org/show_bug.cgi?id=114511
+
+        Clear the test cookie at the beginning of the test to avoid failing if
+        the cookie is still around from a previous test.
+
+        Reviewed by Alexey Proskuryakov.
+
+        * http/tests/security/cookies/third-party-cookie-blocking-user-action.html:
+
 2013-04-16  Robert Hogan  <robert@webkit.org>
 
         Float at exact multiple of line-height affects too many lines
