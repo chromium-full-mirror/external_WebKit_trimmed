@@ -1,3 +1,17 @@
+2013-04-15  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Potential use after free in ApplyStyleCommand::splitAncestorsWithUnicodeBidi
+        https://bugs.webkit.org/show_bug.cgi?id=114664
+
+        Reviewed by Oliver Hunt.
+
+        Use RefPtr as needed.
+
+        No new tests since this bug was discovered by code inspection.
+
+        * editing/ApplyStyleCommand.cpp:
+        (WebCore::ApplyStyleCommand::splitAncestorsWithUnicodeBidi):
+
 2013-04-15  Timothy Hatcher  <timothy@apple.com>
 
         Web Inspector: Make var and function declarations work again in the Console.
