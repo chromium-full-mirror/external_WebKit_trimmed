@@ -1,3 +1,15 @@
+2013-04-16  James Craig  <james@cookiecrook.com>
+
+        dfn element should be exposed as AXGroup:AXDefinition
+        https://bugs.webkit.org/show_bug.cgi?id=108980
+
+        Reviewed by Chris Fleizach.
+
+        dfn element now exposed as AXGroup:AXDefinition
+
+        * platform/mac/accessibility/role-subrole-roledescription-expected.txt:
+        * platform/mac/accessibility/role-subrole-roledescription.html:
+
 2013-04-16  Jochen Eisinger  <jochen@chromium.org>
 
         Flaky Test: http/tests/security/cookies/third-party-cookie-blocking-user-action.html

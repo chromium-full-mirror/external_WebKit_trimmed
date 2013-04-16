@@ -1,3 +1,16 @@
+2013-04-16  James Craig  <james@cookiecrook.com>
+
+        dfn element should be exposed as AXGroup:AXDefinition
+        https://bugs.webkit.org/show_bug.cgi?id=108980
+
+        Reviewed by Chris Fleizach.
+
+        dfn element now exposed as AXGroup:AXDefinition. Updated existing tests.
+
+        * accessibility/AccessibilityRenderObject.cpp:
+        (WebCore::AccessibilityRenderObject::computeAccessibilityIsIgnored):
+        (WebCore::AccessibilityRenderObject::determineAccessibilityRole):
+
 2013-04-16  Anders Carlsson  <andersca@apple.com>
 
         Begin chipping away at ScriptState
