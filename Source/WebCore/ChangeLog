@@ -1,3 +1,16 @@
+2013-04-15  Jon Lee  <jonlee@apple.com>
+
+        RenderView should bail out of paintBoxDecorations() when painting with a different renderer
+        https://bugs.webkit.org/show_bug.cgi?id=114665
+        <rdar://problem/13434884>
+
+        Reviewed by Simon Fraser.
+
+        * rendering/RenderView.cpp:
+        (WebCore::RenderView::paintBoxDecorations): Add a check to see if we should paint within the renderer.
+        This check exists in all other implementations of paintBoxDecorations(), and correctly avoids painting the
+        decorations if the root provided is not the RenderView.
+
 2013-04-16  Max Vujovic  <mvujovic@adobe.com>
 
         [CSS Shaders] Remove the cache of validated programs
