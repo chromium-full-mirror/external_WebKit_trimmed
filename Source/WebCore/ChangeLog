@@ -1,3 +1,22 @@
+2013-04-15  Dean Jackson  <dino@apple.com>
+
+        Rename restartedPlugin to isRestartedPlugin. This was
+        review feedback from r148038 that I thought I fixed
+        everywhere but failed.
+        https://bugs.webkit.org/show_bug.cgi?id=114233
+
+        * html/HTMLPlugInElement.h:
+        (WebCore::HTMLPlugInElement::isRestartedPlugin): Prefix with "is".
+        * html/HTMLPlugInImageElement.cpp:
+        (WebCore::HTMLPlugInImageElement::HTMLPlugInImageElement):
+        (WebCore::HTMLPlugInImageElement::setDisplayState):
+        (WebCore::HTMLPlugInImageElement::removeSnapshotTimerFired):
+        * html/HTMLPlugInImageElement.h:
+        * rendering/RenderEmbeddedObject.cpp:
+        (WebCore::RenderEmbeddedObject::paintContents):
+        * rendering/RenderLayerBacking.cpp:
+        (WebCore::isRestartedPlugin):
+
 2013-04-15  Maciej Stachowiak  <mjs@apple.com>
 
         Remove V8 attribtues from IDLAttributes.txt
