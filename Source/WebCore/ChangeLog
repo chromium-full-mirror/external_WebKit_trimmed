@@ -1,5 +1,12 @@
 2013-04-16  Ryosuke Niwa  <rniwa@webkit.org>
 
+        Even more Windows build fix and a Qt minimal build fix attempt.
+
+        * html/parser/XSSAuditorDelegate.cpp:
+        * page/win/FrameCGWin.cpp:
+
+2013-04-16  Ryosuke Niwa  <rniwa@webkit.org>
+
         More Windows build fixes.
 
         * platform/win/DragDataWin.cpp:
