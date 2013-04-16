@@ -1,3 +1,78 @@
+2013-04-16  Eric Carlson  <eric.carlson@apple.com>
+
+        [Mac] in-band cues sometimes displayed late
+        https://bugs.webkit.org/show_bug.cgi?id=114629
+
+        Reviewed by Jer Noble.
+
+        No new tests, this deals with a platform-specific issue that is extremely timing dependent.
+
+        * html/track/InbandTextTrack.cpp:
+        (WebCore::TextTrackCueMap::add): New, two way cue data <-> cue map.
+        (WebCore::TextTrackCueMap::find): 
+        (WebCore::TextTrackCueMap::remove):
+        (WebCore::InbandTextTrack::updateCueFromCueData): New, update an existing cue. Set cue end time
+            to video duration if it is unknown.
+        (WebCore::InbandTextTrack::addGenericCue): Look for existing cues without considering duration
+            so we can match incomplete cues.
+        (WebCore::InbandTextTrack::updateGenericCue): New, update an existing cue. This allows us to 
+            add in-band cues as soon as we get them from the media engine and update them as more
+            information becomes available.
+        (WebCore::InbandTextTrack::removeGenericCue): New, remove an existing cue. This is necessary
+            because we never want to keep an incomplete cue when a seek happens.
+        (WebCore::InbandTextTrack::removeCue): New, base class override so we can keep the two way
+            map up to date.
+        * html/track/InbandTextTrack.h:
+
+        * html/track/TextTrack.cpp:
+        (WebCore::TextTrack::addCue): TextTrack::removeCue takes a RefPtr.
+        (WebCore::TextTrack::removeCue): Take a RefPtr.
+        (WebCore::TextTrack::hasCue): Allow caller to request match without considering end time.
+        * html/track/TextTrack.h:
+
+        * html/track/TextTrackCue.cpp:
+        (WebCore::TextTrackCue::TextTrackCue): Initialize m_processingCueChanges.
+        (WebCore::TextTrackCue::willChange): Renamed from cueWillChange. Use m_processingCueChanges
+            to avoid thrashing the track when many cue properties will change.
+        (WebCore::TextTrackCue::didChange): Renamed from cueDidChange. Use m_processingCueChanges
+            to avoid thrashing the track when many cue properties will change.
+        (WebCore::TextTrackCue::setId): cueWillChange -> willChange. cueDidChange -> didChange. 
+        (WebCore::TextTrackCue::setStartTime): Ditto.
+        (WebCore::TextTrackCue::setEndTime): Ditto.
+        (WebCore::TextTrackCue::setPauseOnExit): Ditto.
+        (WebCore::TextTrackCue::setVertical): Ditto.
+        (WebCore::TextTrackCue::setSnapToLines): Ditto.
+        (WebCore::TextTrackCue::setLine): Ditto.
+        (WebCore::TextTrackCue::setPosition): Ditto.
+        (WebCore::TextTrackCue::setSize): Ditto.
+        (WebCore::TextTrackCue::setAlign): Ditto.
+        (WebCore::TextTrackCue::setText): Ditto.
+        (WebCore::TextTrackCue::setRegionId): Ditto.
+        (WebCore::TextTrackCue::isEqual): Renamed from operator==, take match rules param.
+        * html/track/TextTrackCue.h:
+
+        * html/track/TextTrackCueGeneric.cpp:
+        (WebCore::TextTrackCueGeneric::isEqual): Renamed from operator==, take match rules param.
+        * html/track/TextTrackCueGeneric.h:
+
+        * platform/graphics/InbandTextTrackPrivateClient.h: Make GenericCueData refcounted.
+        (WebCore::GenericCueData::create): New.
+        (WebCore::GenericCueData::status): Ditto.
+        (WebCore::GenericCueData::setStatus): Ditto.
+        (WebCore::GenericCueData::GenericCueData):
+
+        * platform/graphics/avfoundation/InbandTextTrackPrivateAVF.cpp:
+        (WebCore::InbandTextTrackPrivateAVF::processCue): Add cues as soon as we get them from the media
+            engine, update duration once we know it.
+        (WebCore::InbandTextTrackPrivateAVF::resetCueValues): Tell the client to remove all incomplete
+            cues we have delivered.
+        * platform/graphics/avfoundation/InbandTextTrackPrivateAVF.h:
+
+        * platform/graphics/avfoundation/MediaPlayerPrivateAVFoundation.cpp:
+        (WebCore::MediaPlayerPrivateAVFoundation::seekCompleted): Do not flush cues when seek completes,
+            we did that when the seek started and cues can be delivered before we get the the 
+            seek completed  notification.
+
 2013-04-16  James Craig  <james@cookiecrook.com>
 
         dfn element should be exposed as AXGroup:AXDefinition
