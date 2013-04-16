@@ -1,3 +1,26 @@
+2013-04-13  Andreas Kling  <akling@apple.com>
+
+        REGRESSION(r148128): window.resizeTo doesn't work from Safari address bar.
+        <rdar://problem/13635894>
+        <http://webkit.org/b/114561>
+
+        Reviewed by Sam Weinig.
+
+        Suppressing window geometry changes while any user gesture is active was a bit too restrictive,
+        and broke legitimate use-cases. Narrow it down to checking EventHandler::mousePressed().
+
+        No test yet, adding one is tracked by <http://webkit.org/b/114561>.
+
+        * page/DOMWindow.cpp:
+        (WebCore::DOMWindow::allowedToChangeWindowGeometry):
+
+            Added to share code between all DOMWindow functions that alter window geometry.
+
+        (WebCore::DOMWindow::moveBy):
+        (WebCore::DOMWindow::moveTo):
+        (WebCore::DOMWindow::resizeBy):
+        (WebCore::DOMWindow::resizeTo):
+
 2013-04-16  Manuel Rego Casasnovas  <rego@igalia.com>
 
         [GTK][EFL] Remove deprecated libsoup API usage
