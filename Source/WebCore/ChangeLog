@@ -1,3 +1,22 @@
+2013-04-16  Anders Carlsson  <andersca@apple.com>
+
+        Clone storage namespaces for window.open
+        https://bugs.webkit.org/show_bug.cgi?id=114703
+
+        Reviewed by Sam Weinig.
+
+        Pass the new page to StorageNamespace::copy.
+
+        * page/Chrome.cpp:
+        (WebCore::Chrome::createWindow):
+        * storage/StorageNamespace.h:
+        (StorageNamespace):
+        * storage/StorageNamespaceImpl.cpp:
+        (WebCore::StorageNamespaceImpl::copy):
+        * storage/StorageNamespaceImpl.h:
+        (WebCore):
+        (StorageNamespaceImpl):
+
 2013-04-16  Sam Weinig  <sam@webkit.org>
 
         Fix fallout after r148545.
