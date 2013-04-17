@@ -1,3 +1,13 @@
+2013-04-17  Allan Sandfeld Jensen  <allan.jensen@digia.com>
+
+        [Qt] MediaPlayerPrivateQt.cpp doesn't build in debug
+
+        Unreviewed build fix.
+
+        We need to include Logging.h to get the LOG definitions.
+
+        * platform/graphics/qt/MediaPlayerPrivateQt.cpp:
+
 2013-04-17  Claudio Saavedra  <csaavedra@igalia.com>
 
         execCommand("RemoveFormat") might remove format after the selection
