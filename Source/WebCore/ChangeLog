@@ -1,3 +1,23 @@
+2013-04-17  Oliver Hunt  <oliver@apple.com>
+
+        Automate generation of toJS function for classes that need to report extra memory usage
+        https://bugs.webkit.org/show_bug.cgi?id=114768
+
+        Reviewed by Geoff Garen.
+
+        Only really used by AudioBuffer for now.  The other classes that need it can be
+        trivially refactored at a later date.
+
+        * Modules/webaudio/AudioBuffer.idl:
+        * bindings/js/JSAudioBufferCustom.cpp:
+        * bindings/js/JSDOMBinding.h:
+        (WebCore):
+        (HasMemoryCost):
+        (NoType):
+        (BaseMixin):
+        * bindings/scripts/CodeGeneratorJS.pm:
+        (GenerateImplementation):
+
 2013-04-17  Dirk Schulze  <krit@webkit.org>
 
         BasicShapeFunctions should use RenderStyle instead of StyleResolver
