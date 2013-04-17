@@ -1,5 +1,12 @@
 2013-04-17  Jessie Berlin  <jberlin@apple.com>
 
+        Unskip some tests for wk2 where the underlying cause of them being skipped has since been
+        fixed or the original issue does not reproduce.
+
+        * platform/wk2/TestExpectations:
+
+2013-04-17  Jessie Berlin  <jberlin@apple.com>
+
         Remove more tests from the Skipped list that were skipped early on with a bunch of eventSender
         related tests and then not unskipped when various parts of eventSender got implemented in
         WebKitTestRunner.
