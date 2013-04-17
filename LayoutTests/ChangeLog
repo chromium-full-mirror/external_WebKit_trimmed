@@ -1,3 +1,11 @@
+2013-04-17  Dominik Röttsches  <dominik.rottsches@intel.com>
+
+        [EFL] Unreviewed Gardening.
+
+        Marking compositing reftests added in r148172 as failing.
+
+        * platform/efl/TestExpectations:
+
 2013-04-17  Allan Sandfeld Jensen  <allan.jensen@digia.com>
 
         [Qt] Unskip tests requiring SUBPIXEL_LAYOUT 
