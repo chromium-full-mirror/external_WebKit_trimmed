@@ -1,3 +1,32 @@
+2013-04-17  ChangSeok Oh  <shivamidow@gmail.com>
+
+        Breaking Float: floated block level element following inline element in floated container breaks to next line
+        https://bugs.webkit.org/show_bug.cgi?id=45274
+
+        Reviewed by David Hyatt.
+
+        Fix position issue of floating element in floating element.
+        Inner floating element has placed at next line when outer floating element has text,
+        even though previous line has spaces enough to fit it.
+        To solve this, the width of a space added temporarily for prohibiting duplication more than 2 empty spaces
+        is subtracted when floating element is checked whether it fits on a line.
+
+        Tests: css2.1/20110323/floats-001.html
+               css2.1/20110323/floats-102.html
+               fast/inline-block/float-both-whitespace.html
+               fast/inline-block/float-leading-whitespace.html
+               fast/inline-block/float-no-whitespace.html
+               fast/inline-block/float-trailing-whitespace.html
+               fast/inline-block/multiple-floats-with-whitespace.html
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::LineWidth::LineWidth):
+        (WebCore::LineWidth::fitsOnLine):
+        (WebCore::LineWidth::trailingWhitespaceWidth):
+        (WebCore::LineWidth::setTrailingWhitespaceWidth):
+        (LineWidth):
+        (WebCore::RenderBlock::LineBreaker::nextSegmentBreak):
+
 2013-04-17  Leo Yang  <leoyang@rim.com>
 
         Lots of unused parameter warnings in filesystem code

@@ -1,3 +1,48 @@
+2013-04-17  ChangSeok Oh  <shivamidow@gmail.com>
+
+        Breaking Float: floated block level element following inline element in floated container breaks to next line
+        https://bugs.webkit.org/show_bug.cgi?id=45274
+
+        Reviewed by David Hyatt.
+
+        * css2.1/20110323/floats-001-expected.html: Added.
+        * css2.1/20110323/floats-001.html: Added.
+        * css2.1/20110323/floats-102-expected.html: Added.
+        * css2.1/20110323/floats-102.html: Added.
+
+        Tests for whitespace around floating elements.
+        Following test cases are provied by Joseph Pecoraro.
+        See https://bugs.webkit.org/show_bug.cgi?id=58806
+
+        * fast/exclusions/shape-outside-floats/shape-outside-floats-stacked.html: Updated to match new treatment of trailing space.
+        * fast/inline-block/float-both-whitespace-expected.png: Added.
+        * fast/inline-block/float-both-whitespace-expected.txt: Added.
+        * fast/inline-block/float-both-whitespace.html: Added.
+        * fast/inline-block/float-leading-whitespace-expected.png: Added.
+        * fast/inline-block/float-leading-whitespace-expected.txt: Added.
+        * fast/inline-block/float-leading-whitespace.html: Added.
+        * fast/inline-block/float-no-whitespace-expected.png: Added.
+        * fast/inline-block/float-no-whitespace-expected.txt: Added.
+        * fast/inline-block/float-no-whitespace.html: Added.
+        * fast/inline-block/float-trailing-whitespace-expected.png: Added.
+        * fast/inline-block/float-trailing-whitespace-expected.txt: Added.
+        * fast/inline-block/float-trailing-whitespace.html: Added.
+        * fast/inline-block/multiple-floats-with-whitespace-expected.png: Added.
+        * fast/inline-block/multiple-floats-with-whitespace-expected.txt: Added.
+        * fast/inline-block/multiple-floats-with-whitespace.html: Added.
+
+        Update the following tests so that wrapping happens as it
+        did before. With this change the float:left div progressed
+        and could fit on an earlier line when we position after
+        collapsing whitespace. This moved the float a line earlier
+        and changed the results of the test. By adding a character
+        to the line, the float won't fit and goes back on to the
+        line that it was on before this change.
+
+        * fast/multicol/float-truncation.html:
+        * fast/multicol/vertical-lr/float-truncation.html:
+        * fast/multicol/vertical-rl/float-truncation.html:
+
 2013-04-17  Chris Fleizach  <cfleizach@apple.com>
 
         When img@alt is undefined, WebKit should use @title as accessibility label if available
