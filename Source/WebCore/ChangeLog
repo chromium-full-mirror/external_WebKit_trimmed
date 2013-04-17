@@ -1,3 +1,22 @@
+2013-04-17  Dirk Schulze  <krit@webkit.org>
+
+        BasicShapeFunctions should use RenderStyle instead of StyleResolver
+        https://bugs.webkit.org/show_bug.cgi?id=114743
+
+        Reviewed by Antti Koivisto.
+
+        BasicShapeFunctions does include RenderStyle instead of StyleResolver now.
+        This is a simple refactoring patch, no new tests.
+
+        * css/BasicShapeFunctions.cpp:
+        (WebCore::convertToLength): Use style and rootElementStyle directly.
+        (WebCore::basicShapeForValue): Ditto.
+        * css/BasicShapeFunctions.h:
+        (WebCore):
+        * css/DeprecatedStyleBuilder.cpp:
+        (WebCore::ApplyPropertyClipPath::applyValue):
+        (WebCore::ApplyPropertyExclusionShape::applyValue):
+
 2013-04-17  Beth Dakin  <bdakin@apple.com>
 
         Content inside frames and scrollbars in overflow areas hit-tests incorrectly when 
