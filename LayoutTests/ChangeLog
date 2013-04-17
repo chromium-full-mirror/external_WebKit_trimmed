@@ -1,3 +1,13 @@
+2013-04-17  Chris Fleizach  <cfleizach@apple.com>
+
+        When img@alt is undefined, WebKit should use @title as accessibility label if available
+        https://bugs.webkit.org/show_bug.cgi?id=114535
+
+        Reviewed by Tim Horton.
+
+        * accessibility/empty-image-with-title-expected.txt: Added.
+        * accessibility/empty-image-with-title.html: Added.
+
 2013-04-17  Arpita Bahuguna  <a.bah@samsung.com>
 
         getAttribute does not behave correctly for mixed-case attributes on HTML elements
