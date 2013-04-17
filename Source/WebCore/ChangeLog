@@ -1,3 +1,29 @@
+2013-04-16  Hans Muller  <hmuller@adobe.com>
+
+        [CSS Exclusions] polygon shape-inside layout fails
+        https://bugs.webkit.org/show_bug.cgi?id=114402
+
+        Reviewed by Dirk Schulze.
+
+        The firstIncludedIntervalLogicalTop() method's implementation relied on optimistic
+        assumptions about floating point accuracy which, in rare cases, caused it to discard
+        first-fit locations based on the intersection of the minLogicalIntervalTop offset edge
+        and a polygon offset edge. Now: we do not verify that first-fit locations based on the
+        intersection of an offset edge and the minLogicalIntervalTop offset edge are below
+        the horizontal minLogicalIntervalTop line. They're essentially below the line "by definition".
+
+        Test: fast/exclusions/shape-inside/shape-inside-polygon-layout.html
+
+        * rendering/ExclusionPolygon.cpp:
+        (WebCore::ExclusionPolygon::firstIncludedIntervalLogicalTop): Avoid floating point problems
+            when checking intersections with the offset edge based on minLogicalIntervalTop.
+        * rendering/ExclusionPolygon.h:
+        (WebCore::OffsetPolygonEdge::OffsetPolygonEdge): Initialize the basis field.
+        (WebCore::OffsetPolygonEdge::basis): Report what the offset edge is "based on": a polygon
+            edge, the top of the line, or a (reflex) vertex.
+        (OffsetPolygonEdge): Added the Basis enum to enable tracking what the geometry of
+            an offset edge is based on.
+
 2013-04-16  Jer Noble  <jer.noble@apple.com>
 
         Further unreviewed build fix: protect JSAudioBufferCustom with a ENABLE(WEB_AUDIO) check.

@@ -1,3 +1,15 @@
+2013-04-16  Hans Muller  <hmuller@adobe.com>
+
+        [CSS Exclusions] polygon shape-inside layout fails
+        https://bugs.webkit.org/show_bug.cgi?id=114402
+
+        Verify that subsequent polygon shape-inside lines are vertically adjacent.
+
+        Reviewed by Dirk Schulze.
+
+        * fast/exclusions/shape-inside/shape-inside-polygon-layout-expected.txt: Added.
+        * fast/exclusions/shape-inside/shape-inside-polygon-layout.html: Added.
+
 2013-04-16  Michelangelo De Simone  <michelangelo@webkit.org>
 
         [CSS Shaders] Add a test with a vertex, fragment shader pair that compiles but don't link
