@@ -1,3 +1,18 @@
+2013-04-16  Patrick Gansterer  <paroga@webkit.org>
+
+        [CMake] Fix dependecy calculation for generated inspector files
+        https://bugs.webkit.org/show_bug.cgi?id=114092
+
+        Reviewed by Brent Fulgham.
+
+        At least in a generated Visual Studio solution the files generated via
+        CodeGeneratorInspector.py are considered outdated all the time because
+        the code generator only touches the file when the content changed.
+        Add an --write_always parameter to the script to touch the file always.
+
+        * CMakeLists.txt:
+        * inspector/CodeGeneratorInspector.py:
+
 2013-04-16  Anders Carlsson  <andersca@apple.com>
 
         Clone storage namespaces for window.open
