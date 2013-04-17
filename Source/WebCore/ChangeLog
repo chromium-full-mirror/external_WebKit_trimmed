@@ -1,3 +1,23 @@
+2013-04-17  Bruno de Oliveira Abinader  <bruno.abinader@basyskom.com>
+
+        [refactor] Moved ScriptedAnimationController common code to inline function
+        https://bugs.webkit.org/show_bug.cgi?id=114681
+
+        Reviewed by Daniel Bates.
+
+        Avoided duplicated code by moving ScriptedAnimationController clearance
+        code to a common function used by both Document::dispose() and
+        Document::detach().
+
+        No new tests, no behavior changes.
+
+        * dom/Document.cpp:
+        (WebCore::Document::dispose):
+        (WebCore::Document::detach):
+        (WebCore::Document::clearScriptedAnimationController): Added.
+        * dom/Document.h:
+        (Document):
+
 2013-04-17  Chris Fleizach  <cfleizach@apple.com>
 
         AX: When img@alt is undefined, WebKit should use @title as accessibility label if available
