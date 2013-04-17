@@ -1,3 +1,12 @@
+2013-04-17  Seokju Kwon  <seokju.kwon@gmail.com>
+
+        [Qt] Remove fast/regions/counters/extract-list-items-013.html from TestExpectations
+        https://bugs.webkit.org/show_bug.cgi?id=114724
+
+        Unreviewed gardening.
+
+        * platform/qt/TestExpectations: Removed after r148289
+
 2013-04-17  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
 
         [Qt] Ureviewed gardening. Cleaning up after r148596.
