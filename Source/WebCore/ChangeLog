@@ -1,3 +1,21 @@
+2013-04-17  Sergio Correia  <sergio.correia@openbossa.org>
+
+        Web Inspector: make generate-inspector-protocol-version work with python3 
+        https://bugs.webkit.org/show_bug.cgi?id=114717
+
+        Revision r146765 added print() calls that made the script complain about 
+        invalid syntax when using python3.
+
+        This commit replaces such calls with calls to sys.stdout.write(), analogous
+        to the sys.stderr.write() ones already used throughout the file.
+
+        Reviewed by Timothy Hatcher.
+
+        No new tests. No user visible behavior changed.
+
+        * inspector/generate-inspector-protocol-version:
+        (main):
+
 2013-04-17  Seokju Kwon  <seokju.kwon@gmail.com>
 
         Web Inspector: Fix Localized string warngs
