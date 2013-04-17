@@ -1,3 +1,19 @@
+2013-04-16  Michelangelo De Simone  <michelangelo@webkit.org>
+
+        [CSS Shaders] Add a test with a vertex, fragment shader pair that compiles but don't link
+        https://bugs.webkit.org/show_bug.cgi?id=114636
+
+        Added a test to check that unavailable varyings in fragment shaders
+        don't lead to unexpected crashes due to linking errors.
+        The current implementation does not crash, and this makes sure it
+        won't in future.
+
+        Reviewed by Dean Jackson.
+
+        * css3/filters/custom/custom-filter-unavailable-varying-expected.html: Added.
+        * css3/filters/custom/custom-filter-unavailable-varying.html: Added.
+        * css3/filters/resources/unavailable-varying.fs: Added.
+
 2013-04-16  Jessie Berlin  <jberlin@apple.com>
 
         [Mac] compositing/background-color/background-color-change-to-text.html fails on some bots
