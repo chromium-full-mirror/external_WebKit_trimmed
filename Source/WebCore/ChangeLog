@@ -1,3 +1,22 @@
+2013-04-17  Mark Lam  <mark.lam@apple.com>
+
+        Add LLINT and baseline JIT support for timing out scripts.
+        https://bugs.webkit.org/show_bug.cgi?id=114577.
+
+        Reviewed by Geoffrey Garen.
+
+        Replaced use of the obsolete JSGlobalData.terminator methods with the
+        JSGlobalData.watchdog equivalents.
+
+        * bindings/js/JSEventListener.cpp:
+        (WebCore::JSEventListener::handleEvent):
+        * bindings/js/SerializedScriptValue.cpp:
+        (WebCore::SerializedScriptValue::maybeThrowExceptionIfSerializationFailed):
+        * bindings/js/WorkerScriptController.cpp:
+        (WebCore::WorkerScriptController::evaluate):
+        (WebCore::WorkerScriptController::scheduleExecutionTermination):
+        (WebCore::WorkerScriptController::isExecutionTerminating):
+
 2013-04-16  Jer Noble <jer.noble@apple.com>
 
         Crash in WebCore::HTMLMediaElement::~HTMLMediaElement.
