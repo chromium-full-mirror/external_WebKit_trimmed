@@ -1,5 +1,11 @@
 2013-04-16  Jer Noble  <jer.noble@apple.com>
 
+        Further unreviewed build fix: protect JSAudioBufferCustom with a ENABLE(WEB_AUDIO) check.
+
+        * bindings/js/JSAudioBufferCustom.cpp:
+
+2013-04-16  Jer Noble  <jer.noble@apple.com>
+
         Unreviewed build fix; add new JSAudioBuffer.cpp file to more build systems.
 
         * GNUmakefile.list.am:
