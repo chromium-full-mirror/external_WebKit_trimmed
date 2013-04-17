@@ -1,3 +1,33 @@
+2013-04-17  Leo Yang  <leoyang@rim.com>
+
+        Lots of unused parameter warnings in filesystem code
+        https://bugs.webkit.org/show_bug.cgi?id=114747
+
+        Reviewed by Carlos Garcia Campos.
+
+        Comment out or remove unused parameter identifiers.
+
+        No functionalities changed, no new tests.
+
+        * Modules/filesystem/DOMFileSystem.cpp: Comment out |snapshot| because
+        it is referred in the comments inside the function.
+        (WebCore):
+        * Modules/filesystem/DOMFileSystemSync.cpp: Ditto.
+        (WebCore):
+        * Modules/filesystem/FileWriter.cpp: Remove unused |ec|.
+        (WebCore::FileWriter::abort):
+        * Modules/filesystem/FileWriterSync.cpp:
+        (WebCore::FileWriterSync::didWrite): Remove unused |bytes|.
+        * platform/AsyncFileSystemCallbacks.h:
+        (WebCore::AsyncFileSystemCallbacks::didOpenFileSystem): Comment out unused parameters
+        because the function is inlined.
+        (WebCore::AsyncFileSystemCallbacks::didCreateSnapshotFile): Ditto.
+        (WebCore::AsyncFileSystemCallbacks::didReadDirectoryEntry): Ditto.
+        (WebCore::AsyncFileSystemCallbacks::didReadDirectoryEntries): Ditto.
+        (WebCore::AsyncFileSystemCallbacks::didCreateFileWriter): Ditto.
+        * platform/blackberry/WorkerAsyncFileSystemBlackBerry.cpp:
+        (WebCore::WorkerAsyncFileSystemBlackBerry::createWriterOnMainThread): Remove unused |client|.
+
 2013-04-17  Brent Fulgham  <bfulgham@webkit.org>
 
         [Windows, WinCairo] Stop individually building WTF files in WebCore
