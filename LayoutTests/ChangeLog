@@ -1,3 +1,11 @@
+2013-04-17  Jessie Berlin  <jberlin@apple.com>
+
+        Remove some tests from the Skipped list that were skipped early on with a bunch of eventSender
+        related tests and then not unskipped when various parts of eventSender got implemented in
+        WebKitTestRunner.
+
+        * platform/mac-wk2/TestExpectations:
+
 2013-04-17  ChangSeok Oh  <shivamidow@gmail.com>
 
         Breaking Float: floated block level element following inline element in floated container breaks to next line
