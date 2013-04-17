@@ -88,8 +88,17 @@
 
         [EFL] Unreviewed Gardening.
 
+        Marking some more WebGL/CoordinatedGraphics related failures
+        as crashes after r148433, needs to be looked at in bug 114731.
+
+        * platform/efl/TestExpectations:
+
+2013-04-17  Dominik Röttsches  <dominik.rottsches@intel.com>
+
+        [EFL] Unreviewed Gardening.
+
         Marking a lot of WebGL/CoordinatedGraphics related failures
-        as crashes after r114731, needs to be looked at in bug 114731.
+        as crashes after r148433, needs to be looked at in bug 114731.
 
         * platform/efl/TestExpectations:
 
