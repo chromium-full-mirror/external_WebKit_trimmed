@@ -1,3 +1,24 @@
+2013-04-17  Beth Dakin  <bdakin@apple.com>
+
+        Content inside frames and scrollbars in overflow areas hit-tests incorrectly when 
+        the WKView has a header
+        https://bugs.webkit.org/show_bug.cgi?id=114769
+
+        Reviewed by Simon Fraser.
+
+        convertToRenderer() and convertFromRenderer() need to factor in the headerHeight, 
+        much like all of the conversion functions on ScrollView. 
+        * page/FrameView.cpp:
+        (WebCore::FrameView::convertFromRenderer):
+        (WebCore::FrameView::convertToRenderer):
+
+        The scrollPosition equivalent of the existing scrollOffsetRelativeToDocument() 
+        function. 
+        * platform/ScrollView.cpp:
+        (WebCore::ScrollView::scrollPositionRelativeToDocument):
+        * platform/ScrollView.h:
+        (ScrollView):
+
 2013-04-17  Andreas Kling  <akling@apple.com>
 
         Remove FragmentScriptingPermission.h include from Element.h.
