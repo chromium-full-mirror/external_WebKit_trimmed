@@ -1,3 +1,88 @@
+2013-04-16  Maciej Stachowiak  <mjs@apple.com>
+
+        Replace JSC-specific IDL extended attributes with generic (JSC+V8) ones, now that the distinction no longer matters
+        https://bugs.webkit.org/show_bug.cgi?id=114712
+
+        Reviewed by Dan Bernstein.
+
+        No behavior change expected.
+
+        * bindings/scripts/IDLAttributes.txt: Remove the JSFoo attributes
+        that have bare Foo equivalents.
+        * bindings/scripts/CodeGeneratorJS.pm: Remove support for JSFoo
+        aliases.
+        (GetGenerateIsReachable):
+        (GetCustomIsReachable):
+        (ShouldGenerateToJSDeclaration):
+        (ShouldGenerateToJSImplementation):
+        (HasCustomConstructor):
+        (HasCustomGetter):
+        (HasCustomSetter):
+        (HasCustomMethod):
+
+        Replace JSFoo attributes with equivalen Foo attributs in all files
+        below:
+        
+        * Modules/geolocation/Geolocation.idl:
+        * Modules/indexeddb/IDBDatabase.idl:
+        * Modules/indexeddb/IDBObjectStore.idl:
+        * Modules/webaudio/DOMWindowWebAudio.idl:
+        * Modules/websockets/DOMWindowWebSocket.idl:
+        * Modules/websockets/WorkerContextWebSocket.idl:
+        * css/CSSRule.idl:
+        * css/CSSRuleList.idl:
+        * css/CSSStyleDeclaration.idl:
+        * css/CSSValue.idl:
+        * css/MediaList.idl:
+        * css/StyleMedia.idl:
+        * css/StyleSheet.idl:
+        * dom/MessagePort.idl:
+        * dom/MutationObserver.idl:
+        * dom/Node.idl:
+        * fileapi/Blob.idl:
+        * html/HTMLDocument.idl:
+        * html/HTMLTemplateElement.idl:
+        * html/canvas/ArrayBuffer.idl:
+        * html/canvas/CanvasRenderingContext.idl:
+        * html/canvas/DataView.idl:
+        * html/canvas/EXTDrawBuffers.idl:
+        * html/canvas/EXTTextureFilterAnisotropic.idl:
+        * html/canvas/OESElementIndexUint.idl:
+        * html/canvas/OESStandardDerivatives.idl:
+        * html/canvas/OESTextureFloat.idl:
+        * html/canvas/OESTextureHalfFloat.idl:
+        * html/canvas/OESVertexArrayObject.idl:
+        * html/canvas/WebGLCompressedTextureATC.idl:
+        * html/canvas/WebGLCompressedTexturePVRTC.idl:
+        * html/canvas/WebGLCompressedTextureS3TC.idl:
+        * html/canvas/WebGLDebugRendererInfo.idl:
+        * html/canvas/WebGLDebugShaders.idl:
+        * html/canvas/WebGLDepthTexture.idl:
+        * html/canvas/WebGLLoseContext.idl:
+        * html/track/TextTrack.idl:
+        * html/track/TextTrackCue.idl:
+        * html/track/TextTrackList.idl:
+        * loader/appcache/DOMApplicationCache.idl:
+        * page/BarInfo.idl:
+        * page/Console.idl:
+        * page/DOMSelection.idl:
+        * page/DOMWindow.idl:
+        * page/History.idl:
+        * page/Location.idl:
+        * page/MemoryInfo.idl:
+        * page/Navigator.idl:
+        * page/Screen.idl:
+        * page/WorkerNavigator.idl:
+        * plugins/DOMMimeTypeArray.idl:
+        * plugins/DOMPluginArray.idl:
+        * storage/Storage.idl:
+        * workers/AbstractWorker.idl:
+        * workers/SharedWorker.idl:
+        * workers/Worker.idl:
+        * workers/WorkerContext.idl:
+        * workers/WorkerLocation.idl:
+        * xml/XMLHttpRequestUpload.idl:
+
 2013-04-16  Beth Dakin  <bdakin@apple.com>
 
         Re-name Page::layoutMilestones() to Page::requestedLayoutMilestones()
