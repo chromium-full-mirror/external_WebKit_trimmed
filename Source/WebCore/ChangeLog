@@ -1,3 +1,20 @@
+2013-04-17  Alberto Garcia  <agarcia@igalia.com>
+
+        [BlackBerry] GraphicsContext3D: don't initialize m_extensions in the constructor
+        https://bugs.webkit.org/show_bug.cgi?id=114726
+
+        Reviewed by Carlos Garcia Campos.
+
+        m_extensions is now initialized on demand by
+        GraphicsContext3D::getExtensions().
+
+        Doing it in the constructor produces a crash, because
+        Extensions3DOpenGLES() calls glGetString before the WebGL context
+        is current.
+
+        * platform/graphics/blackberry/GraphicsContext3DBlackBerry.cpp:
+        (WebCore::GraphicsContext3D::GraphicsContext3D):
+
 2013-04-16  Maciej Stachowiak  <mjs@apple.com>
 
         Replace JSC-specific IDL extended attributes with generic (JSC+V8) ones, now that the distinction no longer matters
