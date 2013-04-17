@@ -1,3 +1,9 @@
+2013-04-17  Csaba Osztrogonác  <ossy@webkit.org>
+
+        [Qt] Unreviewed Windows buildfix.
+
+        * platform/qt/DragDataQt.cpp: Add a missing include.
+
 2013-04-17  ChangSeok Oh  <shivamidow@gmail.com>
 
         Breaking Float: floated block level element following inline element in floated container breaks to next line
