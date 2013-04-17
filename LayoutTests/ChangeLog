@@ -1,3 +1,19 @@
+2013-04-17  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
+
+        [Qt] Ureviewed gardening. Cleaning up after r148596.
+
+        * platform/qt-5.0-wk2/fast/backgrounds/background-position-parsing-expected.txt: Added.
+        * platform/qt-5.0-wk2/fast/backgrounds/size/contain-and-cover-zoomed-expected.png: Removed.
+        * platform/qt-5.0-wk2/fast/backgrounds/size/contain-and-cover-zoomed-expected.txt: Removed.
+        * platform/qt-5.0-wk2/fast/clip/overflow-border-radius-composited-expected.png: Removed.
+        * platform/qt-5.0-wk2/fast/clip/overflow-border-radius-composited-expected.txt: Removed.
+        * platform/qt-5.0-wk2/fast/repaint/line-flow-with-floats-in-regions-expected.txt: Removed.
+        * platform/qt-5.0-wk2/fast/table/border-collapsing/004-vertical-expected.png: Removed.
+        * platform/qt-5.0-wk2/fast/table/border-collapsing/004-vertical-expected.txt: Removed.
+        * platform/qt-5.0-wk2/svg/W3C-SVG-1.1-SE/pservers-pattern-04-f-expected.png: Removed.
+        * platform/qt-5.0-wk2/svg/W3C-SVG-1.1-SE/pservers-pattern-04-f-expected.txt: Removed.
+        * platform/qt/TestExpectations: Skip two reftest.
+
 2013-04-17  Dominik Röttsches  <dominik.rottsches@intel.com>
 
         [EFL] Unreviewed Gardening.
