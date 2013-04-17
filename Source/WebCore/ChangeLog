@@ -1,3 +1,10 @@
+2013-04-16  Sam Weinig  <sam@webkit.org>
+
+        Fix fallout after r148545.
+
+        * platform/text/TextChecking.h:
+        Move Platform defines that were incorrectly in WebCore, into Platform.h
+
 2013-04-16  Hans Muller  <hmuller@adobe.com>
 
         [CSS Exclusions] polygon shape-inside layout fails
