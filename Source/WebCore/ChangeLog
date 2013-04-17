@@ -1,3 +1,34 @@
+2013-04-17  Arpita Bahuguna  <a.bah@samsung.com>
+
+        getAttribute does not behave correctly for mixed-case attributes on HTML elements
+        https://bugs.webkit.org/show_bug.cgi?id=105713
+
+        Reviewed by Andreas Kling.
+
+        getAttribute() and getAttributeNode() APIs do not convert the
+        passed attribute name to lowercase before comparing against the
+        existing attributes.
+        The specification however states that the passed name should
+        be converted to ASCII lowercase before checking for the existence
+        of the given attribute. [www.w3.org/TR/domcore/#dom-element-getattribute]
+
+        Test: fast/dom/Element/getAttribute-case-insensitivity.html
+
+        * dom/Element.h:
+        (WebCore::ElementData::getAttributeItemIndex):
+        getAttributeItemIndex() accepts a bool param 'shouldIgnoreAttributeCase'
+        which specifies whether or not the attribute's case should be ignored
+        before comparison but we don't really convert the passed name to lowercase
+        before carrying out the comparison.
+
+        Thus, when called from APIs such as getAttribute() and getAttributeNode()
+        which do not explicitally convert the attribute name to lowercase
+        before calling on this method, it fails to carry out a case-insensitive
+        search.
+
+        Have thus made changes to convert the passed attribute's name to
+        lowercase if 'shouldIgnoreAttributeCase' is true.
+
 2013-04-17  John Griggs  <jgriggs@blackberry.com>
 
         [BlackBerry] Add support for filesystem: URLs to BlackBerry Media Player.
