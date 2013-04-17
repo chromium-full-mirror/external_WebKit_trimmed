@@ -1,3 +1,23 @@
+2013-04-16  Beth Dakin  <bdakin@apple.com>
+
+        Re-name Page::layoutMilestones() to Page::requestedLayoutMilestones()
+        https://bugs.webkit.org/show_bug.cgi?id=114713
+
+        Reviewed by Simon Fraser.
+
+        * page/FrameView.cpp:
+        (WebCore::FrameView::performPostLayoutTasks):
+        * page/Page.cpp:
+        (WebCore::Page::Page):
+        (WebCore::Page::addLayoutMilestones):
+        (WebCore::Page::removeLayoutMilestones):
+        (WebCore::Page::isCountingRelevantRepaintedObjects):
+        * page/Page.h:
+        (WebCore::Page::requestedLayoutMilestones):
+        (Page):
+        * rendering/RenderLayerCompositor.cpp:
+        (WebCore::RenderLayerCompositor::flushPendingLayerChanges):
+
 2013-04-16  Patrick Gansterer  <paroga@webkit.org>
 
         [CMake] Fix dependecy calculation for generated inspector files
