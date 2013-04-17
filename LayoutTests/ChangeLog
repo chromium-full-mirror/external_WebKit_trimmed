@@ -1,3 +1,15 @@
+2013-04-17  Claudio Saavedra  <csaavedra@igalia.com>
+
+        execCommand("RemoveFormat") might remove format after the selection
+        https://bugs.webkit.org/show_bug.cgi?id=112240
+
+        Reviewed by Ryosuke Niwa.
+
+        * editing/execCommand/remove-format-multiple-elements-mac-expected.txt: Updated.
+        * editing/execCommand/script-tests/remove-format-multiple-elements-mac.js:
+        (selectFirstLine): Add this method to check that RemoveFormat works when
+        a whole line is selected.
+
 2013-04-17  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening. Rebaselining text expected results after r148594.

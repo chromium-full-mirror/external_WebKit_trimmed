@@ -1,3 +1,33 @@
+2013-04-17  Claudio Saavedra  <csaavedra@igalia.com>
+
+        execCommand("RemoveFormat") might remove format after the selection
+        https://bugs.webkit.org/show_bug.cgi?id=112240
+
+        Reviewed by Ryosuke Niwa.
+
+        Tests: editing/execCommand/remove-format-multiple-elements-mac.html
+
+        This bug is hit when ApplyStyleCommand is used to change the
+        style and the current selection ends in the beginning of a new node.
+        The bug is actually a two-fold thing:
+
+        1. There was no check as to whether the end node is really
+        selected or not, and format was always removed from it with
+        pushDownInlineStyleAroundNode(). An equivalent check for the start
+        node was already in place, so fix it analogously.
+
+        2. Previous stage might change the dom tree, resulting in a render
+        tree that is not up-to-date. Position::upstream() is later used
+        and, in order to be able to find a visually equivalent position in
+        a text node, this method needs the render tree to be up-to-date,
+        therefore, a call to updateLayoutIgnorePendingStylesheets() is
+        necessary.
+
+        * editing/ApplyStyleCommand.cpp:
+        (WebCore::ApplyStyleCommand::removeInlineStyle): Make sure that no
+        format is removed from the end node if it's not fully selected.
+        (WebCore::ApplyStyleCommand::nodeFullySelected): Call updateLayoutIgnorePendingStylesheets()
+
 2013-04-17  Alberto Garcia  <agarcia@igalia.com>
 
         [BlackBerry] GraphicsContext3D: don't initialize m_extensions in the constructor
