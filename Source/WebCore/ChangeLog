@@ -1,3 +1,22 @@
+2013-04-18  Allan Sandfeld Jensen  <allan.jensen@digia.com>
+
+        Unset :hover in inner documents
+        https://bugs.webkit.org/show_bug.cgi?id=114446
+
+        Reviewed by Antonio Gomes.
+
+        Fixes a regression from r145126 where hover nodes in inner documents was sometimes
+        not unset. Additionally it uses the new api from r145126 to avoid an unnecessary
+        hit test in touch-event handling.
+
+        Test: fast/events/touch/frame-hover-update.html
+
+        * dom/Document.cpp:
+        (WebCore::Document::updateHoverActiveState):
+        * page/EventHandler.cpp:
+        (WebCore::shouldGesturesTriggerActive):
+        (WebCore::EventHandler::handleTouchEvent):
+
 2013-04-18  Seokju Kwon  <seokju.kwon@gmail.com>
 
         Web Inspector: Toolbar icons are displayed incorrectly
