@@ -1,3 +1,32 @@
+2013-04-17  Anders Carlsson  <andersca@apple.com>
+
+        Change storage factory functions to take a PageGroup and Page respectively
+        https://bugs.webkit.org/show_bug.cgi?id=114776
+
+        Reviewed by Beth Dakin.
+
+        Change StorageNamespace::localStorageNamespace to take a PageGroup since WebKit2 needs
+        to know which local storage namespace belongs to which page group. Also remove the quota parameter from
+        the sessionStorageNamespace function since that's trivial to get from the Page.
+
+        * WebCore.exp.in:
+        * page/Page.cpp:
+        (WebCore::Page::sessionStorage):
+        * page/PageGroup.cpp:
+        (WebCore::PageGroup::localStorage):
+        * storage/StorageNamespace.cpp:
+        (WebCore::StorageNamespace::localStorageNamespace):
+        (WebCore::StorageNamespace::sessionStorageNamespace):
+        * storage/StorageNamespace.h:
+        * storage/StorageNamespaceImpl.cpp:
+        (WebCore::StorageNamespaceImpl::localStorageNamespace):
+        (WebCore::StorageNamespaceImpl::sessionStorageNamespace):
+        * storage/StorageNamespaceImpl.h:
+        * storage/StorageStrategy.cpp:
+        (WebCore::StorageStrategy::localStorageNamespace):
+        (WebCore::StorageStrategy::sessionStorageNamespace):
+        * storage/StorageStrategy.h:
+
 2013-04-18  Martin Robinson  <mrobinson@igalia.com>
 
         [GTK] fast/canvas/DrawImageSinglePixelStretch.html fails
