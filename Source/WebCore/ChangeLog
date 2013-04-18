@@ -1,5 +1,38 @@
 2013-04-18  Xuefei Ren  <xren@blackberry.com>
 
+        remove build warning(unused parameter)
+        https://bugs.webkit.org/show_bug.cgi?id=114670
+
+        Reviewed by Rob Buis.
+
+        remove warning(unused parameter) in
+        Source/WebCore/html/shadow/MediaControlsBlackBerry.cpp
+        Source/WebCore/loader/blackberry/CookieJarBlackBerry.cpp
+        Source/WebCore/platform/blackberry/AuthenticationChallengeManager.cpp
+        Source/WebCore/platform/blackberry/RenderThemeBlackBerry.cpp
+        Source/WebCore/platform/network/blackberry/ResourceResponseBlackBerry.cpp
+        Source/WebCore/platform/network/blackberry/SocketStreamHandleBlackBerry.cpp
+        Source/WebCore/plugins/blackberry/PluginViewBlackBerry.cpp
+
+
+        * html/shadow/MediaControlsBlackBerry.cpp:
+        (WebCore::MediaControlFullscreenFullscreenButtonElement::setIsFullscreen):
+        * loader/blackberry/CookieJarBlackBerry.cpp:
+        (WebCore::getRawCookies):
+        (WebCore::deleteCookie):
+        * platform/blackberry/AuthenticationChallengeManager.cpp:
+        (WebCore::AuthenticationChallengeManager::notifyChallengeResult):
+        * platform/blackberry/RenderThemeBlackBerry.cpp:
+        (WebCore::RenderTheme::themeForPage):
+        * platform/network/blackberry/ResourceResponseBlackBerry.cpp:
+        (WebCore::ResourceResponse::doPlatformAdopt):
+        * platform/network/blackberry/SocketStreamHandleBlackBerry.cpp:
+        (WebCore::SocketStreamHandle::notifyStatusReceived):
+        * plugins/blackberry/PluginViewBlackBerry.cpp:
+        (WebCore::PluginView::invalidateRegion):
+
+2013-04-18  Xuefei Ren  <xren@blackberry.com>
+
 
         remove build warning(unused parameter)
         https://bugs.webkit.org/show_bug.cgi?id=114670
