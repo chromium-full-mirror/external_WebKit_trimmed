@@ -1,3 +1,20 @@
+2013-04-18  Andreas Kling  <akling@apple.com>
+
+        EditingStyle: Avoid some unnecessary CSSStyleDeclaration wrappers.
+        <http://webkit.org/b/114763>
+
+        Reviewed by Antti Koivisto.
+
+        removeEquivalentProperties(CSSStyleDeclaration) and removeEquivalentProperties(StylePropertySet)
+        only have different behavior if the CSSStyleDeclaration is computed style (they differ in handling
+        of the 'font-size' property.)
+
+        Avoid creating a CSSStyleDeclaration for StylePropertySets where we can just pass them in directly.
+
+        * editing/EditingStyle.cpp:
+        (WebCore::EditingStyle::removeStyleAddedByNode):
+        (WebCore::EditingStyle::removeStyleConflictingWithStyleOfNode):
+
 2013-04-18  Allan Sandfeld Jensen  <allan.jensen@digia.com>
 
         Unset :hover in inner documents
