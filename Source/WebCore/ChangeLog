@@ -1,3 +1,21 @@
+2013-04-17  Jaehun Lim  <ljaehun.lim@samsung.com>
+
+        [css3-text] Rendering -webkit-hanging value for text-indent from css3-text
+        https://bugs.webkit.org/show_bug.cgi?id=114663
+
+        Reviewed by Beth Dakin.
+
+        This patch is the rendering part to support hanging value for text-indent.
+        "hanging" means "Inverts which lines are affected."
+        It's prefixed and guarded by CSS3_TEXT flag.
+
+        Spec: http://dev.w3.org/csswg/css-text/#text-indent
+
+        Test: fast/css3-text/css3-text-indent/text-indent-each-line-hanging.html
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::requiresIndent): Inverted the return value when "-webkit-hanging" is applied.
+
 2013-04-17  James Craig  <james@cookiecrook.com>
 
         AX: aria-level does not override implicit level on h1, h2, etc
