@@ -1,3 +1,16 @@
+2013-04-18  Alberto Garcia  <agarcia@igalia.com>
+
+        Remove obsolete macros from libpng
+        https://bugs.webkit.org/show_bug.cgi?id=114817
+
+        Reviewed by Benjamin Poulain.
+
+        libpng 1.4 removes the png_voidp_NULL and png_error_ptr_NULL
+        macros. Null pointers must be used directly instead.
+
+        * platform/image-encoders/PNGImageEncoder.cpp:
+        (WebCore::compressRGBABigEndianToPNG):
+
 2013-04-18  Jer Noble  <jer.noble@apple.com>
 
         CodeGeneratorJS.pm should generate "isFiringEventListeners()" check in isReachableFromOpaqueRoots()
