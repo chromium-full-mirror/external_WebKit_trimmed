@@ -1,3 +1,19 @@
+2013-04-18  Simon Fraser  <simon.fraser@apple.com>
+
+        Remove GraphicsLayerCA::constrainedSize() now that we can manage large layer memory use ourselves in TileController
+        https://bugs.webkit.org/show_bug.cgi?id=114834
+
+        Reviewed by Tim Horton.
+
+        GraphicsLayerCA::constrainedSize() was added to handle poor CATiledLayer behavior when layer sizes
+        got extremely large. Now that we no longer use CATiledLayer, remove this code. We can later add
+        tile memory bounding to TileController if that becomes necessary.
+
+        * platform/graphics/ca/GraphicsLayerCA.cpp:
+        (WebCore::GraphicsLayerCA::updateGeometry):
+        * platform/graphics/ca/GraphicsLayerCA.h:
+        (GraphicsLayerCA):
+
 2013-04-18  Alberto Garcia  <agarcia@igalia.com>
 
         Remove obsolete macros from libpng
