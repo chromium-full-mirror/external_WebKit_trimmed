@@ -1,3 +1,10 @@
+2013-04-18  Jer Noble  <jer.noble@apple.com>
+
+        Unreviewed gardening; fix bindings tests after r148700.
+
+        * bindings/scripts/test/JS/JSTestEventTarget.cpp:
+        (WebCore::JSTestEventTargetOwner::isReachableFromOpaqueRoots):
+
 2013-04-18  Andy Estes  <aestes@apple.com>
 
         REGRESSION (r116645): Versions app's UI is munged in HiDPI due to background-size being reset to 'auto' when background short-hand is also specified
