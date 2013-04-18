@@ -1,3 +1,52 @@
+2013-04-18  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening. Updating png expected results after r148594.
+
+        * platform/qt-5.0-wk2/compositing/direct-image-compositing-expected.png: Added.
+        * platform/qt-5.0-wk2/compositing/geometry/video-fixed-scrolling-expected.png:
+        * platform/qt-5.0-wk2/compositing/overflow/overflow-compositing-descendant-expected.png:
+        * platform/qt-5.0-wk2/compositing/overflow/scroll-ancestor-update-expected.png: Added.
+        * platform/qt-5.0-wk2/compositing/reflections/nested-reflection-transformed-expected.png:
+        * platform/qt-5.0-wk2/compositing/self-painting-layers-expected.png: Added.
+        * platform/qt-5.0-wk2/compositing/shadows/shadow-drawing-expected.png: Added.
+        * platform/qt-5.0-wk2/editing/selection/replaced-boundaries-3-expected.png: Added.
+        * platform/qt-5.0-wk2/editing/selection/select-box-expected.png: Added.
+        * platform/qt-5.0-wk2/editing/selection/select-element-paragraph-boundary-expected.png: Added.
+        * platform/qt-5.0-wk2/fast/backgrounds/background-position-parsing-expected.png: Added.
+        * platform/qt-5.0-wk2/fast/backgrounds/size/contain-and-cover-zoomed-expected.png: Added.
+        * platform/qt-5.0-wk2/fast/box-shadow/box-shadow-transformed-expected.png:
+        * platform/qt-5.0-wk2/fast/clip/overflow-border-radius-composited-expected.png: Added.
+        * platform/qt-5.0-wk2/fast/css-generated-content/014-expected.png:
+        * platform/qt-5.0-wk2/fast/css/absolute-child-with-percent-height-inside-relative-parent-expected.png:
+        * platform/qt-5.0-wk2/fast/events/pointer-events-2-expected.png: Added.
+        * platform/qt-5.0-wk2/fast/forms/form-element-geometry-expected.png: Added.
+        * platform/qt-5.0-wk2/fast/forms/menulist-separator-painting-expected.txt:
+        * platform/qt-5.0-wk2/fast/forms/select-baseline-expected.txt: Added.
+        * platform/qt-5.0-wk2/fast/forms/selectlist-minsize-expected.txt: Added.
+        * platform/qt-5.0-wk2/fast/gradients/border-image-gradient-sides-and-corners-expected.png: Added.
+        * platform/qt-5.0-wk2/fast/inline/continuation-outlines-expected.png: Added.
+        * platform/qt-5.0-wk2/fast/lists/ordered-list-with-no-ol-tag-expected.png: Added.
+        * platform/qt-5.0-wk2/fast/text/whitespace/013-expected.png:
+        * platform/qt-5.0-wk2/fast/text/whitespace/014-expected.png:
+        * platform/qt-5.0-wk2/svg/as-border-image/svg-as-border-image-expected.png:
+        * platform/qt-5.0-wk2/svg/custom/image-parent-translation-expected.png:
+        * platform/qt-5.0-wk2/svg/custom/inline-svg-in-xhtml-expected.png:
+        * platform/qt-5.0-wk2/svg/custom/js-update-image-and-display-expected.png: Copied from LayoutTests/platform/qt-5.0-wk2/fast/text/whitespace/013-expected.png.
+        * platform/qt-5.0-wk2/svg/dynamic-updates/SVG-dynamic-css-transform-expected.png:
+        * platform/qt-5.0-wk2/svg/text/remove-text-node-from-tspan-expected.png:
+        * platform/qt-5.0-wk2/svg/text/remove-tspan-from-text-expected.png:
+        * platform/qt-5.0-wk2/svg/text/text-deco-01-b-expected.png: Added.
+        * platform/qt-5.0-wk2/svg/wicd/test-rightsizing-b-expected.png:
+        * platform/qt-5.0-wk2/svg/wicd/test-scalable-background-image2-expected.png:
+        * platform/qt-5.0-wk2/svg/zoom/page/zoom-background-images-expected.png:
+        * platform/qt-5.0-wk2/svg/zoom/page/zoom-svg-through-object-with-absolute-size-2-expected.png:
+        * platform/qt-5.0-wk2/svg/zoom/page/zoom-svg-through-object-with-absolute-size-expected.png:
+        * platform/qt-5.0-wk2/svg/zoom/page/zoom-svg-through-object-with-percentage-size-expected.png: Added.
+        * platform/qt-5.0-wk2/tables/mozilla/bugs/bug56563-expected.png: Added.
+        * platform/qt-5.0-wk2/tables/mozilla/marvin/backgr_layers-opacity-expected.png: Added.
+        * platform/qt-5.0-wk2/tables/mozilla_expected_failures/marvin/backgr_position-table-column-expected.png: Added.
+        * platform/qt-5.0-wk2/tables/mozilla_expected_failures/marvin/backgr_position-table-row-expected.png: Added.
+
 2013-04-18  Zan Dobersek  <zdobersek@igalia.com>
 
         Unreviewed GTK gardening.
