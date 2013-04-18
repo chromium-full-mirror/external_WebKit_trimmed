@@ -1,3 +1,24 @@
+2013-04-18  Seokju Kwon  <seokju.kwon@gmail.com>
+
+        Web Inspector: Toolbar icons are displayed incorrectly
+        https://bugs.webkit.org/show_bug.cgi?id=114792
+
+        Reviewed by Timothy Hatcher.
+
+        Inspector uses small toolbar icons when docking the inspector.
+        So icons should have different x position.
+
+        No tests because no behavior change is expected.
+
+        * inspector/front-end/inspector.css: Add missing 'background-position-x' values.
+        (body.dock-to-bottom .toolbar-item.profiles .toolbar-icon):
+        (body.dock-to-bottom .toolbar-item.cpu-profiler .toolbar-icon):
+        (body.dock-to-bottom .toolbar-item.css-profiler .toolbar-icon):
+        (body.dock-to-bottom .toolbar-item.heap-profiler .toolbar-icon):
+        (body.dock-to-bottom .toolbar-item.canvas-profiler .toolbar-icon):
+        (body.dock-to-bottom .toolbar-item.memory-chart-profiler .toolbar-icon):
+        (body.dock-to-bottom .toolbar-item.memory-snapshot-profiler .toolbar-icon):
+
 2013-04-17  Jaehun Lim  <ljaehun.lim@samsung.com>
 
         [css3-text] Rendering -webkit-hanging value for text-indent from css3-text
