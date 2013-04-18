@@ -1,3 +1,28 @@
+2013-04-17  Chris Fleizach  <cfleizach@apple.com>
+
+        AX: VoiceOver says everything that isn't a link is a "clickable" in Safari reader?
+        https://bugs.webkit.org/show_bug.cgi?id=114687
+
+        Reviewed by Tim Horton.
+
+        VoiceOver is saying all text is clickable, because AXPress is exposed as an action on static text.
+        That is happening, because there's a click handler on the body element in this case.
+
+        I think the best plan to keep existing functionality, but fix this case is not to expose
+        the press action for static text when the handler is on the body element.
+
+        Test: platform/mac/accessibility/press-action-not-exposed-when-body-is-click-handler.html
+
+        * accessibility/AccessibilityNodeObject.cpp:
+        (WebCore::AccessibilityNodeObject::mouseButtonListener):
+           Change from checking getAttributeEventListener to hasEventListeners. The former only
+           checks if "onclick" is installed on the element and does not work with addEventListener!
+
+        * accessibility/AccessibilityObject.cpp:
+        (WebCore::AccessibilityObject::isAccessibilityObjectSearchMatchAtIndex):
+        * accessibility/AccessibilityObject.h:
+        (WebCore::AccessibilityObject::isStaticText):
+
 2013-04-17  Simon Fraser  <simon.fraser@apple.com>
 
         Fix GraphicsLayerCA::recursiveVisibleRectChangeRequiresFlush() to do predictive visible rect expansion

@@ -1,3 +1,13 @@
+2013-04-17  Chris Fleizach  <cfleizach@apple.com>
+
+        AX: VoiceOver says everything that isn't a link is a "clickable" in Safari reader?
+        https://bugs.webkit.org/show_bug.cgi?id=114687
+
+        Reviewed by Tim Horton.
+
+        * platform/mac/accessibility/press-action-not-exposed-when-body-is-click-handler-expected.txt: Added.
+        * platform/mac/accessibility/press-action-not-exposed-when-body-is-click-handler.html: Added.
+
 2013-04-17  Jessie Berlin  <jberlin@apple.com>
 
         Remove the mac-snowleopard LayoutTest directory.
