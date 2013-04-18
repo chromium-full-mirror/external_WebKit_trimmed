@@ -1,3 +1,16 @@
+2013-04-18  Jer Noble  <jer.noble@apple.com>
+
+        CodeGeneratorJS.pm should generate "isFiringEventListeners()" check in isReachableFromOpaqueRoots()
+        https://bugs.webkit.org/show_bug.cgi?id=114784
+
+        Reviewed by Geoffrey Garen.
+
+        EventTarget subclasses shouldn't have to use CustomIsReachable directives
+        in order to keep their wrappers alive while firing event listeners.
+
+        * bindings/scripts/CodeGeneratorJS.pm:
+        (GenerateImplementation):
+
 2013-04-17  Geoffrey Garen  <ggaren@apple.com>
 
         Renamed JSGlobalData to VM
