@@ -1,3 +1,21 @@
+2013-04-18  Jonathan Feldstein  <jfeldstein@blackberry.com>
+
+        [BlackBerry] Improper initialization of ANGLEResources (resubmission)
+        https://bugs.webkit.org/show_bug.cgi?id=114814
+
+        Reviewed by Yong Li, Rob Buis
+        Internally reviewed by Maxim Mogilnitsky
+
+        MaxDrawBuffers, OES_standard_derivatives, OES_EGL_image_external and ARB_texture_rectangle
+        are initialized through the ShBuiltInResources function so these fields do not need to be
+        set again in GraphicsContext3DBlackBerry.cpp. In addition, the extension flags should not
+        be set to true without getExtension being called (Khronos WebGL specs, section 5.14.14.).
+        In fact, as a direct result of these extensions being enabled prior to calling
+        getExtension, a WebGL conformance suite test for GL_OES_standard_derivatives was failing.
+
+        * platform/graphics/blackberry/GraphicsContext3DBlackBerry.cpp:
+        (WebCore::GraphicsContext3D::GraphicsContext3D):
+
 2013-04-18  Xuefei Ren  <xren@blackberry.com>
 
         remove build warning(unused parameter)
