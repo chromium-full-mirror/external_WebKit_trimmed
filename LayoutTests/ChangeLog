@@ -1,3 +1,10 @@
+2013-04-18  Jessie Berlin  <jberlin@apple.com>
+
+        More cleaning up of skipped WK2 tests.
+
+        * platform/mac-wk2/TestExpectations:
+        * platform/wk2/TestExpectations:
+
 2013-04-18  Eric Carlson  <eric.carlson@apple.com>
 
         Forced subtitles never rendered
