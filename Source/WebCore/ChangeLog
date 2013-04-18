@@ -1,3 +1,15 @@
+2013-04-17  James Craig  <james@cookiecrook.com>
+
+        AX: aria-level does not override implicit level on h1, h2, etc
+        https://bugs.webkit.org/show_bug.cgi?id=114692
+
+        Reviewed by Chris Fleizach.
+
+        aria-level now works on headings without an explicit role="heading" defined. Updated existing test coverage.
+
+        * accessibility/AccessibilityNodeObject.cpp:
+        (WebCore::AccessibilityNodeObject::headingLevel):
+
 2013-04-17  Chris Fleizach  <cfleizach@apple.com>
 
         AX: VoiceOver says everything that isn't a link is a "clickable" in Safari reader?
