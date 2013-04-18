@@ -1,3 +1,15 @@
+2013-04-18  Allan Sandfeld Jensen  <allan.jensen@digia.com>
+
+        fast/sub-pixel/float-wrap-zoom.html fails
+        https://bugs.webkit.org/show_bug.cgi?id=114800
+
+        Unreviewed gardending.
+
+        The test depends on pixel rounding in text painting.
+
+        * platform/mac/TestExpectations:
+        * platform/qt/TestExpectations:
+
 2013-04-18  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening. Updating png expected results after r148594.
