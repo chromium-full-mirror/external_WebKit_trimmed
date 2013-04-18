@@ -1,11 +1,14 @@
-2013-04-18  Martin Robinson  <mrobinson@igalia.com>
+2013-04-18  Eric Carlson  <eric.carlson@apple.com>
 
-        [GTK] fast/canvas/DrawImageSinglePixelStretch.html fails
-        https://bugs.webkit.org/show_bug.cgi?id=58309
+        Forced subtitles never rendered
+        https://bugs.webkit.org/show_bug.cgi?id=114818
 
-        Reviewed by Alejandro G. Castro.
+        Update test to check that a forced cue is rendered.
 
-        * platform/gtk/TestExpectations: Unskip a test which is now passing.
+        Reviewed by Jer Noble.
+
+        * media/track/track-forced-subtitles-in-band-expected.txt:
+        * media/track/track-forced-subtitles-in-band.html:
 
 2013-04-18  Eric Carlson  <eric.carlson@apple.com>
 

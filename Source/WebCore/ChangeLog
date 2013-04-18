@@ -1,3 +1,15 @@
+2013-04-18  Eric Carlson  <eric.carlson@apple.com>
+
+        Forced subtitles never rendered
+        https://bugs.webkit.org/show_bug.cgi?id=114818
+
+        Reviewed by Jer Noble.
+
+        No new tests, media/track/track-forced-subtitles-in-band.html was updated to test this change.
+
+        * html/track/TextTrack.cpp:
+        (WebCore::TextTrack::isRendered): "forced" tracks are rendered.
+
 2013-04-17  Anders Carlsson  <andersca@apple.com>
 
         Change storage factory functions to take a PageGroup and Page respectively
