@@ -1,3 +1,19 @@
+2013-04-18  Martin Robinson  <mrobinson@igalia.com>
+
+        [GTK] fast/canvas/DrawImageSinglePixelStretch.html fails
+        https://bugs.webkit.org/show_bug.cgi?id=58309
+
+        Reviewed by Alejandro G. Castro.
+
+        No new tests. This patch unskips a test.
+
+        Prevent sampling outside source boundaries, by creating subsurfaces from source surfaces.
+        This also requires careful handling of negative and floating source rectangles.
+
+        * platform/graphics/cairo/PlatformContextCairo.cpp:
+        (WebCore::PlatformContextCairo::drawSurfaceToContext): Use a subsurface to prevent sampling
+        outside rectangle boundaries.
+
 2013-04-18  Jonathan Feldstein  <jfeldstein@blackberry.com>
 
         [BlackBerry] Improper initialization of ANGLEResources (resubmission)
