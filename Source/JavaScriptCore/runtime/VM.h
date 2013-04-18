@@ -26,8 +26,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef JSGlobalData_h
-#define JSGlobalData_h
+#ifndef VM_h
+#define VM_h
 
 #include "CachedTranscendentalFunction.h"
 #include "DateInstanceCache.h"
@@ -162,31 +162,31 @@ namespace JSC {
 #endif
 #endif
 
-    class JSGlobalData : public ThreadSafeRefCounted<JSGlobalData> {
+    class VM : public ThreadSafeRefCounted<VM> {
     public:
-        // WebCore has a one-to-one mapping of threads to JSGlobalDatas;
+        // WebCore has a one-to-one mapping of threads to VMs;
         // either create() or createLeaked() should only be called once
-        // on a thread, this is the 'default' JSGlobalData (it uses the
+        // on a thread, this is the 'default' VM (it uses the
         // thread's default string uniquing table from wtfThreadData).
         // API contexts created using the new context group aware interface
         // create APIContextGroup objects which require less locking of JSC
-        // than the old singleton APIShared JSGlobalData created for use by
+        // than the old singleton APIShared VM created for use by
         // the original API.
-        enum GlobalDataType { Default, APIContextGroup, APIShared };
+        enum VMType { Default, APIContextGroup, APIShared };
         
         struct ClientData {
             JS_EXPORT_PRIVATE virtual ~ClientData() = 0;
         };
 
-        bool isSharedInstance() { return globalDataType == APIShared; }
-        bool usingAPI() { return globalDataType != Default; }
+        bool isSharedInstance() { return vmType == APIShared; }
+        bool usingAPI() { return vmType != Default; }
         static bool sharedInstanceExists();
-        JS_EXPORT_PRIVATE static JSGlobalData& sharedInstance();
+        JS_EXPORT_PRIVATE static VM& sharedInstance();
 
-        JS_EXPORT_PRIVATE static PassRefPtr<JSGlobalData> create(HeapType = SmallHeap);
-        JS_EXPORT_PRIVATE static PassRefPtr<JSGlobalData> createLeaked(HeapType = SmallHeap);
-        static PassRefPtr<JSGlobalData> createContextGroup(HeapType = SmallHeap);
-        JS_EXPORT_PRIVATE ~JSGlobalData();
+        JS_EXPORT_PRIVATE static PassRefPtr<VM> create(HeapType = SmallHeap);
+        JS_EXPORT_PRIVATE static PassRefPtr<VM> createLeaked(HeapType = SmallHeap);
+        static PassRefPtr<VM> createContextGroup(HeapType = SmallHeap);
+        JS_EXPORT_PRIVATE ~VM();
 
         void makeUsableFromMultipleThreads() { heap.machineThreads().makeUsableFromMultipleThreads(); }
 
@@ -208,7 +208,7 @@ namespace JSC {
         OwnPtr<DFG::LongLivedState> m_dfgState;
 #endif // ENABLE(DFG_JIT)
 
-        GlobalDataType globalDataType;
+        VMType vmType;
         ClientData* clientData;
         ExecState* topCallFrame;
         Watchdog watchdog;
@@ -474,8 +474,8 @@ namespace JSC {
     private:
         friend class LLIntOffsetsExtractor;
         
-        JSGlobalData(GlobalDataType, HeapType);
-        static JSGlobalData*& sharedInstanceInternal();
+        VM(VMType, HeapType);
+        static VM*& sharedInstanceInternal();
         void createNativeThunk();
 #if ENABLE(ASSEMBLER)
         bool m_canUseAssembler;
@@ -504,12 +504,12 @@ namespace JSC {
     };
 
 #if ENABLE(GC_VALIDATION)
-    inline bool JSGlobalData::isInitializingObject() const
+    inline bool VM::isInitializingObject() const
     {
         return !!m_initializingObjectClass;
     }
 
-    inline void JSGlobalData::setInitializingObjectClass(const ClassInfo* initializingObjectClass)
+    inline void VM::setInitializingObjectClass(const ClassInfo* initializingObjectClass)
     {
         m_initializingObjectClass = initializingObjectClass;
     }
@@ -517,9 +517,9 @@ namespace JSC {
 
     inline Heap* WeakSet::heap() const
     {
-        return &m_globalData->heap;
+        return &m_vm->heap;
     }
 
 } // namespace JSC
 
-#endif // JSGlobalData_h
+#endif // VM_h

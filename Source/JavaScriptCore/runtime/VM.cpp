@@ -27,7 +27,7 @@
  */
 
 #include "config.h"
-#include "JSGlobalData.h"
+#include "VM.h"
 
 #include "ArgList.h"
 #include "CodeCache.h"
@@ -133,13 +133,13 @@ static bool enableAssembler(ExecutableAllocator& executableAllocator)
 }
 #endif // ENABLE(!ASSEMBLER)
 
-JSGlobalData::JSGlobalData(GlobalDataType globalDataType, HeapType heapType)
+VM::VM(VMType vmType, HeapType heapType)
     : m_apiLock(adoptRef(new JSLock(this)))
 #if ENABLE(ASSEMBLER)
     , executableAllocator(*this)
 #endif
     , heap(this, heapType)
-    , globalDataType(globalDataType)
+    , vmType(vmType)
     , clientData(0)
     , topCallFrame(CallFrame::noCaller())
     , arrayConstructorTable(fastNew<HashTable>(JSC::arrayConstructorTable))
@@ -159,7 +159,7 @@ JSGlobalData::JSGlobalData(GlobalDataType globalDataType, HeapType heapType)
     , regExpConstructorTable(fastNew<HashTable>(JSC::regExpConstructorTable))
     , regExpPrototypeTable(fastNew<HashTable>(JSC::regExpPrototypeTable))
     , stringConstructorTable(fastNew<HashTable>(JSC::stringConstructorTable))
-    , identifierTable(globalDataType == Default ? wtfThreadData().currentIdentifierTable() : createIdentifierTable())
+    , identifierTable(vmType == Default ? wtfThreadData().currentIdentifierTable() : createIdentifierTable())
     , propertyNames(new CommonIdentifiers(this))
     , emptyList(new MarkedArgumentBuffer)
     , parserArena(adoptPtr(new ParserArena))
@@ -264,13 +264,13 @@ JSGlobalData::JSGlobalData(GlobalDataType globalDataType, HeapType heapType)
 #endif
 }
 
-JSGlobalData::~JSGlobalData()
+VM::~VM()
 {
     // Clear this first to ensure that nobody tries to remove themselves from it.
     m_perBytecodeProfiler.clear();
     
     ASSERT(m_apiLock->currentThreadIsHoldingLock());
-    m_apiLock->willDestroyGlobalData(this);
+    m_apiLock->willDestroyVM(this);
     heap.lastChanceToFinalize();
 
     delete interpreter;
@@ -317,7 +317,7 @@ JSGlobalData::~JSGlobalData()
     delete emptyList;
 
     delete propertyNames;
-    if (globalDataType != Default)
+    if (vmType != Default)
         deleteIdentifierTable(identifierTable);
 
     delete clientData;
@@ -332,40 +332,40 @@ JSGlobalData::~JSGlobalData()
 #endif
 }
 
-PassRefPtr<JSGlobalData> JSGlobalData::createContextGroup(HeapType heapType)
+PassRefPtr<VM> VM::createContextGroup(HeapType heapType)
 {
-    return adoptRef(new JSGlobalData(APIContextGroup, heapType));
+    return adoptRef(new VM(APIContextGroup, heapType));
 }
 
-PassRefPtr<JSGlobalData> JSGlobalData::create(HeapType heapType)
+PassRefPtr<VM> VM::create(HeapType heapType)
 {
-    return adoptRef(new JSGlobalData(Default, heapType));
+    return adoptRef(new VM(Default, heapType));
 }
 
-PassRefPtr<JSGlobalData> JSGlobalData::createLeaked(HeapType heapType)
+PassRefPtr<VM> VM::createLeaked(HeapType heapType)
 {
     return create(heapType);
 }
 
-bool JSGlobalData::sharedInstanceExists()
+bool VM::sharedInstanceExists()
 {
     return sharedInstanceInternal();
 }
 
-JSGlobalData& JSGlobalData::sharedInstance()
+VM& VM::sharedInstance()
 {
     GlobalJSLock globalLock;
-    JSGlobalData*& instance = sharedInstanceInternal();
+    VM*& instance = sharedInstanceInternal();
     if (!instance) {
-        instance = adoptRef(new JSGlobalData(APIShared, SmallHeap)).leakRef();
+        instance = adoptRef(new VM(APIShared, SmallHeap)).leakRef();
         instance->makeUsableFromMultipleThreads();
     }
     return *instance;
 }
 
-JSGlobalData*& JSGlobalData::sharedInstanceInternal()
+VM*& VM::sharedInstanceInternal()
 {
-    static JSGlobalData* sharedInstance;
+    static VM* sharedInstance;
     return sharedInstance;
 }
 
@@ -400,28 +400,28 @@ static ThunkGenerator thunkGeneratorForIntrinsic(Intrinsic intrinsic)
     }
 }
 
-NativeExecutable* JSGlobalData::getHostFunction(NativeFunction function, NativeFunction constructor)
+NativeExecutable* VM::getHostFunction(NativeFunction function, NativeFunction constructor)
 {
     return jitStubs->hostFunctionStub(this, function, constructor);
 }
-NativeExecutable* JSGlobalData::getHostFunction(NativeFunction function, Intrinsic intrinsic)
+NativeExecutable* VM::getHostFunction(NativeFunction function, Intrinsic intrinsic)
 {
     ASSERT(canUseJIT());
     return jitStubs->hostFunctionStub(this, function, intrinsic != NoIntrinsic ? thunkGeneratorForIntrinsic(intrinsic) : 0, intrinsic);
 }
 
 #else // !ENABLE(JIT)
-NativeExecutable* JSGlobalData::getHostFunction(NativeFunction function, NativeFunction constructor)
+NativeExecutable* VM::getHostFunction(NativeFunction function, NativeFunction constructor)
 {
     return NativeExecutable::create(*this, function, constructor);
 }
 #endif // !ENABLE(JIT)
 
-JSGlobalData::ClientData::~ClientData()
+VM::ClientData::~ClientData()
 {
 }
 
-void JSGlobalData::resetDateCache()
+void VM::resetDateCache()
 {
     cachedUTCOffset = QNaN;
     dstOffsetCache.reset();
@@ -430,24 +430,24 @@ void JSGlobalData::resetDateCache()
     dateInstanceCache.reset();
 }
 
-void JSGlobalData::startSampling()
+void VM::startSampling()
 {
     interpreter->startSampling();
 }
 
-void JSGlobalData::stopSampling()
+void VM::stopSampling()
 {
     interpreter->stopSampling();
 }
 
-void JSGlobalData::discardAllCode()
+void VM::discardAllCode()
 {
     m_codeCache->clear();
     heap.deleteAllCompiledCode();
     heap.reportAbandonedObjectGraph();
 }
 
-void JSGlobalData::dumpSampleData(ExecState* exec)
+void VM::dumpSampleData(ExecState* exec)
 {
     interpreter->dumpSampleData(exec);
 #if ENABLE(ASSEMBLER)
@@ -455,7 +455,7 @@ void JSGlobalData::dumpSampleData(ExecState* exec)
 #endif
 }
 
-SourceProviderCache* JSGlobalData::addSourceProviderCache(SourceProvider* sourceProvider)
+SourceProviderCache* VM::addSourceProviderCache(SourceProvider* sourceProvider)
 {
     SourceProviderCacheMap::AddResult addResult = sourceProviderCacheMap.add(sourceProvider, 0);
     if (addResult.isNewEntry)
@@ -463,7 +463,7 @@ SourceProviderCache* JSGlobalData::addSourceProviderCache(SourceProvider* source
     return addResult.iterator->value.get();
 }
 
-void JSGlobalData::clearSourceProviderCaches()
+void VM::clearSourceProviderCaches()
 {
     sourceProviderCacheMap.clear();
 }
@@ -481,7 +481,7 @@ struct StackPreservingRecompiler : public MarkedBlock::VoidFunctor {
     }
 };
 
-void JSGlobalData::releaseExecutableMemory()
+void VM::releaseExecutableMemory()
 {
     if (dynamicGlobalObject) {
         StackPreservingRecompiler recompiler;
@@ -513,13 +513,13 @@ void JSGlobalData::releaseExecutableMemory()
     heap.collectAllGarbage();
 }
     
-void releaseExecutableMemory(JSGlobalData& globalData)
+void releaseExecutableMemory(VM& vm)
 {
-    globalData.releaseExecutableMemory();
+    vm.releaseExecutableMemory();
 }
 
 #if ENABLE(DFG_JIT)
-void JSGlobalData::gatherConservativeRoots(ConservativeRoots& conservativeRoots)
+void VM::gatherConservativeRoots(ConservativeRoots& conservativeRoots)
 {
     for (size_t i = 0; i < scratchBuffers.size(); i++) {
         ScratchBuffer* scratchBuffer = scratchBuffers[i];
@@ -532,12 +532,12 @@ void JSGlobalData::gatherConservativeRoots(ConservativeRoots& conservativeRoots)
 #endif
 
 #if ENABLE(REGEXP_TRACING)
-void JSGlobalData::addRegExpToTrace(RegExp* regExp)
+void VM::addRegExpToTrace(RegExp* regExp)
 {
     m_rtTraceList->add(regExp);
 }
 
-void JSGlobalData::dumpRegExpTrace()
+void VM::dumpRegExpTrace()
 {
     // The first RegExp object is ignored.  It is create by the RegExpPrototype ctor and not used.
     RTTraceList::iterator iter = ++m_rtTraceList->begin();
@@ -559,7 +559,7 @@ void JSGlobalData::dumpRegExpTrace()
     m_rtTraceList->clear();
 }
 #else
-void JSGlobalData::dumpRegExpTrace()
+void VM::dumpRegExpTrace()
 {
 }
 #endif
