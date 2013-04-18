@@ -1,3 +1,32 @@
+2013-04-17  Simon Fraser  <simon.fraser@apple.com>
+
+        Fix GraphicsLayerCA::recursiveVisibleRectChangeRequiresFlush() to do predictive visible rect expansion
+        https://bugs.webkit.org/show_bug.cgi?id=114775
+
+        Reviewed by Tim Horton.
+
+        GraphicsLayerCA::recursiveVisibleRectChangeRequiresFlush() is intended to answer the question
+        "if your visible rect is changed to X, would any tiles be created or destroyed?".
+        
+        However, for compositing layer tiled layers, we do some predictive visible rect expansion based on how
+        the visible rect is changing when we actually commit visible rect changes. recursiveVisibleRectChangeRequiresFlush()
+        was not doing that, causing it to give confusing answers, so fix it to do so.
+        
+        Both now call adjustTiledLayerVisibleRect(), and it's cleaner to make this a static function.
+        
+        A somewhat unrelated change is to take the layer bounds origin into account
+        in GraphicsLayerCA::computeVisibleRect(). Desktop WebKit never sets this, but it's used
+        on other platforms for composited scrolling, so needs to be taken into account
+        when computing visible rects.
+
+        * platform/graphics/ca/GraphicsLayerCA.cpp:
+        (WebCore::GraphicsLayerCA::recursiveVisibleRectChangeRequiresFlush):
+        (WebCore::GraphicsLayerCA::computeVisibleRect):
+        (WebCore::GraphicsLayerCA::adjustTiledLayerVisibleRect):
+        (WebCore::GraphicsLayerCA::updateVisibleRect):
+        * platform/graphics/ca/GraphicsLayerCA.h:
+        (GraphicsLayerCA):
+
 2013-04-17  Oliver Hunt  <oliver@apple.com>
 
         Automate generation of toJS function for classes that need to report extra memory usage
