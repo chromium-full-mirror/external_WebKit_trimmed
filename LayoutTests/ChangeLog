@@ -1,3 +1,10 @@
+2013-04-18  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed GTK gardening.
+
+        * platform/gtk/TestExpectations: Fix expectations for a couple of flaky tests.
+        Adding aditional flaky and timeout expectations for the currently failing tests.
+
 2013-04-17  Jaehun Lim  <ljaehun.lim@samsung.com>
 
         [css3-text] Rendering -webkit-hanging value for text-indent from css3-text
