@@ -1,3 +1,35 @@
+2013-04-19  Dirk Schulze  <krit@webkit.org>
+
+        Refactor transform code in StyleResolver
+        https://bugs.webkit.org/show_bug.cgi?id=114874
+
+        Reviewed by Andreas Kling.
+
+        Move transform code frome StyleResolver into own files.
+
+        Refactoring, no changes in functionality.
+
+        * CMakeLists.txt:
+        * GNUmakefile.list.am:
+        * Target.pri:
+        * WebCore.vcproj/WebCore.vcproj:
+        * WebCore.vcxproj/WebCore.vcxproj:
+        * WebCore.vcxproj/WebCore.vcxproj.filters:
+        * WebCore.xcodeproj/project.pbxproj:
+        * css/StyleResolver.cpp:
+        (WebCore::StyleResolver::applyProperty):
+        (WebCore::StyleResolver::parseCustomFilterTransformParameter):
+        * css/StyleResolver.h:
+        * css/TransformFunctions.cpp: Added.
+        (WebCore):
+        (WebCore::transformOperationType):
+        (WebCore::convertToFloatLength):
+        (WebCore::transformsForValue):
+        * css/TransformFunctions.h: Added.
+        (WebCore):
+        * css/WebKitCSSMatrix.cpp:
+        (WebCore::WebKitCSSMatrix::setMatrixValue):
+
 2013-04-19  Erik Arvidsson  <arv@chromium.org>
 
         Rename TextTrackList owner to element for consistency
