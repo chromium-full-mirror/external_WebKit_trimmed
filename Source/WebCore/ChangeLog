@@ -1,3 +1,35 @@
+2013-04-19  Dan Beam  <dbeam@chromium.org>
+
+        Remove unmaintained feature REQUEST_AUTOCOMPLETE
+        https://bugs.webkit.org/show_bug.cgi?id=114846
+
+        Reviewed by Kent Tamura.
+
+        * GNUmakefile.list.am: Remove AutocompleteErrorEvent.h include.
+        * bindings/generic/RuntimeEnabledFeatures.cpp:
+        (WebCore): Remove requestAutocomplete() runtime feature.
+        * bindings/generic/RuntimeEnabledFeatures.h:
+        (RuntimeEnabledFeatures): Remove requestAutocomplete() runtime feature.
+        * dom/AutocompleteErrorEvent.h: Removed.
+        * dom/AutocompleteErrorEvent.idl: Removed.
+        * dom/EventNames.h: Remove `autocomplete` and `autocompleteerror` event names.
+        (WebCore):
+        * dom/EventNames.in: Remove `autocomplete` and `autocompleteerror` event names.
+        * html/HTMLAttributeNames.in: Remove `onautocomplete` and `onautocompleteerror` form attributes.
+        * html/HTMLFormElement.cpp: Remove requestAutocomplete() related code.
+        (WebCore::HTMLFormElement::HTMLFormElement): Remove timer and event queue for requestAutocomplete() related events.
+        (WebCore::HTMLFormElement::parseAttribute): Remove parsing of `onautocomplete` and `onautocompleterror`.
+        * html/HTMLFormElement.h: Remove requestAutocomplete() related members.
+        (HTMLFormElement):
+        * html/HTMLFormElement.idl: Remove public requestAutocomplete() API method.
+        * loader/EmptyClients.cpp: Remove stub implementation.
+        (WebCore):
+        * loader/EmptyClients.h: Remove stub interface.
+        (EmptyFrameLoaderClient):
+        * loader/FrameLoaderClient.h: Remove didRequestAutocomplete() from interface.
+        (FrameLoaderClient):
+        * page/DOMWindow.idl: Remove `AutocompleteErrorEvent` from window DOM interface.
+
 2013-04-18  Timothy Hatcher  <timothy@apple.com>
 
         Add CSS.setStyleText to the Web Inspector protocol.

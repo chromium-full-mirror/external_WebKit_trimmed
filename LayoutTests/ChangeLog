@@ -1,3 +1,22 @@
+2013-04-19  Dan Beam  <dbeam@chromium.org>
+
+        Remove unmaintained feature REQUEST_AUTOCOMPLETE
+        https://bugs.webkit.org/show_bug.cgi?id=114846
+
+        Reviewed by Kent Tamura.
+
+        * fast/events/constructors/autocomplete-error-event-constructor-expected.txt: Removed.
+        * fast/events/constructors/autocomplete-error-event-constructor.html: Removed.
+        * fast/events/event-creation.html: Remove AutocompleteErrorEvent test code.
+        * fast/forms/form-request-autocomplete-expected.txt: Removed.
+        * fast/forms/form-request-autocomplete.html: Removed.
+        * fast/js/constructor-length.html: Remove AutocompleteErrorEvent test code.
+        * fast/js/script-tests/global-constructors.js: Remove AutocompleteErrorEvent constructor.
+        * platform/blackberry/fast/js/constructor-length-expected.txt: Remove test expectations.
+        * platform/gtk/fast/js/constructor-length-expected.txt: Remove test expectations.
+        * platform/mac/fast/js/constructor-length-expected.txt: Remove test expectations.
+        * platform/qt/fast/js/constructor-length-expected.txt: Remove test expectations.
+
 2013-04-18  Timothy Hatcher  <timothy@apple.com>
 
         Add CSS.setStyleText to the Web Inspector protocol.
