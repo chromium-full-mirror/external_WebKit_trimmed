@@ -1,3 +1,17 @@
+2013-04-18  Timothy Hatcher  <timothy@apple.com>
+
+        Add CSS.setStyleText to the Web Inspector protocol.
+
+        This provides a direct path for the Safari Web Inspector to live edit whole style rules.
+
+        https://webkit.org/b/109340
+        rdar://problem/13337211
+
+        Reviewed by Joseph Pecoraro.
+
+        * inspector/styles/styles-new-API-expected.txt: Updated.
+        * inspector/styles/styles-new-API.html: Test CSSAgent.setStyleText.
+
 2013-04-18  Jessie Berlin  <jberlin@apple.com>
 
         More cleaning up of skipped tests.

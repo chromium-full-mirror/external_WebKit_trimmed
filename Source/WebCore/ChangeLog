@@ -1,3 +1,36 @@
+2013-04-18  Timothy Hatcher  <timothy@apple.com>
+
+        Add CSS.setStyleText to the Web Inspector protocol.
+
+        This provides a direct path for the Safari Web Inspector to live edit whole style rules.
+
+        https://webkit.org/b/109340
+        rdar://problem/13337211
+
+        Reviewed by Joseph Pecoraro.
+
+        * inspector/Inspector.json:
+        (CSS.setStyleText): Added.
+        * inspector/InspectorCSSAgent.cpp:
+        (InspectorCSSAgent::SetStyleTextAction):
+        (WebCore::InspectorCSSAgent::SetStyleTextAction::SetStyleTextAction): Added.
+        (WebCore::InspectorCSSAgent::SetStyleTextAction::perform): Added.
+        (WebCore::InspectorCSSAgent::SetStyleTextAction::undo): Added.
+        (WebCore::InspectorCSSAgent::SetStyleTextAction::redo): Added.
+        (WebCore::InspectorCSSAgent::SetStyleTextAction::mergeId): Added.
+        (WebCore::InspectorCSSAgent::SetStyleTextAction::merge): Added.
+        (WebCore::InspectorCSSAgent::SetPropertyTextAction::redo):
+        (WebCore::InspectorCSSAgent::setStyleText): Added.
+        * inspector/InspectorCSSAgent.h:
+        * inspector/InspectorStyleSheet.cpp:
+        (WebCore::InspectorStyle::getText): Added.
+        (WebCore::InspectorStyle::setText): Added.
+        (WebCore::InspectorStyleSheet::setStyleText):
+        (WebCore::InspectorStyleSheetForInlineStyle::setStyleText):
+        * inspector/InspectorStyleSheet.h:
+        (WebCore::InspectorStyle::styleText): Added as an alias to getText.
+        (WebCore::InspectorStyle::applyStyleText): Added as an alias to setText.
+
 2013-04-18  Jer Noble  <jer.noble@apple.com>
 
         Unreviewed gardening; fix bindings tests after r148700.
