@@ -1,3 +1,25 @@
+2013-04-19  Bear Travis  <betravis@adobe.com>
+
+        [CSS Exclusions] Implement empty segments for multiple-segment shape-insides
+        https://bugs.webkit.org/show_bug.cgi?id=100049
+
+        Reviewed by David Hyatt.
+
+        Testing that shape-insides do not place content where it will not fit. Also
+        fixing up some previous tests and expectations.
+
+        * fast/exclusions/resources/multi-segment-polygon.js:
+        (simulateWithText): Enable multi-line shape expectations using arrays.
+        * fast/exclusions/resources/simple-rectangle.js:
+        (createRectangleTest): Add overflow: break-word property to tests.
+        (createRectangleTestResult): Ditto.
+        * fast/exclusions/shape-inside/shape-inside-empty-expected.html: Adjust results
+        for tests where content should be pushed down.
+        * fast/exclusions/shape-inside/shape-inside-empty-segments-expected.html: Added.
+        * fast/exclusions/shape-inside/shape-inside-empty-segments.html: Added.
+        * fast/exclusions/shape-inside/shape-inside-empty.html: Shapes with height but
+        no width should still push content down below the shape.
+
 2013-04-19  Jessie Berlin  <jberlin@apple.com>
 
         [Mac] [WK2] Layout Test fast/regions/fixed-pos-elem-in-region.html is flaky on Debug builders

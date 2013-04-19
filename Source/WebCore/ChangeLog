@@ -1,3 +1,35 @@
+2013-04-19  Bear Travis  <betravis@adobe.com>
+
+        [CSS Exclusions] Implement empty segments for multiple-segment shape-insides
+        https://bugs.webkit.org/show_bug.cgi?id=100049
+
+        Reviewed by David Hyatt.
+
+        Content should not overflow a shape-inside segment, even if that means no content
+        will be placed in that segment. Overflow may be pushed to outside the shape. This
+        patch removes the restriction that every line must consume at least some text
+        input while inside a shape-inside. Content that does not fit is pushed down until
+        it does, either inside the shape or just below it.
+
+        Test: fast/exclusions/shape-inside/shape-inside-empty-segments.html
+
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::constructBidiRunsForSegment): Do not include empty segments for
+        consideration, as the actual BidiRuns construction expects to consume at
+        least one character.
+        (WebCore::constructBidiRunsForLine): Ditto.
+        (WebCore::firstPositiveWidth): Find the first positive word measurement width,
+        as there may be some empty word break measurements inserted.
+        (WebCore::adjustLogicalLineTop): Move the current line down, if necessary, to
+        fit it within the shape inside.
+        (WebCore::RenderBlock::layoutRunsAndFloatsInRange): If nothing fit in the
+        current segment, find the first available position for the smallest item
+        at the beginning of the text.
+        (WebCore::RenderBlock::LineBreaker::nextLineBreak): Return an empty segment
+        for a line that is inside the shape, but has no segments.
+        (WebCore::RenderBlock::LineBreaker::nextSegmentBreak): Do not consume
+        input to meet minimum size requirements if you are inside a shape.
+
 2013-04-19  Ryosuke Niwa  <rniwa@webkit.org>
 
         Add a missing null pointer check after r148759.
