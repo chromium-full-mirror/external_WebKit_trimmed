@@ -2,6 +2,13 @@
 
         [EFL] Unreviewed Gardening.
 
+        * platform/efl/TestExpectations: Adding failure expectations for two tests
+        which are failing on EFL bots.
+
+2013-04-19  Sudarsana Nagineni  <sudarsana.nagineni@intel.com>
+
+        [EFL] Unreviewed Gardening.
+
         Marking compositing reftests added in r148172 as ImageOnlyFailure.
         Also, skip failing tests on EFL bots.
 
