@@ -1,5 +1,28 @@
 2013-04-19  ChangSeok Oh  <changseok.oh@collabora.com>
 
+        [GTK][AC] Manage actor's children by using clutter's own way.
+        https://bugs.webkit.org/show_bug.cgi?id=114257
+
+        Reviewed by Gustavo Noronha Silva.
+
+        I believe we don't need to maintain a children list of GList. We can do it
+        by using clutter APIs like clutter_actor_get_children, clutter_actor_get_first_child, etc.
+
+        No new tests since no functionality changed.
+
+        * platform/graphics/clutter/GraphicsLayerActor.cpp:
+        (graphics_layer_actor_init):
+        (graphicsLayerActorAllocate):
+        (graphicsLayerActorPaint):
+        (graphicsLayerActorRemoveAll):
+        (graphicsLayerActorGetnChildren):
+        (graphicsLayerActorReplaceSublayer):
+        (graphicsLayerActorInsertSublayer):
+        * platform/graphics/clutter/GraphicsLayerActor.h:
+        (_GraphicsLayerActor):
+
+2013-04-19  ChangSeok Oh  <changseok.oh@collabora.com>
+
         [GTK][AC] Support masksToBounds for clutter AC backend.
         https://bugs.webkit.org/show_bug.cgi?id=114113
 
