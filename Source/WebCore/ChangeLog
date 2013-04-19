@@ -1,3 +1,43 @@
+2013-04-19  Martin Robinson  <mrobinson@igalia.com>
+
+        Remove the OpenVG backend
+        https://bugs.webkit.org/show_bug.cgi?id=114881
+
+        Reviewed by Tim Horton.
+
+        * platform/graphics/FloatRect.h:
+        (FloatRect): Remove #ifdefs for OpenVG backend.
+        * platform/graphics/GraphicsContext.cpp:
+        (WebCore): Ditto.
+        * platform/graphics/GraphicsContext.h:
+        * platform/graphics/NativeImagePtr.h:
+        (WebCore): Ditto.
+        * platform/graphics/Path.cpp:
+        (WebCore): Ditto.
+        * platform/graphics/Path.h:
+        * platform/graphics/openvg/EGLDisplayOpenVG.cpp: Removed.
+        * platform/graphics/openvg/EGLDisplayOpenVG.h: Removed.
+        * platform/graphics/openvg/EGLUtils.h: Removed.
+        * platform/graphics/openvg/GraphicsContextOpenVG.cpp: Removed.
+        * platform/graphics/openvg/ImageOpenVG.cpp: Removed.
+        * platform/graphics/openvg/PainterOpenVG.cpp: Removed.
+        * platform/graphics/openvg/PainterOpenVG.h: Removed.
+        * platform/graphics/openvg/PathOpenVG.cpp: Removed.
+        * platform/graphics/openvg/PlatformPathOpenVG.h: Removed.
+        * platform/graphics/openvg/SharedResourceOpenVG.cpp: Removed.
+        * platform/graphics/openvg/SharedResourceOpenVG.h: Removed.
+        * platform/graphics/openvg/SurfaceOpenVG.cpp: Removed.
+        * platform/graphics/openvg/SurfaceOpenVG.h: Removed.
+        * platform/graphics/openvg/TiledImageOpenVG.cpp: Removed.
+        * platform/graphics/openvg/TiledImageOpenVG.h: Removed.
+        * platform/graphics/openvg/VGUtils.cpp: Removed.
+        * platform/graphics/openvg/VGUtils.h: Removed.
+        * platform/graphics/transforms/AffineTransform.h:
+        (AffineTransform): Ditto.
+        * platform/graphics/transforms/TransformationMatrix.h:
+        (TransformationMatrix): Ditto.
+        * platform/image-decoders/openvg/ImageDecoderOpenVG.cpp: Removed.
+
 2013-04-19  Andrei Bucur  <abucur@adobe.com>
 
         ContainerNode::removeChildren should first detach the children then remove them
