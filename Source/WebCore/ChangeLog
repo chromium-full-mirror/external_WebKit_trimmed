@@ -1,5 +1,23 @@
 2013-04-19  Benjamin Poulain  <benjamin@webkit.org>
 
+        Use Vector instead of StringBuilder for CSSPreloadScanner's buffers
+        https://bugs.webkit.org/show_bug.cgi?id=114794
+
+        Reviewed by Ryosuke Niwa.
+
+        Cleanup for other String changes.
+
+        CSSPreloadScanner only handles UChar, StringBuilder was a little
+        overkill.
+
+        * html/parser/CSSPreloadScanner.cpp:
+        (WebCore):
+        (WebCore::ruleEqualIgnoringCase):
+        (WebCore::CSSPreloadScanner::emitRule):
+        * html/parser/CSSPreloadScanner.h:
+
+2013-04-19  Benjamin Poulain  <benjamin@webkit.org>
+
         StyledMarkupAccumulator::appendText() should not allocate an intermediary StringBuilder
         https://bugs.webkit.org/show_bug.cgi?id=114847
 
