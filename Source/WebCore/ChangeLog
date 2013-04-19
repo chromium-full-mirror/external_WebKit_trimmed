@@ -1,3 +1,21 @@
+2013-04-18  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Make loops in RenderObject::containingBlock homogeneous in their forms to simplify
+        https://bugs.webkit.org/show_bug.cgi?id=114853
+
+        Reviewed by David Hyatt.
+
+        This patch prepares us to avoid computing containing blocks during a depth-first traversal of the render tree.
+
+        Extracted inline functions out of RenderBlock::containingBlock to make the code simpler. Also moved the code
+        to obtain the nearest containing block out of the loop for a relatively positioned inline.
+
+        * rendering/RenderObject.cpp:
+        (WebCore::isNonReplacedInlineInFlowPosition): Extracted.
+        (WebCore::isContainingBlockCandidateForAbsolutelyPositionedObject): Extracted.
+        (WebCore::isNonRenderBlockInline): Extracted.
+        (WebCore::RenderObject::containingBlock): Refactored as stated above.
+
 2013-04-19  Tim Horton  <timothy_horton@apple.com>
 
         WebKit should not decode or support PDF favicons
