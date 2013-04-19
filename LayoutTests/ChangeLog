@@ -1,3 +1,13 @@
+2013-04-19  Sudarsana Nagineni  <sudarsana.nagineni@intel.com>
+
+        [EFL] Unreviewed Gardening.
+
+        Marking compositing reftests added in r148172 as ImageOnlyFailure.
+        Also, skip failing tests on EFL bots.
+
+        * platform/efl/TestExpectations:
+        * platform/efl/compositing/geometry/foreground-layer-expected.txt: Removed.
+
 2013-04-19  Jessie Berlin  <jberlin@apple.com>
 
         Fix expectations added in r148720.
