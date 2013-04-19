@@ -1,3 +1,46 @@
+2013-04-19  Joseph Pecoraro  <pecoraro@apple.com>
+
+        Web Inspector: Backend should detect sourceMappingURLs in CSS Resources
+        https://bugs.webkit.org/show_bug.cgi?id=114854
+
+        Reviewed by Timothy Hatcher.
+
+        Test: http/tests/inspector/network/css-source-mapping-url.html
+
+        * inspector/Inspector.json:
+        - Page.getResourceTree - add sourceMapURL to resource payloads
+        - Network.loadingFinished and Network.requestServedFromMemoryCache,
+          include the sourceMapURL in the results.
+
+        * inspector/ContentSearchUtils.h:
+        * inspector/ContentSearchUtils.cpp:
+        (WebCore::ContentSearchUtils::scriptCommentPattern):
+        (WebCore::ContentSearchUtils::stylesheetCommentPattern):
+        (WebCore::ContentSearchUtils::findMagicComment):
+        (WebCore::ContentSearchUtils::findScriptSourceURL):
+        (WebCore::ContentSearchUtils::findScriptSourceMapURL):
+        (WebCore::ContentSearchUtils::findStylesheetSourceMapURL):
+        Separate Script and Stylesheet regex pattern creation, but
+        share the search function using the pattern.
+
+        * inspector/InspectorDebuggerAgent.cpp:
+        (WebCore::InspectorDebuggerAgent::sourceMapURLForScript):
+        (WebCore::InspectorDebuggerAgent::didParseSource):
+        Update function names. Check for the SourceMap header before
+        checking for a sourceMappingURL comment.
+
+        * inspector/InspectorPageAgent.h:
+        * inspector/InspectorPageAgent.cpp:
+        (WebCore::InspectorPageAgent::sourceMapURLForResource):
+        (WebCore::InspectorPageAgent::buildObjectForFrameTree):
+        Provide the sourceMapURL for Page.getResourceTree.
+
+        * inspector/InspectorResourceAgent.cpp:
+        (WebCore::buildObjectForCachedResource):
+        (WebCore::InspectorResourceAgent::didFinishLoading):
+        (WebCore::InspectorResourceAgent::didLoadResourceFromMemoryCache):
+        Include sourceMapURLs in finish loading and request served from cache.
+
 2013-04-19  Shawn Singh  <shawnsingh@chromium.org>
 
         Remove non-overlap testing code in RenderLayerCompositor

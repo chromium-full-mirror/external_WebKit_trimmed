@@ -1,3 +1,19 @@
+2013-04-19  Joseph Pecoraro  <pecoraro@apple.com>
+
+        Web Inspector: Backend should detect sourceMappingURLs in CSS Resources
+        https://bugs.webkit.org/show_bug.cgi?id=114854
+
+        Test a different ways we would expect to see a sourceMapURL for
+        stylesheet resources.
+
+        Reviewed by Timothy Hatcher.
+
+        * http/tests/inspector/network/css-source-mapping-url-expected.txt: Added.
+        * http/tests/inspector/network/css-source-mapping-url.html: Added.
+        * http/tests/inspector/network/resources/source-map-test-style.css: Added.
+        * http/tests/inspector/network/resources/source-map-test-style.css.map: Added.
+        * http/tests/inspector/network/resources/source-map-test-style.scss: Added.
+
 2013-04-19  Sudarsana Nagineni  <sudarsana.nagineni@intel.com>
 
         [EFL] Unreviewed Gardening.
