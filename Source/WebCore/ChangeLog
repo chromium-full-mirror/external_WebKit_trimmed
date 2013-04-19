@@ -1,3 +1,17 @@
+2013-04-19  Benjamin Poulain  <benjamin@webkit.org>
+
+        StyledMarkupAccumulator::appendText() should not allocate an intermediary StringBuilder
+        https://bugs.webkit.org/show_bug.cgi?id=114847
+
+        Reviewed by Geoffrey Garen.
+
+        For some reason StyledMarkupAccumulator::appendText() was allocating a separate buffer
+        for invoking appendStyleNodeOpenTag. This is a bad idea.
+
+        * editing/markup.cpp:
+        (WebCore::StyledMarkupAccumulator::appendStyleNodeOpenTag):
+        (WebCore::StyledMarkupAccumulator::appendText):
+
 2013-04-19  Joseph Pecoraro  <pecoraro@apple.com>
 
         Web Inspector: Support the SourceMap header, X-SourceMap was deprecated
