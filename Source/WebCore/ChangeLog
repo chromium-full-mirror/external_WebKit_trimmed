@@ -1,3 +1,74 @@
+2013-04-19  Noam Rosenthal  <noam@webkit.org>
+
+        [Texmap] Implementation for pattern compositing
+        https://bugs.webkit.org/show_bug.cgi?id=109588
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        Enable pattern compositing (background images) for CoordinatedGraphics/TextureMapperGL.
+        Use the existing patternTransform shader uniform, multiplying it by a matrix calculated
+        using the contentsRect, tileSize and tilePhase.
+
+        Covered by existing tests in compositing/patterns.
+
+        * platform/graphics/GraphicsLayer.h:
+        (GraphicsLayer):
+            Conditionally enable pattern compositing for coordinated graphics.
+
+        * platform/graphics/texmap/TextureMapper.cpp:
+        (WebCore::TextureMapper::TextureMapper):
+        * platform/graphics/texmap/TextureMapper.h:
+        (WebCore::TextureMapper::setPatternTransform):
+        (WebCore::TextureMapper::setWrapMode):
+        (WebCore::TextureMapper::wrapMode):
+        (WebCore::TextureMapper::patternTransform):
+            Add wrapMode and patternTransform properties to the TextureMapper state.
+
+        * platform/graphics/texmap/TextureMapperGL.cpp:
+        (WebCore::TextureMapperGL::drawTexturedQuadWithProgram):
+            Paint with GL_REPEAT and a pattern transform when needed.
+
+        * platform/graphics/texmap/TextureMapperLayer.cpp:
+        (WebCore::TextureMapperLayer::computePatternTransformIfNeeded):
+        (WebCore):
+        (WebCore::TextureMapperLayer::paintSelf):
+        (WebCore::TextureMapperLayer::setContentsRect):
+        (WebCore::TextureMapperLayer::setContentsTileSize):
+        (WebCore::TextureMapperLayer::setContentsTilePhase):
+            Apply the patternTransform from the tile size/phase.
+
+        * platform/graphics/texmap/TextureMapperLayer.h:
+        (WebCore::TextureMapperLayer::TextureMapperLayer):
+        (TextureMapperLayer):
+        (WebCore::TextureMapperLayer::setShouldMapBackingStoreToContentsRect):
+        (State):
+        (WebCore::TextureMapperLayer::State::State):
+            Allow the client to configure whether a layer uses its bounds or its
+            contents rect to paint the backing store.
+            This is needed now since layers with background images, unlike layers
+            with regular images, may have bounds that are greater than the contents
+            rect.
+
+        * platform/graphics/texmap/coordinated/CoordinatedGraphicsLayer.cpp:
+        (WebCore::CoordinatedGraphicsLayer::setContentsTileSize):
+        (WebCore):
+        (WebCore::CoordinatedGraphicsLayer::setContentsTilePhase):
+        (WebCore::CoordinatedGraphicsLayer::setShouldSupportContentsTiling):
+        (WebCore::GraphicsLayer::supportsContentsTiling):
+        * platform/graphics/texmap/coordinated/CoordinatedGraphicsLayer.h:
+        (CoordinatedGraphicsLayer):
+        * platform/graphics/texmap/coordinated/CoordinatedGraphicsScene.cpp:
+        (WebCore::CoordinatedGraphicsScene::setLayerState):
+        (WebCore::CoordinatedGraphicsScene::assignImageBackingToLayer):
+        * platform/graphics/texmap/coordinated/CoordinatedGraphicsState.h:
+        (CoordinatedGraphicsLayerState):
+            Logic to pass the tileSize/tilePhase from CoordinatedGraphicsLayer
+            to TextureMapperLayer.
+
+        * rendering/RenderLayerBacking.cpp:
+        (WebCore::RenderLayerBacking::updateDirectlyCompositedBackgroundImage):
+            Don't reset the layer's image contents when this is a directly composited image.
+
 2013-04-19  ChangSeok Oh  <changseok.oh@collabora.com>
 
         [GTK][AC] Manage actor's children by using clutter's own way.
