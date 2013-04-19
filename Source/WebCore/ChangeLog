@@ -1,3 +1,19 @@
+2013-04-19  Mario Sanchez Prada  <mario.prada@samsung.com>
+
+        [GTK] Minimize calls to GailTextUtil in AtkText implementation
+        https://bugs.webkit.org/show_bug.cgi?id=114868
+
+        Reviewed by Martin Robinson.
+
+        Create a new helper function to concentrate inside of it the calls to
+        gail_text_util_get_text(), so we can get rid of it later more easily.
+
+        * accessibility/atk/WebKitAccessibleInterfaceText.cpp:
+        (webkitAccessibleTextGetTextForOffset): New helper function.
+        (webkitAccessibleTextGetTextAfterOffset): Rely on the new function.
+        (webkitAccessibleTextGetTextAtOffset): Ditto.
+        (webkitAccessibleTextGetTextBeforeOffset): Ditto.
+
 2013-04-19  Noam Rosenthal  <noam@webkit.org>
 
         [Texmap] Implementation for pattern compositing
