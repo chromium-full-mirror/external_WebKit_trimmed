@@ -1,3 +1,9 @@
+2013-04-19  Jessie Berlin  <jberlin@apple.com>
+
+        Fix expectations added in r148720.
+
+        * fast/js/stack-trace-expected.txt:
+
 2013-04-19  Ádám Kallai  <kadam@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening. Added new baseline.
