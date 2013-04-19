@@ -1,3 +1,18 @@
+2013-04-19  Tim Horton  <timothy_horton@apple.com>
+
+        WebKit should not decode or support PDF favicons
+        https://bugs.webkit.org/show_bug.cgi?id=114650
+        <rdar://problem/10133914>
+
+        Reviewed by Dan Bernstein.
+
+        Drop the image data on the floor if it begins with the PDF magic number.
+        No other browser I can find on OS X supports PDF favicons (by experimentation),
+        and we do not properly display them.
+
+        * loader/icon/IconLoader.cpp:
+        (WebCore::IconLoader::notifyFinished):
+
 2013-04-19  Martin Robinson  <mrobinson@igalia.com>
 
         Remove the OpenVG backend
