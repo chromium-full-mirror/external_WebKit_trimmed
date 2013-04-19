@@ -1,3 +1,13 @@
+2013-04-18  Jessie Berlin  <jberlin@apple.com>
+
+        More cleaning up of skipped tests.
+
+        * platform/mac-wk2/TestExpectations:
+        Remove tests that now pass.
+        * platform/mac/TestExpectations:
+        Remove an entry for a bug that has been closed and whose test works just fine on both WK1
+        and WK2.
+
 2013-04-18  Oliver Hunt  <oliver@apple.com>
 
         StackFrame::column() returning bogus value
