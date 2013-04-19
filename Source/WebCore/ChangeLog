@@ -1,3 +1,26 @@
+2013-04-19  ChangSeok Oh  <changseok.oh@collabora.com>
+
+        [GTK][AC] Support masksToBounds for clutter AC backend.
+        https://bugs.webkit.org/show_bug.cgi?id=114113
+
+        Reviewed by Gustavo Noronha Silva.
+
+        We can support the masksToBounds property by using clutter_actor_set_clip simply.
+
+        Covered by existing AC tests.
+
+        * platform/graphics/clutter/GraphicsLayerActor.cpp:
+        (graphicsLayerActorSetMasksToBounds):
+        * platform/graphics/clutter/GraphicsLayerActor.h:
+        * platform/graphics/clutter/GraphicsLayerClutter.cpp:
+        (WebCore::GraphicsLayerClutter::setMasksToBounds):
+        (WebCore):
+        (WebCore::GraphicsLayerClutter::commitLayerChangesBeforeSublayers):
+        (WebCore::GraphicsLayerClutter::setupContentsLayer):
+        (WebCore::GraphicsLayerClutter::updateMasksToBounds):
+        * platform/graphics/clutter/GraphicsLayerClutter.h:
+        (GraphicsLayerClutter):
+
 2013-04-19  Dan Beam  <dbeam@chromium.org>
 
         Remove unmaintained feature REQUEST_AUTOCOMPLETE
