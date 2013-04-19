@@ -1,3 +1,33 @@
+2013-04-19  Shawn Singh  <shawnsingh@chromium.org>
+
+        Remove non-overlap testing code in RenderLayerCompositor
+        https://bugs.webkit.org/show_bug.cgi?id=85521
+
+        Reviewed by Simon Fraser.
+
+        m_compositingConsultsOverlap is always true in the current
+        code. This patch removes this flag, and removes dead code that is
+        never executed because it was never false.
+
+        No new tests, no change in behavior.  The cleanup is covered by
+        existing tests.
+
+        * rendering/RenderLayer.cpp:
+        (WebCore::RenderLayer::updateCompositingLayersAfterScroll):
+        removed if-statement that is always true.
+        
+        * rendering/RenderLayerBacking.cpp:
+        (WebCore::RenderLayerBacking::shouldClipCompositedBounds):
+        removed if-statement that would never get triggered.
+
+        * rendering/RenderLayerCompositor.cpp:
+        (WebCore::RenderLayerCompositor::RenderLayerCompositor):
+        (WebCore::RenderLayerCompositor::updateCompositingLayers):
+        removed m_compositingConsultsOverlap, and retained the code as if the flag were "true".
+        
+        * rendering/RenderLayerCompositor.h:
+        (RenderLayerCompositor):
+
 2013-04-19  Roger Fong  <roger_fong@apple.com>
 
         Unreviewed. WebKit_Source is incorrectly set.
