@@ -1,3 +1,24 @@
+2013-04-19  Andrei Bucur  <abucur@adobe.com>
+
+        ContainerNode::removeChildren should first detach the children then remove them
+        https://bugs.webkit.org/show_bug.cgi?id=113433
+
+        Reviewed by Ryosuke Niwa.
+
+        Currently, ContainerNode::removeChildren initially removes the nodes from the DOM tree and then
+        calls detach() on each of them. This is anti-intuitive and can lead to subtle bugs because the
+        detached renderers are not backed by a valid DOM tree any more. With the patch, the nodes are first
+        detached and then removed from the DOM.
+        The patch also lets the tree in a consistent state after each node removal by clearing the previous
+        sibling pointer of the node following the one removed.
+        I haven't found any proof the performance will get worse if the detachment happens when the children
+        are still in the DOM tree.
+
+        Tests: No changed visible functionality.
+
+        * dom/ContainerNode.cpp:
+        (WebCore::ContainerNode::removeChildren):
+
 2013-04-19  Dirk Schulze  <krit@webkit.org>
 
         Refactor transform code in StyleResolver
