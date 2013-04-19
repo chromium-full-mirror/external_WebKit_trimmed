@@ -1,5 +1,21 @@
 2013-04-19  Joseph Pecoraro  <pecoraro@apple.com>
 
+        Web Inspector: Support the SourceMap header, X-SourceMap was deprecated
+        https://bugs.webkit.org/show_bug.cgi?id=114888
+
+        Check first for SourceMap, then fallback to X-SourceMap. Leaving in
+        support for the deprecated header because most tools and articles
+        online mention that version and have not yet updated.
+
+        Reviewed by Timothy Hatcher.
+
+        * inspector/InspectorDebuggerAgent.cpp:
+        (WebCore::InspectorDebuggerAgent::sourceMapURLForScript):
+        * inspector/InspectorPageAgent.cpp:
+        (WebCore::InspectorPageAgent::sourceMapURLForResource):
+
+2013-04-19  Joseph Pecoraro  <pecoraro@apple.com>
+
         Web Inspector: Backend should detect sourceMappingURLs in CSS Resources
         https://bugs.webkit.org/show_bug.cgi?id=114854
 
