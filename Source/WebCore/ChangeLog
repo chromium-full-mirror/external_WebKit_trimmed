@@ -1,3 +1,22 @@
+2013-04-19  Andreas Kling  <akling@apple.com>
+
+        [Mac] ComplexTextController is slow with large numbers of text runs.
+        <http://webkit.org/b/114875>
+        <rdar://problem/13337036>
+
+        Reviewed by Dan Bernstein.
+
+        Instead of iterating over the text runs in indexOfCurrentRun() to figure out the leftmost glyph,
+        create a lookup table of [run# -> distance in glyphs] at ComplexTextController construction time.
+
+        This avoids O(n^2) behavior in indexOfCurrentRun().
+
+        * platform/graphics/mac/ComplexTextController.cpp:
+        (WebCore::ComplexTextController::ComplexTextController):
+        (WebCore::ComplexTextController::indexOfCurrentRun):
+        * platform/graphics/mac/ComplexTextController.h:
+        (ComplexTextController):
+
 2013-04-19  Mario Sanchez Prada  <mario.prada@samsung.com>
 
         [GTK] Minimize calls to GailTextUtil in AtkText implementation
