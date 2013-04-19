@@ -1,3 +1,12 @@
+2013-04-19  Ádám Kallai  <kadam@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening. Added new baseline.
+
+        * platform/qt/editing/selection/select-across-readonly-input-1-expected.txt: Updated after r148594.
+        * platform/qt/fast/sub-pixel/inline-block-with-padding-expected.txt: Added after r148604.
+        * platform/qt/fast/sub-pixel/selection/selection-gaps-at-fractional-offsets-expected.png: Added after r148604.
+        * platform/qt/fast/sub-pixel/selection/selection-gaps-at-fractional-offsets-expected.txt: Added after r148604.
+
 2013-04-19  Krzysztof Czech  <k.czech@samsung.com>
 
         [GTK][WK2] accessibility/language-attribute.html is failing
