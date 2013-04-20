@@ -1,5 +1,16 @@
 2013-04-20  Glenn Adams  <glenn@skynav.com>
 
+        Unreviewed gardening. Rebaseline after r148791. Update text expectations.
+
+        * platform/efl-wk1/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt:
+        * platform/efl-wk2/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt:
+        * platform/gtk-wk1/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt:
+        * platform/mac-lion/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt:
+        * platform/mac-wk2/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt: Copied from LayoutTests/platform/mac-lion/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt.
+        * platform/win/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt:
+
+2013-04-20  Glenn Adams  <glenn@skynav.com>
+
         REGRESSION (r147588): Line breaks occur in the middle of Hebrew words at haaertz.co.il and other websites
         https://bugs.webkit.org/show_bug.cgi?id=114721
 
