@@ -1,5 +1,21 @@
 2013-04-19  Bear Travis  <betravis@adobe.com>
 
+        [css exclusions] Fix up shape-inside-recursive-layout test case
+        https://bugs.webkit.org/show_bug.cgi?id=114890
+
+        Reviewed by Dirk Schulze.
+
+        The children of the old-flexbox, new-flexbox, and grid shape-inside  containers
+        should have their display value set to -webkit-inline-box, -webkit-inline-flex,
+        and -webkit-inline-grid respectively. These values should not be set for
+        the containers themselves, as we are interested in the behavior of descendants
+        of the shape-inside container.
+
+        * fast/exclusions/shape-inside/shape-inside-recursive-layout-expected.html:
+        * fast/exclusions/shape-inside/shape-inside-recursive-layout.html:
+
+2013-04-19  Bear Travis  <betravis@adobe.com>
+
         [CSS Exclusions] Implement empty segments for multiple-segment shape-insides
         https://bugs.webkit.org/show_bug.cgi?id=100049
 
