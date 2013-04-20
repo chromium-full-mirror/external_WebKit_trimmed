@@ -1,3 +1,22 @@
+2013-04-20  Glenn Adams  <glenn@skynav.com>
+
+        REGRESSION (r147588): Line breaks occur in the middle of Hebrew words at haaertz.co.il and other websites
+        https://bugs.webkit.org/show_bug.cgi?id=114721
+
+        Reviewed by Dean Jackson.
+
+        Tests: fast/text/line-break-after-empty-inline-hebrew.html
+               fast/text/line-break-after-inline-latin1.html
+
+        If prior context changes content or length after creating line break iterator, then need to
+        create new iterator with new prior context instead of using cached iterator with old prior context.
+
+        * platform/text/TextBreakIterator.h:
+        (WebCore::LazyLineBreakIterator::LazyLineBreakIterator): Initialize members to cache reference to initialized prior context.
+        (WebCore::LazyLineBreakIterator::get): Create new iterator if prior context content reference changes.
+        (WebCore::LazyLineBreakIterator::resetStringAndReleaseIterator): Reset cached prior context references.
+        (LazyLineBreakIterator): Add members to cache reference to initialized prior context.
+
 2013-04-19  Ryuan Choi  <ryuan.choi@samsung.com>
 
         [EFL] Arrow of combo box are drawn twice

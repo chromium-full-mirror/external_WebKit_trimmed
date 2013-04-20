@@ -1,3 +1,16 @@
+2013-04-20  Glenn Adams  <glenn@skynav.com>
+
+        REGRESSION (r147588): Line breaks occur in the middle of Hebrew words at haaertz.co.il and other websites
+        https://bugs.webkit.org/show_bug.cgi?id=114721
+
+        Reviewed by Dean Jackson.
+
+        * fast/text/line-break-after-empty-inline-hebrew-expected.txt: Added.
+        * fast/text/line-break-after-empty-inline-hebrew.html: Added.
+        * fast/text/line-break-after-inline-latin1-expected.txt: Added.
+        * fast/text/line-break-after-inline-latin1.html: Added.
+        * platform/mac/fast/writing-mode/Kusa-Makura-background-canvas-expected.txt: Rebaseline.
+
 2013-04-19  Bear Travis  <betravis@adobe.com>
 
         [css exclusions] Fix up shape-inside-recursive-layout test case
