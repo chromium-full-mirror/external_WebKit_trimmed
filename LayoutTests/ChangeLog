@@ -1,3 +1,10 @@
+2013-04-20  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed GTK gardening.
+
+        Rebaseline #1 after enabling the subpixel layout, covering the animations, css1, fonts, fullscreen,
+        transforms and transitions directories.
+
 2013-04-20  Glenn Adams  <glenn@skynav.com>
 
         Unreviewed gardening. Rebaseline after r148791. Update text expectations.
