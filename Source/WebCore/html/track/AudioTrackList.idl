@@ -23,38 +23,28 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#ifndef JSTextTrackCustom_h
-#define JSTextTrackCustom_h
+[
+    Conditional=VIDEO_TRACK,
+    GenerateIsReachable=ImplElementRoot,
+    IndexedGetter,
+    EventTarget,
+    JSCustomMarkFunction
+] interface AudioTrackList {
+    readonly attribute unsigned long length;
+    AudioTrack item(in unsigned long index);
+    AudioTrack getTrackById(in DOMString id);
 
-#if ENABLE(VIDEO_TRACK)
-#include "JSTextTrack.h"
+    attribute EventListener onchange;
+    attribute EventListener onaddtrack;
+    attribute EventListener onremovetrack;
 
-#include "HTMLMediaElement.h"
-#include "HTMLTrackElement.h"
-#include "JSNodeCustom.h"
-#include "LoadableTextTrack.h"
+    void addEventListener(in DOMString type,
+                          in EventListener listener,
+                          in [Optional] boolean useCapture);
+    void removeEventListener(in DOMString type,
+                             in EventListener listener,
+                             in [Optional] boolean useCapture);
+    boolean dispatchEvent(in Event evt)
+        raises(EventException);
+};
 
-using namespace JSC;
-
-namespace WebCore {
-
-inline void* root(TextTrack* track)
-{
-    // If this track corresponds to a <track> element, return that element's root.
-    if (track->trackType() == TextTrack::TrackElement) {
-        if (HTMLTrackElement* trackElement = static_cast<LoadableTextTrack*>(track)->trackElement())
-            return root(trackElement);
-    }
-
-    // No, return the media element's root if it has one.
-    if (track->mediaElement())
-        return root(track->mediaElement());
-
-    // No track element and no media element, return the text track.
-    return track;
-}
-
-}
-
-#endif
-#endif
