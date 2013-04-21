@@ -2,6 +2,17 @@
 
         Unreviewed EFL gardening.
 
+        Rebaseline several test cases for EFL port.
+
+        * platform/efl-wk2/http/tests/inspector/console-resource-errors-expected.txt:
+        * platform/efl/fast/backgrounds/background-position-parsing-expected.png:
+        * platform/efl/fast/backgrounds/background-position-parsing-expected.txt:
+        * platform/wk2/loader/go-back-cached-main-resource-expected.txt:
+
+2013-04-21  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
         Remove duplicate entry in EFL's TestExpectations for:
         inspector/debugger/dynamic-script-tag.html
 
