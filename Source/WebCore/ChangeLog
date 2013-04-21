@@ -1,3 +1,47 @@
+2013-04-21  Carlos Garcia Campos  <cgarcia@igalia.com>
+
+        Widget should not depend on AXObjectCache
+        https://bugs.webkit.org/show_bug.cgi?id=114514
+
+        Reviewed by Chris Fleizach.
+
+        Move AXObjectCache usage from platform files to FrameView.
+
+        * WebCore.exp.in: Update symbols.
+        * page/FrameView.cpp:
+        (WebCore::FrameView::didAddScrollbar): Handle scrollbar updates in
+        AXObjectCache.
+        (WebCore::FrameView::willRemoveScrollbar): Handle scrollbar
+        updates in AXObjectCache and remove the scrollbar from the cache.
+        * page/FrameView.h:
+        * platform/ScrollView.cpp:
+        (WebCore::ScrollView::setHasHorizontalScrollbar): Use
+        didAddScrollbar/willRemoveScrollbar
+        (WebCore::ScrollView::setHasVerticalScrollbar): Ditto.
+        * platform/ScrollableArea.cpp:
+        (WebCore::ScrollableArea::didAddScrollbar): This is the old
+        didAddVerticalScrollbar and didAddHorizontalScrollbar joined in a
+        single method that receives a ScrollbarOrientation parameter.
+        (WebCore::ScrollableArea::willRemoveScrollbar): This is the old
+        willRemoveVerticalScrollbar and
+        willRemoveHorizontalScrollbarScrollbar joined in a single method
+        that receives a ScrollbarOrientation parameter.
+        * platform/ScrollableArea.h:
+        (ScrollableArea):
+        * platform/Scrollbar.cpp:
+        (WebCore::Scrollbar::~Scrollbar): Remove AXObjectCache usage.
+        * platform/Scrollbar.h:
+        * platform/Widget.h:
+        (Widget): Remove axObjectCache() method.
+        * platform/mac/ScrollAnimatorMac.h:
+        (ScrollAnimatorMac):
+        * rendering/RenderLayer.cpp:
+        (WebCore::RenderLayer::createScrollbar): Use didAddScrollbar.
+        (WebCore::RenderLayer::destroyScrollbar): Use willRemoveScrollbar.
+        * rendering/RenderListBox.cpp:
+        (WebCore::RenderListBox::createScrollbar): Use didAddScrollbar.
+        (WebCore::RenderListBox::destroyScrollbar): Use willRemoveScrollbar.
+
 2013-04-20  Dirk Schulze  <krit@webkit.org>
 
         [Part 5] Parse color value for custom() function parameters
