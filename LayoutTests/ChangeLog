@@ -1,3 +1,21 @@
+2013-04-20  Dirk Schulze  <krit@webkit.org>
+
+        [Part 5] Parse color value for custom() function parameters
+        https://bugs.webkit.org/show_bug.cgi?id=114902
+
+        Reviewed by Dean Jackson.
+
+        Added tests for color parameters on custom fiter function and parameter descriptor.
+
+        * css3/filters/custom-with-at-rule-syntax/parsing-custom-function-invalid-expected.txt:
+        * css3/filters/custom-with-at-rule-syntax/parsing-custom-function-valid-expected.txt:
+        * css3/filters/custom-with-at-rule-syntax/parsing-parameters-property-invalid-expected.txt:
+        * css3/filters/custom-with-at-rule-syntax/parsing-parameters-property-valid-expected.txt:
+        * css3/filters/custom-with-at-rule-syntax/script-tests/parsing-custom-function-invalid.js:
+        * css3/filters/custom-with-at-rule-syntax/script-tests/parsing-custom-function-valid.js:
+        * css3/filters/custom-with-at-rule-syntax/script-tests/parsing-parameters-property-invalid.js:
+        * css3/filters/custom-with-at-rule-syntax/script-tests/parsing-parameters-property-valid.js:
+
 2013-04-20  Glenn Adams  <glenn@skynav.com>
 
         Unreviewed gardening. Rebaseline after r148792. Fix mac-wk2 text.

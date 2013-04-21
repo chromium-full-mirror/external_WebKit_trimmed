@@ -1,3 +1,53 @@
+2013-04-20  Dirk Schulze  <krit@webkit.org>
+
+        [Part 5] Parse color value for custom() function parameters
+        https://bugs.webkit.org/show_bug.cgi?id=114902
+
+        Reviewed by Dean Jackson.
+
+        Custom filter parameters should support color values. Added parsing
+        and style resolving bits to support color values. A later patch will
+        add the color values to the shader program.
+
+        https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html#custom-filter-parameters
+
+        Modified existing tests to cover changes.
+
+        * GNUmakefile.list.am: Added CustomFilterColorParameter to support color values
+            as custom filter parameters.
+        * Target.pri:
+        * WebCore.vcproj/WebCore.vcproj:
+        * WebCore.vcxproj/WebCore.vcxproj:
+        * WebCore.vcxproj/WebCore.vcxproj.filters:
+        * WebCore.xcodeproj/project.pbxproj:
+        * css/CSSComputedStyleDeclaration.cpp:
+        (WebCore::valueForCustomFilterColorParameter):
+        (WebCore):
+        (WebCore::valueForCustomFilterParameter):
+        * css/CSSParser.cpp:
+        (WebCore::CSSParser::parseCustomFilterParameters):
+        * css/StyleResolver.cpp:
+        (WebCore::StyleResolver::parseCustomFilterColorParameter):
+        (WebCore):
+        (WebCore::StyleResolver::parseCustomFilterParameter):
+        * css/StyleResolver.h:
+        (StyleResolver):
+        * platform/graphics/filters/CustomFilterColorParameter.h: Added.
+        (WebCore):
+        (WebCore::blendFunc):
+        (CustomFilterColorParameter):
+        (WebCore::CustomFilterColorParameter::create):
+        (WebCore::CustomFilterColorParameter::blend):
+        (WebCore::CustomFilterColorParameter::color):
+        (WebCore::CustomFilterColorParameter::setColor):
+        (WebCore::CustomFilterColorParameter::operator==):
+        (WebCore::CustomFilterColorParameter::CustomFilterColorParameter):
+        (WebCore::CustomFilterColorParameter::~CustomFilterColorParameter):
+        * platform/graphics/filters/CustomFilterParameter.h:
+        (CustomFilterParameter):
+        * platform/graphics/filters/CustomFilterRenderer.cpp:
+        (WebCore::CustomFilterRenderer::bindProgramParameters):
+
 2013-04-20  Glenn Adams  <glenn@skynav.com>
 
         REGRESSION (r147588): Line breaks occur in the middle of Hebrew words at haaertz.co.il and other websites
