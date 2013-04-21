@@ -2,6 +2,14 @@
 
         Unreviewed EFL gardening.
 
+        Mark css1/cascade/cascade_order.html as flaky.
+
+        * platform/efl/TestExpectations:
+
+2013-04-21  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
         Mark several webgl tests as flaky.
         Mark several ref tests as failing (started between r148032 and r148102).
 
