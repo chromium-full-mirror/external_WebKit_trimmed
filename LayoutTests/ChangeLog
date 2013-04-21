@@ -1,5 +1,16 @@
 2013-04-21  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
+        Regression(r148672): fast/events/touch/frame-hover-update.html fails
+        https://bugs.webkit.org/show_bug.cgi?id=114912
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        Fix relative path to js-test-pre.js in the test case.
+
+        * fast/events/touch/frame-hover-update.html:
+
+2013-04-21  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
         Unreviewed EFL gardening.
 
         Rebaseline several test cases for EFL port.
