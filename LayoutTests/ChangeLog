@@ -1,3 +1,34 @@
+2013-04-21  Oliver Hunt  <oliver@apple.com>
+
+        JS Lexer and Parser should be more informative when they encounter errors
+        https://bugs.webkit.org/show_bug.cgi?id=114924
+
+        Reviewed by Filip Pizlo.
+
+        Update test results to cover improved error messages.
+
+        * fast/js/kde/parse-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.2_White_Space/S7.2_A5_T1-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.2_White_Space/S7.2_A5_T2-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.2_White_Space/S7.2_A5_T3-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.2_White_Space/S7.2_A5_T4-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.2_White_Space/S7.2_A5_T5-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A6_T1-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A6_T2-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A6_T3-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A6_T4-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T1-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T10-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T2-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T3-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T4-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T5-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T6-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T7-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T8-expected.txt:
+        * sputnik/Conformance/07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T9-expected.txt:
+        * sputnik/Conformance/13_Function_Definition/S13_A7_T3-expected.txt:
+
 2013-04-21  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Regression(r148672): fast/events/touch/frame-hover-update.html fails
