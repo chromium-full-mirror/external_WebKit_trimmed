@@ -2,6 +2,15 @@
 
         Unreviewed EFL gardening.
 
+        Remove duplicate entry in EFL's TestExpectations for:
+        inspector/debugger/dynamic-script-tag.html
+
+        * platform/efl/TestExpectations:
+
+2013-04-21  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
         Mark more compisiting / webgl tests as crashing due to r148433 for
         EFL port.
 
