@@ -1,3 +1,12 @@
+2013-04-21  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
+        Mark websocket tests as flaky and webgl/conformance/rendering/gl-scissor-test.html
+        as failing.
+
+        * platform/efl-wk2/TestExpectations:
+
 2013-04-12  Balazs Kelemen  <kbalazs@webkit.org>
 
         [GStreamer] Media attribute preload="none" is not honored
