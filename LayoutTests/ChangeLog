@@ -1,3 +1,22 @@
+2013-04-20  Mark Lam  <mark.lam@apple.com>
+
+        Rewrite fast/workers/dedicated-worker-lifecycle.html to verify that
+        the GC is able to reclaim orphaned Workers on a timely basis.
+        https://bugs.webkit.org/show_bug.cgi?id=114893.
+
+        Reviewed by Geoffrey Garen.
+
+        * fast/workers/resources/dedicated-worker-lifecycle.js:
+        (orphanAllWorkers):
+        (runTests.worker.onmessage):
+        (runTests):
+        (orphanedWorkerExited.worker.onmessage):
+        (orphanedWorkerExited):
+        * fast/workers/resources/worker-util.js:
+        (waitUntilThreadCountMatchesCondition):
+        (waitUntilThreadCountMatches):
+        (waitUntilThreadCountDoesNotExceed):
+
 2013-04-21  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Unreviewed EFL gardening.
