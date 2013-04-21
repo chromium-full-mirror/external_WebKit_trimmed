@@ -1,3 +1,9 @@
+2013-04-21  Gyuyoung Kim  <gyuyoung.kim@samsung.com>
+
+        Unreviewed, gardening. Remove duplicated tests.
+
+        * platform/efl/TestExpectations:
+
 2013-04-20  Dirk Schulze  <krit@webkit.org>
 
         [Part 5] Parse color value for custom() function parameters
