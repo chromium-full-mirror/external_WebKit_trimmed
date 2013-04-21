@@ -2,6 +2,15 @@
 
         Unreviewed EFL gardening.
 
+        Mark several tests as failing on EFL port due to the bump to libsoup
+        2.42.0.
+
+        * platform/efl/TestExpectations:
+
+2013-04-21  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
         Mark several test cases as failing on EFL port and filed bugs for them.
 
         * platform/efl-wk2/TestExpectations:
