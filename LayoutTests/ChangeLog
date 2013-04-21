@@ -2,6 +2,17 @@
 
         Unreviewed EFL gardening.
 
+        Rebaseline fast/forms/validation-message-appearance.html and fix expectation
+        for editing/pasteboard/paste-text-004.html.
+
+        * platform/efl/TestExpectations:
+        * platform/efl/fast/forms/validation-message-appearance-expected.png: Added.
+        * platform/efl/fast/forms/validation-message-appearance-expected.txt:
+
+2013-04-21  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
         Mark more compositing test cases as crashing due to r148433 for
         EFL port.
 
