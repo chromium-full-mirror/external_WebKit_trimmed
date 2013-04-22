@@ -1,3 +1,9 @@
+2013-04-22  Gyuyoung Kim  <gyuyoung.kim@samsung.com>
+
+        Unreviewed, EFL WK1 gardening. Skip pasteboard tests because EFL WK1 doesn't support it yet.
+
+        * platform/efl-wk1/TestExpectations:
+
 2013-04-22  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Unreviewed EFL gardening.
