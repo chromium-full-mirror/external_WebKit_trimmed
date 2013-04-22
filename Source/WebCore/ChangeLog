@@ -1,3 +1,24 @@
+2013-04-21  Carlos Garcia Campos  <cgarcia@igalia.com>
+
+        Division by zero in CSSGradientValue::addStops()
+        https://bugs.webkit.org/show_bug.cgi?id=114807
+
+        Reviewed by Dean Jackson.
+
+        The normalization of the color stop positions of a linear gradient
+        doesn't take into account that the first and last position can be
+        the same. In such case the positions are computed dividing by 0.
+        Clamp the positions to 1 without moving the end points in such
+        case to match what other browsers do. This ensures that positions
+        passed to the platform gradient are in the 0-1 range which fixes a
+        crash due to an assert in BlackBerry port running test
+        fast/forms/type-after-focus-rule-shrink-width.html.
+
+        Test: fast/gradients/css3-color-stop-invalid.html
+
+        * css/CSSGradientValue.cpp:
+        (WebCore::CSSGradientValue::addStops):
+
 2013-04-21  Benjamin Poulain  <benjamin@webkit.org>
 
         Fix some minor bad use of strings in WebCore

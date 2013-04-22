@@ -1,3 +1,13 @@
+2013-04-21  Carlos Garcia Campos  <cgarcia@igalia.com>
+
+        Division by zero in CSSGradientValue::addStops()
+        https://bugs.webkit.org/show_bug.cgi?id=114807
+
+        Reviewed by Dean Jackson.
+
+        * fast/gradients/css3-color-stop-invalid-expected.html: Added.
+        * fast/gradients/css3-color-stop-invalid.html: Added.
+
 2013-04-21  Commit Queue  <rniwa@webkit.org>
 
         Unreviewed, rolling out r148851.
