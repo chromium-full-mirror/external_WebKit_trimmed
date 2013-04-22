@@ -1,3 +1,11 @@
+2013-04-22  Eric Carlson  <eric.carlson@apple.com>
+
+        Unreviewed Mac gardening. Update a test and results now that forced text 
+        tracks are supported.
+
+        * media/track/track-in-band-expected.txt:
+        * media/track/track-in-band.html:
+
 2013-04-22  Yi Shen  <max.hong.shen@gmail.com>
 
         Crash on OS X when shift clicking outside of input
