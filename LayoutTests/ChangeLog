@@ -1,3 +1,14 @@
+2013-04-21  Commit Queue  <rniwa@webkit.org>
+
+        Unreviewed, rolling out r148851.
+        http://trac.webkit.org/changeset/148851
+        https://bugs.webkit.org/show_bug.cgi?id=114935
+
+        EFL Buildbot reports fail after gardening on r148851
+        (Requested by gyuyoung on #webkit).
+
+        * platform/efl/TestExpectations:
+
 2013-04-21  Dirk Schulze  <krit@webkit.org>
 
         [Part 4] Parse the custom() function in -webkit-filter: parse the matN() functions
