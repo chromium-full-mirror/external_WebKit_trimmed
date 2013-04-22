@@ -1,3 +1,11 @@
+2013-04-22  Ádám Kallai  <kadam@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening.
+
+        * platform/qt/TestExpectations: Skip a failing reftest after r148859.
+        * platform/qt/fast/borders/rtl-border-04-expected.png: Update after r148791.
+        * platform/qt/fast/borders/rtl-border-04-expected.txt: Update after r148791.
+
 2013-04-22  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening.
