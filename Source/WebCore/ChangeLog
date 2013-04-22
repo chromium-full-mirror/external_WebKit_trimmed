@@ -1,3 +1,17 @@
+2013-04-22  Zan Dobersek  <zdobersek@igalia.com>
+
+        [GTK] Set up libPlatform.la
+        https://bugs.webkit.org/show_bug.cgi?id=114168
+
+        Reviewed by Martin Robinson.
+
+        No new tests - no new functionality.
+
+        * GNUmakefile.am: Also add the LevelDB-specific cppflags to the platform_cppflags if required as the LevelDB
+        code is now built into the new libPlatform.la library.
+        * GNUmakefile.list.am: Build a small set of non-GTK-specific platform source files that are already free of
+        platform violations into the new libPlatform.la library.
+
 2013-04-22  Andy Estes  <aestes@apple.com>
 
         Range.getClientRects() should not include rects for partially selected elements
