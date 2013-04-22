@@ -1,3 +1,20 @@
+2013-04-22  Benjamin Poulain  <benjamin@webkit.org>
+
+        Remove the memory instrumentation code
+        https://bugs.webkit.org/show_bug.cgi?id=114931
+
+        Reviewed by Andreas Kling.
+
+        * inspector/profiler/memory-instrumentation-cached-images-expected.txt: Removed.
+        * inspector/profiler/memory-instrumentation-cached-images.html: Removed.
+        * inspector/profiler/memory-instrumentation-canvas-expected.txt: Removed.
+        * inspector/profiler/memory-instrumentation-canvas.html: Removed.
+        * inspector/profiler/memory-instrumentation-external-array-expected.txt: Removed.
+        * inspector/profiler/memory-instrumentation-external-array.html: Removed.
+        * inspector/profiler/memory-instrumentation-external-string-expected.txt: Removed.
+        * inspector/profiler/memory-instrumentation-external-string.html: Removed.
+        * inspector/profiler/memory-instrumentation-test.js: Removed.
+
 2013-04-22  Bear Travis  <betravis@adobe.com>
 
         Do not reuse ExclusionShapeInsideInfo in a recursive region layout

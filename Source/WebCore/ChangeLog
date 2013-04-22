@@ -1,3 +1,21 @@
+2013-04-22  Benjamin Poulain  <benjamin@webkit.org>
+
+        Remove the memory instrumentation code
+        https://bugs.webkit.org/show_bug.cgi?id=114931
+
+        Reviewed by Andreas Kling.
+
+        The Memory Instrumentation code is unfinished and has already
+        become out of sync the objects it is supposed to represent.
+
+        The current approach does not seem maintainable, it is better to
+        remove it before someone gets hurt.
+
+        By removing the code, the binary become 1240976 bytes smaller.
+        Yep, almost 1 Mb, bringing WebCore to the size it has 5 months ago :)
+
+        * MostWebCoreFiles: remove the support for memory instrumentation.
+
 2013-04-22  Bear Travis  <betravis@adobe.com>
 
         Do not reuse ExclusionShapeInsideInfo in a recursive region layout
