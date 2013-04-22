@@ -1,3 +1,11 @@
+2013-04-22  Benjamin Poulain  <bpoulain@apple.com>
+
+        Mac debug build fix after r148921
+
+        Unreviewed.
+
+        * page/animation/CompositeAnimation.cpp:
+
 2013-04-22  Rashmi Shyamasundar  <rashmi.s2@samsung.com>
 
         [Cairo] Canvas-shadow behavior is not being as expected
