@@ -1,3 +1,24 @@
+2013-04-22  Carlos Garcia Campos  <cgarcia@igalia.com>
+
+        Scrollbar should not depend on EventHandler, Frame and FrameView
+        https://bugs.webkit.org/show_bug.cgi?id=114941
+
+        Reviewed by Darin Adler.
+
+        It's a layering violation that Scrollbar uses EventHandler, Frame
+        and FrameView. Frame is used to get the EventHandler that is used
+        to set mousePressed to false after a Scrollbar::mouseUp(). This is
+        not really needed, since EventHandler already sets m_mousePressed
+        to false when calling Scrollbar::mouseUp(). The PopupMenu windows
+        implementation also calls Scrollbar::mouseUp(), but that scrollbar
+        is not inside a FrameView.
+
+        * platform/Scrollbar.cpp:
+        (WebCore::Scrollbar::isScrollViewScrollbar):
+        isScrollViewScrollbar() is a method of ScrollView so we don't need
+        to cast to FrameView.
+        (WebCore::Scrollbar::mouseUp): Remove EventHandler ussage.
+
 2013-04-22  Andreas Kling  <akling@apple.com>
 
         Shrink baseline size of WTF::Vector on 64-bit by switching to unsigned capacity and size.
