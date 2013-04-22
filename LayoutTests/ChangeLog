@@ -1,3 +1,9 @@
+2013-04-22  Gyuyoung Kim  <gyuyoung.kim@samsung.com>
+
+        Unreviewed, gardening. css3-device-adaptation doesn't work for WK1 EFL properly.
+
+        * platform/efl-wk1/TestExpectations: Added tests related to css3-device-adaptation.
+
 2013-04-22  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Unreviewed EFL gardening.
