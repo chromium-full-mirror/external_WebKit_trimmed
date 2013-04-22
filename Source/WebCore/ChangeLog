@@ -1,3 +1,14 @@
+2013-04-22  Andreas Kling  <akling@apple.com>
+
+        Shrink baseline size of WTF::Vector on 64-bit by switching to unsigned capacity and size.
+        <http://webkit.org/b/97268>
+        <rdar://problem/12376519>
+
+        Reviewed by Sam Weinig.
+
+        * CMakeLists.txt: Add a workaround for GCC 4.6.x in Release mode so it
+        does not crash.
+
 2013-04-22  John Griggs  <jgriggs@blackberry.com>
 
         [BlackBerry] URL decode data: URLs before passing to the platform media player.
