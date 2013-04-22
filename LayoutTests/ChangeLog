@@ -2,6 +2,15 @@
 
         Unreviewed EFL gardening.
 
+        Skip several compositing test cases on EFL WK2 due to regression in
+        r148748.
+
+        * platform/efl-wk2/TestExpectations:
+
+2013-04-22  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
         Add several regressions to TestExpectations to make the tree green.
 
         * platform/efl-wk2/TestExpectations:
