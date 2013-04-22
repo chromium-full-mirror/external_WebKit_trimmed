@@ -1,3 +1,21 @@
+2013-04-22  Mike Fenton  <mifenton@rim.com>
+
+        [BlackBerry] Add additional datalist support.
+        https://bugs.webkit.org/show_bug.cgi?id=114883
+
+        Reviewed by Rob Buis.
+
+        PR 210083.
+
+        Extend support for datalist to include all non-popup input types.
+
+        Re-enabling fast/forms/datalist/input-list
+
+        Internally Reviewed by Otto Cheung.
+
+        * platform/blackberry/RenderThemeBlackBerry.cpp:
+        (WebCore::RenderThemeBlackBerry::supportsDataListUI):
+
 2013-04-22  Alberto Garcia  <agarcia@igalia.com>
 
         [BlackBerry] Add dummy implementations of DragData::droppedFileSystemId()
