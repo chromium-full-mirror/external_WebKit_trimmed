@@ -41,10 +41,10 @@ class CustomFilterParameter : public RefCounted<CustomFilterParameter> {
 public:
     // FIXME: Implement other parameters types:
     // textures: https://bugs.webkit.org/show_bug.cgi?id=71442
-    // mat2, mat3, mat4: https://bugs.webkit.org/show_bug.cgi?id=71444
     enum ParameterType {
         ARRAY,
         COLOR,
+        MATRIX,
         NUMBER,
         TRANSFORM
     };

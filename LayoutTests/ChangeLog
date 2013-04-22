@@ -1,3 +1,22 @@
+2013-04-21  Dirk Schulze  <krit@webkit.org>
+
+        [Part 4] Parse the custom() function in -webkit-filter: parse the matN() functions
+        https://bugs.webkit.org/show_bug.cgi?id=71444
+
+        Reviewed by Dean Jackson.
+
+        Added tests for mat2 to mat4 parameter functions on custom fiter function and
+        parameter descriptor.
+
+        * css3/filters/custom-with-at-rule-syntax/parsing-custom-function-invalid-expected.txt:
+        * css3/filters/custom-with-at-rule-syntax/parsing-custom-function-valid-expected.txt:
+        * css3/filters/custom-with-at-rule-syntax/parsing-parameters-property-invalid-expected.txt:
+        * css3/filters/custom-with-at-rule-syntax/parsing-parameters-property-valid-expected.txt:
+        * css3/filters/custom-with-at-rule-syntax/script-tests/parsing-custom-function-invalid.js:
+        * css3/filters/custom-with-at-rule-syntax/script-tests/parsing-custom-function-valid.js:
+        * css3/filters/custom-with-at-rule-syntax/script-tests/parsing-parameters-property-invalid.js:
+        * css3/filters/custom-with-at-rule-syntax/script-tests/parsing-parameters-property-valid.js:
+
 2013-04-21  Gyuyoung Kim  <gyuyoung.kim@samsung.com>
 
         Unreviewed, EFL gardening. Remove test cases which are expected failed, but passed now.

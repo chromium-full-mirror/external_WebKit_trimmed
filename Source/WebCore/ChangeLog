@@ -1,3 +1,65 @@
+2013-04-21  Dirk Schulze  <krit@webkit.org>
+
+        [Part 4] Parse the custom() function in -webkit-filter: parse the matN() functions
+        https://bugs.webkit.org/show_bug.cgi?id=71444
+
+        Reviewed by Dean Jackson.
+
+        Custom filter parameters should support mat2 to mat4 value functions. Added parsing
+        and style resolving bits to support the matrix function values. A later patch will
+        add the matrices to the shader program.
+
+        https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html#custom-filter-parameters
+
+        Modified existing tests to cover changes.
+
+        * GNUmakefile.list.am: Added WebKitCSSMatFunctionValue to individual build systems.
+        * Target.pri:
+        * WebCore.vcproj/WebCore.vcproj:
+        * WebCore.vcxproj/WebCore.vcxproj:
+        * WebCore.vcxproj/WebCore.vcxproj.filters:
+        * WebCore.xcodeproj/project.pbxproj:
+        * css/CSSComputedStyleDeclaration.cpp:
+        (WebCore::valueForCustomFilterMatParameter):
+        (WebCore):
+        (WebCore::valueForCustomFilterParameter):
+        * css/CSSParser.cpp:
+        (WebCore::CSSParser::parseTransform):
+        (WebCore::CSSParser::parseMatValue):
+        (WebCore):
+        (WebCore::CSSParser::parseCustomFilterParameters):
+        * css/CSSParser.h:
+        (WebCore):
+        * css/CSSValue.cpp:
+        (WebCore::CSSValue::reportMemoryUsage):
+        (WebCore::CSSValue::equals):
+        (WebCore::CSSValue::cssText):
+        (WebCore::CSSValue::destroy):
+        (WebCore::CSSValue::cloneForCSSOM):
+        * css/CSSValue.h:
+        (WebCore::CSSValue::isWebKitCSSMatFunctionValue):
+        * css/StyleResolver.cpp:
+        (WebCore::StyleResolver::parseCustomFilterArrayParameter):
+        (WebCore::StyleResolver::parseCustomFilterParameter):
+        * css/StyleResolver.h:
+        (StyleResolver):
+        * css/WebKitCSSMatFunctionValue.cpp:
+        (WebCore::WebKitCSSMatFunctionValue::WebKitCSSMatFunctionValue):
+        (WebCore::WebKitCSSMatFunctionValue::customCssText):
+        (WebCore::WebKitCSSMatFunctionValue::cloneForCSSOM):
+        (WebCore::WebKitCSSMatFunctionValue::equals):
+        (WebCore::WebKitCSSMatFunctionValue::reportDescendantMemoryUsage):
+        * css/WebKitCSSMatFunctionValue.h:
+        (WebKitCSSMatFunctionValue):
+        (WebCore::WebKitCSSMatFunctionValue::create):
+        * platform/graphics/filters/CustomFilterArrayParameter.h:
+        (WebCore::CustomFilterArrayParameter::create):
+        (WebCore::CustomFilterArrayParameter::CustomFilterArrayParameter):
+        * platform/graphics/filters/CustomFilterParameter.h:
+        (CustomFilterParameter):
+        * platform/graphics/filters/CustomFilterRenderer.cpp:
+        (WebCore::CustomFilterRenderer::bindProgramParameters):
+
 2013-04-12  Balazs Kelemen  <kbalazs@webkit.org>
 
         [GStreamer] Media attribute preload="none" is not honored
