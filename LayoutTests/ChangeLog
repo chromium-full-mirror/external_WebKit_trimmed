@@ -1,3 +1,9 @@
+2013-04-22  Jessie Berlin  <jberlin@apple.com>
+
+        Fix r148773.
+
+        * platform/mac-lion/TestExpectations:
+
 2013-04-22  Bear Travis  <betravis@adobe.com>
 
         [css exclusions] shape-inside-recursive-layout.html should not yet test display: inline-grid
