@@ -1,3 +1,17 @@
+2013-04-22  Bear Travis  <betravis@adobe.com>
+
+        [css exclusions] shape-inside-recursive-layout.html should not yet test display: inline-grid
+        https://bugs.webkit.org/show_bug.cgi?id=114986
+
+        Reviewed by Dirk Schulze.
+
+        Because the inline-grid value is not yet supported, the test case is falling back to
+        display: block. This causes an incorrect layout, as block and inline content react to
+        shape-inside differently.
+
+        * fast/exclusions/shape-inside/shape-inside-recursive-layout-expected.html:
+        * fast/exclusions/shape-inside/shape-inside-recursive-layout.html:
+
 2013-04-22  Eric Carlson  <eric.carlson@apple.com>
 
         [Mac] "automatic" track selection should only select a track that matches user language
