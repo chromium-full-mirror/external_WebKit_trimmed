@@ -1,3 +1,14 @@
+2013-04-22  Alberto Garcia  <agarcia@igalia.com>
+
+        [BlackBerry] Add dummy implementations of DragData::droppedFileSystemId()
+        https://bugs.webkit.org/show_bug.cgi?id=114861
+
+        Reviewed by Carlos Garcia Campos.
+
+        * platform/blackberry/DragDataBlackBerry.cpp:
+        (WebCore):
+        (WebCore::DragData::droppedFileSystemId):
+
 2013-04-22  Mihai Maerean  <mmaerean@adobe.com>
 
         [CSS Regions] Elements in a region should be assignable to a named flow
