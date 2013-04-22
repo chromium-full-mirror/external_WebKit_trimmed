@@ -1,3 +1,13 @@
+2013-04-22  Mario Sanchez Prada  <mario.prada@samsung.com>
+
+        Update layout test verifying Tab behaves correctly after linking to fragment ID
+        https://bugs.webkit.org/show_bug.cgi?id=114645
+
+        Reviewed by Chris Fleizach.
+
+        * fast/dom/fragment-activation-focuses-target.html: Updated test.
+        * fast/dom/fragment-activation-focuses-target-expected.txt: Updated expectations.
+
 2013-04-22  Mike Fenton  <mifenton@rim.com>
 
         [BlackBerry] Add additional datalist support.
