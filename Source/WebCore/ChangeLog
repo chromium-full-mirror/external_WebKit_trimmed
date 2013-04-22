@@ -1,3 +1,17 @@
+2013-04-22  Eric Carlson  <eric.carlson@apple.com>
+
+        [Mac] "automatic" track selection should only select a track that matches user language
+        https://bugs.webkit.org/show_bug.cgi?id=114976
+
+        Reviewed by Jer Noble.
+
+        Test: media/track/track-automatic-subtitles.html
+
+        * page/CaptionUserPreferencesMac.mm:
+        (WebCore::CaptionUserPreferencesMac::textTrackSelectionScore): When in "automatic" mode, only
+            consider text tracks that match the user's preferred language when the primary audio track
+            does not.
+
 2013-04-22  Jer Noble  <jer.noble@apple.com>
 
         Cancelling load may cause deadlock in -[AVPlayerItem release]
