@@ -1,3 +1,55 @@
+2013-04-22  Mihai Maerean  <mmaerean@adobe.com>
+
+        [CSS Regions] Elements in a region should be assignable to a named flow
+        https://bugs.webkit.org/show_bug.cgi?id=74144
+
+        Reviewed by David Hyatt.
+
+        DOM children of a region must not be rendered as children of the region, but can be collected in flow threads.
+
+        NodeRenderingContext::parentRenderer now creates the parent render flow thread if it doesn't exist.
+
+        Element::moveToFlowThreadIsNeeded is a virtual method that is overriden in PseudoElement to return false and
+        in SVGElement so only svg root elements can directly be collected by a render flow thread.
+
+        RenderObject::canDOMChildrenHaveRenderParent exists to optimize the code so nodes inside regions (and maybe
+        other types of renderers in the future) can still have renderers if they need to be in a flow thread while the
+        rest of renderers that can't have children skip the new instructions.
+
+        Tests: fast/regions/flow-body-in-html.html . To test the duplicate bug #103685.
+               fast/regions/region-content-flown-into-region.html
+               fast/regions/universal-selector-children-to-the-same-region.html . To test the duplicate bug #103685.
+
+        * dom/Element.cpp:
+        (WebCore::Element::moveToFlowThreadIsNeeded):
+        * dom/Element.h:
+        * dom/NodeRenderingContext.cpp:
+        (WebCore::NodeRenderingContext::parentRenderer): the renderer that will be the parent for this node's renderer.
+        In the case of RenderFlowThreads, it may need to create it.
+        (WebCore::NodeRenderingContext::shouldCreateRenderer): In a region, only the children that need to be in a flow
+        thread should have a renderer.
+        (WebCore::NodeRenderingContext::moveToFlowThreadIfNeeded):
+        (WebCore::NodeRenderingContext::moveToFlowThread):
+        * dom/NodeRenderingContext.h:
+        (NodeRenderingContext):
+        * dom/PseudoElement.h: pseudo-elements cannot be directly collected into a named flow.
+        * dom/Text.cpp:
+        (WebCore::Text::textRendererIsNeeded):
+        (WebCore::Text::updateTextRenderer): Because calling textRendererIsNeeded(NodeRenderingContext(...)) on a
+        non-const l-value NodeRenderingContext cannot be done on a temporary object on the stack.
+        * dom/Text.h:
+        * rendering/FlowThreadController.cpp:
+        (WebCore::FlowThreadController::isContentNodeRegisteredWithAnyNamedFlow):
+        * rendering/FlowThreadController.h:
+        * rendering/RenderObject.h:
+        (WebCore::RenderObject::canDOMChildrenHaveRenderParent): Even if this render object can't have render children,
+        the children in the DOM tree may have a render parent (that is different from this render object).
+        * rendering/RenderRegion.h:
+        * svg/SVGElement.cpp:
+        (WebCore::SVGElement::moveToFlowThreadIsNeeded): Allow only svg root elements to be directly collected by a
+        render flow thread.
+        * svg/SVGElement.h:
+
 2013-04-22  Alberto Garcia  <agarcia@igalia.com>
 
         Gradient: add PlatformGradient definition for BlackBerry
