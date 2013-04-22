@@ -1,3 +1,16 @@
+2013-04-21  Benjamin Poulain  <benjamin@webkit.org>
+
+        Fix some minor bad use of strings in WebCore
+        https://bugs.webkit.org/show_bug.cgi?id=114907
+
+        Reviewed by Darin Adler.
+
+        * editing/Editor.cpp:
+        (WebCore::Editor::selectedText): This was implicitly getting the emptyString()
+        for the argument "".
+        * editing/markup.cpp:
+        (WebCore::StyledMarkupAccumulator::takeResults): ditto.
+
 2013-04-21  Dirk Schulze  <krit@webkit.org>
 
         [Part 4] Parse the custom() function in -webkit-filter: parse the matN() functions
