@@ -1,3 +1,20 @@
+2013-04-22  Jer Noble  <jer.noble@apple.com>
+
+        Cancelling load may cause deadlock in -[AVPlayerItem release]
+        https://bugs.webkit.org/show_bug.cgi?id=114962
+
+        Reviewed by Eric Carlson.
+
+        Work around a bug in AVAssetResourceLoader by using a generic, non-main dispatch queue
+        to recieve AVAssetResourceLoaderDelegate callbacks, and then marshalling those
+        callbacks to the main thread asynchronously.
+
+        * platform/graphics/avfoundation/objc/MediaPlayerPrivateAVFoundationObjC.mm:
+        (WebCore::globalLoaderDelegateQueue): Added.
+        (WebCore::MediaPlayerPrivateAVFoundationObjC::createAVAssetForURL): Use the new global queue.
+        (-[WebCoreAVFLoaderDelegate resourceLoader:shouldWaitForLoadingOfRequestedResource:]):
+            Marshall the request to the main queue, and return YES (wait) immediately.
+
 2013-04-22  Zan Dobersek  <zdobersek@igalia.com>
 
         [GTK] Set up libPlatform.la
