@@ -1,3 +1,70 @@
+2013-04-22  Andrei Bucur  <abucur@adobe.com>
+
+        [CSS Regions] Add tests for lists and counters
+        https://bugs.webkit.org/show_bug.cgi?id=103975
+
+        Reviewed by Andreas Kling.
+
+        Lists and counters work correctly with regions since r148026 (http://trac.webkit.org/changeset/148026).
+        This patch adds W3C formatted ref tests to our battery.
+
+        * fast/regions/counters/extract-list-items-001-expected.html: Added.
+        * fast/regions/counters/extract-list-items-001.html: Added.
+        * fast/regions/counters/extract-list-items-002-expected.html: Added.
+        * fast/regions/counters/extract-list-items-002.html: Added.
+        * fast/regions/counters/extract-list-items-003-expected.html: Added.
+        * fast/regions/counters/extract-list-items-003.html: Added.
+        * fast/regions/counters/extract-list-items-004-expected.html: Added.
+        * fast/regions/counters/extract-list-items-004.html: Added.
+        * fast/regions/counters/extract-list-items-005-expected.html: Added.
+        * fast/regions/counters/extract-list-items-005.html: Added.
+        * fast/regions/counters/extract-list-items-006-expected.html: Added.
+        * fast/regions/counters/extract-list-items-006.html: Added.
+        * fast/regions/counters/extract-list-items-007-expected.html: Added.
+        * fast/regions/counters/extract-list-items-007.html: Added.
+        * fast/regions/counters/extract-list-items-008-expected.html: Added.
+        * fast/regions/counters/extract-list-items-008.html: Added.
+        * fast/regions/counters/extract-list-items-009-expected.html: Added.
+        * fast/regions/counters/extract-list-items-009.html: Added.
+        * fast/regions/counters/extract-list-items-010-expected.html: Added.
+        * fast/regions/counters/extract-list-items-010.html: Added.
+        * fast/regions/counters/extract-list-items-011-expected.html: Added.
+        * fast/regions/counters/extract-list-items-011.html: Added.
+        * fast/regions/counters/extract-list-items-012-expected.html: Added.
+        * fast/regions/counters/extract-list-items-012.html: Added.
+        * fast/regions/counters/extract-list-items-013-expected.html: Added.
+        * fast/regions/counters/extract-list-items-013.html: Added.
+        * fast/regions/counters/extract-list-items-014-expected.html: Added.
+        * fast/regions/counters/extract-list-items-014.html: Added.
+        * fast/regions/counters/extract-list-items-015-expected.html: Added.
+        * fast/regions/counters/extract-list-items-015.html: Added.
+        * fast/regions/counters/extract-numbered-paragraphs-divs-001-expected.html: Added.
+        * fast/regions/counters/extract-numbered-paragraphs-divs-001.html: Added.
+        * fast/regions/counters/extract-numbered-paragraphs-divs-002-expected.html: Added.
+        * fast/regions/counters/extract-numbered-paragraphs-divs-002.html: Added.
+        * fast/regions/counters/extract-numbered-paragraphs-expected.html: Added.
+        * fast/regions/counters/extract-numbered-paragraphs.html: Added.
+        * fast/regions/counters/extract-numbered-spans-display-only-some-expected.html: Added.
+        * fast/regions/counters/extract-numbered-spans-display-only-some.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-001-expected.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-001.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-002-expected.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-002.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-003-expected.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-003.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-001-expected.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-001.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-002-expected.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-002.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-003-expected.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-003.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-004-expected.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-004.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-005-expected.html: Added.
+        * fast/regions/counters/extract-ordered-lists-in-regions-explicit-counters-005.html: Added.
+        * fast/regions/counters/extract-unordered-lists-in-regions-expected.html: Added.
+        * fast/regions/counters/extract-unordered-lists-in-regions.html: Added.
+
 2013-04-22  Gyuyoung Kim  <gyuyoung.kim@samsung.com>
 
         Unreviewed, gardening. css3-device-adaptation doesn't work for WK1 EFL properly.
