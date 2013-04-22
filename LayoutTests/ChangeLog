@@ -1,3 +1,15 @@
+2013-04-22  Yi Shen  <max.hong.shen@gmail.com>
+
+        Crash on OS X when shift clicking outside of input
+        https://bugs.webkit.org/show_bug.cgi?id=104058
+
+        Reviewed by Chang Shu.
+
+        Add test for shift click crash issue.
+
+        * editing/selection/crash-on-shift-click-expected.txt: Added.
+        * editing/selection/crash-on-shift-click.html: Added.
+
 2013-04-22  Jessie Berlin  <jberlin@apple.com>
 
         Fix an incorrect rebaseline done in r148830.

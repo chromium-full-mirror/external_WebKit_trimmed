@@ -1,3 +1,20 @@
+2013-04-22  Yi Shen  <max.hong.shen@gmail.com>
+
+        Crash on OS X when shift clicking outside of input
+        https://bugs.webkit.org/show_bug.cgi?id=104058
+
+        Reviewed by Chang Shu.
+
+        Shift clicking outside of a focused div while removing the focused div from
+        the dom tree at the same time may hit a null visible position, which should
+        not be used to calculate the text distance with the new selection's start and
+        end position. Otherwise, the browser may crash.
+
+        Test: editing/selection/crash-on-shift-click.html
+
+        * page/EventHandler.cpp:
+        (WebCore::EventHandler::handleMousePressEventSingleClick):
+
 2013-04-22  Carlos Garcia Campos  <cgarcia@igalia.com>
 
         Scrollbar should not depend on EventHandler, Frame and FrameView
