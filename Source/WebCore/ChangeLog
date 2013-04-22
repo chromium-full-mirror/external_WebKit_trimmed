@@ -1,3 +1,25 @@
+2013-04-22  Rashmi Shyamasundar  <rashmi.s2@samsung.com>
+
+        [Cairo] Canvas-shadow behavior is not being as expected
+        https://bugs.webkit.org/show_bug.cgi?id=108897
+
+        Reviewed by Martin Robinson.
+
+        Use the pattern-extend-mode "CAIRO_EXTEND_NONE" instead of "CAIRO_EXTEND_PAD" in
+        PlatformContextCairo::drawSurfaceToContext().
+
+        In the function PlatformContextCairo::drawSurfaceToContext(), a pattern is being
+        created from the source surface and this pattern is drawn onto the destination
+        context. There is no gradient involved. Hence the extend mode for filling the
+        pattern should be "CAIRO_EXTEND_NONE". If we use the extend mode
+        "CAIRO_EXTEND_PAD" in PlatformContextCairo::drawSurfaceToContext(), the original
+        image area is also filled with the shadow color which is not the expected behavior.
+
+        Test: fast/canvas/canvas-image-shadow.html
+
+        * platform/graphics/cairo/PlatformContextCairo.cpp:
+        (WebCore::PlatformContextCairo::drawSurfaceToContext):
+
 2013-04-22  Benjamin Poulain  <benjamin@webkit.org>
 
         Remove the memory instrumentation code
