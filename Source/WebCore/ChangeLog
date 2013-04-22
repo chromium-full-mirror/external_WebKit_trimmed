@@ -1,3 +1,18 @@
+2013-04-22  Jessie Berlin  <jberlin@apple.com>
+
+        Debug build fix.
+
+        Rubber-stamped by Ryosuke Niwa.
+
+        * inspector/InspectorController.cpp:
+        (WebCore::InspectorController::InspectorController):
+        * inspector/InspectorMemoryAgent.cpp:
+        (WebCore::InspectorMemoryAgent::InspectorMemoryAgent):
+        * inspector/InspectorMemoryAgent.h:
+        (WebCore):
+        (WebCore::InspectorMemoryAgent::create):
+        (InspectorMemoryAgent):
+
 2013-04-22  Brady Eidson  <beidson@apple.com>
 
         Address review feedback I forgot to address in r148929
