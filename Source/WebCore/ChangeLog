@@ -1,3 +1,15 @@
+2013-04-22  Alberto Garcia  <agarcia@igalia.com>
+
+        Fix multiple definition of ImageBuffer::platformLayer() in the BlackBerry port
+        https://bugs.webkit.org/show_bug.cgi?id=114936
+
+        Reviewed by Carlos Garcia Campos.
+
+        We already have a definition in ImageBufferBlackBerry.cpp.
+
+        * platform/graphics/ImageBuffer.cpp:
+        (WebCore):
+
 2013-04-21  Carlos Garcia Campos  <cgarcia@igalia.com>
 
         Division by zero in CSSGradientValue::addStops()
