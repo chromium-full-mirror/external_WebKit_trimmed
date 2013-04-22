@@ -1,3 +1,16 @@
+2013-04-22  Bear Travis  <betravis@adobe.com>
+
+        Do not reuse ExclusionShapeInsideInfo in a recursive region layout
+        https://bugs.webkit.org/show_bug.cgi?id=114467
+
+        Reviewed by David Hyatt.
+
+        Test that for various types of inline containers do not reuse
+        ExclusionShapeInsideInfo when laying out their children.
+
+        * fast/regions/shape-inside/shape-inside-recursive-layout-expected.html: Added.
+        * fast/regions/shape-inside/shape-inside-recursive-layout.html: Added.
+
 2013-04-22  Jessie Berlin  <jberlin@apple.com>
 
         Fix r148773.
