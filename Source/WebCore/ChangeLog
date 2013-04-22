@@ -1,3 +1,31 @@
+2013-04-22  Andy Estes  <aestes@apple.com>
+
+        Range.getClientRects() should not include rects for partially selected elements
+        https://bugs.webkit.org/show_bug.cgi?id=76839
+
+        Reviewed by Sam Weinig.
+
+        CSSOM says that Range.getClientRects() should include the border boxes
+        of each element selected by the range. However, we were also
+        incorrectly including border boxes for partially selected elements.
+        For instance, consider the following selection:
+
+            <div>line one<br>line two</div>
+            -------------
+
+        The <div> is two lines tall, but only the first line is selected.
+        Despite this, we'd include the <div>'s border box since its start tag
+        was included in the selection.
+
+        Fix this by excluding partially selected elements. This is accomplished
+        by skipping over elements that come after the start boundary point of
+        the range but are ancestors of the end boundary point.
+
+        Added test cases to LayoutTests/fast/dom/Range/getClientRects.html.
+
+        * dom/Range.cpp:
+        (WebCore::Range::getBorderAndTextQuads):
+
 2013-04-22  Yi Shen  <max.hong.shen@gmail.com>
 
         Crash on OS X when shift clicking outside of input
