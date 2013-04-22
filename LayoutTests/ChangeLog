@@ -1,3 +1,14 @@
+2013-04-22  Krzysztof Czech  <k.czech@samsung.com>
+
+        [EFL] accessibility/language-attribute.html is failing
+        https://bugs.webkit.org/show_bug.cgi?id=112030
+
+        Unreviewed, EFL gardening.
+
+        Unskipping accessibility/language-attribute.html after r148737.
+
+        * platform/efl-wk2/TestExpectations:
+
 2013-04-22  Mihai Maerean  <mmaerean@adobe.com>
 
          [CSS Regions] Elements in a region should be assignable to a named flow
