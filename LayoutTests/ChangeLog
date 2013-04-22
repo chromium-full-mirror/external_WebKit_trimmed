@@ -1,3 +1,24 @@
+2013-04-22  Brady Eidson  <beidson@apple.com>
+
+        REGRESSION (r141136): Wiki "Random article" function very broken.
+        <rdar://problem/13229985> and https://bugs.webkit.org/show_bug.cgi?id=114480
+
+        Reviewed by Alexey Proskuryakov.
+
+        * http/tests/navigation/redirect-to-random-url-versus-memory-cache-expected.txt: Added.
+        * http/tests/navigation/redirect-to-random-url-versus-memory-cache.html: Added.
+        * http/tests/navigation/resources/randomredirects/0.php: Added.
+        * http/tests/navigation/resources/randomredirects/1.php: Added.
+        * http/tests/navigation/resources/randomredirects/2.php: Added.
+        * http/tests/navigation/resources/randomredirects/3.php: Added.
+        * http/tests/navigation/resources/randomredirects/4.php: Added.
+        * http/tests/navigation/resources/randomredirects/5.php: Added.
+        * http/tests/navigation/resources/randomredirects/6.php: Added.
+        * http/tests/navigation/resources/randomredirects/7.php: Added.
+        * http/tests/navigation/resources/randomredirects/8.php: Added.
+        * http/tests/navigation/resources/randomredirects/9.php: Added.
+        * http/tests/navigation/resources/randomredirects/randomredirect.php: Added.
+
 2013-04-22  Rashmi Shyamasundar  <rashmi.s2@samsung.com>
 
         [Cairo] Canvas-shadow behavior is not being as expected

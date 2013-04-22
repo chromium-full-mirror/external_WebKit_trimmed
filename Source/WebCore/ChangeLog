@@ -1,3 +1,26 @@
+2013-04-22  Brady Eidson  <beidson@apple.com>
+
+        REGRESSION (r141136): Wiki "Random article" function very broken.
+        <rdar://problem/13229985> and https://bugs.webkit.org/show_bug.cgi?id=114480
+
+        Reviewed by Alexey Proskuryakov.
+
+        Test: http/tests/navigation/redirect-to-random-url-versus-memory-cache.html
+
+        If we are performing a conditional GET to revalidate a resource and there's a redirect,
+        check to see if the redirect is to a different URL than the final URL of the resource.
+
+        If the URLs differ then we should make the redirect-request unconditional and do a normal load.
+
+        * loader/SubresourceLoader.cpp:
+        (WebCore::SubresourceLoader::willSendRequest):
+
+        * platform/network/ResourceRequestBase.cpp:
+        (WebCore::ResourceRequestBase::makeUnconditional):
+
+        * platform/network/ResourceRequestBase.h:
+        (ResourceRequestBase):
+
 2013-04-22  Benjamin Poulain  <bpoulain@apple.com>
 
         Mac debug build fix after r148921
