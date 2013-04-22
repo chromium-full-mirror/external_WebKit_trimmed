@@ -1,3 +1,14 @@
+2013-04-22  Jessie Berlin  <jberlin@apple.com>
+
+        Fix an incorrect rebaseline done in r148830.
+
+        Instead of updating the cross platform wk2 results, r148830 should have added efl wk2
+        specific results. Move the previous mac wk2 specific results into the mac wk2 platform
+        directory.
+
+        * platform/efl-wk2/loader/go-back-cached-main-resource-expected.txt: Renamed from LayoutTests/platform/wk2/loader/go-back-cached-main-resource-expected.txt.
+        * platform/mac-wk2/loader/go-back-cached-main-resource-expected.txt: Downloaded from the mac-wk2 bots.
+
 2013-04-22  Mario Sanchez Prada  <mario.prada@samsung.com>
 
         Update layout test verifying Tab behaves correctly after linking to fragment ID
