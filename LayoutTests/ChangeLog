@@ -1,3 +1,10 @@
+2013-04-22  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed GTK gardening.
+
+        * platform/gtk/TestExpectations: Unskipping the fast/sub-pixel layout tests.
+        Removing failure expectations for tests that are passing after the subpixel layout was enabled.
+
 2013-04-22  Ádám Kallai  <kadam@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening.
