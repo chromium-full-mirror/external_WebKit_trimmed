@@ -1,3 +1,12 @@
+2013-04-22  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
+        Mark IndexedDB test as crashing in Release mode and fix duplicate line in
+        TestExpectations.
+
+        * platform/efl/TestExpectations:
+
 2013-04-22  Gyuyoung Kim  <gyuyoung.kim@samsung.com>
 
         Unreviewed, EFL WK1 gardening. Skip pasteboard tests because EFL WK1 doesn't support it yet.
