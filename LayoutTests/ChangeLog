@@ -1,3 +1,11 @@
+2013-04-22  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening.
+
+        Unskip fast/exclusions tests after r148594.
+
+        * platform/qt/TestExpectations:
+
 2013-04-22  Krzysztof Czech  <k.czech@samsung.com>
 
         [EFL] accessibility/language-attribute.html is failing
