@@ -1,3 +1,16 @@
+2013-04-22  Martin Robinson  <mrobinson@igalia.com>
+
+        [GTK] Fix remaining introspection warnings
+        https://bugs.webkit.org/show_bug.cgi?id=114980
+
+        Reviewed by Gustavo Noronha Silva.
+
+        * bindings/gobject/WebKitDOMCustom.h: Add scope and transfer annotations and flesh
+        out gtkdoc for completeness.
+        * bindings/gobject/WebKitDOMEventTarget.h:
+        (_WebKitDOMEventTargetIface): Ditto and also align virtual method names with those used
+        for the concrete ones.
+
 2013-04-22  Tim Horton  <timothy_horton@apple.com>
 
         PDFPlugin: Support unlocking encrypted PDFs
