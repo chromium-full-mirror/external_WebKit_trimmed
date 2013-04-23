@@ -1,3 +1,19 @@
+2013-04-23  Robert Hogan  <robert@webkit.org>
+
+        checkLayout() should error out if no data-expected* attributes were found
+        https://bugs.webkit.org/show_bug.cgi?id=114900
+
+        Reviewed by Ojan Vafai.
+
+        If checkLayout() doesn't find any attributes checking the node's layout then error out
+        instead of assuming the test has passed. This will ensure data-* attributes containing
+        typos don't register as a pass.
+
+        * fast/check-layout-error-no-attributes-expected.txt: Added.
+        * fast/check-layout-error-no-attributes.html: Added.
+        * resources/check-layout.js:
+        (.):
+
 2013-04-23  Lamarque V. Souza  <Lamarque.Souza@basyskom.com>
 
         WebSocket: Return type of send() should be void if hybi-10 protocol is chosen
