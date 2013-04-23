@@ -1,3 +1,18 @@
+2013-04-23  Dirk Schulze  <krit@webkit.org>
+
+        Pick up color and mat values in custom shaders
+        https://bugs.webkit.org/show_bug.cgi?id=115046
+
+        Reviewed by Dean Jackson.
+
+        Test that the CSS defined color values and mat2-4 functions get 
+        set as uniforms in shader programs.
+
+        * css3/filters/custom/custom-filter-color-expected.html: Added.
+        * css3/filters/custom/custom-filter-color.html: Added.
+        * css3/filters/custom/custom-filter-matN-expected.html: Added.
+        * css3/filters/custom/custom-filter-matN.html: Added.
+
 2013-04-23  Simon Fraser  <simon.fraser@apple.com>
 
         Tiled layers clipped inside nested transform/preserve-3d hierarchies

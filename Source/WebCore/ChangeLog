@@ -1,3 +1,27 @@
+2013-04-23  Dirk Schulze  <krit@webkit.org>
+
+        Pick up color and mat values in custom shaders
+        https://bugs.webkit.org/show_bug.cgi?id=115046
+
+        Reviewed by Dean Jackson.
+
+        The custom filter functions accept color values and mat2-4 functions
+        as parameter types. These were implemented in CSS already.
+        This patch picks up the values and applies them as uniforms to the
+        custom shader program. 
+
+        Tests: css3/filters/custom/custom-filter-color.html
+               css3/filters/custom/custom-filter-matN.html
+
+        * platform/graphics/filters/CustomFilterRenderer.cpp:
+        (WebCore::CustomFilterRenderer::bindProgramColorParameters): Set uniform for color values.
+        (WebCore):
+        (WebCore::CustomFilterRenderer::bindProgramMatrixParameters): Set uniform for mat2-4 values.
+        (WebCore::CustomFilterRenderer::bindProgramParameters): Call color and matrix functions.
+        * platform/graphics/filters/CustomFilterRenderer.h:
+        (WebCore):
+        (CustomFilterRenderer):
+
 2013-04-23  Jacky Jiang  <zhajiang@blackberry.com>
 
         Remove redundant code in ViewportArguments::resolve
