@@ -1,3 +1,16 @@
+2013-04-23  Geoffrey Garen  <ggaren@apple.com>
+
+        Filled out more cases of branch folding in bytecode when emitting expressions into a branching context
+        https://bugs.webkit.org/show_bug.cgi?id=115057
+
+        Reviewed by Filip Pizlo.
+
+        Added a performance test for interesting branch types.
+
+        * fast/js/regress/branch-fold-expected.txt: Added.
+        * fast/js/regress/branch-fold.html: Added.
+        * fast/js/regress/script-tests/branch-fold.js: Added.
+
 2013-04-23  Simon Fraser  <simon.fraser@apple.com>
 
         Don't create compositing layers for sticky position unless using the ScrollingCoordinator
