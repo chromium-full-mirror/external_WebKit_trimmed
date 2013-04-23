@@ -1,3 +1,82 @@
+2013-04-23  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        'length' property of DOM bindings functions returns wrong value
+        https://bugs.webkit.org/show_bug.cgi?id=110569
+
+        Reviewed by Geoffrey Garen.
+
+        Make the 'length' property of Function objects and Interface
+        objects behave according to the latest Web IDL specification
+        editor draft:
+        http://dev.w3.org/2006/webapi/WebIDL/#es-interface-call
+        http://dev.w3.org/2006/webapi/WebIDL/#es-operations
+
+        As a result, only mandatory arguments are taken into account
+        when computing the value for the 'length' property. This
+        behavior is consistent with Firefox and Blink.
+
+        Tests: fast/js/constructor-length.html
+               fast/js/function-length.html
+
+        * bindings/scripts/CodeGeneratorJS.pm:
+        (GenerateImplementation):
+        (GenerateConstructorHelperMethods):
+        Update the JSC code generator to only account for mandatory parameters
+        when computing the value for the 'length' property of Function objects
+        and constructors.
+
+        * bindings/scripts/test/JS/JSTestActiveDOMObject.cpp:
+        (WebCore::JSTestActiveDOMObjectConstructor::finishCreation):
+        * bindings/scripts/test/JS/JSTestCustomNamedGetter.cpp:
+        (WebCore::JSTestCustomNamedGetterConstructor::finishCreation):
+        * bindings/scripts/test/JS/JSTestEventConstructor.cpp:
+        (WebCore::JSTestEventConstructorConstructor::finishCreation):
+        * bindings/scripts/test/JS/JSTestEventTarget.cpp:
+        (WebCore::JSTestEventTargetConstructor::finishCreation):
+        (WebCore):
+        * bindings/scripts/test/JS/JSTestException.cpp:
+        (WebCore::JSTestExceptionConstructor::finishCreation):
+        * bindings/scripts/test/JS/JSTestInterface.cpp:
+        (WebCore::JSTestInterfaceConstructor::finishCreation):
+        * bindings/scripts/test/JS/JSTestMediaQueryListListener.cpp:
+        (WebCore::JSTestMediaQueryListListenerConstructor::finishCreation):
+        * bindings/scripts/test/JS/JSTestNamedConstructor.cpp:
+        (WebCore::JSTestNamedConstructorConstructor::finishCreation):
+        (WebCore::JSTestNamedConstructorNamedConstructor::finishCreation):
+        * bindings/scripts/test/JS/JSTestObj.cpp:
+        (WebCore):
+        * bindings/scripts/test/JS/JSTestSerializedScriptValueInterface.cpp:
+        (WebCore::JSTestSerializedScriptValueInterfaceConstructor::finishCreation):
+        (WebCore):
+        * bindings/scripts/test/JS/JSTestTypedefs.cpp:
+        (WebCore):
+        Rebaseline bindings tests results.
+
+        * fileapi/Blob.idl:
+        Remove 'ConstructorParameters=2' extended attribute as the correct value
+        is 0, given that a Blob can be constructed without parameter.
+
+        * html/canvas/DataView.idl:
+        Update ConstructorParameters extended attribute value from 3 to 1 as only
+        one of the 3 parameters is mandatory.
+
+        * html/canvas/Float32Array.idl:
+        * html/canvas/Float64Array.idl:
+        * html/canvas/Int16Array.idl:
+        * html/canvas/Int32Array.idl:
+        * html/canvas/Int8Array.idl:
+        * html/canvas/Uint16Array.idl:
+        * html/canvas/Uint32Array.idl:
+        * html/canvas/Uint8Array.idl:
+        * html/canvas/Uint8ClampedArray.idl:
+        Remove 'ConstructorParameters=1' extended attribute from interfaces using
+        'ConstructorTemplate=TypedArray' as the bindings generator now properly
+        compute the number of constructor parameters for such interfaces.
+
+        * page/WebKitPoint.idl:
+        Remove 'ConstructorParameters=2' extended attribute as the correct value
+        should be 0, given that a WebKitPoint can be constructed without parameters.
+
 2013-04-23  Benjamin Poulain  <benjamin@webkit.org>
 
         Minor String usage fixes in WebCore/platform
