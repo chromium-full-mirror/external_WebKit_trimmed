@@ -1,3 +1,20 @@
+2013-04-23  Simon Fraser  <simon.fraser@apple.com>
+
+        Don't create compositing layers for sticky position unless using the ScrollingCoordinator
+        https://bugs.webkit.org/show_bug.cgi?id=115060
+
+        Reviewed by Tim Horton.
+        
+        Creating compositing layers for sticky position elements is only useful
+        when we're using a ScrollingCoordinator, so don't create them if
+        we're not in a frame that uses a scrolling coordinator.
+
+        Tests: compositing/layer-creation/no-compositing-for-sticky.html
+               platform/mac-wk2/tiled-drawing/sticky/sticky-layers.html
+
+        * rendering/RenderLayerCompositor.cpp:
+        (WebCore::RenderLayerCompositor::requiresCompositingForPosition):
+
 2013-04-23  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         'length' property of DOM bindings functions returns wrong value

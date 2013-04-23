@@ -1,3 +1,18 @@
+2013-04-23  Simon Fraser  <simon.fraser@apple.com>
+
+        Don't create compositing layers for sticky position unless using the ScrollingCoordinator
+        https://bugs.webkit.org/show_bug.cgi?id=115060
+
+        Reviewed by Tim Horton.
+        
+        Tests that we create layers for sticky position when in tiled drawing mode,
+        and that we have no layers when not.
+
+        * compositing/layer-creation/no-compositing-for-sticky-expected.txt: Added.
+        * compositing/layer-creation/no-compositing-for-sticky.html: Added.
+        * platform/mac-wk2/tiled-drawing/sticky/sticky-layers-expected.txt: Added.
+        * platform/mac-wk2/tiled-drawing/sticky/sticky-layers.html: Added.
+
 2013-04-23  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         'length' property of DOM bindings functions returns wrong value
