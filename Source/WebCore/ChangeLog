@@ -1,3 +1,24 @@
+2013-04-23  Lamarque V. Souza  <Lamarque.Souza@basyskom.com>
+
+        WebSocket: Return type of send() should be void if hybi-10 protocol is chosen
+        https://bugs.webkit.org/show_bug.cgi?id=65850
+
+        Reviewed by Alexey Proskuryakov.
+
+        WebSocket API draft changed the return type of send() from boolean to void based on Simon
+        Pieters' post to WHATWG. Firefox 8 and IE 10 already follow the specification, hence it should
+        make sense for us to do the same when hybi protocol is used.
+
+        Original patch by Yuta Kitamura  <yutak@chromium.org>
+
+        Tests: http/tests/websocket/tests/hybi/bufferedAmount-after-close.html (updated)
+               http/tests/websocket/tests/hybi/send-after-close-on-unload.html (updated)
+
+        * Modules/websockets/WebSocket.cpp:
+        (WebCore::WebSocket::send):
+        * Modules/websockets/WebSocket.h:
+        * Modules/websockets/WebSocket.idl:
+
 2013-04-23  Carlos Garcia Campos  <cgarcia@igalia.com>
 
         ScrollbarThemeComposite depends on Page/FrameView/ChromeClient

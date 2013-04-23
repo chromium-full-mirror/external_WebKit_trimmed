@@ -1,3 +1,20 @@
+2013-04-23  Lamarque V. Souza  <Lamarque.Souza@basyskom.com>
+
+        WebSocket: Return type of send() should be void if hybi-10 protocol is chosen
+        https://bugs.webkit.org/show_bug.cgi?id=65850
+
+        Reviewed by Alexey Proskuryakov.
+
+        Update tests and test results because WebSocket.send() now returns undefined when
+        the hybi WebSocket protocol is used.
+
+        * http/tests/websocket/tests/hybi/bufferedAmount-after-close-expected.txt:
+        * http/tests/websocket/tests/hybi/bufferedAmount-after-close-in-busy-expected.txt:
+        * http/tests/websocket/tests/hybi/bufferedAmount-after-close-in-busy.html:
+        * http/tests/websocket/tests/hybi/bufferedAmount-after-close.html:
+        * http/tests/websocket/tests/hybi/send-after-close-on-unload-expected.txt:
+        * http/tests/websocket/tests/hybi/send-after-close-on-unload.html:
+
 2013-04-23  Andreas Kling  <akling@apple.com>
 
         Clear StyleResolver state before returning from styleForElement().
