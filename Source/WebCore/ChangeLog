@@ -1,3 +1,21 @@
+2013-04-23  Hans Muller  <hmuller@adobe.com>
+
+        [CSS Exclusions] Improve ExclusionPolygon smart pointer safety
+        https://bugs.webkit.org/show_bug.cgi?id=114984
+
+        Reviewed by Dirk Schulze.
+
+        Assign newly allocated objects to PassOwnPtrs as early as possible to reduce the
+        chances of future leaks. No new tests were added, this change adds no new functionality.
+
+        * rendering/ExclusionPolygon.cpp:
+        (WebCore::computeShapePaddingBounds):
+        (WebCore::computeShapeMarginBounds):
+        (WebCore::ExclusionPolygon::shapePaddingBounds):
+        (WebCore::ExclusionPolygon::shapeMarginBounds):
+        * rendering/ExclusionShape.cpp:
+        (WebCore::ExclusionShape::createExclusionShape):
+
 2013-04-23  Andreas Kling  <akling@apple.com>
 
         Revert "Throttle resize events during live window resize."
