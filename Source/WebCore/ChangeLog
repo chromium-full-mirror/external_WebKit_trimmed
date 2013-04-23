@@ -1,3 +1,15 @@
+2013-04-23  Commit Queue  <rniwa@webkit.org>
+
+        Unreviewed, rolling out r148923.
+        http://trac.webkit.org/changeset/148923
+        https://bugs.webkit.org/show_bug.cgi?id=115020
+
+        The patch causes multiple failures in CSS, canvas tests
+        (Requested by zdobersek on #webkit).
+
+        * platform/graphics/cairo/PlatformContextCairo.cpp:
+        (WebCore::PlatformContextCairo::drawSurfaceToContext):
+
 2013-04-22  Noam Rosenthal  <noam@webkit.org>
 
         [EFL] Assertion Failures in Coordinated Graphics after r148433
