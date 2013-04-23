@@ -1,3 +1,19 @@
+2013-04-23  Simon Fraser  <simon.fraser@apple.com>
+
+        Tiled layers clipped inside nested transform/preserve-3d hierarchies
+        https://bugs.webkit.org/show_bug.cgi?id=115044
+
+        Reviewed by Dean Jackson.
+        
+        The optimization added in r139479 to call move() for integral translation
+        transforms hit a bug in TransformState::move(). If m_accumulatedTransform is
+        not null, we have to apply it.
+
+        Test: compositing/visible-rect/flipped-preserve-3d.html
+
+        * platform/graphics/transforms/TransformState.cpp:
+        (WebCore::TransformState::move):
+
 2013-04-23  Claudio Saavedra  <csaavedra@igalia.com>
 
         Ctrl+Shift+Right in Windows should select the spacing after the word

@@ -1,3 +1,16 @@
+2013-04-23  Simon Fraser  <simon.fraser@apple.com>
+
+        Tiled layers clipped inside nested transform/preserve-3d hierarchies
+        https://bugs.webkit.org/show_bug.cgi?id=115044
+
+        Reviewed by Dean Jackson.
+        
+        Testcase that dumps visible rects for tiled layers inside nested
+        transformed/preserve-3d hierarchies.
+
+        * compositing/visible-rect/flipped-preserve-3d-expected.txt: Added.
+        * compositing/visible-rect/flipped-preserve-3d.html: Added.
+
 2013-04-23  Claudio Saavedra  <csaavedra@igalia.com>
 
         Ctrl+Shift+Right in Windows should select the spacing after the word
