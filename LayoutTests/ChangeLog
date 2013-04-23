@@ -1,3 +1,30 @@
+2013-04-23  Allan Sandfeld Jensen  <allan.jensen@digia.com>
+
+        Respect image-rendering setting for determing image-rendering quality
+        https://bugs.webkit.org/show_bug.cgi?id=113405
+
+        Reviewed by Benjamin Poulain.
+
+        Moved the two tests of image-rendering out of CSS3 since it was removed from the final recommendation.
+        Added tests of the supported values, and upgraded one test to a reference test so that it now tests
+        that -webkit-optimize-contrast gets converted to and treated as -webkit-crisp-edges.
+
+        Baselines for fast/css/image-rendering.html will be uploaded later when the bots have generated them.
+
+        * css3/images/optimize-contrast-image-expected.png: Removed.
+        * css3/images/optimize-contrast-image-expected.txt: Removed.
+        * fast/css/image-rendering-canvas-expected.png: Renamed from LayoutTests/css3/images/optimize-contrast-canvas-expected.png.
+        * fast/css/image-rendering-canvas-expected.txt: Renamed from LayoutTests/css3/images/optimize-contrast-canvas-expected.txt.
+        * fast/css/image-rendering-canvas.html: Renamed from LayoutTests/css3/images/optimize-contrast-canvas.html.
+        * fast/css/image-rendering-expected.txt: Added.
+        * fast/css/image-rendering-parsing-expected.txt: Added.
+        * fast/css/image-rendering-parsing.html: Renamed from LayoutTests/fast/css/image-set-parsing.html.
+        * fast/css/image-rendering.html: Added.
+        * fast/css/optimize-contrast-image-expected.html: Added.
+        * fast/css/optimize-contrast-image.html: Renamed from LayoutTests/css3/images/optimize-contrast-image.html.
+        * fast/css/script-tests/image-rendering-parsing.js: Added.
+        (testImageRendering):
+
 2013-04-23  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening.

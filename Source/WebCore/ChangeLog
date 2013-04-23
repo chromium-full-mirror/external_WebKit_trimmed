@@ -1,3 +1,33 @@
+2013-04-23  Allan Sandfeld Jensen  <allan.jensen@digia.com>
+
+        Respect image-rendering setting for determing image-rendering quality
+        https://bugs.webkit.org/show_bug.cgi?id=113405
+
+        Reviewed by Benjamin Poulain.
+
+        Remove the CSS4 values as they are not ready for implementation yet.
+        We still parse the -webkit-crisp-edges and SVG compatibility values to
+        be closer to the the partial support in Gecko and Presto.
+
+        Tests: fast/css/image-rendering-canvas.html
+               fast/css/image-rendering-parsing.html
+               fast/css/image-rendering.html
+               fast/css/optimize-contrast-image.html
+
+        * css/CSSParser.cpp:
+        (WebCore::isValidKeywordPropertyAndValue):
+        * css/CSSPrimitiveValueMappings.h:
+        (WebCore::CSSPrimitiveValue::CSSPrimitiveValue):
+        (WebCore::CSSPrimitiveValue::operator EImageRendering):
+        * css/CSSValueKeywords.in:
+        * css/SVGCSSParser.cpp:
+        (WebCore::CSSParser::parseSVGValue):
+        * rendering/RenderBoxModelObject.cpp:
+        (WebCore::ImageQualityController::shouldPaintAtLowQuality):
+        * rendering/RenderHTMLCanvas.cpp:
+        (WebCore::RenderHTMLCanvas::paintReplaced):
+        * rendering/style/RenderStyleConstants.h:
+
 2013-04-23  Commit Queue  <rniwa@webkit.org>
 
         Unreviewed, rolling out r148923.
