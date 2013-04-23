@@ -1,3 +1,24 @@
+2013-04-23  Noam Rosenthal  <noam@webkit.org>
+
+        [Coordinated Graphics] Remove the lockAnimations code path
+        https://bugs.webkit.org/show_bug.cgi?id=114899
+
+        Reviewed by Benjamin Poulain.
+
+        Remove locking/unlocking animations and checks for the lock state.
+        The animation locking has been tested to create not-so-smooth animations,
+        while the use case where the composited animations run out of sync from
+        the non-composited animations is very rare and unnoticeable.
+
+        No new tests, removing functionality that wasn't tested in the first place.
+
+        * platform/graphics/texmap/coordinated/CoordinatedGraphicsScene.cpp:
+        (WebCore::CoordinatedGraphicsScene::CoordinatedGraphicsScene):
+        (WebCore::CoordinatedGraphicsScene::paintToCurrentGLContext):
+        (WebCore::CoordinatedGraphicsScene::commitSceneState):
+        * platform/graphics/texmap/coordinated/CoordinatedGraphicsScene.h:
+        (CoordinatedGraphicsScene):
+
 2013-04-23  Allan Sandfeld Jensen  <allan.jensen@digia.com>
 
         Respect image-rendering setting for determing image-rendering quality
