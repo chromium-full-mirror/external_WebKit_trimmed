@@ -1,3 +1,27 @@
+2013-04-23  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed GTK gardening. Rebaselining after r148944.
+
+        * platform/gtk/TestExpectations:
+        * platform/gtk/fast/table/giantRowspan-expected.txt:
+        * platform/gtk/fast/table/giantRowspan2-expected.png:
+        * platform/gtk/fast/table/giantRowspan2-expected.txt:
+        * platform/gtk/tables/mozilla/bugs/bug133756-1-expected.txt:
+        * platform/gtk/tables/mozilla/bugs/bug133756-2-expected.png:
+        * platform/gtk/tables/mozilla/bugs/bug133756-2-expected.txt:
+        * platform/gtk/tables/mozilla/bugs/bug220536-expected.png:
+        * platform/gtk/tables/mozilla/bugs/bug220536-expected.txt:
+        * platform/gtk/tables/mozilla/bugs/bug8858-expected.txt:
+        * platform/gtk/tables/mozilla/core/bloomberg-expected.png:
+        * platform/gtk/tables/mozilla/core/bloomberg-expected.txt:
+        * platform/gtk/tables/mozilla/core/row_span-expected.png:
+        * platform/gtk/tables/mozilla/core/row_span-expected.txt:
+        * platform/gtk/tables/mozilla_expected_failures/bugs/bug131020-3-expected.txt:
+        * platform/gtk/tables/mozilla_expected_failures/bugs/bug23847-expected.png:
+        * platform/gtk/tables/mozilla_expected_failures/bugs/bug23847-expected.txt:
+        * platform/gtk/tables/mozilla_expected_failures/bugs/bug65372-expected.png:
+        * platform/gtk/tables/mozilla_expected_failures/bugs/bug65372-expected.txt:
+
 2013-04-23  Antoine Quint  <graouts@apple.com>
 
         Initial advance of text runs should be taken into account
