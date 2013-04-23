@@ -1,3 +1,18 @@
+2013-04-22  Noam Rosenthal  <noam@webkit.org>
+
+        [EFL] Assertion Failures in Coordinated Graphics after r148433
+        https://bugs.webkit.org/show_bug.cgi?id=114731
+
+        Reviewed by Gyuyoung Kim.
+
+        The assert is incorrect. In some cases in coordinated graphics we may have a backing store
+        and drawsContent would be set to false.
+
+        No new tests.
+
+        * platform/graphics/texmap/TextureMapperLayer.cpp:
+        (WebCore::TextureMapperLayer::paintSelf):
+
 2013-04-22  Suchit Agrawal  <a.suchit@samsung.com>
 
         table's text aligned on top instead of center because of rowspan
