@@ -1,3 +1,10 @@
+2013-04-23  Zan Dobersek  <zdobersek@igalia.com>
+
+        Unreviewed GTK gardening.
+
+        * platform/gtk/TestExpectations: Adding failure expectations for two DOM4 constructors tests
+        that started failing after enabling the subpixel layout due to LayoutUnit overflows.
+
 2013-04-23  Jinwoo Song  <jinwoo7.song@samsung.com>
 
         [EFL] EFL gardening
