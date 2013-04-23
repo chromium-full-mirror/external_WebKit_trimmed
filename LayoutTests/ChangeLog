@@ -1,3 +1,16 @@
+2013-04-22  Jessie Berlin  <jberlin@apple.com>
+
+        Remove references to the inspector/profiler/memory-instrumentation tests removed in r148921
+
+        Rubber-stamped by Benjamin Poulain.
+
+        * platform/efl/TestExpectations:
+        * platform/gtk/TestExpectations:
+        * platform/mac/TestExpectations:
+        * platform/qt/TestExpectations:
+        * platform/win/TestExpectations:
+        * platform/wincairo/TestExpectations:
+
 2013-04-22  Brady Eidson  <beidson@apple.com>
 
         REGRESSION (r141136): Wiki "Random article" function very broken.
