@@ -1,5 +1,29 @@
 2013-04-23  Noam Rosenthal  <noam@webkit.org>
 
+        [Texmap] Don't paint to an intermediate surface when the result is going to be clipped out completely.
+        https://bugs.webkit.org/show_bug.cgi?id=115015
+
+        Reviewed by Allan Sandfeld Jensen.
+
+        Maintain a clipBounds rectangle in TextureMapper, and test it against the bounds of an intermediate
+        surface before it is painted.
+        This allows us to opt out completely of painting into the surface if the result is going to be optimized
+        out by the GPU clipping.
+
+        Covered by tests in compositing/overlap-blending.
+
+        * platform/graphics/texmap/TextureMapper.h:
+        (TextureMapper):
+        * platform/graphics/texmap/TextureMapperGL.cpp:
+        (WebCore::TextureMapperGL::clipBounds):
+        (WebCore):
+        * platform/graphics/texmap/TextureMapperGL.h:
+        * platform/graphics/texmap/TextureMapperImageBuffer.h:
+        * platform/graphics/texmap/TextureMapperLayer.cpp:
+        (WebCore::TextureMapperLayer::paintUsingOverlapRegions):
+
+2013-04-23  Noam Rosenthal  <noam@webkit.org>
+
         [Coordinated Graphics] Remove the lockAnimations code path
         https://bugs.webkit.org/show_bug.cgi?id=114899
 
