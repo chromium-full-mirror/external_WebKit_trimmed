@@ -1,3 +1,41 @@
+2013-04-23  Claudio Saavedra  <csaavedra@igalia.com>
+
+        Ctrl+Shift+Right in Windows should select the spacing after the word
+        https://bugs.webkit.org/show_bug.cgi?id=110487
+
+        Reviewed by Ryosuke Niwa.
+
+        * editing/deleting/smart-editing-disabled-win-expected.txt: Added.
+        * editing/deleting/smart-editing-disabled-win.html: Added.
+        * editing/execCommand/query-command-state-expected.txt:
+        * editing/execCommand/remove-format-multiple-elements-win-expected.txt: Added.
+        * editing/execCommand/remove-format-multiple-elements-win.html: Added.
+        * editing/execCommand/script-tests/query-command-state.js:
+        (runTests): Update to reflect new editing behavior in Windows.
+        * editing/execCommand/script-tests/remove-format-multiple-elements-win.js: Added.
+        * editing/execCommand/script-tests/toggle-link-win.js: Added.
+        * editing/execCommand/script-tests/toggle-unlink-win.js: Added.
+        * editing/execCommand/toggle-link-win-expected.txt: Added.
+        * editing/execCommand/toggle-link-win.html: Added.
+        * editing/execCommand/toggle-unlink-win-expected.txt: Added.
+        * editing/execCommand/toggle-unlink-win.html: Added.
+        * editing/selection/extend-selection-enclosing-block-win-expected.txt: Added.
+        * editing/selection/extend-selection-enclosing-block-win.html: Added.
+        * editing/selection/resources/extend-selection.js:
+        (extendSelectionWithinBlockWin): Method to test behavior in windows.
+        (extendAndLogSelectionWithinBlock): Add test support for Windows.
+        * editing/selection/selection-extend-should-not-move-across-caret-on-mac.html:
+        Add test support for Windows editing behavior.
+        * editing/style/make-text-writing-direction-inline-win-expected.txt: Added.
+        * editing/style/make-text-writing-direction-inline-win.html: Added.
+        * editing/style/push-down-font-styles-win-expected.txt: Added.
+        * editing/style/push-down-font-styles-win.html: Added.
+        * editing/style/push-down-implicit-styles-around-list-win-expected.txt: Added.
+        * editing/style/push-down-implicit-styles-around-list-win.html: Added.
+        * editing/style/script-tests/make-text-writing-direction-inline-win.js: Added.
+        * editing/style/script-tests/push-down-font-styles-win.js: Added.
+        * editing/style/script-tests/push-down-implicit-styles-around-list-win.js: Added.
+
 2013-04-23  Zoltan Horvath  <zoltan@webkit.org>
 
         [Qt] REGRESSION (r148975) shape-inside-percentage.html and shape-inside-overflow-fixed-dimensions.html are failing after r148975

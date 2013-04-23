@@ -1,3 +1,31 @@
+2013-04-23  Claudio Saavedra  <csaavedra@igalia.com>
+
+        Ctrl+Shift+Right in Windows should select the spacing after the word
+        https://bugs.webkit.org/show_bug.cgi?id=110487
+
+        Reviewed by Ryosuke Niwa.
+
+        Tests: editing/deleting/smart-editing-disabled-win.html
+               editing/execCommand/remove-format-multiple-elements-win.html
+               editing/execCommand/toggle-link-win.html
+               editing/execCommand/toggle-unlink-win.html
+               editing/selection/extend-selection-enclosing-block-win.html
+               editing/style/make-text-writing-direction-inline-win.html
+               editing/style/push-down-font-styles-win.html
+               editing/style/push-down-implicit-styles-around-list-win.html
+
+        * editing/FrameSelection.cpp:
+        (WebCore::FrameSelection::nextWordPositionForPlatform): New method
+        that takes platform-specific editing behaviour in order to decide
+        what the next word position is, that is, for Windows, skip
+        spacing, for all other platforms, behave as currently.
+        (WebCore::FrameSelection::modifyExtendingRight):
+        (WebCore::FrameSelection::modifyExtendingForward):
+        (WebCore::FrameSelection::modifyMovingForward):
+        (WebCore::FrameSelection::modifyExtendingLeft): Use the new method
+        in all of the above.
+        * editing/FrameSelection.h: Declare the new method.
+
 2013-04-23  Benjamin Poulain  <bpoulain@apple.com>
 
         Inline SelectorQuery::matches, SelectorQuery::queryAll, SelectorQuery::queryFirst
