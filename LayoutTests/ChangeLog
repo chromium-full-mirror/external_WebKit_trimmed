@@ -1,3 +1,16 @@
+2013-04-23  Jinwoo Song  <jinwoo7.song@samsung.com>
+
+        [EFL] EFL gardening
+        https://bugs.webkit.org/show_bug.cgi?id=115013
+
+        Remove editing/selection/doubleclick-whitespace-crash.html and
+        editing/selection/doubleclick-whitespace-img-crash.html from TestExpectations
+        after r144221.
+
+        Unreviewed, EFL gardening.
+
+        * platform/efl-wk2/TestExpectations:
+
 2013-04-23  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
 
         [Qt] Unreviewed gardening. Changing failure mark to skip after r148948.
