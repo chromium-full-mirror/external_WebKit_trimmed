@@ -1,3 +1,15 @@
+2013-04-23  Jacky Jiang  <zhajiang@blackberry.com>
+
+        Remove redundant code in ViewportArguments::resolve
+        https://bugs.webkit.org/show_bug.cgi?id=115054
+
+        Reviewed by Kenneth Rohde Christiansen.
+
+        Remove redundant code "result.orientation = orientation;".
+
+        * dom/ViewportArguments.cpp:
+        (WebCore::ViewportArguments::resolve):
+
 2013-04-23  Simon Fraser  <simon.fraser@apple.com>
 
         Tiled layers clipped inside nested transform/preserve-3d hierarchies
