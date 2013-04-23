@@ -1,3 +1,17 @@
+2013-04-22  Mihnea Ovidenie  <mihnea@adobe.com>
+
+        [CSS Regions] Region's float parent doesn't size according to region size but to content node size
+        https://bugs.webkit.org/show_bug.cgi?id=111332
+
+        Reviewed by David Hyatt.
+
+        Added tests for intrinsic and preferred width computation for region.
+
+        * fast/regions/intrinsic-sized-regions-expected.txt: Added.
+        * fast/regions/intrinsic-sized-regions.html: Added.
+        * fast/regions/region-with-float-parent-expected.txt: Added.
+        * fast/regions/region-with-float-parent.html: Added.
+
 2013-04-22  Jessie Berlin  <jberlin@apple.com>
 
         Remove references to the inspector/profiler/memory-instrumentation tests removed in r148921

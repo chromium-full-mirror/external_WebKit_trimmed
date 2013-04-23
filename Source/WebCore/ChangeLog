@@ -1,3 +1,25 @@
+2013-04-22  Mihnea Ovidenie  <mihnea@adobe.com>
+
+        [CSS Regions] Region's float parent doesn't size according to region size but to content node size
+        https://bugs.webkit.org/show_bug.cgi?id=111332
+
+        Reviewed by David Hyatt.
+
+        Tests: fast/regions/intrinsic-sized-regions.html
+               fast/regions/region-with-float-parent.html
+
+        The patch ensures that the computation of region's preferred widths
+        takes into account the region width/min-width if these values are specified.
+        Also implemented the computation of intrinsic widths for a region,
+        based on the min/max preferred widths of the associated flow thread.
+
+        * rendering/RenderRegion.cpp:
+        (WebCore::RenderRegion::computeIntrinsicLogicalWidths):
+        (WebCore):
+        (WebCore::RenderRegion::computePreferredLogicalWidths):
+        * rendering/RenderRegion.h:
+        (RenderRegion):
+
 2013-04-22  Jessie Berlin  <jberlin@apple.com>
 
         Debug build fix.
