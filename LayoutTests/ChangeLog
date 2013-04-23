@@ -1,3 +1,11 @@
+2013-04-22  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Unreviewed EFL gardening.
+
+        Unskip several test cases that are no longer crashing after r148945.
+
+        * platform/efl/TestExpectations:
+
 2013-04-22  Suchit Agrawal  <a.suchit@samsung.com>
 
         table's text aligned on top instead of center because of rowspan
