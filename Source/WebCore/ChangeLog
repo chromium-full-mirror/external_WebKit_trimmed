@@ -1,3 +1,94 @@
+2013-04-23  Benjamin Poulain  <bpoulain@apple.com>
+
+        Remove wxWebKit's folders from WebCore
+        https://bugs.webkit.org/show_bug.cgi?id=115007
+
+        Reviewed by Andreas Kling.
+
+        The wxWebKit port is no longer actively maintained by Kevin
+        on webkit.org. Remove the code until new maintainers resume the work.
+
+        * accessibility/wx/AccessibilityObjectWx.cpp: Removed.
+        * editing/wx/EditorWx.cpp: Removed.
+        * page/wx/DragControllerWx.cpp: Removed.
+        * page/wx/EventHandlerWx.cpp: Removed.
+        * platform/graphics/wx/ColorWx.cpp: Removed.
+        * platform/graphics/wx/FloatRectWx.cpp: Removed.
+        * platform/graphics/wx/FontCacheWx.cpp: Removed.
+        * platform/graphics/wx/FontCustomPlatformData.cpp: Removed.
+        * platform/graphics/wx/FontCustomPlatformData.h: Removed.
+        * platform/graphics/wx/FontPlatformData.h: Removed.
+        * platform/graphics/wx/FontPlatformDataWx.cpp: Removed.
+        * platform/graphics/wx/FontPlatformDataWxMac.mm: Removed.
+        * platform/graphics/wx/FontWx.cpp: Removed.
+        * platform/graphics/wx/GlyphMapWx.cpp: Removed.
+        * platform/graphics/wx/GradientWx.cpp: Removed.
+        * platform/graphics/wx/GraphicsContextWx.cpp: Removed.
+        * platform/graphics/wx/IconWx.cpp: Removed.
+        * platform/graphics/wx/ImageBufferDataWx.h: Removed.
+        * platform/graphics/wx/ImageBufferWx.cpp: Removed.
+        * platform/graphics/wx/ImageWx.cpp: Removed.
+        * platform/graphics/wx/IntPointWx.cpp: Removed.
+        * platform/graphics/wx/IntRectWx.cpp: Removed.
+        * platform/graphics/wx/IntSizeWx.cpp: Removed.
+        * platform/graphics/wx/PathWx.cpp: Removed.
+        * platform/graphics/wx/SimpleFontDataWx.cpp: Removed.
+        * platform/graphics/wx/TransformationMatrixWx.cpp: Removed.
+        * platform/image-decoders/wx/ImageDecoderWx.cpp: Removed.
+        * platform/wx/ClipboardWx.cpp: Removed.
+        * platform/wx/ClipboardWx.h: Removed.
+        * platform/wx/ContextMenuItemWx.cpp: Removed.
+        * platform/wx/ContextMenuWx.cpp: Removed.
+        * platform/wx/CursorWx.cpp: Removed.
+        * platform/wx/DragDataWx.cpp: Removed.
+        * platform/wx/DragImageWx.cpp: Removed.
+        * platform/wx/EventLoopWx.cpp: Removed.
+        * platform/wx/FileSystemWx.cpp: Removed.
+        * platform/wx/KeyEventWin.cpp: Removed.
+        * platform/wx/KeyboardEventWx.cpp: Removed.
+        * platform/wx/LanguageWx.cpp: Removed.
+        * platform/wx/LocalDC.h: Removed.
+        * platform/wx/LocalizedStringsWx.cpp: Removed.
+        * platform/wx/LoggingWx.cpp: Removed.
+        * platform/wx/MimeTypeRegistryWx.cpp: Removed.
+        * platform/wx/MouseEventWx.cpp: Removed.
+        * platform/wx/MouseWheelEventWx.cpp: Removed.
+        * platform/wx/PasteboardWx.cpp: Removed.
+        * platform/wx/PopupMenuWx.cpp: Removed.
+        * platform/wx/PopupMenuWx.h: Removed.
+        * platform/wx/RenderThemeWx.cpp: Removed.
+        * platform/wx/RunLoopWx.cpp: Removed.
+        * platform/wx/SSLKeyGeneratorWx.cpp: Removed.
+        * platform/wx/ScreenWx.cpp: Removed.
+        * platform/wx/ScrollViewWx.cpp: Removed.
+        * platform/wx/ScrollbarThemeWx.cpp: Removed.
+        * platform/wx/ScrollbarThemeWx.h: Removed.
+        * platform/wx/SearchPopupMenuWx.cpp: Removed.
+        * platform/wx/SearchPopupMenuWx.h: Removed.
+        * platform/wx/SharedBufferWx.cpp: Removed.
+        * platform/wx/SharedTimerWx.cpp: Removed.
+        * platform/wx/SoundWx.cpp: Removed.
+        * platform/wx/SystemTimeWx.cpp: Removed.
+        * platform/wx/TemporaryLinkStubs.cpp: Removed.
+        * platform/wx/TextBreakIteratorInternalICUWx.cpp: Removed.
+        * platform/wx/WidgetWx.cpp: Removed.
+        * platform/wx/wxcode/cairo/non-kerned-drawing.cpp: Removed.
+        * platform/wx/wxcode/fontprops.cpp: Removed.
+        * platform/wx/wxcode/fontprops.h: Removed.
+        * platform/wx/wxcode/gdiplus/non-kerned-drawing.cpp: Removed.
+        * platform/wx/wxcode/gtk/fontprops.cpp: Removed.
+        * platform/wx/wxcode/gtk/non-kerned-drawing.cpp: Removed.
+        * platform/wx/wxcode/gtk/scrollbar_render.cpp: Removed.
+        * platform/wx/wxcode/mac/carbon/fontprops.mm: Removed.
+        * platform/wx/wxcode/mac/carbon/non-kerned-drawing.cpp: Removed.
+        * platform/wx/wxcode/mac/carbon/scrollbar_render.cpp: Removed.
+        * platform/wx/wxcode/non-kerned-drawing.h: Removed.
+        * platform/wx/wxcode/scrollbar_render.h: Removed.
+        * platform/wx/wxcode/win/fontprops.cpp: Removed.
+        * platform/wx/wxcode/win/non-kerned-drawing.cpp: Removed.
+        * platform/wx/wxcode/win/scrollbar_render.cpp: Removed.
+        * plugins/wx/PluginDataWx.cpp: Removed.
+
 2013-04-23  Roger Fong  <roger_fong@apple.com>
 
         AppleWin build fix.
