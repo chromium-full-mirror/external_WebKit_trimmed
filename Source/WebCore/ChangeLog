@@ -1,5 +1,27 @@
 2013-04-23  Andreas Kling  <akling@apple.com>
 
+        XSSAuditor performance regression due to threaded parser changes.
+        <http://webkit.org/b/115037>
+        <rdar://problem/13716069>
+
+        Reviewed by Anders Carlsson.
+
+        From Blink r148792 by <abarth@chromium.org>:
+
+        The refactoring we did for the threaded parser introduced a performance
+        regression in innerHTML because we'd boot up the XSSAuditor for fragment
+        parsing. This CL returns to our earlier behavior of not booting up the
+        XSSAuditor when parsing fragments.
+
+        * html/parser/HTMLDocumentParser.cpp:
+        (WebCore::HTMLDocumentParser::HTMLDocumentParser):
+        * html/parser/XSSAuditor.cpp:
+        (WebCore::XSSAuditor::initForFragment):
+        * html/parser/XSSAuditor.h:
+        (XSSAuditor):
+
+2013-04-23  Andreas Kling  <akling@apple.com>
+
         Speed up ElementData::getAttributeItem(), which is hot.
         <http://webkit.org/b/115031>
 
