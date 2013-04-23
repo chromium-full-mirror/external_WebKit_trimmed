@@ -1,3 +1,20 @@
+2013-04-23  Antti Koivisto  <antti@apple.com>
+
+        Avoid computing style twice when element has no existing style
+        https://bugs.webkit.org/show_bug.cgi?id=115042
+
+        Reviewed by Andreas Kling.
+        
+        We currently compute element style twice if we end up having to reattach, first in recalcStyle and then
+        again during attach(). We can easily avoid this in common case where the element has no existing style
+        (usually because it is display:none). 
+
+        * dom/Element.cpp:
+        (WebCore::Element::recalcStyle):
+        
+            Don't compute the style and diff if there is no existing style. There is nothing to diff against.
+            Instead just call reattach() directly, we ended up doing that anyway with the existing code.
+        
 2013-04-23  Lamarque V. Souza  <Lamarque.Souza@basyskom.com>
 
         WebSocket: Return type of send() should be void if hybi-10 protocol is chosen
