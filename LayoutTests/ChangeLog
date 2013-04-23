@@ -1,3 +1,13 @@
+2013-04-23  Antoine Quint  <graouts@apple.com>
+
+        Initial advance of text runs should be taken into account
+        https://bugs.webkit.org/show_bug.cgi?id=114949
+
+        Reviewed by Darin Adler.
+
+        * fast/text/complex-initial-advance-expected.html: Added.
+        * fast/text/complex-initial-advance.html: Added.
+
 2013-04-23  Zan Dobersek  <zdobersek@igalia.com>
 
         Unreviewed GTK gardening.

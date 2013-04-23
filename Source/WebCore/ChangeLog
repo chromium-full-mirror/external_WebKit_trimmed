@@ -1,3 +1,76 @@
+2013-04-23  Antoine Quint  <graouts@apple.com>
+
+        Initial advance of text runs should be taken into account
+        https://bugs.webkit.org/show_bug.cgi?id=114949
+
+        Reviewed by Darin Adler.
+
+        Keep track of complex text runs' initial advance by adding a new
+        member to GlyphBuffer and adding the initial advance of any non-first
+        text run to the advance of the last glyph added for the previous text run.
+        Additionally, we now correctly handle advance values in the y-axis.
+
+        Test: fast/text/complex-initial-advance.html
+
+        * WebCore.exp.in:
+        Add support for new WebKitSystemInterface API.
+        * platform/graphics/FontFastPath.cpp:
+        (WebCore::Font::drawGlyphBuffer):
+        Take into account the buffer's initial advance in the y-axis to adjust
+        the point at which to draw the buffers. Additionally, keep track of advances
+        on the y-axis as well as the x-axis (which we already were doing) as we iterate
+        through glyphs and adjust the start point.
+        (WebCore::Font::drawEmphasisMarks):
+        Adopt change of GlyphBuffer::advanceAt() return type.
+        * platform/graphics/GlyphBuffer.h:
+        Removing the WINCE-specific GlyphBufferAdvance struct since heights are now necessary.
+        (WebCore::GlyphBufferAdvance::GlyphBufferAdvance):
+        New default constructor for GlyphBufferAdvance to support the m_initialAdvance member.
+        (WebCore::GlyphBuffer::setInitialAdvance):
+        (WebCore::GlyphBuffer::initialAdvance):
+        New APIs to get and set the initial advance for a glyph buffer.
+        (WebCore::GlyphBuffer::advanceAt):
+        Return a GlyphBufferAdvance rather than a float which used to be only
+        the glyph buffer's x-axis advance. This is necessary to handle deltas
+        on the y-axis as well (see WebCore::Font::drawGlyphBuffer).
+        * platform/graphics/GlyphBuffer.h:
+        (GlyphBuffer):
+        (WebCore::GlyphBuffer::setInitialAdvance):
+        * platform/graphics/WidthIterator.cpp:
+        (WebCore::WidthIterator::advanceInternal):
+        (WebCore::WidthIterator::advanceOneCharacter):
+        Adopt change of GlyphBuffer::advanceAt() return type.
+        * platform/graphics/cairo/FontCairo.cpp:
+        (WebCore::Font::drawGlyphs):
+        Adopt change of GlyphBuffer::advanceAt() return type.
+        * platform/graphics/mac/ComplexTextController.cpp:
+        (WebCore::ComplexTextController::advance):
+        When processing the first text run, set that run's initial advance as
+        the glyph buffer's initial advance.
+        (WebCore::ComplexTextController::adjustGlyphsAndAdvances):
+        Represent the initial advance for a text run by adjusting the advance
+        of the last glyph of the previous text run in the glyph buffer.
+        * platform/graphics/mac/ComplexTextController.h:
+        (WebCore::ComplexTextController::ComplexTextRun::initialAdvance):
+        (ComplexTextRun):
+        New API to read the inital advance of a complex text run.
+        * platform/graphics/mac/ComplexTextControllerCoreText.mm:
+        (WebCore::ComplexTextController::ComplexTextRun::ComplexTextRun):
+        Obtain the text run's initial advance via the new wkCTRunGetInitialAdvance
+        WebKitSystemInterface API.
+        * platform/graphics/qt/FontQt.cpp:
+        (WebCore::Font::drawGlyphs):
+        Adopt change of GlyphBuffer::advanceAt() return type.
+        * platform/mac/WebCoreSystemInterface.h:
+        * platform/mac/WebCoreSystemInterface.mm:
+        Add support for the new wkCTRunGetInitialAdvance WebKitSystemInterface API.
+        * platform/wx/wxcode/cairo/non-kerned-drawing.cpp:
+        (WebCore::drawTextWithSpacing):
+        Adopt change of GlyphBuffer::advanceAt() return type.
+        * rendering/svg/SVGTextRunRenderingContext.cpp:
+        (WebCore::SVGTextRunRenderingContext::drawSVGGlyphs):
+        Adopt change of GlyphBuffer::advanceAt() return type.
+
 2013-04-23  Noam Rosenthal  <noam@webkit.org>
 
         [Texmap] Don't paint to an intermediate surface when the result is going to be clipped out completely.
