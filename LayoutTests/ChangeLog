@@ -1,3 +1,30 @@
+2013-04-23  Zoltan Horvath  <zoltan@webkit.org>
+
+        [CSS Exclusions] shape-inside overflow should be pushed to the outside of the content box
+        https://bugs.webkit.org/show_bug.cgi?id=114526
+
+        Reviewed by David Hyatt.
+
+        Update and add tests for the new behavior.
+
+        * fast/exclusions/resources/rounded-rectangle.js:
+        (generateString): Modify the function to not generate overflow content.
+        * fast/exclusions/shape-inside/shape-inside-bottom-edge-expected.html:
+        * fast/exclusions/shape-inside/shape-inside-bottom-edge.html:
+        * fast/exclusions/shape-inside/shape-inside-empty-expected.html:
+        * fast/exclusions/shape-inside/shape-inside-empty.html:
+        * fast/exclusions/shape-inside/shape-inside-overflow-expected.html:
+        * fast/exclusions/shape-inside/shape-inside-overflow-fixed-dimensions-expected.html: Added.
+        * fast/exclusions/shape-inside/shape-inside-overflow-fixed-dimensions.html: Added.
+        * fast/exclusions/shape-inside/shape-inside-overflow.html:
+        * fast/exclusions/shape-inside/shape-inside-percentage-expected.html:
+        * fast/exclusions/shape-inside/shape-inside-percentage.html:
+        * fast/exclusions/shape-inside/shape-inside-rounded-rectangle-004-expected.html:
+        * fast/exclusions/shape-inside/shape-inside-rounded-rectangle-004.html:
+        * fast/regions/shape-inside/shape-inside-on-additional-regions-expected.html:
+        * fast/regions/shape-inside/shape-inside-on-additional-regions.html: This test is not intented to test the overflow behavior from
+        shape-inside on regions, so I set the shape's height to the container's height.
+
 2013-04-23  Robert Hogan  <robert@webkit.org>
 
         checkLayout() should error out if no data-expected* attributes were found

@@ -1,3 +1,37 @@
+2013-04-23  Zoltan Horvath  <zoltan@webkit.org>
+
+        [CSS Exclusions] shape-inside overflow should be pushed to the outside of the content box
+        https://bugs.webkit.org/show_bug.cgi?id=114526
+
+        Reviewed by David Hyatt.
+
+        The specification has changed to define shape-outside as the inverse of an exclusion. Overflowing content
+        should not overlap the shape, and it should be pushed outside the content box. This change affects several
+        tests, but only one new has been added. In this change I'm not intended to include the behavior change for
+        shape-inside on CSS Regions, I'm going to fix that in a follow up patch.
+
+        Tests: fast/exclusions/shape-inside/shape-inside-overflow-fixed-dimensions.html: Modified.
+               fast/exclusions/shape-inside/shape-inside-bottom-edge.html: Modified.
+               fast/exclusions/shape-inside/shape-inside-empty.html: Modified.
+               fast/exclusions/shape-inside/shape-inside-overflow-fixed-dimensions.html: Added.
+               fast/exclusions/shape-inside/shape-inside-overflow.html: Modified.
+               fast/exclusions/shape-inside/shape-inside-percentage.html: Modified.
+               fast/exclusions/shape-inside/shape-inside-rounded-rectangle-004.html: Modified.
+
+        * rendering/ExclusionShapeInfo.h:
+        (WebCore::ExclusionShapeInfo::clearSegments): Shape-outside's code uses shape-inside codepaths, when that happens we need to provide a
+        way to reset the m_segments member.
+        (WebCore::ExclusionShapeInfo::shapeContainingBlockHeight): The containing block's height is stored in m_shapeLogicalHeight, I added a
+        function to get this value when we need it to calculate the content box's bottom position.
+        (ExclusionShapeInfo):
+        (WebCore::ExclusionShapeInfo::lineOverlapsShapeBounds):
+        (WebCore::ExclusionShapeInfo::lineWithinShapeBounds):  Add function to test whether a whole line is within a shape or not.
+        * rendering/RenderBlockLineLayout.cpp:
+        (WebCore::RenderBlock::layoutRunsAndFloatsInRange): Overflowing content should start under the content box.
+        (WebCore::RenderBlock::LineBreaker::nextLineBreak): Since we use shape-inside codepaths for shape-outside in layoutRunsAndFloatsInRange function
+        and for shape-outside is not a requirement to check the line's bottom position is within the shape we might end up with some extra segments here.
+        In this case we should clear segments, since we don't want to apply any horizontal offsets on the overflowing content.
+
 2013-04-23  Antti Koivisto  <antti@apple.com>
 
         Avoid computing style twice when element has no existing style
