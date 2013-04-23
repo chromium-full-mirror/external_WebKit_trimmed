@@ -1,3 +1,9 @@
+2013-04-23  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening.
+
+        * platform/qt/TestExpectations:
+
 2013-04-23  Commit Queue  <rniwa@webkit.org>
 
         Unreviewed, rolling out r148923.
