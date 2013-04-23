@@ -1,3 +1,21 @@
+2013-04-23  Benjamin Poulain  <benjamin@webkit.org>
+
+        Minor String usage fixes in WebCore/platform
+        https://bugs.webkit.org/show_bug.cgi?id=115021
+
+        Reviewed by Andreas Kling.
+
+        Use ASCIILiteral when possible + minor fixes.
+
+        * platform/ContentType.cpp:
+        (WebCore::ContentType::codecs):
+        * platform/ContentType.h:
+        (ContentType):
+        * platform/Decimal.cpp:
+        (WebCore::Decimal::toString):
+        * platform/KURL.cpp:
+        (WebCore::KURL::setProtocol):
+
 2013-04-23  Dirk Schulze  <krit@webkit.org>
 
         Pick up color and mat values in custom shaders
