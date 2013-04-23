@@ -1,3 +1,9 @@
+2013-04-23  Zoltan Arvai  <zarvai@inf.u-szeged.hu>
+
+        [Qt] Unreviewed gardening. Changing failure mark to skip after r148948.
+
+        * platform/qt/TestExpectations:
+
 2013-04-23  Allan Sandfeld Jensen  <allan.jensen@digia.com>
 
         Respect image-rendering setting for determing image-rendering quality
