@@ -1,3 +1,27 @@
+2013-04-23  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Global constructors should be configurable and not enumerable
+        https://bugs.webkit.org/show_bug.cgi?id=110573
+
+        Reviewed by Geoffrey Garen.
+
+        Update JSC Code generator so that global constructors now have the following
+        attributes:
+        { [[Writable]]: true, [[Enumerable]]: false, [[Configurable]]: true }
+        instead of previously:
+        { [[Writable]]: true, [[Enumerable]]: true, [[Configurable]]: false }
+
+        The new behavior is according to the Web IDL specification (section 4.4):
+        http://dev.w3.org/cvsweb/~checkout~/2006/webapi/WebIDL/Overview.html?rev=1.617;content-type=text%2Fhtml#es-interfaces
+
+        This also matches the behavior of Firefox.
+
+        Tests: fast/js/global-constructors-attributes.html
+               fast/js/global-constructors-deletable.html
+
+        * bindings/scripts/CodeGeneratorJS.pm:
+        (GenerateAttributesHashTable):
+
 2013-04-23  Simon Fraser  <simon.fraser@apple.com>
 
         Don't create compositing layers for sticky position unless using the ScrollingCoordinator

@@ -1,3 +1,41 @@
+2013-04-23  Christophe Dumez  <ch.dumez@sisa.samsung.com>
+
+        Global constructors should be configurable and not enumerable
+        https://bugs.webkit.org/show_bug.cgi?id=110573
+
+        Reviewed by Geoffrey Garen.
+
+        Add new tests to make sure that the global constructors have the
+        right attributes and to check that they are 'Deletable'.
+
+        * canvas/philip/tests/type.delete-expected.txt: Removed.
+        * canvas/philip/tests/type.delete.html: Removed. It was checking that global constructor
+        could NOT be deleted, which is no longer according to the Web IDL specification.
+        * fast/dom/constructed-objects-prototypes-expected.txt:
+        * fast/dom/script-tests/constructed-objects-prototypes.js: Update test to hardcode a few
+        global constructors as they are no longer enumerable.
+        * fast/js/getOwnPropertyDescriptor-expected.txt:
+        * fast/js/global-constructors.html: Removed. It was relying on the global constructors
+        to be 'Enumerable', which is not to the latest Web IDL specification.
+        * fast/js/global-constructors-attributes-expected.txt: Added.
+        * fast/js/global-constructors-attributes.html: Added.
+        * fast/js/global-constructors-deletable-expected.txt: Added.
+        * fast/js/global-constructors-deletable.html: Added.
+        * fast/js/global-constructors-expected.txt: Removed.
+        * fast/js/resources/getOwnPropertyDescriptor.js:
+        * fast/js/script-tests/global-constructors-attributes.js: Added.
+        * fast/js/script-tests/global-constructors-deletable.js: Added.
+        * fast/js/script-tests/global-constructors.js: Removed.
+        * platform/efl/fast/dom/constructed-objects-prototypes-expected.txt: Removed.
+        * platform/efl/fast/js/global-constructors-expected.txt: Removed.
+        * platform/gtk/fast/dom/constructed-objects-prototypes-expected.txt: Removed.
+        * platform/gtk/fast/js/global-constructors-expected.txt: Removed.
+        * platform/mac/fast/js/global-constructors-expected.txt: Removed.
+        * platform/qt/fast/dom/constructed-objects-prototypes-expected.txt: Removed.
+        * platform/qt/fast/js/global-constructors-expected.txt: Removed.
+        * platform/win/fast/dom/constructed-objects-prototypes-expected.txt: Removed.
+        * platform/win/fast/js/global-constructors-expected.txt: Removed.
+
 2013-04-23  Geoffrey Garen  <ggaren@apple.com>
 
         Filled out more cases of branch folding in bytecode when emitting expressions into a branching context
