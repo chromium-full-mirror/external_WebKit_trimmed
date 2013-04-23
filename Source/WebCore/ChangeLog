@@ -1,3 +1,27 @@
+2013-04-23  Andreas Kling  <akling@apple.com>
+
+        Speed up ElementData::getAttributeItem(), which is hot.
+        <http://webkit.org/b/115031>
+
+        Reviewed by Antti Koivisto.
+
+        From Blink r148622 by <cevans@chromium.org>.
+
+        The previous version had a couple of issues:
+        - Incurred new WTF::Vector::operator[] checks.
+        - Had a branch in _every_ loop iteration that checked whether the storage was Vector or array[] backed.
+
+        Both these issues are fixed, and CloneNodes.html seems reliably at +2%.
+        I also believe GetElement.html is maybe +1%.
+
+        For WebKit, also applied the same optimization to getAttributeItemIndex().
+
+        * dom/Element.h:
+        (WebCore::ElementData::attributeBase):
+        (WebCore::ElementData::getAttributeItemIndex):
+        (WebCore::ElementData::getAttributeItem):
+        (WebCore::ElementData::attributeItem):
+
 2013-04-23  Antoine Quint  <graouts@apple.com>
 
         Initial advance of text runs should be taken into account
