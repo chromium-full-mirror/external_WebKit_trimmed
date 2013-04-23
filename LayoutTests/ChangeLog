@@ -1,3 +1,22 @@
+2013-04-23  Seokju Kwon  <seokju.kwon@gmail.com>
+
+        Remove fast/js/i18n-bindings-locale.html
+        https://bugs.webkit.org/show_bug.cgi?id=115024
+
+        Reviewed by Geoffrey Garen.
+
+        Remove V8-i18n-extension test(r78095) from all ports.
+
+        * fast/js/i18n-bindings-locale-expected.txt: Removed.
+        * fast/js/i18n-bindings-locale.html: Removed.
+        * fast/js/script-tests/i18n-bindings-locale.js: Removed.
+        * platform/efl/TestExpectations:
+        * platform/gtk/TestExpectations:
+        * platform/mac/TestExpectations:
+        * platform/qt/TestExpectations:
+        * platform/win/TestExpectations:
+        * platform/wincairo/TestExpectations:
+
 2013-04-23  Zoltan Horvath  <zoltan@webkit.org>
 
         [CSS Exclusions] shape-inside overflow should be pushed to the outside of the content box
