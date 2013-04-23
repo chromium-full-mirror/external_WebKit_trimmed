@@ -1,5 +1,25 @@
 2013-04-23  Benjamin Poulain  <bpoulain@apple.com>
 
+        Inline SelectorQuery::matches, SelectorQuery::queryAll, SelectorQuery::queryFirst
+        https://bugs.webkit.org/show_bug.cgi?id=115012
+
+        Reviewed by Andreas Kling.
+
+        Each of these function has a single call site:
+        -SelectorQuery::matches from Element::webkitMatchesSelector.
+        -SelectorQuery::queryAll from Node::querySelectorAll.
+        -SelectorQuery::queryFirst from Node::querySelector.
+
+        Having a dedicated method to jump to was a little overkill.
+
+        * dom/SelectorQuery.cpp:
+        * dom/SelectorQuery.h:
+        (WebCore::SelectorQuery::matches):
+        (WebCore::SelectorQuery::queryAll):
+        (WebCore::SelectorQuery::queryFirst):
+
+2013-04-23  Benjamin Poulain  <bpoulain@apple.com>
+
         Remove wxWebKit's folders from WebCore
         https://bugs.webkit.org/show_bug.cgi?id=115007
 
