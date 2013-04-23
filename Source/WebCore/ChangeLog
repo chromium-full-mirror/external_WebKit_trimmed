@@ -1,3 +1,23 @@
+2013-04-22  Suchit Agrawal  <a.suchit@samsung.com>
+
+        table's text aligned on top instead of center because of rowspan
+        https://bugs.webkit.org/show_bug.cgi?id=18092
+
+        Reviewed by Beth Dakin.
+
+        Last row in the rowspan is not getting the height of rowspan cell because there is not
+        enough rows present below rowspan cell and we are strictly applying height of rowspan
+        to the row which should lay last in the rowspan based of rowspan value.
+
+        When row contains rowspan cell and it is last row of the table then
+        rowspan height is adding to last row of the table.
+
+        Test: fast/table/Rowspan-value-more-than-number-of-rows-present.html
+
+        It calculates logical height of the rows in the table.
+        * rendering/RenderTableSection.cpp:
+        (WebCore::RenderTableSection::calcRowLogicalHeight):
+
 2013-04-22  Mihnea Ovidenie  <mihnea@adobe.com>
 
         [CSS Regions] Region's float parent doesn't size according to region size but to content node size

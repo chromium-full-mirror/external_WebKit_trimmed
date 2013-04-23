@@ -1,3 +1,44 @@
+2013-04-22  Suchit Agrawal  <a.suchit@samsung.com>
+
+        table's text aligned on top instead of center because of rowspan
+        https://bugs.webkit.org/show_bug.cgi?id=18092
+
+        Reviewed by Beth Dakin.
+
+        Added test cases, based on rowspan issue.
+        * fast/table/Rowspan-value-more-than-number-of-rows-present-expected.txt: Added.
+        * fast/table/Rowspan-value-more-than-number-of-rows-present.html: Added.
+
+        Test cases need to do rebaseline in efl, gtk and mac platforms.
+        * platform/efl/TestExpectations:
+        * platform/gtk/TestExpectations:
+        * platform/mac/TestExpectations:
+
+        Test case results are updated in qt platform.
+        * platform/qt/fast/table/giantRowspan-expected.png:
+        * platform/qt/fast/table/giantRowspan-expected.txt:
+        * platform/qt/fast/table/giantRowspan2-expected.png:
+        * platform/qt/fast/table/giantRowspan2-expected.txt:
+        * platform/qt/tables/mozilla/bugs/bug133756-1-expected.png:
+        * platform/qt/tables/mozilla/bugs/bug133756-1-expected.txt:
+        * platform/qt/tables/mozilla/bugs/bug133756-2-expected.png:
+        * platform/qt/tables/mozilla/bugs/bug133756-2-expected.txt:
+        * platform/qt/tables/mozilla/bugs/bug220536-expected.png:
+        * platform/qt/tables/mozilla/bugs/bug220536-expected.txt:
+        * platform/qt/tables/mozilla/bugs/bug8858-expected.txt:
+        * platform/qt/tables/mozilla/core/bloomberg-expected.png:
+        * platform/qt/tables/mozilla/core/bloomberg-expected.txt:
+        * platform/qt/tables/mozilla/core/row_span-expected.png:
+        * platform/qt/tables/mozilla/core/row_span-expected.txt:
+        * platform/qt/tables/mozilla_expected_failures/bugs/bug131020-3-expected.txt:
+        * platform/qt/tables/mozilla_expected_failures/bugs/bug23847-expected.png:
+        * platform/qt/tables/mozilla_expected_failures/bugs/bug65372-expected.png:
+        * platform/qt/tables/mozilla_expected_failures/bugs/bug65372-expected.txt:
+        * tables/mozilla/core/bloomberg-expected.txt:
+        * tables/mozilla/core/row_span-expected.txt:
+        * tables/mozilla_expected_failures/bugs/bug131020-3-expected.txt:
+        * tables/mozilla_expected_failures/bugs/bug23847-expected.txt:
+
 2013-04-22  Mihnea Ovidenie  <mihnea@adobe.com>
 
         [CSS Regions] Region's float parent doesn't size according to region size but to content node size
