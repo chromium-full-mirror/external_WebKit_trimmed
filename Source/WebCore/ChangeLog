@@ -1,3 +1,77 @@
+2013-04-22  Ryosuke Niwa  <rniwa@webkit.org>
+
+        logicalLeftSelectionGap and logicalRightSelectionGap call availableLogicalWidth() multiple times
+        https://bugs.webkit.org/show_bug.cgi?id=113479
+
+        Reviewed by David Hyatt.
+
+        Introduced LogicalSelectionOffsetCaches to cache the containing blocks and their logical left and right
+        selection offsets in computing selection gaps. An instance of this class stores the containing block for
+        each position type and caches their logical selection offsets when none of their block ancestors up until
+        its nearest selection root do no have any floating objects or regions and exclusions.
+
+        When blockSelectionGaps recurses to another level, it creates a new cache instance by "inheriting"
+        (like RenderStyle) from the old cache, overriding those containing blocks that are replaced by "this".
+
+        This eliminates the need to traverse containing block ancestors in RenderBlock::logicalLeftSelectionOffset
+        and RenderBlock::logicalRightSelectionOffset, and improves WebKit's performance by roughly 20%.
+
+        Performance Tests: Interactive/SelectAll.html
+
+        * GNUmakefile.list.am:
+        * Target.pri:
+        * WebCore.xcodeproj/project.pbxproj:
+
+        * rendering/LogicalSelectionOffsetCaches.h: Added.
+        (WebCore::isContainingBlockCandidateForAbsolutelyPositionedObject): Moved from RenderObject.h.
+        (WebCore::isNonRenderBlockInline): Ditto.
+        (WebCore::containingBlockForFixedPosition): Extracted from RenderObject::containingBlock.
+        (WebCore::containingBlockForAbsolutePosition): Ditto.
+        (WebCore::containingBlockForObjectInFlow): Ditto.
+
+        (WebCore::LogicalSelectionOffsetCaches): Added.
+        (WebCore::LogicalSelectionOffsetCaches::ContainingBlockInfo::ContainingBlockInfo): Added.
+        (WebCore::LogicalSelectionOffsetCaches::ContainingBlockInfo::setBlock): Added. m_hasFloatsOrRegions is
+        or'ed with itself when ContainingBlockInfo is copy constructed since m_hasFloatsOrRegions needs be true
+        for a block when any of its containing block ancestors have floats or regions.
+        (WebCore::LogicalSelectionOffsetCaches::ContainingBlockInfo::block): Added.
+        (WebCore::LogicalSelectionOffsetCaches::ContainingBlockInfo::cache): Added.
+        (WebCore::LogicalSelectionOffsetCaches::ContainingBlockInfo::logicalLeftSelectionOffset): Added. Caches
+        the logical selection offset if it hasn't.
+        (WebCore::LogicalSelectionOffsetCaches::ContainingBlockInfo::logicalRightSelectionOffset): Ditto.
+
+        (WebCore::LogicalSelectionOffsetCaches::LogicalSelectionOffsetCaches): The first constructor is used
+        for a selection root. The second one is used for inheriting from another cache. In the latter case,
+        copy all containing block information except ones that need to be overridden by this block.
+        (WebCore::LogicalSelectionOffsetCaches::containingBlockInfo): Returns a ContainingBlockInfo based on
+        object's position value.
+
+        * rendering/RenderBlock.cpp:
+        (WebCore::RenderBlock::selectionGapRectsForRepaint):
+        (WebCore::RenderBlock::paintSelection):
+        (WebCore::RenderBlock::selectionGaps):
+        (WebCore::RenderBlock::inlineSelectionGaps):
+        (WebCore::RenderBlock::blockSelectionGaps): Exit before instantiating a new LogicalSelectionOffsetCaches
+        if there is no child to recurse.
+        (WebCore::RenderBlock::blockSelectionGap):
+        (WebCore::RenderBlock::logicalLeftSelectionGap):
+        (WebCore::RenderBlock::logicalRightSelectionGap):
+        (WebCore::RenderBlock::logicalLeftSelectionOffset): Use LogicalSelectionOffsetCaches to get its containing
+        block and its logical selection offset.
+        (WebCore::RenderBlock::logicalRightSelectionOffset): Ditto.
+
+        * rendering/RenderBlock.h:
+        (WebCore::RenderBlock):
+
+        * rendering/RenderObject.cpp:
+        (WebCore::RenderObject::containingBlock): Extracted code into LogicalSelectionOffsetCaches.h.
+
+        * rendering/RootInlineBox.cpp:
+        (WebCore::RootInlineBox::lineSelectionGap):
+
+        * rendering/RootInlineBox.h:
+        (WebCore::RootInlineBox):
+
 2013-04-23  Eric Carlson  <eric.carlson@apple.com>
 
         [Mac] forced subtitle track should change when audio track language changes
