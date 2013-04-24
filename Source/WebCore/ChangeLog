@@ -1,3 +1,25 @@
+2013-04-23  Kent Tamura  <tkent@chromium.org>
+
+        Remove TextFieldDecoration feature
+        https://bugs.webkit.org/show_bug.cgi?id=115068
+
+        Reviewed by Andreas Kling.
+
+        Only Chromium port used this feature.
+
+        * dom/Element.h: Remove isTextFieldDecoration.
+        * html/InputType.cpp:
+        (WebCore::InputType::destroyShadowSubtree):
+        Update a comment.
+        * html/TextFieldInputType.cpp:
+        (WebCore::TextFieldInputType::createShadowSubtree):
+        Remove call sites of willAddTextFieldDecorationsTo and addTextFieldDecorationsTo.
+        * html/shadow/TextFieldDecorationElement.cpp: Removed.
+        * html/shadow/TextFieldDecorationElement.h: Removed.
+        * page/ChromeClient.h:
+        (ChromeClient): Remove willAddTextFieldDecorationsTo and
+        addTextFieldDecorationsTo
+
 2013-04-23  Andreas Kling  <akling@apple.com>
 
         Micro-optimize Length::initFromLength().
