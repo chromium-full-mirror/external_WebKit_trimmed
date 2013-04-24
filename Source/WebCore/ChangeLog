@@ -1,3 +1,15 @@
+2013-04-23  Andreas Kling  <akling@apple.com>
+
+        Call the correct superclass in RenderSlider::layout().
+        <http://webkit.org/b/115071>
+
+        From Blink r147850 by <cbiesinger@chromium.org>:
+
+        The superclass is RenderFlexibleBox, not RenderBlock.
+
+        * rendering/RenderSlider.cpp:
+        (WebCore::RenderSlider::layout):
+
 2013-04-23  Mihai Tica  <mitica@adobe.com>
 
         Add platform support for -webkit-background-blend-mode to CG context with background color
