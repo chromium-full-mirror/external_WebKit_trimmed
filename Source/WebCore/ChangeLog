@@ -1,3 +1,15 @@
+2013-04-24  Zan Dobersek  <zdobersek@igalia.com>
+
+        [GTK] Move image decoders, some other GStreamer, Cairo and Soup sources to libPlatform
+        https://bugs.webkit.org/show_bug.cgi?id=115050
+
+        Reviewed by Martin Robinson.
+
+        No new tests - no new functionality.
+
+        * GNUmakefile.list.am: Move the image decoders source files and a couple of GStreamer, Cairo and Libsoup source
+        files under the libPlatform's list of files to build. All of these are already free of platform layer violations.
+
 2013-04-23  Kent Tamura  <tkent@chromium.org>
 
         Remove TextFieldDecoration feature
