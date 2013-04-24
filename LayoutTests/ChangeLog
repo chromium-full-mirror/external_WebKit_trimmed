@@ -1,3 +1,19 @@
+2013-04-23  Filip Pizlo  <fpizlo@apple.com>
+
+        DFG CFA filters CheckFunction in a really weird way, and assumes that the function's structure won't change
+        https://bugs.webkit.org/show_bug.cgi?id=115077
+
+        Reviewed by Oliver Hunt.
+        
+        This hilarious test fails prior to the rest of this patch.
+
+        * fast/js/dfg-check-function-change-structure-expected.txt: Added.
+        * fast/js/dfg-check-function-change-structure.html: Added.
+        * fast/js/jsc-test-list:
+        * fast/js/script-tests/dfg-check-function-change-structure.js: Added.
+        (foo):
+        (bar):
+
 2013-04-23  Mihai Tica  <mitica@adobe.com>
 
         Add platform support for -webkit-background-blend-mode to CG context with background color
