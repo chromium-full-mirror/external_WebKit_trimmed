@@ -1,3 +1,14 @@
+2013-04-23  Kent Tamura  <tkent@chromium.org>
+
+        Add missing copyright header to ColorChooserClient.h
+        https://bugs.webkit.org/show_bug.cgi?id=115067
+
+        Reviewed by Andreas Kling.
+
+        * platform/ColorChooserClient.h:
+        This was added in 2011 by a Google employee.
+        http://trac.webkit.org/changeset/103168
+
 2013-04-23  Andreas Kling  <akling@apple.com>
 
         Call the correct superclass in RenderSlider::layout().
