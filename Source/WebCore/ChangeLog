@@ -1,3 +1,21 @@
+2013-04-23  Mihai Tica  <mitica@adobe.com>
+
+        Add platform support for -webkit-background-blend-mode to CG context with background color
+        https://bugs.webkit.org/show_bug.cgi?id=114412
+
+        Reviewed by Darin Adler.
+
+        Tests: css3/compositing/effect-background-blend-mode-color.html, css3/compositing/effect-background-blend-mode-color2.html
+
+        This patch adds support for blending on background colors to the Core Graphics port of WebKit.
+
+        * platform/graphics/GraphicsContext.cpp:
+        (WebCore::GraphicsContext::fillRect):
+        (WebCore::GraphicsContext::fillRoundedRect):
+        * platform/graphics/GraphicsContext.h:
+        * rendering/RenderBoxModelObject.cpp:
+        (WebCore::RenderBoxModelObject::paintFillLayerExtended):
+
 2013-04-23  Ryosuke Niwa  <rniwa@webkit.org>
 
         Remove an unused member variable erroneously added in r149007.

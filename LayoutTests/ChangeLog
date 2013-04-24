@@ -1,3 +1,21 @@
+2013-04-23  Mihai Tica  <mitica@adobe.com>
+
+        Add platform support for -webkit-background-blend-mode to CG context with background color
+        https://bugs.webkit.org/show_bug.cgi?id=114412
+
+        Reviewed by Darin Adler.
+
+        Adding pixel tests for -webkit-background-blend-mode with bg-color
+        effect-background-blend-mode-color.html uses accelerated compositing
+        effect-background-blend-mode-color2.html uses software rendering
+
+        * css3/compositing/effect-background-blend-mode-color-expected.txt: Added.
+        * css3/compositing/effect-background-blend-mode-color.html: Added.
+        * platform/mac/css3/compositing/effect-background-blend-mode-color-expected.png: Added.
+        * css3/compositing/effect-background-blend-mode-color2-expected.txt: Added.
+        * css3/compositing/effect-background-blend-mode-color2.html: Added.
+        * platform/mac/css3/compositing/effect-background-blend-mode-color2-expected.png: Added.
+
 2013-04-23  Christophe Dumez  <ch.dumez@sisa.samsung.com>
 
         Global constructors should be configurable and not enumerable
