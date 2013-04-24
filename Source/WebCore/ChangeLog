@@ -1,3 +1,33 @@
+2013-04-24  Arvid Nilsson  <anilsson@rim.com>
+
+        [BlackBerry] Remove the setContentsToColor flavor of LayerTiler::TextureJob
+        https://bugs.webkit.org/show_bug.cgi?id=115092
+
+        Reviewed by Carlos Garcia Campos.
+
+        With the Skia backend, we had an optimization to detect solid color
+        layers. The Skia code has been purged, but these bits remained. With
+        BlackBerry::Platform::Graphics::PlatformGraphicsContext, only the solid
+        color will be drawn anyway, so we don't need to detect such layers at
+        the WebCore level. Fixed by removing the setContentsToColor flavor of
+        LayerTiler::TextureJob.
+
+        BlackBerry::WebKit::WebOverlay still uses
+        TextureCacheCompositingThread::textureForColor() so that one can stay
+        for now.
+
+        This was dead code so no new tests.
+
+        * platform/graphics/blackberry/LayerTile.cpp:
+        * platform/graphics/blackberry/LayerTile.h:
+        (LayerTile):
+        * platform/graphics/blackberry/LayerTiler.cpp:
+        (WebCore::LayerTiler::processTextureJob):
+        (WebCore::LayerTiler::performTileJob):
+        * platform/graphics/blackberry/LayerTiler.h:
+        (WebCore::LayerTiler::TextureJob::setContents):
+        (TextureJob):
+
 2013-04-24  Zan Dobersek  <zdobersek@igalia.com>
 
         [GTK] Move image decoders, some other GStreamer, Cairo and Soup sources to libPlatform
