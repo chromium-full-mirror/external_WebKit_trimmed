@@ -1,3 +1,11 @@
+2013-04-23  Ryosuke Niwa  <rniwa@webkit.org>
+
+        Remove an unused member variable erroneously added in r149007.
+
+        * rendering/LogicalSelectionOffsetCaches.h:
+        (WebCore::LogicalSelectionOffsetCaches::LogicalSelectionOffsetCaches):
+        (LogicalSelectionOffsetCaches):
+
 2013-04-22  Ryosuke Niwa  <rniwa@webkit.org>
 
         logicalLeftSelectionGap and logicalRightSelectionGap call availableLogicalWidth() multiple times
